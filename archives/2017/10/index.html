@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Infinite.ft&#39;s Life</title>
+  <title>Archives: 2017/10 | Infinite.ft&#39;s Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Infinite.ft&#39;s Life">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2017/10/index.html">
 <meta property="og:site_name" content="Infinite.ft&#39;s Life">
 <meta property="og:locale" content="Chinese">
 <meta name="twitter:card" content="summary">
@@ -148,38 +148,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-access-variable-parameter-in-lua5-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/11/access-variable-parameter-in-lua5-2/" class="archive-article-date">
+  	<time datetime="2017-10-11T10:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/11/access-variable-parameter-in-lua5-2/">lua5.2获取函数可变参数</a>
+      <a class="archive-article-title" href="/2017/10/11/access-variable-parameter-in-lua5-2/">lua5.2获取函数可变参数</a>
     </h1>
   
 
-        
-        <a href="/2017/10/11/access-variable-parameter-in-lua5-2/" class="archive-article-date">
-  	<time datetime="2017-10-11T10:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Lua-gt-5-2-可变参数获取"><a href="#Lua-gt-5-2-可变参数获取" class="headerlink" title="Lua(&gt;=5.2) 可变参数获取"></a>Lua(&gt;=5.2) 可变参数获取</h1><p>在Lua5.2之前，函数的可变参数在函数调用的时候自动获取并放在<strong>arg</strong>变量(table)中，要访问每一可变参数只需要通过<strong>arg[0]</strong>, <strong>arg[1]</strong>,…..<strong>arg[m]</strong>来获取，并且arg中还有一个域<strong>n</strong>负责记录可变参数的个数，示例代码如下所示：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myadd</span><span class="params">(a, b, ...)</span></span></div><div class="line">  <span class="keyword">local</span> sum = a + b</div><div class="line">  <span class="keyword">for</span> i = <span class="number">1</span>,<span class="built_in">arg</span>.n <span class="keyword">do</span></div><div class="line">    sum = sum + <span class="built_in">arg</span>[n]</div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="keyword">return</span> sum</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<p>在Lua5.2之后，需要自己手动获取可变参数，也没有了记录可变参数个数的域<strong>n</strong>，但可以通过长度运算符<strong>#</strong>获取参数个数，我想这也是为什么会去掉域<strong>n</strong>的原因，示例代码如下所示：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myadd</span><span class="params">(a, b, ...)</span></span></div><div class="line">  <span class="keyword">local</span> <span class="built_in">arg</span> = &#123;...&#125;</div><div class="line">  <span class="keyword">local</span> sum = a + b</div><div class="line">  <span class="keyword">for</span> i = <span class="number">1</span>, #<span class="built_in">arg</span> <span class="keyword">do</span></div><div class="line">    sum = sum + <span class="built_in">arg</span>[i]</div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="keyword">return</span> sum</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,115 +187,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/11/access-variable-parameter-in-lua5-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-say-hello" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/say-hello/">say_hello</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/say-hello/" class="archive-article-date">
-  	<time datetime="2017-09-15T10:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>say hello to me</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/say-hello/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -321,9 +221,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
