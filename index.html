@@ -148,6 +148,144 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-implementation-of-singleton-using-decrator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/11/implementation-of-singleton-using-decrator/">python单例模式:装饰器版</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/implementation-of-singleton-using-decrator/" class="archive-article-date">
+  	<time datetime="2017-10-11T10:36:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用装饰器实现python单例模式"><a href="#使用装饰器实现python单例模式" class="headerlink" title="使用装饰器实现python单例模式"></a>使用装饰器实现python单例模式</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:</p>
+<ul>
+<li><strong>装饰器实现单例模式<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external"><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a></a></strong></li>
+</ul>
+<ul>
+<li><strong>元类实现单例模式</strong></li>
+<li><strong>__new__方法实现单例模式</strong></li>
+<li><strong>共享__dict__实现单例模式</strong></li>
+</ul>
+<p>本节主要简述使用装饰器实现单例模式。</p>
+<h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h3><p><strong>plateform</strong>:</p>
+<ul>
+<li>python3.5</li>
+<li>ubuntu16.04</li>
+</ul>
+<p><strong>code</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton</span><span class="params">(cls)</span>:</span></div><div class="line">	instances = &#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_wrapper</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">		<span class="keyword">if</span> cls <span class="keyword">not</span> <span class="keyword">in</span> instances:</div><div class="line">          instances[cls] = cls(*args, **kwargs)</div><div class="line">        <span class="keyword">return</span> instances[cls]</div><div class="line">    <span class="keyword">return</span> singleton_wrapper</div><div class="line"></div><div class="line">  </div><div class="line"><span class="meta">@singleton</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point2D</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x=<span class="number">0</span>, y=<span class="number">0</span>)</span>:</span></div><div class="line">		self._x = x</div><div class="line">        self._y = y</div><div class="line">       </div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">x</span><span class="params">(self)</span>:</span></div><div class="line">		<span class="keyword">return</span> self._x</div><div class="line">      </div><div class="line"><span class="meta">    @property</span></div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">y</span><span class="params">(self)</span>:</span></div><div class="line">		<span class="keyword">return</span> self._y</div><div class="line">      </div><div class="line"><span class="meta">    @x.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">x</span><span class="params">(self, val)</span>:</span></div><div class="line">		self._x = val</div><div class="line">        </div><div class="line"><span class="meta">    @y.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">y</span><span class="params">(self, val)</span>:</span></div><div class="line">		self._y = val</div><div class="line">        </div><div class="line">        </div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">	p1 = Point2D(<span class="number">1</span>, <span class="number">10</span>)</div><div class="line">    p2 = Point2D(<span class="number">2</span>, <span class="number">10</span>)</div><div class="line">    print(id(p1))</div><div class="line">    print(id(p2))</div></pre></td></tr></table></figure>
+<p><strong>output</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">139685819815696</div><div class="line">139685819815696</div></pre></td></tr></table></figure>
+<p>由输出可知p1和p2为同一示例，即上述code完美实现了单例模式。</p>
+<h3 id="3-code-辩证分析"><a href="#3-code-辩证分析" class="headerlink" title="3.code 辩证分析"></a>3.code 辩证分析</h3><p>在单例的装饰器函数中，使用词典变量<strong>instances</strong>来储存类的实例，并且<strong>singleton_wrapper</strong>与<strong>instances</strong>形成了闭包环境。当使用<code>类名(*args, **kwargs)</code>实例化时，实际上调用了<code>singleton_wrapper(*args, **kwargs)</code>来进行实例化。通过在<strong>singleton_wrapper</strong>判断<strong>instances</strong>中是否存在类的实例，如果不存在则创建实例，如果存在则直接中从<strong>instances</strong>返回实例。每调用一次<strong>singleton</strong>返回一个闭包，各个闭包之间并没有共享<strong>instances</strong>变量，所以<strong>instances</strong>变量中最多只储存了一个实例，为了验证此将code修改成如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton</span><span class="params">(cls)</span>:</span></div><div class="line">	instances = &#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_wrapper</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">		<span class="keyword">if</span> cls <span class="keyword">not</span> <span class="keyword">in</span> instances:</div><div class="line">          instances[cls] = cls(*args, **kwargs)</div><div class="line">        print(instances)</div><div class="line">        <span class="keyword">return</span> instances[cls]</div><div class="line">    <span class="keyword">return</span> singleton_wrapper</div><div class="line">  </div><div class="line"><span class="meta">@singleton</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassOne</span><span class="params">(object)</span>:</span></div><div class="line">  </div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">  	<span class="keyword">pass</span></div><div class="line">  </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="meta">@singleton</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassTwo</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">  </div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line">  </div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">	obj1 = ClassOne()</div><div class="line">    obj2 = ClassTwo()</div></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;&lt;class <span class="string">'__main__.ClassOne'</span>&gt;: &lt;__main__.ClassOne object at 0x7f276523a828&gt;&#125;</div><div class="line">&#123;&lt;class <span class="string">'__main__.ClassTwo'</span>&gt;: &lt;__main__.ClassTwo object at 0x7f276523a940&gt;&#125;</div></pre></td></tr></table></figure>
+<p>从以上输出可以看出，各个类闭包之间没有共享<strong>instances</strong>字典变量，这时小黄鸭问那为什么还需要一个字典变量来保存类的实例，何不直接使用一个普通的变量来保存类的实例呢?说的太多不如直接上code验证一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton</span><span class="params">(cls)</span>:</span></div><div class="line">	instance = <span class="keyword">None</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_wrapper</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> instance:</div><div class="line">          instance = cls(*args, **kwargs)</div><div class="line">        <span class="keyword">return</span> instance</div><div class="line">    <span class="keyword">return</span> singleton_wrapper</div><div class="line">  </div><div class="line">  </div><div class="line"><span class="meta">@singleton</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassOne</span><span class="params">(object)</span>:</span></div><div class="line">  </div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">  	<span class="keyword">pass</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">	obj1 = ClassOne()</div></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"test.py"</span>, line 21, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    obj1 = ClassOne()</div><div class="line">  File <span class="string">"test.py"</span>, line 6, <span class="keyword">in</span> singleton_wrapper</div><div class="line">    <span class="keyword">if</span> not instance:</div><div class="line">UnboundLocalError: <span class="built_in">local</span> variable <span class="string">'instance'</span> referenced before assignment</div></pre></td></tr></table></figure>
+<p>输出结果如上，在<strong>singleton_wrapper</strong>中访问<strong>instance</strong>变量时，遇到<em>UnboundLocalError</em>错误。在这里之所以抛出<em>UnboundLocalError</em>，和python的词法作用域有关。<strong>python内部函数只能访问全局变量不可对全局变量进行赋值修改；当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external"><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a></a>。</strong>说到这里结果好像已经很明显了，既然不能在内部函数中赋值修改一个全局变量，那我们只需要在修改的变量之前，加一个<strong>global</strong>关键字就能解决了。好吧，还是需要用code来验证一下</p>
+<p><strong>note！！！：这里的赋值修改不包括list 或者dict的添加，删除等操作；这也证明我们一开始使用dict来存类实例，巧妙避过UnboundLocalError的问题，god, are you kidding me?</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton</span><span class="params">(cls)</span>:</span></div><div class="line">	instance = <span class="keyword">None</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_wrapper</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">      	<span class="keyword">global</span> instance</div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> instance:</div><div class="line">          instance = cls(*args, **kwargs)</div><div class="line">        <span class="keyword">return</span> instance</div><div class="line">    <span class="keyword">return</span> singleton_wrapper</div><div class="line">  </div><div class="line">  </div><div class="line"><span class="meta">@singleton</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassOne</span><span class="params">(object)</span>:</span></div><div class="line">  </div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">  	<span class="keyword">pass</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">	obj1 = ClassOne()</div></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"test.py"</span>, line 30, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    obj1 = ClassOne()</div><div class="line">  File <span class="string">"test.py"</span>, line 7, <span class="keyword">in</span> singleton_wrapper</div><div class="line">    <span class="keyword">if</span> not instance:</div><div class="line">NameError: name <span class="string">'instance'</span> is not defined</div></pre></td></tr></table></figure>
+<p>what?又出错了，这次遇到了<em>NameError</em>，简直像是唐僧取经一难又一难。好吧，请不要放弃，让我们继续分析为什么会出现<em>NameError</em>。我们在<strong>singleton_wrapper</strong>中添加<strong>global</strong>关键字时就意味着直接去全局作用域搜索<strong>instance</strong>变量，但在全局作用域中并没有<strong>instance</strong>的存在，所以在这里出现<em>NameError</em>是再正常不过的。这时让我们重新回到上一步，看一下python的词法作用域的规则:</p>
+<blockquote>
+<p>python内部函数只能访问全局变量不可对全局变量进行赋值修改；</p>
+<p>当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；</p>
+<p>在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误。</p>
+</blockquote>
+<p>仔细研读和思考后，我们发现，<strong>instance</strong>对于<strong>singleton_wrapper</strong>并不是全局变量，而是extenal 变量。好吧我们以偏概全了，太大意了。事已到此好像已经没有思路，这个时候该是Google大神显神通的时候，在Google大神的帮助下，我们终于找到了一点思路,让我们穿到墙外去看一看这两篇文章吧<a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external"><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">3</a></a><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external"><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a></a>。这两篇文章指出：</p>
+<blockquote>
+<p>在closures中不能对external进行赋值修改;</p>
+<p>当在closures中修改同名external变量之前读取变量名，会引发UnboundLocalError错误。</p>
+</blockquote>
+<p>现在可谓大彻大悟了，终于搞清楚了出现<em>UnboundLocalError</em>的真正原因了。那么问题来了，有没有办法可以赶跑这个该死的<em>UnboundLocalError</em>呢?办法肯定是有的，我们娓娓道来</p>
+<p><strong>python2.x</strong>:</p>
+<p>使用<strong>dict</strong>或者<strong>list</strong>是最明智的选择，也是唯一的办法。</p>
+<p><strong>python3.x:</strong></p>
+<ol>
+<li><p>使用<strong>dict</strong>或者<strong>list</strong>储存类实例</p>
+</li>
+<li><p>在closures中访问修改external 变量之前，使用<strong>nonlocal</strong>对external变量进行声明，<strong>nonlocal</strong>关键字是python3.0之后加入的新关键字,说明如下:</p>
+<blockquote>
+<p>The <code>nonlocal</code> statement causes the listed identifiers to refer to previously bound variables in the nearest enclosing scope excluding globals. This is important because the default behavior for binding is to search the local namespace first. The statement allows encapsulated code to rebind variables outside of the local scope besides the global (module) scope.</p>
+</blockquote>
+</li>
+</ol>
+<p>经过我们不断思考与实践，结局还不赖。让我们把完整的code写下来吧</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton1</span><span class="params">(cls)</span>:</span></div><div class="line">	instances = &#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleton_wrapper</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">		<span class="keyword">if</span> cls <span class="keyword">not</span> <span class="keyword">in</span> instances:</div><div class="line">          instances[cls] = cls(*args, **kwargs)</div><div class="line">        <span class="keyword">return</span> instances[cls]</div><div class="line">    <span class="keyword">return</span> singleton_wrapper</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleton2</span><span class="params">(cls)</span>:</span></div><div class="line">	instance = <span class="keyword">None</span></div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">singleton_wrapper</span><span class="params">(*args, **kwargs)</span>:</span></div><div class="line">		<span class="keyword">nonlocal</span> instance</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> instance:</div><div class="line">        	instance = cls(*args, **kwargs)</div><div class="line">        <span class="keyword">return</span> instance</div><div class="line">    <span class="keyword">return</span> singleton_wrapper</div><div class="line">  </div><div class="line">  </div><div class="line"><span class="meta">@singleton1</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point2D</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x=<span class="number">0</span>, y=<span class="number">0</span>)</span>:</span></div><div class="line">		self._x = x</div><div class="line">        self._y = y</div><div class="line">       </div><div class="line"><span class="meta">    @property</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">x</span><span class="params">(self)</span>:</span></div><div class="line">		<span class="keyword">return</span> self._x</div><div class="line">      </div><div class="line"><span class="meta">    @property</span></div><div class="line">  	<span class="function"><span class="keyword">def</span> <span class="title">y</span><span class="params">(self)</span>:</span></div><div class="line">		<span class="keyword">return</span> self._y</div><div class="line">      </div><div class="line"><span class="meta">    @x.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">x</span><span class="params">(self, val)</span>:</span></div><div class="line">		self._x = val</div><div class="line">        </div><div class="line"><span class="meta">    @y.setter</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">y</span><span class="params">(self, val)</span>:</span></div><div class="line">		self._y = val</div><div class="line"></div><div class="line">        </div><div class="line"><span class="meta">@singleton2</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point3D</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">  </div><div class="line"> 	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x=<span class="number">0</span>, y=<span class="number">0</span>, z=<span class="number">0</span>)</span>:</span></div><div class="line">		self._x = x</div><div class="line">        self._y = y</div><div class="line">        self._z = z</div><div class="line">    </div><div class="line">  </div><div class="line">        </div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">	p1 = Point2D(<span class="number">1</span>, <span class="number">10</span>)</div><div class="line">    p2 = Point2D(<span class="number">2</span>, <span class="number">10</span>)</div><div class="line">    print(id(p1))</div><div class="line">    print(id(p2))</div><div class="line">    p3 = Point3D(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>)</div><div class="line">    p4 = Point3D(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>)</div><div class="line">    print(id(p3))</div><div class="line">    print(id(p4))</div></pre></td></tr></table></figure>
+<p><strong>output</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">140322002741008</span></div><div class="line"><span class="number">140322002741008</span></div><div class="line"><span class="number">140322002741176</span></div><div class="line"><span class="number">140322002741176</span></div></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external"><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a> : Python单例模式的4种实现方法</a></p>
+<p><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external"><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a> : 全局变量报错-UnboundLocalError: local variable ‘l’ referenced before assignment</a></p>
+<p><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external"><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">3</a> : Understanding UnboundLocalError in Python</a></p>
+<p><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external"><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a> :  What limitations have closures in Python compared to language X closures</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/11/implementation-of-singleton-using-decrator/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-access-variable-parameter-in-lua5-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -397,6 +535,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
