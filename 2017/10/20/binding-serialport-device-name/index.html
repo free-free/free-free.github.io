@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name-1.png">
 <meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name-2.png">
 <meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name3.png">
-<meta property="og:updated_time" content="2017-10-20T11:38:32.428Z">
+<meta property="og:updated_time" content="2017-10-20T11:41:04.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu下绑定串口设备名">
 <meta name="twitter:description" content="1. 为什么我需要绑定串口设备名　　最近在ubuntu上使用串口进行通信时，由于硬件的原因需要不时的拔掉串口然后再重新插上，可是每次拔掉之后再重新插上去发现串口设备名由原来的/dev/ttyUSB0变为/dev/ttyUSB1，导致每次重新插上串口时都需要在程序中改变串口设备名，来回这么折腾搞得我很毛躁呀。这就是为什么我要去绑定串口设备名的原因，目的很单纯，被造的。 2.  怎样去绑定串口设备名(">
@@ -177,7 +177,7 @@
       
         <h3 id="1-为什么我需要绑定串口设备名"><a href="#1-为什么我需要绑定串口设备名" class="headerlink" title="1. 为什么我需要绑定串口设备名"></a>1. 为什么我需要绑定串口设备名</h3><p>　　最近在ubuntu上使用串口进行通信时，由于硬件的原因需要不时的拔掉串口然后再重新插上，可是每次拔掉之后再重新插上去发现串口设备名由原来的<code>/dev/ttyUSB0</code>变为<code>/dev/ttyUSB1</code>，导致每次重新插上串口时都需要在程序中改变串口设备名，来回这么折腾搞得我很毛躁呀。这就是为什么我要去绑定串口设备名的原因，目的很单纯，被造的。</p>
 <h3 id="2-怎样去绑定串口设备名"><a href="#2-怎样去绑定串口设备名" class="headerlink" title="2.  怎样去绑定串口设备名"></a>2.  怎样去绑定串口设备名</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="(1) 分析"></a>(1) 分析</h4><p>为什么每次重新插上同一串口设备的时候，在<code>/dev/</code>目录会是不同的设备文件名(<code>/dev/ttyUSB0</code>或者<code>/dev/ttyUSB1</code>)？由于串口设备属于hot-pluggable设备，每次插入的时注册设备节点分配的设备ID不同，导致同一设备在呈现出不同的设备名。那有没有办法将同一设备绑定为固定的设备文件名呢？答案是有的，这时就需要需求的<code>udev</code>的帮助了，<code>udev</code>是Linux下专门负责管理动态设备，它时基于一定的规则来加载动态设备的，那我们需要做的就是添加相应的规定即可。</p>
-<h4 id="2-并串口设备名"><a href="#2-并串口设备名" class="headerlink" title="(2) 并串口设备名"></a>(2) 并串口设备名</h4><ul>
+<h4 id="2-绑定串口设备名"><a href="#2-绑定串口设备名" class="headerlink" title="(2) 绑定串口设备名"></a>(2) 绑定串口设备名</h4><ul>
 <li><p>查看当前的串口设备文件名</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls /dev/ |grep ttyUSB</div></pre></td></tr></table></figure>
 <p>输出:</p>
