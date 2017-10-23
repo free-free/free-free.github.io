@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python黑魔法－元类 | Infinite.ft&#39;s Life</title>
+  <title>python黑魔法－元类 | Infinite.ft的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 概述　　python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，descriptor 、decorato">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python黑魔法－元类">
 <meta property="og:url" content="http://yoursite.com/2017/10/15/python-black-magic-metaclass/index.html">
-<meta property="og:site_name" content="Infinite.ft&#39;s Life">
+<meta property="og:site_name" content="Infinite.ft的博客">
 <meta property="og:description" content="1. 概述　　python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，descriptor 、decorato">
 <meta property="og:locale" content="Chinese">
 <meta property="og:updated_time" content="2017-10-23T08:32:19.219Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="python黑魔法－元类">
 <meta name="twitter:description" content="1. 概述　　python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，descriptor 、decorato">
   
-    <link rel="alternative" href="/atom.xml" title="Infinite.ft&#39;s Life" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Infinite.ft的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -47,11 +47,11 @@
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<a href="" class="profilepic">
+		<a href="/" class="profilepic">
 			<img src="http://oy4cno18k.bkt.clouddn.com/blog-avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">infinite.ft</a></h1>
+		  <h1 class="header-author"><a href="/">infinite.ft</a></h1>
 		</hgroup>
 		
 
@@ -86,11 +86,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https:github.com/free-free" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/free-free" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="mail" target="_blank" href="/infinite.ft@gmail.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:infinite.ft@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -129,11 +129,11 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https:github.com/free-free" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/free-free" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="mail" target="_blank" href="/infinite.ft@gmail.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:infinite.ft@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -399,7 +399,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -482,14 +482,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -498,7 +490,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
             
             <div class="clearfix"></div>
@@ -550,27 +550,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://www.lijudong.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>leeon</a>
             </li>
           
         </ul>
@@ -581,7 +561,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">infinite.ft &lt;br&gt;expriencing, recording, recall, adjusting&lt;br/&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;expriencing, recording, recalling, adjusting&lt;br/&gt;</div>
   	  	
     	</section>
     
