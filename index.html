@@ -160,6 +160,140 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-integrate-with-mathjax-in-markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/24/integrate-with-mathjax-in-markdown/">markdown集成mathjax</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/24/integrate-with-mathjax-in-markdown/" class="archive-article-date">
+  	<time datetime="2017-10-24T10:42:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学公式比较方便、简洁，插入的数学公式也很漂亮。遂在这里把怎样使用MathJax在markdown中插入数学公式的方法和基本的MathJax的语法记录下来，以便之后学习，如有什么错误请大家指教。</p>
+<h1 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h1><h2 id="1-MathJax简介"><a href="#1-MathJax简介" class="headerlink" title="1. MathJax简介"></a>1. MathJax简介</h2><p>MathJax是一个javascript软件包，它允许你通过LaTex、MathML或者AsciiMath语法在网页中插入数学公式，并通过javascript处理之后产生HTML、SVG或者MathML equations 等可视化的格式，以便在浏览器中浏览。</p>
+<h2 id="2-引入MathJax"><a href="#2-引入MathJax" class="headerlink" title="2. 引入MathJax"></a>2. 引入MathJax</h2><ul>
+<li><h3 id="通过CDN引入"><a href="#通过CDN引入" class="headerlink" title="通过CDN引入"></a>通过CDN引入</h3><p>通过CDN网络引入MathJax只需要在Markdown文档加入下面的代码<a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external">1</a></a>，在markdown解析的时候会通过CDN自动将MathJax加载到当前页面中。该方式需要联网，但也是最简单、最快速的方式，个人推荐也使用这种方式。</p>
+<p>​</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> <span class="keyword">async</span></div><div class="line">  src=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"</span>&gt;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<ul>
+<li><h3 id="本地引入"><a href="#本地引入" class="headerlink" title="本地引入"></a>本地引入</h3><p>本地引入需要将MathJax安装到你的服务器上，或者下载到本地磁盘上，具体引入方式请参考官方文档<a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external">2</a></a>。</p>
+</li>
+</ul>
+<h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h5 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h5><p>所谓行内公式是指公式与文字显示在同一行，以<strong>\$……..\$</strong>来标记，在两个<strong>$</strong>符号插入数学公式。例如：</p>
+<ul>
+<li><p>\$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
+<p>$\displaystyle \cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
+</li>
+<li><p>\$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
+<p>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
+</li>
+<li><p>\$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
+<p>$ f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
+<p>​</p>
+</li>
+</ul>
+<h5 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h5><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以<strong>\$\$……$$</strong>来标记，例如：</p>
+<ul>
+<li><p>\$\$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$</p>
+<p>​                        $$\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$ </p>
+</li>
+<li><p>\$\$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$</p>
+<p>​                        $$\lim_{x \to \infty}\mathrm{e}^{-x}=0$$</p>
+</li>
+<li><p>\$\$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
+<p>​                        $$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
+<p>​</p>
+<p>​</p>
+<p>​</p>
+<p>​</p>
+<p>​</p>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/24/integrate-with-mathjax-in-markdown/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -952,91 +1086,10 @@
 
 
   
-    <article id="post-say-hello" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/say-hello/">say_hello</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/say-hello/" class="archive-article-date">
-  	<time datetime="2017-09-15T10:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>say hello to me</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/say-hello/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1160,6 +1213,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
