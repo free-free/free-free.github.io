@@ -1,3 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>使用元类实现python 单例模式 | Infinite.ft的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.概述　　上一篇博客介绍了使用装饰器实现python单例模式，这篇博客将介绍使用python的黑魔法－－元类(Metaclass)来实现python的单例模式。对于知道元类的pythoner，使用元类实现单例模式应该是很简单的。然而对于不知道python元类的同行来说，理解起来可能要吃力一点。为此，接下来将先介绍python的元类，然后再介绍怎样使用元类实现单例模式。如果有什么不妥的地方，敬请大">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用元类实现python 单例模式">
+<meta property="og:url" content="http://yoursite.com/2017/10/14/implementation-of-singleton-using-metaclass/index.html">
+<meta property="og:site_name" content="Infinite.ft的博客">
+<meta property="og:description" content="1.概述　　上一篇博客介绍了使用装饰器实现python单例模式，这篇博客将介绍使用python的黑魔法－－元类(Metaclass)来实现python的单例模式。对于知道元类的pythoner，使用元类实现单例模式应该是很简单的。然而对于不知道python元类的同行来说，理解起来可能要吃力一点。为此，接下来将先介绍python的元类，然后再介绍怎样使用元类实现单例模式。如果有什么不妥的地方，敬请大">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2017-10-23T08:33:01.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用元类实现python 单例模式">
+<meta name="twitter:description" content="1.概述　　上一篇博客介绍了使用装饰器实现python单例模式，这篇博客将介绍使用python的黑魔法－－元类(Metaclass)来实现python的单例模式。对于知道元类的pythoner，使用元类实现单例模式应该是很简单的。然而对于不知道python元类的同行来说，理解起来可能要吃力一点。为此，接下来将先介绍python的元类，然后再介绍怎样使用元类实现单例模式。如果有什么不妥的地方，敬请大">
+  
+    <link rel="alternative" href="/atom.xml" title="Infinite.ft的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+
+  <script>
+    (function(){
+      if(''){
+        if(prompt('请输入文章密码') !== ''){
+	  alert("密码错误!");
+	  history.back();
+	}
+      }
+    })();
+  </script>
+</head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -420,11 +470,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
