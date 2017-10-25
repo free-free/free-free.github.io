@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Infinite.ft的博客">
 <meta property="og:description" content="[TOC] 概述​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2017-10-25T16:14:07.408Z">
+<meta property="og:updated_time" content="2017-10-25T16:18:57.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="markdown集成mathjax">
 <meta name="twitter:description" content="[TOC] 概述​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学">
@@ -1006,78 +1006,78 @@
 </table>
 <ul>
 <li><p>pmatrix</p>
-<p>\$\$ A_{m,n} = </p>
+<p>$$ A_{m,n} = </p>
 <p>​      \begin{pmatrix} </p>
 <p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
 <p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
 <p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
 <p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
 <p>​      \end{pmatrix}</p>
-<p>​    \$\$</p>
+<p>​    $$</p>
 <p>呈现为：</p>
 <p>$$ A<em>{m,n} = \begin{pmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{pmatrix}$$</p>
 </li>
 <li><p>bmatrix</p>
-<p>\$\$ A_{m,n} = </p>
+<p>$$ A_{m,n} = </p>
 <p>​      \begin{bmatrix}</p>
 <p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
 <p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
 <p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
 <p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
 <p>​      \end{bmatrix}</p>
-<p>​    \$\$</p>
+<p>​    $$</p>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{bmatrix}$$</p>
 </li>
 <li><p>Bmatrix</p>
-<p>\$\$ A_{m,n} = </p>
+<p>$$ A_{m,n} = </p>
 <p>​      \begin{Bmatrix}</p>
 <p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
 <p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
 <p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
 <p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
 <p>​      \end{Bmatrix}</p>
-<p>​    \$\$</p>
+<p>​    $$</p>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{Bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Bmatrix}$$</p>
 </li>
 <li><p>vmatrix</p>
-<p>\$\$ A_{m,n} = </p>
+<p>$$ A_{m,n} = </p>
 <p>​      \begin{vmatrix}</p>
 <p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
 <p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
 <p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
 <p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
 <p>​      \end{vmatrix}</p>
-<p>​    \$\$</p>
+<p>​    $$</p>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{vmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{vmatrix}$$</p>
 </li>
 <li><p>Vmatrix</p>
-<p>\$\$ A_{m,n} = </p>
+<p>$$ A_{m,n} = </p>
 <p>​      \begin{Vmatrix}</p>
 <p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
 <p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
 <p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
 <p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
 <p>​      \end{Vmatrix}</p>
-<p>​    \$\$</p>
+<p>​    $$</p>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{Vmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Vmatrix}$$</p>
 <p>​</p>
 </li>
 </ul>
 <h4 id="3-2-16-方程组"><a href="#3-2-16-方程组" class="headerlink" title="3.2.16 方程组"></a>3.2.16 方程组</h4><p>方程组可以使用cases环境来创建，起始、结束处以{cases}声明，例如：</p>
-<p>\$\$\begin{cases}</p>
+<p>$$\begin{cases}</p>
 <p>a_1x_1+b_1x_2+c_1x_3 = d_1\\</p>
 <p>a_2x_1+b_2x_2+c_2x_3 = d_2\\</p>
 <p>a_3x_1+b_3x_2+c_2x_3 = d_3\\</p>
 <p>\end{cases}</p>
-<p>\$\$</p>
+<p>$$</p>
 <p>呈现为:</p>
-<p>$$\begin{cases}a_1x_1+b_1x_2+c_1x_3 = d_1\ a_2x_1+b_2x_2+c_2x_3 = d_2\ a_3x_1+b_3x_2+c_2x_3 = d_3 \ \end{cases}$$</p>
+<p>$$\begin{cases} a_1x_1+b_1x_2+c_1x_3 = d_1 \ a_2x_1+b_2x_2+c_2x_3 = d_2 \ a_3x_1+b_3x_2+c_2x_3 = d_3 \end{cases}$$</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
-<p><a href="http://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external">2</a>基本数学公式语法(of MathJax)</a></p>
+<p><a href="http://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="external">[2]基本数学公式语法(of MathJax)</a></p>
 <p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">[3]MathJax basic tutorial and quick reference</a></p>
 
           
