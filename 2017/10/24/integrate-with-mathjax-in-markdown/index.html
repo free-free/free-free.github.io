@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Infinite.ft的博客">
 <meta property="og:description" content="[TOC] 概述​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2017-10-25T13:23:53.478Z">
+<meta property="og:updated_time" content="2017-10-25T16:14:07.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="markdown集成mathjax">
 <meta name="twitter:description" content="[TOC] 概述​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学">
@@ -866,7 +866,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-11-点"><a href="#3-2-11-点" class="headerlink" title="3.2.11 点"></a>3.2.11 点</h4><table>
+<h4 id="3-2-11-省略号"><a href="#3-2-11-省略号" class="headerlink" title="3.2.11 省略号"></a>3.2.11 省略号</h4><table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号</th>
@@ -878,27 +878,27 @@
 <tr>
 <td style="text-align:center">$\dots$</td>
 <td style="text-align:center">\dots</td>
-<td style="text-align:left">通用的点表示方法，通常使用在文本中，它会根据上下文自动管理空格</td>
+<td style="text-align:left">通用的省略号表示方法，通常使用在文本中，它会根据上下文自动管理空格</td>
 </tr>
 <tr>
 <td style="text-align:center">$\ldots$</td>
 <td style="text-align:center">\ldots</td>
-<td style="text-align:left">和通用的点相似，但不会自动管理空格</td>
+<td style="text-align:left">和通用的省略号相似，但不会自动管理空格</td>
 </tr>
 <tr>
 <td style="text-align:center">$\cdots$</td>
 <td style="text-align:center">\cdots</td>
-<td style="text-align:left">这种点会根据文字的高度自动垂直居中</td>
+<td style="text-align:left">这种省略号会根据文字的高度自动垂直居中</td>
 </tr>
 <tr>
 <td style="text-align:center">$\vdots$</td>
 <td style="text-align:center">\vdots</td>
-<td style="text-align:left">垂直的点</td>
+<td style="text-align:left">垂直的省略号</td>
 </tr>
 <tr>
 <td style="text-align:center">$\ddots$</td>
 <td style="text-align:center">\ddots</td>
-<td style="text-align:left">对角点</td>
+<td style="text-align:left">对角省略号</td>
 </tr>
 <tr>
 <td style="text-align:center">$\dotsc$</td>
@@ -922,7 +922,163 @@
 </tr>
 </tbody>
 </table>
+<h4 id="3-2-12-空格"><a href="#3-2-12-空格" class="headerlink" title="3.2.12 空格"></a>3.2.12 空格</h4><p>LaText语法本身会忽略空格，在LaTex中有两种空格：小空格和四格空格</p>
+<ul>
+<li><p>小空格</p>
+<p>\$a \ b\$ 呈现为：$a \ b$</p>
+</li>
+<li><p>四格空格</p>
+<p>\$a \quad b\$ 呈现为：$a \quad b$</p>
+</li>
+</ul>
+<h4 id="3-2-13-矩阵"><a href="#3-2-13-矩阵" class="headerlink" title="3.2.13 矩阵"></a>3.2.13 矩阵</h4><p>基本的矩阵可以使用matrix 环境来创建，矩阵和其他的类表结构一样，列之间使用<code>&amp;</code>来分开，行之间使用<code>\\</code>来封开，例如：</p>
+<p>\$\$  \begin{matrix}  a &amp;  b &amp; c \\   d &amp;  e &amp; f  \\   g &amp;  h &amp; i \end{matrix} \$\$</p>
+<p>$$ \begin{matrix} a &amp; b &amp;c  \ d &amp; e &amp; f \ g &amp; h &amp; i\end{matrix} $$</p>
+<p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
+<table>
+<thead>
+<tr>
+<th>Environment name</th>
+<th>Surrounding delimiter</th>
+<th style="text-align:center">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pmatrix</td>
+<td>$(\ )$</td>
+<td style="text-align:center">列默认居中</td>
+</tr>
+<tr>
+<td>pmatrix*</td>
+<td>$(\ )$</td>
+<td style="text-align:center">可以指定列的对齐方式</td>
+</tr>
+<tr>
+<td>bmatrix</td>
+<td>$[ \ ]$</td>
+<td style="text-align:center">列默认居中</td>
+</tr>
+<tr>
+<td>bmatrix*</td>
+<td>$[\ ]$</td>
+<td style="text-align:center">可以指定列的对齐方式</td>
+</tr>
+<tr>
+<td>Bmatrix</td>
+<td>${ \ }$</td>
+<td style="text-align:center">列默认居中</td>
+</tr>
+<tr>
+<td>Bmatrix*</td>
+<td>${ \ }$</td>
+<td style="text-align:center">可以指定列的对齐方式</td>
+</tr>
+<tr>
+<td>vmatrix</td>
+<td>$</td>
+<td style="text-align:center">\</td>
+<td>$</td>
+<td>列默认居中</td>
+</tr>
+<tr>
+<td>vmatrix*</td>
+<td>$</td>
+<td style="text-align:center">\</td>
+<td>$</td>
+<td>可以指定列的对齐方式</td>
+</tr>
+<tr>
+<td>Vmatrix</td>
+<td>$\</td>
+<td style="text-align:center">\  \</td>
+<td>$</td>
+<td>列默认居中</td>
+</tr>
+<tr>
+<td>Vmatrix*</td>
+<td>$\</td>
+<td style="text-align:center">\ \</td>
+<td>$</td>
+<td>可以指定列的对齐方式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>pmatrix</p>
+<p>\$\$ A_{m,n} = </p>
+<p>​      \begin{pmatrix} </p>
+<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
+<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
+<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
+<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
+<p>​      \end{pmatrix}</p>
+<p>​    \$\$</p>
+<p>呈现为：</p>
+<p>$$ A<em>{m,n} = \begin{pmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{pmatrix}$$</p>
+</li>
+<li><p>bmatrix</p>
+<p>\$\$ A_{m,n} = </p>
+<p>​      \begin{bmatrix}</p>
+<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
+<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
+<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
+<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
+<p>​      \end{bmatrix}</p>
+<p>​    \$\$</p>
+<p>呈现为</p>
+<p>$$ A<em>{m,n} = \begin{bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{bmatrix}$$</p>
+</li>
+<li><p>Bmatrix</p>
+<p>\$\$ A_{m,n} = </p>
+<p>​      \begin{Bmatrix}</p>
+<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
+<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
+<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
+<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
+<p>​      \end{Bmatrix}</p>
+<p>​    \$\$</p>
+<p>呈现为</p>
+<p>$$ A<em>{m,n} = \begin{Bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Bmatrix}$$</p>
+</li>
+<li><p>vmatrix</p>
+<p>\$\$ A_{m,n} = </p>
+<p>​      \begin{vmatrix}</p>
+<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
+<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
+<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
+<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
+<p>​      \end{vmatrix}</p>
+<p>​    \$\$</p>
+<p>呈现为</p>
+<p>$$ A<em>{m,n} = \begin{vmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{vmatrix}$$</p>
+</li>
+<li><p>Vmatrix</p>
+<p>\$\$ A_{m,n} = </p>
+<p>​      \begin{Vmatrix}</p>
+<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
+<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
+<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
+<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
+<p>​      \end{Vmatrix}</p>
+<p>​    \$\$</p>
+<p>呈现为</p>
+<p>$$ A<em>{m,n} = \begin{Vmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Vmatrix}$$</p>
+<p>​</p>
+</li>
+</ul>
+<h4 id="3-2-16-方程组"><a href="#3-2-16-方程组" class="headerlink" title="3.2.16 方程组"></a>3.2.16 方程组</h4><p>方程组可以使用cases环境来创建，起始、结束处以{cases}声明，例如：</p>
+<p>\$\$\begin{cases}</p>
+<p>a_1x_1+b_1x_2+c_1x_3 = d_1\\</p>
+<p>a_2x_1+b_2x_2+c_2x_3 = d_2\\</p>
+<p>a_3x_1+b_3x_2+c_2x_3 = d_3\\</p>
+<p>\end{cases}</p>
+<p>\$\$</p>
+<p>呈现为:</p>
+<p>$$\begin{cases}a_1x_1+b_1x_2+c_1x_3 = d_1\ a_2x_1+b_2x_2+c_2x_3 = d_2\ a_3x_1+b_3x_2+c_2x_3 = d_3 \ \end{cases}$$</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
+<p><a href="http://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external">2</a>基本数学公式语法(of MathJax)</a></p>
+<p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">[3]MathJax basic tutorial and quick reference</a></p>
 
           
       
@@ -1047,7 +1203,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MathJax"><span class="toc-number">2.</span> <span class="toc-text">MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MathJax简介"><span class="toc-number">2.1.</span> <span class="toc-text">1. MathJax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-引入MathJax"><span class="toc-number">2.2.</span> <span class="toc-text">2. 引入MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过CDN引入"><span class="toc-number">2.2.1.</span> <span class="toc-text">通过CDN引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地引入"><span class="toc-number">2.2.2.</span> <span class="toc-text">本地引入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MathJax的LaTex语法"><span class="toc-number">2.3.</span> <span class="toc-text">3. MathJax的LaTex语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-数学公式呈现方式"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 数学公式呈现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-行内公式-inline-formulas"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">3.1.1 行内公式(inline formulas)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-Displayed-formulas"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">3.1.2 Displayed formulas</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-LaTex数学符号"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 LaTex数学符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-希腊字母-Greek-letters"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">3.2.1 希腊字母(Greek letters)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-其他常用数学符号"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">3.2.2 其他常用数学符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-三角函数符号"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">3.2.3 三角函数符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-双目运算符"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">3.3.4 双目运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-5-集合逻辑符号"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">3.2.5 集合逻辑符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-6-上标号和下标号的表示方法"><span class="toc-number">2.3.2.6.</span> <span class="toc-text">3.2.6 上标号和下标号的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-7-分式和二项式的表示方法"><span class="toc-number">2.3.2.7.</span> <span class="toc-text">3.2.7 分式和二项式的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-8-根号的表示方法"><span class="toc-number">2.3.2.8.</span> <span class="toc-text">3.2.8 根号的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-9-求和和积分公式的表示方法"><span class="toc-number">2.3.2.9.</span> <span class="toc-text">3.2.9 求和和积分公式的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-10-方括号，圆括号，分隔符"><span class="toc-number">2.3.2.10.</span> <span class="toc-text">3.2.10 方括号，圆括号，分隔符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-11-点"><span class="toc-number">2.3.2.11.</span> <span class="toc-text">3.2.11 点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MathJax"><span class="toc-number">2.</span> <span class="toc-text">MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MathJax简介"><span class="toc-number">2.1.</span> <span class="toc-text">1. MathJax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-引入MathJax"><span class="toc-number">2.2.</span> <span class="toc-text">2. 引入MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过CDN引入"><span class="toc-number">2.2.1.</span> <span class="toc-text">通过CDN引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地引入"><span class="toc-number">2.2.2.</span> <span class="toc-text">本地引入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MathJax的LaTex语法"><span class="toc-number">2.3.</span> <span class="toc-text">3. MathJax的LaTex语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-数学公式呈现方式"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 数学公式呈现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-行内公式-inline-formulas"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">3.1.1 行内公式(inline formulas)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-Displayed-formulas"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">3.1.2 Displayed formulas</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-LaTex数学符号"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 LaTex数学符号</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-希腊字母-Greek-letters"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">3.2.1 希腊字母(Greek letters)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-其他常用数学符号"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">3.2.2 其他常用数学符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-三角函数符号"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">3.2.3 三角函数符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-双目运算符"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">3.3.4 双目运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-5-集合逻辑符号"><span class="toc-number">2.3.2.5.</span> <span class="toc-text">3.2.5 集合逻辑符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-6-上标号和下标号的表示方法"><span class="toc-number">2.3.2.6.</span> <span class="toc-text">3.2.6 上标号和下标号的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-7-分式和二项式的表示方法"><span class="toc-number">2.3.2.7.</span> <span class="toc-text">3.2.7 分式和二项式的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-8-根号的表示方法"><span class="toc-number">2.3.2.8.</span> <span class="toc-text">3.2.8 根号的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-9-求和和积分公式的表示方法"><span class="toc-number">2.3.2.9.</span> <span class="toc-text">3.2.9 求和和积分公式的表示方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-10-方括号，圆括号，分隔符"><span class="toc-number">2.3.2.10.</span> <span class="toc-text">3.2.10 方括号，圆括号，分隔符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-11-省略号"><span class="toc-number">2.3.2.11.</span> <span class="toc-text">3.2.11 省略号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-12-空格"><span class="toc-number">2.3.2.12.</span> <span class="toc-text">3.2.12 空格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-13-矩阵"><span class="toc-number">2.3.2.13.</span> <span class="toc-text">3.2.13 矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-16-方程组"><span class="toc-number">2.3.2.14.</span> <span class="toc-text">3.2.16 方程组</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
