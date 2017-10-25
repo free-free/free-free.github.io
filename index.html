@@ -191,7 +191,6 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-          
       
 
       
@@ -275,7 +274,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
           
             <p>最近ubuntu官方发布了又一个LTS：ubuntu17.10。ubuntu17.10有着很大的变化，引入了很多的新的技术。ubuntu17.10是ubuntu第一个使用GNOME Shell作为默认桌面的版本。自己也想着感受一下ubuntu17.10引入的新技术，在这里翻译一篇从ubuntu16.04/ubuntu17.04升级到ubuntu17.10的教程。<a href="https://www.linuxbabe.com/ubuntu/upgrade-from-ubuntu-16-0417-04-to-ubuntu-17-10" target="_blank" rel="external">原本在这里</a></p>
 <h2 id="从ubuntu16-4-17-04升级到ubuntu17-10的两种方式"><a href="#从ubuntu16-4-17-04升级到ubuntu17-10的两种方式" class="headerlink" title="从ubuntu16.4/17.04升级到ubuntu17.10的两种方式"></a>从ubuntu16.4/17.04升级到ubuntu17.10的两种方式</h2><p>官方发布最近发布Ubuntu17.10。此教程打算向你展示两种从Ubuntu16.04/17.04升级到Ubuntu17.10的方法：使用图像界面升级助手升级和使用命令行升级。</p>
@@ -402,7 +400,6 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-          
       
 
       
@@ -486,7 +483,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
           
             <h3 id="1-为什么我需要绑定串口设备名"><a href="#1-为什么我需要绑定串口设备名" class="headerlink" title="1. 为什么我需要绑定串口设备名"></a>1. 为什么我需要绑定串口设备名</h3><p>　　最近在ubuntu上使用串口进行通信时，由于硬件的原因需要不时的拔掉串口然后再重新插上，可是每次拔掉之后再重新插上去发现串口设备名由原来的<code>/dev/ttyUSB0</code>变为<code>/dev/ttyUSB1</code>，导致每次重新插上串口时都需要在程序中改变串口设备名，来回这么折腾搞得我很毛躁呀。这就是为什么我要去绑定串口设备名的原因，目的很单纯，被造的。</p>
 <h3 id="2-怎样去绑定串口设备名"><a href="#2-怎样去绑定串口设备名" class="headerlink" title="2.  怎样去绑定串口设备名"></a>2.  怎样去绑定串口设备名</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="(1) 分析"></a>(1) 分析</h4><p>为什么每次重新插上同一串口设备的时候，在<code>/dev/</code>目录会是不同的设备文件名(<code>/dev/ttyUSB0</code>或者<code>/dev/ttyUSB1</code>)？由于串口设备属于hot-pluggable设备，每次插入的时注册设备节点分配的设备ID不同，导致同一设备在呈现出不同的设备名。那有没有办法将同一设备绑定为固定的设备文件名呢？答案是有的，这时就需要需求的<code>udev</code>的帮助了，<code>udev</code>是Linux下专门负责管理动态设备，它时基于一定的规则来加载动态设备的，那我们需要做的就是添加相应的规定即可。</p>
@@ -601,7 +597,6 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-          
             <h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><p>　　python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，<strong>descriptor</strong> 、<strong>decorator</strong>、<strong>metaclass</strong>等。拥有了这些黑魔法就等于你拥有了Thor的hammer，无敌到爆表。好了，nb吹的差不多了^o^，让我们严肃起来，端庄的迎接我们今天的主角(<em>友情提示：该主角光芒有点强烈，请大家准备好墨镜，保护好自己的眼睛</em>)，ladies and gentlemen welcome our loading actor －<strong>metaclass</strong>。</p>
 <h3 id="2-python-元类"><a href="#2-python-元类" class="headerlink" title="2. python 元类"></a>2. python 元类</h3><p>在python世界中一切皆对象，当谈到一个对象时必然地会涉及到这个对象的类。例如，字符串对象<code>&quot;dede&quot;</code>的类是<code>str</code>，列表对象<code>[1, 2, 4]</code>的类是<code>list</code>，字典对象<code>{&quot;key&quot;:&quot;value&quot;}</code>的类是<code>dict</code>，这些概念对于懂得面向对象的programmer来说都是常识。但是处在一切皆对象的python世界中，你有没有在某一时刻思考过，python中的类是否也是对象？我相信对于大多数pythoner来说，都会给出一个正确的回答。是的，在python的世界里类也是对象。那既然类也是对象，那就必然又会继续思考类的类是什么？其实在你思考类的类是什么时候，可能已经想到这个类的类应该会和普通的类一样，有一系列的method，比如<code>__init__</code>、<code>__call__</code>、<code>__new__</code>等，只是你不知道这个类的类应该叫什么名字。就在你纠结该给类的类取一个什么样的名字的时候，python世界的仲裁者出现了，他们告诉你这个类的类叫做元类。好了，从此天下太平，大家都知道了类的类就做元类。对，元类就是类的类，这个元类并没有什么特殊之处。你现在只需要改变一下你观察类时所在的位置。以前你是站在普通实例对象的位置去观察它的类，现在需要往前走一步站在类的位置去观察它的类－－元类。</p>
 <p>　　现在我们对元类已经有了intuitive的认识，为了彻底搞清楚元类是什么，我们需要到python世界里去实地考察一下。我们先从常见的类下手，去看看这些类的类是什么。就像我们平常查看一个普通实例对象的类一样，需要使用<code>type</code>函数，我们在查看类的类时候，也需要使用<code>type</code>函数，那就让我们开始吧。</p>
@@ -715,7 +710,6 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-          
             <h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>　　上一篇博客介绍了<a href="/2017/10/11/implementation-of-singleton-using-decrator/">使用装饰器实现python单例模式</a>，这篇博客将介绍使用python的黑魔法－－元类(Metaclass)来实现python的单例模式。对于知道元类的pythoner，使用元类实现单例模式应该是很简单的。然而对于不知道python元类的同行来说，理解起来可能要吃力一点。为此，接下来将先介绍python的元类，然后再介绍怎样使用元类实现单例模式。如果有什么不妥的地方，敬请大神们多多指点。</p>
 <h3 id="2-python-元类"><a href="#2-python-元类" class="headerlink" title="2.python 元类"></a>2.python 元类</h3><p>　　在python中一切皆对象，当谈到一个对象时必然地会涉及到这个对象的类。例如，字符串对象<code>&quot;dede&quot;</code>的类是<code>str</code>，列表对象<code>[1, 2, 4]</code>的类是<code>list</code>，字典对象<code>{&quot;key&quot;:&quot;value&quot;}</code>的类是<code>dict</code>，这些概念对于懂得面向对象的programmer来说都是常识。但是处在一切皆对象的python世界中，你有没有在某一时刻思考过，python中的类是否也是对象？我相信对于大多数pythoner来说，都会给出一个正确的回答。是的，在python的世界里类也是对象。那既然类也是对象，那就必然又会继续思考类的类是什么？其实在你思考类的类是什么时候，可能已经想到这个类的类应该会和普通的类一样，有一系列的method，比如<code>__init__</code>、<code>__call__</code>、<code>__new__</code>等，只是你不知道这个类的类应该叫什么名字。就在你纠结该给类的类取一个什么样的名字的时候，python世界的仲裁者出现了，他们告诉你这个类的类叫做元类。从此天下太平，大家都知道了类的类就做元类。对，元类就是类的类，这个元类并没有什么特殊之处。你现在只需要改变一下你观察类时所在的位置。以前你是站在普通实例对象的位置去观察它的类，现在需要往前走一步站在类的位置去观察它的类－－元类。</p>
 <p>　　现在我们对元类已经有了intuitive的认识，为了彻底搞清楚元类是什么，我们需要到python世界里去实地考察一下。我们先从常见的类下手，去看看这些类的元类是什么。就像我们平常查看一个普通实例对象的类一样，需要使用<code>type</code>函数，我们在查看类的类时候，也需要使用<code>type</code>函数，那就让我们开始吧。</p>
@@ -806,7 +800,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
           
             <h2 id="使用装饰器实现python单例模式"><a href="#使用装饰器实现python单例模式" class="headerlink" title="使用装饰器实现python单例模式"></a>使用装饰器实现python单例模式</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:</p>
 <ul>
@@ -958,7 +951,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
           
             <h1 id="Lua-gt-5-2-可变参数获取"><a href="#Lua-gt-5-2-可变参数获取" class="headerlink" title="Lua(&gt;=5.2) 可变参数获取"></a>Lua(&gt;=5.2) 可变参数获取</h1><p>在Lua5.2之前，函数的可变参数在函数调用的时候自动获取并放在<strong>arg</strong>变量(table)中，要访问每一可变参数只需要通过<strong>arg[0]</strong>, <strong>arg[1]</strong>,…..<strong>arg[m]</strong>来获取，并且arg中还有一个域<strong>n</strong>负责记录可变参数的个数，示例代码如下所示：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myadd</span><span class="params">(a, b, ...)</span></span></div><div class="line">  <span class="keyword">local</span> sum = a + b</div><div class="line">  <span class="keyword">for</span> i = <span class="number">1</span>,<span class="built_in">arg</span>.n <span class="keyword">do</span></div><div class="line">    sum = sum + <span class="built_in">arg</span>[n]</div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="keyword">return</span> sum</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
