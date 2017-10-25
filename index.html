@@ -235,7 +235,7 @@
 <p>$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
 </li>
 </ul>
-<h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1希腊字母-Greek-letters"><a href="#3-2-1希腊字母-Greek-letters" class="headerlink" title="3.2.1希腊字母(Greek letters)"></a>3.2.1希腊字母(Greek letters)</h4><table>
+<h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1-希腊字母-Greek-letters"><a href="#3-2-1-希腊字母-Greek-letters" class="headerlink" title="3.2.1 希腊字母(Greek letters)"></a>3.2.1 希腊字母(Greek letters)</h4><table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -337,7 +337,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-2其他常用数学符号"><a href="#3-2-2其他常用数学符号" class="headerlink" title="3.2.2其他常用数学符号"></a>3.2.2其他常用数学符号</h4><table>
+<h4 id="3-2-2-其他常用数学符号"><a href="#3-2-2-其他常用数学符号" class="headerlink" title="3.2.2 其他常用数学符号"></a>3.2.2 其他常用数学符号</h4><table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -407,7 +407,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-3三角函数符号"><a href="#3-2-3三角函数符号" class="headerlink" title="3.2.3三角函数符号"></a>3.2.3三角函数符号</h4><table>
+<h4 id="3-2-3-三角函数符号"><a href="#3-2-3-三角函数符号" class="headerlink" title="3.2.3 三角函数符号"></a>3.2.3 三角函数符号</h4><table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -465,7 +465,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-3-4双目运算符"><a href="#3-3-4双目运算符" class="headerlink" title="3.3.4双目运算符"></a>3.3.4双目运算符</h4><table>
+<h4 id="3-3-4-双目运算符"><a href="#3-3-4-双目运算符" class="headerlink" title="3.3.4 双目运算符"></a>3.3.4 双目运算符</h4><table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -670,6 +670,252 @@
 <tr>
 <td style="text-align:center">$\emptyset,\varnothing$</td>
 <td style="text-align:center">\emptyset,\varnothing</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-2-6-上标号和下标号的表示方法"><a href="#3-2-6-上标号和下标号的表示方法" class="headerlink" title="3.2.6 上标号和下标号的表示方法"></a>3.2.6 上标号和下标号的表示方法</h4><p>在LaTex中，使用<code>^</code>符号代表上标号，使用<code>_</code>符号代表下标号，当上/下标号是一个复合的表达式时，需要将使用curly braces<code>{}</code>将表达式包起来，例如:</p>
+<ul>
+<li><p>\$\$k_{n+1} = n^2 + k<em>n^2  - k\</em>{n-1}$$</p>
+<p>$$k_{n+1} = n^2 + k<em>n^2 - k</em>{n-1}$$</p>
+</li>
+<li><p>\$\$n^22$$</p>
+<p>$$n^{22}$$</p>
+</li>
+<li><p>\$\$lim_{x \to \infty} \mathrm(e)^{-x} =0 $$</p>
+<p>$$lim_{x \to \infty} \mathrm{e}^{-x} = 0$$</p>
+</li>
+</ul>
+<p>也可以使用<code>_</code>和<code>|</code>组合去显示下标的取值，例如：</p>
+<p>\$\$f(n) = n^5 + 4n^2 + 2 |_{n=17}$$</p>
+<p>$$f(n) = n^2 + 4n^2 + 2 |_{n=17}$$</p>
+<h4 id="3-2-7-分式和二项式的表示方法"><a href="#3-2-7-分式和二项式的表示方法" class="headerlink" title="3.2.7 分式和二项式的表示方法"></a>3.2.7 分式和二项式的表示方法</h4><ul>
+<li><p>分式</p>
+<p>在LaTex中，使用<code>\frac{numerator}{denominator}</code>来创建一个分式，<code>numerator</code>代表分子，<code>denominator</code>代表分子，具体例子如下:</p>
+<ul>
+<li><p>\$\$\frac{n!}{k!(n-k)!}$$</p>
+<p>$$\frac{n!}{k!(n-k)!}$$</p>
+</li>
+<li><p>\$\$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$</p>
+<p>$$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$</p>
+</li>
+</ul>
+</li>
+<li><p>二项式</p>
+<p>使用<code>\binom{n}{k}</code>来创建一个二项式表达式，例如：</p>
+<p>\$\$\frac{n!}{k!(n-k)!} =  \binom{n}{k}$$</p>
+<p>$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$</p>
+</li>
+</ul>
+<h4 id="3-2-8-根号的表示方法"><a href="#3-2-8-根号的表示方法" class="headerlink" title="3.2.8 根号的表示方法"></a>3.2.8 根号的表示方法</h4><p>使用<code>\sqrt{...}</code>去创建一个根号表示，使用<code>[]</code>去改变根号的权重，具体例子如下：</p>
+<ul>
+<li><p>\$\$\sqrt{\frac{x+1}{x}}$$</p>
+<p>$$\sqrt{\frac{x+1}{x}}$$</p>
+</li>
+<li><p>\$\$\sqrt[n]{1 + x + x^2 +\cdots + x^n}$</p>
+<p>$$\sqrt[n]{1 + x + x^2 + \cdots + x^2}$$</p>
+</li>
+</ul>
+<h4 id="3-2-9-求和和积分公式的表示方法"><a href="#3-2-9-求和和积分公式的表示方法" class="headerlink" title="3.2.9 求和和积分公式的表示方法"></a>3.2.9 求和和积分公式的表示方法</h4><ul>
+<li><p>求和</p>
+<p>使用<code>\sum</code>来创建一个求和的公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
+<ul>
+<li><p>\$\$\sum_{i=1}^{10} t_i$$</p>
+<p>$$\sum_{i=1}^{10} t_i$$</p>
+</li>
+<li><p>\$\$sum_{i=0}^{n} x^i$$</p>
+<p>$$\sum_{i=0}^{n} x^i$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>　　当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
+<p>　　\$\$\sum_{\substack{ 0&lt;i&lt;m \\0&lt;j&lt;n}} P(i,j)$$</p>
+<p>​        $$\sum_{\substack{0&lt;i&lt;m\0&lt;j&lt;n}} P(i,j)$$</p>
+<ul>
+<li><p>积分</p>
+<p>使用<code>\int</code>来创建一个积分公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
+<p>\$\$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$</p>
+<p>$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$</p>
+</li>
+</ul>
+<p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">显示符号</th>
+<th style="text-align:center">LaTex符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\sum$</td>
+<td style="text-align:center">\sum</td>
+</tr>
+<tr>
+<td style="text-align:center">$\bigoplus$</td>
+<td style="text-align:center">\bigoplus</td>
+</tr>
+<tr>
+<td style="text-align:center">$\bigcup$</td>
+<td style="text-align:center">\bigcup</td>
+</tr>
+<tr>
+<td style="text-align:center">$\bigsqcup$</td>
+<td style="text-align:center">\bigsqcup</td>
+</tr>
+<tr>
+<td style="text-align:center">$\int$</td>
+<td style="text-align:center">\int</td>
+</tr>
+<tr>
+<td style="text-align:center">$\iiint$</td>
+<td style="text-align:center">\iiint</td>
+</tr>
+<tr>
+<td style="text-align:center">$\prod$</td>
+<td style="text-align:center">\prod</td>
+</tr>
+<tr>
+<td style="text-align:center">$\bigotimes$</td>
+<td style="text-align:center">\bigcap</td>
+</tr>
+<tr>
+<td style="text-align:center">$\bigvee$</td>
+<td style="text-align:center">\bigvee</td>
+</tr>
+<tr>
+<td style="text-align:center">$\oint$</td>
+<td style="text-align:center">\oint</td>
+</tr>
+<tr>
+<td style="text-align:center">$\iiiint$</td>
+<td style="text-align:center">\iiiint</td>
+</tr>
+<tr>
+<td style="text-align:center">$\coprod$</td>
+<td style="text-align:center">\coprod</td>
+</tr>
+<tr>
+<td style="text-align:center">$\bigwedge$</td>
+<td style="text-align:center">\bigwedge</td>
+</tr>
+<tr>
+<td style="text-align:center">$\iint$</td>
+<td style="text-align:center">\iint</td>
+</tr>
+<tr>
+<td style="text-align:center">$\idotsint$</td>
+<td style="text-align:center">\idotsin</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-2-10-方括号，圆括号，分隔符"><a href="#3-2-10-方括号，圆括号，分隔符" class="headerlink" title="3.2.10 方括号，圆括号，分隔符"></a>3.2.10 方括号，圆括号，分隔符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">显示符号</th>
+<th style="text-align:center">LaTex符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$ ( a )$</td>
+<td style="text-align:center">( a )</td>
+</tr>
+<tr>
+<td style="text-align:center">$[ b ]$</td>
+<td style="text-align:center">[ b ]</td>
+</tr>
+<tr>
+<td style="text-align:center">${c}$</td>
+<td style="text-align:center">\{c\}</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">d</td>
+<td>$</td>
+<td>\</td>
+<td>d\</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$\langle f \rangle$</td>
+<td style="text-align:center">\langle f \rangle</td>
+</tr>
+<tr>
+<td style="text-align:center">$\lfloor g \rfloor$</td>
+<td style="text-align:center">\lfloor g \rfloor</td>
+</tr>
+<tr>
+<td style="text-align:center">$\lceil h \rceil$</td>
+<td style="text-align:center">\lceil h \rceil</td>
+</tr>
+<tr>
+<td style="text-align:center">$\</td>
+<td style="text-align:center">e\</td>
+<td>$</td>
+<td>\</td>
+<td>e \</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$\ulcorner i \urcorner$</td>
+<td style="text-align:center">\ulcorner i \urcorner</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-2-11-点"><a href="#3-2-11-点" class="headerlink" title="3.2.11 点"></a>3.2.11 点</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">显示符号</th>
+<th style="text-align:center">LaTex符号</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\dots$</td>
+<td style="text-align:center">\dots</td>
+<td style="text-align:left">通用的点表示方法，通常使用在文本中，它会根据上下文自动管理空格</td>
+</tr>
+<tr>
+<td style="text-align:center">$\ldots$</td>
+<td style="text-align:center">\ldots</td>
+<td style="text-align:left">和通用的点相似，但不会自动管理空格</td>
+</tr>
+<tr>
+<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">\cdots</td>
+<td style="text-align:left">这种点会根据文字的高度自动垂直居中</td>
+</tr>
+<tr>
+<td style="text-align:center">$\vdots$</td>
+<td style="text-align:center">\vdots</td>
+<td style="text-align:left">垂直的点</td>
+</tr>
+<tr>
+<td style="text-align:center">$\ddots$</td>
+<td style="text-align:center">\ddots</td>
+<td style="text-align:left">对角点</td>
+</tr>
+<tr>
+<td style="text-align:center">$\dotsc$</td>
+<td style="text-align:center">\dotsc</td>
+<td style="text-align:left">dots with commas,$A_1,A_2,\dotsc,$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\dotsb$</td>
+<td style="text-align:center">\dotsb</td>
+<td style="text-align:left">dots with binary operators/relations，$A_1+\dotsb +A_N$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\dotsm$</td>
+<td style="text-align:center">\dotsm</td>
+<td style="text-align:left">mutiplication dots,$Ａ_1\dotsm  A_N$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\dotsi$</td>
+<td style="text-align:center">\dotsi</td>
+<td style="text-align:left">dots with integrals, $\int_a^b \dotsi$</td>
 </tr>
 </tbody>
 </table>
@@ -1624,11 +1870,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1640,11 +1886,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">礼物</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">礼物</a>
               </li>
             
             <div class="clearfix"></div>
