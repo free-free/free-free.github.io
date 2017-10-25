@@ -177,7 +177,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-binding-serialport-device-name" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu下绑定串口设备名
+    </h1>
+  
+
+        
+        <a href="/2017/10/20/binding-serialport-device-name/" class="archive-article-date">
+  	<time datetime="2017-10-20T10:44:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+          
+            <h3 id="1-为什么我需要绑定串口设备名"><a href="#1-为什么我需要绑定串口设备名" class="headerlink" title="1. 为什么我需要绑定串口设备名"></a>1. 为什么我需要绑定串口设备名</h3><p>　　最近在ubuntu上使用串口进行通信时，由于硬件的原因需要不时的拔掉串口然后再重新插上，可是每次拔掉之后再重新插上去发现串口设备名由原来的<code>/dev/ttyUSB0</code>变为<code>/dev/ttyUSB1</code>，导致每次重新插上串口时都需要在程序中改变串口设备名，来回这么折腾搞得我很毛躁呀。这就是为什么我要去绑定串口设备名的原因，目的很单纯，被造的。</p>
+<h3 id="2-怎样去绑定串口设备名"><a href="#2-怎样去绑定串口设备名" class="headerlink" title="2.  怎样去绑定串口设备名"></a>2.  怎样去绑定串口设备名</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="(1) 分析"></a>(1) 分析</h4><p>为什么每次重新插上同一串口设备的时候，在<code>/dev/</code>目录会是不同的设备文件名(<code>/dev/ttyUSB0</code>或者<code>/dev/ttyUSB1</code>)？由于串口设备属于hot-pluggable设备，每次插入的时注册设备节点分配的设备ID不同，导致同一设备在呈现出不同的设备名。那有没有办法将同一设备绑定为固定的设备文件名呢？答案是有的，这时就需要需求的<code>udev</code>的帮助了，<code>udev</code>是Linux下专门负责管理动态设备，它时基于一定的规则来加载动态设备的，那我们需要做的就是添加相应的规定即可。</p>
+<h4 id="2-绑定串口设备名"><a href="#2-绑定串口设备名" class="headerlink" title="(2) 绑定串口设备名"></a>(2) 绑定串口设备名</h4><ul>
+<li><p>查看当前的串口设备文件名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls /dev/ |grep ttyUSB</div></pre></td></tr></table></figure>
+<p>输出:</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name-1.png" alt=""></p>
+</li>
+<li><p>查看串口信息，找出串口设备的<code>idVendor</code>和<code>idProduct</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ udevadm info --name /dev/ttyUSB0  --attribute-walk</div></pre></td></tr></table></figure>
+<p>输出:</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name-2.png" alt=""></p>
+</li>
+<li><p>创建文件<code>/etc/udev/rules.d/usb-serialport.rules</code>，并在文件中添加一下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SUBSYSTEM==&quot;tty&quot;, ATTRS&#123;idVendor&#125;==&quot;1a86&quot;, ATTRS&#123;idProduct&#125;==&quot;7523&quot;, SYMLINK+=&quot;ch34-serial&quot;, MODE:=&quot;0777&quot;, GROUP:=&quot;dialout&quot;</div></pre></td></tr></table></figure>
+<p><strong>SYMLINK</strong>即为你为该串口设备指定文件设备名，该设备每次插入时在<code>/dev</code>设备名都为<code>usb-serialport</code>.</p>
+<p><strong>idVendor</strong>和<strong>idProduct</strong>改为你串口对应的vendorid和productid. <strong>MODE</strong>该设备的权限.<strong>GROUP</strong>为该设备所属的组。</p>
+</li>
+<li><p>将配置生效，并查看是否绑定成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo udevadm trigger</div><div class="line">$ ls -l /dev/ch34-serial</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name3.png" alt=""></p>
+<p>可以从输出看到<code>ch34-serial</code>只是真实设备名的一个连接，每次重新插入串口设备的时候，会自动创建<code>ch34-serial</code>链接到真正的设备文件名(可能是<code>/dev/ttyUSB0</code>或者<code>/dev/ttyUSB1</code>)。</p>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://blog.csdn.net/boyixuanbo/article/details/77651109" target="_blank" rel="external">[1]ubuntu下绑定串口</a></p>
+<p><a href="http://www.cnblogs.com/zxouxuewei/p/6140710.html" target="_blank" rel="external">[2]ubuntu绑定串口设备</a></p>
+
+          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/20/binding-serialport-device-name/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/10/21/myher-first-presents/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          送给她的第一个礼物
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/15/python-black-magic-metaclass/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python黑魔法－元类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="binding-serialport-device-name" data-title="ubuntu下绑定串口设备名" data-url="http://yoursite.com/2017/10/20/binding-serialport-device-name/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
 
           </div>
         </div>

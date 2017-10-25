@@ -181,7 +181,229 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从ubuntu16.04/ubuntu17.04升级到ubuntu17.10(译)
+    </h1>
+  
+
+        
+        <a href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/" class="archive-article-date">
+  	<time datetime="2017-10-23T14:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+          
+            <p>最近ubuntu官方发布了又一个LTS：ubuntu17.10。ubuntu17.10有着很大的变化，引入了很多的新的技术。ubuntu17.10是ubuntu第一个使用GNOME Shell作为默认桌面的版本。自己也想着感受一下ubuntu17.10引入的新技术，在这里翻译一篇从ubuntu16.04/ubuntu17.04升级到ubuntu17.10的教程。<a href="https://www.linuxbabe.com/ubuntu/upgrade-from-ubuntu-16-0417-04-to-ubuntu-17-10" target="_blank" rel="external">原本在这里</a></p>
+<h2 id="从ubuntu16-4-17-04升级到ubuntu17-10的两种方式"><a href="#从ubuntu16-4-17-04升级到ubuntu17-10的两种方式" class="headerlink" title="从ubuntu16.4/17.04升级到ubuntu17.10的两种方式"></a>从ubuntu16.4/17.04升级到ubuntu17.10的两种方式</h2><p>官方发布最近发布Ubuntu17.10。此教程打算向你展示两种从Ubuntu16.04/17.04升级到Ubuntu17.10的方法：使用图像界面升级助手升级和使用命令行升级。</p>
+<h3 id="1-使用图形界面升级助手升级到Ubuntu17-10"><a href="#1-使用图形界面升级助手升级到Ubuntu17-10" class="headerlink" title="1. 使用图形界面升级助手升级到Ubuntu17.10"></a>1. 使用图形界面升级助手升级到Ubuntu17.10</h3><p>首先，打开图形终端并且运行下面的命令更新现有的软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt update &amp;&amp; sudo apt dist-upgrade</div></pre></td></tr></table></figure>
+<p>请注意，在运行上面的命令的时候如果你已经安装了最新的内核，为了继续升级过程你需要重启系统，然后从Unity Dahs或者你自己的应用菜单打开<strong>Software &amp; Updates</strong></p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-16.04-to-ubuntu-17.10-01.png" alt=""></p>
+<p>选择<strong>Updates</strong>选项卡并且在窗口的底部改变通知更新设置，将<strong>For long-term support version</strong>改变成<strong>For any new version</strong>.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-02.png" alt=""></p>
+<p>然后点击关闭按钮。你会被要求输入密码以应用上面的改变，然后在终端中输入一下命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ update-manager</div></pre></td></tr></table></figure>
+<p>如果你正在使用的是Ubuntu17.04，你会发现软件已经是最新的，并且可以升级到<strong>Ubuntu 17.10</strong>了，点击<strong>Upgrade</strong>按钮。</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/how-to-upgrade-from-Ubuntu-17.04-to-ubuntu-17.10-03.png" alt=""></p>
+<p>如果你正在使用Ubuntu16.04，你会发现软件已经是最新的了，并且可以升级到<strong>Ubuntu 17.04</strong>了，点击<strong>Upgrade</strong>按钮。因为Ubuntu17.04还没有过期，Canonical始终会支持会Ubuntu17.04，所以在升级到Ubuntu17.10之前你需要先升级到Ubuntu17.04。</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-04.png" alt=""></p>
+<p>然后输入你的密码。输入密码后版本发布窗口将出现，请点击<strong>Upgrade</strong>按钮。</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-05.png" alt=""></p>
+<p>等待升级完成。如果你发现一些第三方的软件源是disabled的，只需要accept it，在升级后完成之后你可以re-enable这些软件源。</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-06.png" alt=""></p>
+<p>一旦升级完成之后，重启你的电脑。在登录界面，你可以点击cog图标选择使用Gnome,Gnome with X.org 或者Unity 桌面环境。</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-07.png" alt=""></p>
+<p>重启之后，在终端中运行下面的命令检查你当前的Ubuntu版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ lsb_release -a</div></pre></td></tr></table></figure>
+<p>如果你成功升级到Ubuntu17.10，终端将输出下面结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">No LSB modules are available</div><div class="line">Distributor ID: Ubuntu</div><div class="line">Description:    Ubuntu 17.10</div><div class="line">Release:        17.10</div><div class="line">Codename:       artful</div></pre></td></tr></table></figure>
+<h3 id="2-使用命令行升级到Ubuntu17-10"><a href="#2-使用命令行升级到Ubuntu17-10" class="headerlink" title="2.使用命令行升级到Ubuntu17.10"></a>2.使用命令行升级到Ubuntu17.10</h3><p>你可以使用命令行升级Ubuntu桌面版本和服务器版本。首先，打开终端窗口并且运行下面的命令去升级现有的软件包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt update &amp;&amp; sudo apt dist-upgrade</div></pre></td></tr></table></figure>
+<p>然后，确保你已经安装了<code>update-manager-core</code>，如果没有安装，输入下面命令进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install update-manager-core</div></pre></td></tr></table></figure>
+<p>接下来，使用nano或者你自己喜爱的文本编辑器修改配置文件<code>/etc/update-manager/release-upgrades</code>，如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo nano　/etc/update-manager/release-upgrades</div></pre></td></tr></table></figure>
+<p>在配置文件的底部，将<strong>Prompt</strong>的值从<code>lts</code>改成<code>normal</code>，如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Prompt=normal</div></pre></td></tr></table></figure>
+<p>保存并关闭文件。之后运行下面的命令开始升级。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">do</span>-release-upgrade</div></pre></td></tr></table></figure>
+<p>如果你正在使用Ubuntu17.04的话，接下来的界面将引导你升级到Ubuntu17.10。如果你正在使用Ubuntu16.04，接下来的界面将引导你先升级到Ubuntu17.04，升级到Ubuntu17.04后再重复上面相同的步骤升级到Ubuntu17.10。一旦升级完成，重启你的电脑。输入下面的命令去check你的Ubuntu版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ lsb-release -a</div></pre></td></tr></table></figure>
+<p>如果你成功升级到Ubuntu17.10，将输出下面的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">No LSB modules are available.</div><div class="line">Distributor ID: Ubuntu</div><div class="line">Description:    Ubuntu 17.10</div><div class="line">Release:        17.10</div><div class="line">Codename:       artful</div></pre></td></tr></table></figure>
+<p>升级完成之后，你需要去re-enable第三方的软件源，比如PPA，因为在升级过程中这些软件源被disable了。</p>
+
+          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/10/24/integrate-with-mathjax-in-markdown/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          markdown集成mathjax
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/21/myher-first-presents/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">送给她的第一个礼物</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04" data-title="从ubuntu16.04/ubuntu17.04升级到ubuntu17.10(译)" data-url="http://yoursite.com/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
 
           </div>
         </div>
