@@ -1007,8 +1007,8 @@
 </li>
 </ul>
 <h4 id="3-2-13-矩阵"><a href="#3-2-13-矩阵" class="headerlink" title="3.2.13 矩阵"></a>3.2.13 矩阵</h4><p>基本的矩阵可以使用matrix 环境来创建，矩阵和其他的类表结构一样，列之间使用<code>&amp;</code>来分开，行之间使用<code>\\</code>来封开，例如：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="formula">$$ </span></div><div class="line"><span class="formula">   <span class="tag">\<span class="name">begin</span><span class="string">&#123;matrix&#125;</span></span>  </span></div><div class="line"><span class="formula">     a &amp;  b &amp; c <span class="tag">\<span class="name">\</span></span> </span></div><div class="line"><span class="formula">     d &amp;  e &amp; f  <span class="tag">\<span class="name">\</span></span> </span></div><div class="line"><span class="formula">    g &amp;  h &amp; i </span></div><div class="line"><span class="formula">    <span class="tag">\<span class="name">end</span><span class="string">&#123;matrix&#125;</span></span> </span></div><div class="line"><span class="formula">$$</span></div></pre></td></tr></table></figure>
-<p> \begin{matrix} a &amp; b &amp;c  \\ d &amp; e &amp; f \\ g &amp; h &amp; i\end{matrix} </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$$ </div><div class="line">   \begin&#123;matrix&#125;  </div><div class="line">     a &amp;  b &amp; c \\ </div><div class="line">     d &amp;  e &amp; f  \\ </div><div class="line">    g &amp;  h &amp; i </div><div class="line">    \end&#123;matrix&#125; </div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>$$ \begin{matrix} a &amp; b &amp;c  \ d &amp; e &amp; f \ g &amp; h &amp; i\end{matrix} $$</p>
 <p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
 <table>
 <thead>
@@ -1041,25 +1041,25 @@
 </tr>
 <tr>
 <td>Bmatrix</td>
-<td>$\{ \ \}$</td>
+<td>${ \ }$</td>
 <td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>Bmatrix*</td>
-<td>$\{ \ \}$</td>
+<td>${ \ }$</td>
 <td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 <tr>
 <td>vmatrix</td>
-<td>$\</td>
-<td style="text-align:center">\ \</td>
+<td>$</td>
+<td style="text-align:center">\</td>
 <td>$</td>
 <td>列默认居中</td>
 </tr>
 <tr>
 <td>vmatrix*</td>
-<td>$\</td>
-<td style="text-align:center">\ \</td>
+<td>$</td>
+<td style="text-align:center">\</td>
 <td>$</td>
 <td>可以指定列的对齐方式</td>
 </tr>
@@ -1081,60 +1081,37 @@
 </table>
 <ul>
 <li><p>pmatrix</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="formula">$$ A_&#123;m,n&#125; = </span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​      <span class="tag">\<span class="name">begin</span><span class="string">&#123;pmatrix&#125;</span></span> </span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​     a<span class="tag">\<span class="name">_</span><span class="string">&#123;1,1&#125;</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;1,2&#125;</span></span> &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;1,n&#125;</span></span> <span class="tag">\<span class="name">\</span></span><span class="tag">\<span class="name">\</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​     a<span class="tag">\<span class="name">_</span><span class="string">&#123;2,1&#125;</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;2,2&#125;</span></span> &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a_&#123;2,n&#125; <span class="tag">\<span class="name">\</span></span><span class="tag">\<span class="name">\</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​     <span class="tag">\<span class="name">vdots</span></span> &amp; <span class="tag">\<span class="name">vdots</span></span>  &amp; <span class="tag">\<span class="name">ddots</span></span> &amp; <span class="tag">\<span class="name">dots</span></span> <span class="tag">\<span class="name">\</span></span><span class="tag">\<span class="name">\</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​      a<span class="tag">\<span class="name">_</span><span class="string">&#123;m,1&#125;</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;m,2 &#125;</span></span>  &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;m,n&#125;</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​      <span class="tag">\<span class="name">end</span><span class="string">&#123;pmatrix&#125;</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">$$</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line"></div><div class="line">      \begin&#123;pmatrix&#125; </div><div class="line"></div><div class="line">     a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line"></div><div class="line">     a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line"></div><div class="line">     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line"></div><div class="line">      a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line"></div><div class="line">      \end&#123;pmatrix&#125;</div><div class="line"></div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为：</p>
-<p>A<em>{m,n} = \begin{pmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \\ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{pmatrix}</p>
 </li>
+</ul>
+<p>$$A<em>{m,n} = \begin{pmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{pmatrix}$$</p>
+<ul>
 <li><p>bmatrix</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="formula">$$ A_&#123;m,n&#125; = </span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​      <span class="tag">\<span class="name">begin</span><span class="string">&#123;bmatrix&#125;</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​     a<span class="tag">\<span class="name">_</span><span class="string">&#123;1,1&#125;</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;1,2&#125;</span></span> &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;1,n&#125;</span></span> <span class="tag">\<span class="name">\</span></span><span class="tag">\<span class="name">\</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​     a<span class="tag">\<span class="name">_</span><span class="string">&#123;2,1&#125;</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;2,2&#125;</span></span> &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a_&#123;2,n&#125; <span class="tag">\<span class="name">\</span></span><span class="tag">\<span class="name">\</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​     <span class="tag">\<span class="name">vdots</span></span> &amp; <span class="tag">\<span class="name">vdots</span></span>  &amp; <span class="tag">\<span class="name">ddots</span></span> &amp; <span class="tag">\<span class="name">dots</span></span> <span class="tag">\<span class="name">\</span></span><span class="tag">\<span class="name">\</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​      a<span class="tag">\<span class="name">_</span><span class="string">&#123;m,1&#125;</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;m,2 &#125;</span></span>  &amp; <span class="tag">\<span class="name">cdots</span></span> &amp; a<span class="tag">\<span class="name">_</span><span class="string">&#123;m,n&#125;</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​      <span class="tag">\<span class="name">end</span><span class="string">&#123;bmatrix&#125;</span></span></span></div><div class="line"><span class="formula"></span></div><div class="line"><span class="formula">​    $$</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line"></div><div class="line">      \begin&#123;bmatrix&#125;</div><div class="line"></div><div class="line">     a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line"></div><div class="line">     a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line"></div><div class="line">     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line"></div><div class="line">      a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line"></div><div class="line">      \end&#123;bmatrix&#125;</div><div class="line"></div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{bmatrix}$$</p>
 </li>
 <li><p>Bmatrix</p>
-<p>$$ A_{m,n} = </p>
-<p>​      \begin{Bmatrix}</p>
-<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
-<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
-<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
-<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
-<p>​      \end{Bmatrix}</p>
-<p>​    $$</p>
-<p>呈现为</p>
-<p>$$ A<em>{m,n} = \begin{Bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Bmatrix}$$</p>
 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line"></div><div class="line">      \begin&#123;Bmatrix&#125;</div><div class="line"></div><div class="line">     a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line"></div><div class="line">     a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line"></div><div class="line">     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line"></div><div class="line">     a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line"></div><div class="line">     \end&#123;Bmatrix&#125;</div><div class="line"></div><div class="line">$$</div></pre></td></tr></table></figure>
+<p>  呈现为</p>
+<p>  $$ A<em>{m,n} = \begin{Bmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Bmatrix}$$</p>
+<ul>
 <li><p>vmatrix</p>
-<p>$$ A_{m,n} = </p>
-<p>​      \begin{vmatrix}</p>
-<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
-<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
-<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
-<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
-<p>​      \end{vmatrix}</p>
-<p>​    $$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line"></div><div class="line">　　　　\begin&#123;vmatrix&#125;</div><div class="line"></div><div class="line">　　　　a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line"></div><div class="line">　　　　a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line"></div><div class="line">　　　　\vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line"></div><div class="line">　　　　a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line"></div><div class="line">　　　　\end&#123;vmatrix&#125;</div><div class="line"></div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{vmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{vmatrix}$$</p>
 </li>
 <li><p>Vmatrix</p>
-<p>$$ A_{m,n} = </p>
-<p>​      \begin{Vmatrix}</p>
-<p>​     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\</p>
-<p>​     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\</p>
-<p>​     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</p>
-<p>​      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}</p>
-<p>​      \end{Vmatrix}</p>
-<p>​    $$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line"></div><div class="line">　　　\begin&#123;Vmatrix&#125;</div><div class="line"></div><div class="line">　　　a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line"></div><div class="line">　　　a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line"></div><div class="line">　　　\vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line"></div><div class="line">　　　a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line"></div><div class="line">　　　\end&#123;Vmatrix&#125;</div><div class="line"></div><div class="line"> $$</div></pre></td></tr></table></figure>
 <p>呈现为</p>
 <p>$$ A<em>{m,n} = \begin{Vmatrix} a</em>{1,1} &amp; a<em>{1,2} &amp; \cdots &amp; a</em>{1,n} \ a<em>{2,1} &amp; a</em>{2,2} &amp; \cdots &amp; a<em>{2,n} \ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \ a</em>{m,1} &amp; a<em>{m,2} &amp; \cdots &amp; a</em>{m,n} \end{Vmatrix}$$</p>
-<p>​</p>
 </li>
 </ul>
 <h4 id="3-2-16-方程组"><a href="#3-2-16-方程组" class="headerlink" title="3.2.16 方程组"></a>3.2.16 方程组</h4><p>方程组可以使用cases环境来创建，起始、结束处以{cases}声明，例如：</p>
-<p>$$\begin{cases}</p>
-<p>a_1x_1+b_1x_2+c_1x_3 = d_1\\</p>
-<p>a_2x_1+b_2x_2+c_2x_3 = d_2\\</p>
-<p>a_3x_1+b_3x_2+c_2x_3 = d_3\\</p>
-<p>\end{cases}</p>
-<p>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\begin&#123;cases&#125;</div><div class="line"></div><div class="line">a_1x_1+b_1x_2+c_1x_3 = d_1\\</div><div class="line"></div><div class="line">a_2x_1+b_2x_2+c_2x_3 = d_2\\</div><div class="line"></div><div class="line">a_3x_1+b_3x_2+c_2x_3 = d_3\\</div><div class="line"></div><div class="line">\end&#123;cases&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为:</p>
 <p>$$\begin{cases} a_1x_1+b_1x_2+c_1x_3 = d_1 \ a_2x_1+b_2x_2+c_2x_3 = d_2 \ a_3x_1+b_3x_2+c_2x_3 = d_3 \end{cases}$$</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
