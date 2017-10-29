@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/10 | Infinite.ft的博客</title>
+  <title>使用Python类__new__方法实现单例模式 | Infinite.ft的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Infinite.ft的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/10/index.html">
+  <meta name="description" content="1.概述前两篇文章分别介绍了使用装饰器实现单例模式和使用元类实现单例模式。这篇文章介绍使用Python类的__new__方法来实现单例模式。当谈及Python类实例化对象时，不得不提到创建对象过程中涉及到的两个方法__init__和__new__。在Python的类中，__init__method是对象初始化器，而且__new__method才是真正的构造method，它负责创建对象，并将创建的对">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Python类__new__方法实现单例模式">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/implemenation-of-singleton-using-new-method/index.html">
 <meta property="og:site_name" content="Infinite.ft的博客">
+<meta property="og:description" content="1.概述前两篇文章分别介绍了使用装饰器实现单例模式和使用元类实现单例模式。这篇文章介绍使用Python类的__new__方法来实现单例模式。当谈及Python类实例化对象时，不得不提到创建对象过程中涉及到的两个方法__init__和__new__。在Python的类中，__init__method是对象初始化器，而且__new__method才是真正的构造method，它负责创建对象，并将创建的对">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/implementation-of-singleton-using-new-method-01.png">
+<meta property="og:updated_time" content="2017-10-29T11:14:00.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Infinite.ft的博客">
+<meta name="twitter:title" content="使用Python类__new__方法实现单例模式">
+<meta name="twitter:description" content="1.概述前两篇文章分别介绍了使用装饰器实现单例模式和使用元类实现单例模式。这篇文章介绍使用Python类的__new__方法来实现单例模式。当谈及Python类实例化对象时，不得不提到创建对象过程中涉及到的两个方法__init__和__new__。在Python的类中，__init__method是对象初始化器，而且__new__method才是真正的构造method，它负责创建对象，并将创建的对">
+<meta name="twitter:image" content="http://oy4cno18k.bkt.clouddn.com/implementation-of-singleton-using-new-method-01.png">
   
     <link rel="alternative" href="/atom.xml" title="Infinite.ft的博客" type="application/atom+xml">
   
@@ -168,36 +175,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-implemenation-of-singleton-using-new-method" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/29/implemenation-of-singleton-using-new-method/">使用Python类__new__方法实现单例模式</a>
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/29/implemenation-of-singleton-using-new-method/" class="archive-article-date">
+
+        
+        <a href="/2017/10/29/implemenation-of-singleton-using-new-method/" class="archive-article-date">
   	<time datetime="2017-10-29T10:35:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/29/implemenation-of-singleton-using-new-method/">使用Python类__new__方法实现单例模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+            <h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>前两篇文章分别介绍了<a href="/2017/10/11/implementation-of-singleton-using-decrator/">使用装饰器实现单例模式</a>和<a href="/2017/10/14/implementation-of-singleton-using-metaclass/">使用元类实现单例模式</a>。这篇文章介绍使用Python类的<code>__new__</code>方法来实现单例模式。当谈及Python类实例化对象时，不得不提到创建对象过程中涉及到的两个方法<code>__init__</code>和<code>__new__</code>。在Python的类中，<code>__init__</code>method是对象初始化器，而且<code>__new__</code>method才是真正的构造method，它负责创建对象，并将创建的对象返回。对象的创建流程如下：</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/implementation-of-singleton-using-new-method-01.png" alt=""></p>
+<p>图中实线箭头表示调用关系，虚线表示返回。当类创建一个对象时，由类的Metaclass的<code>__call__</code>method来调用类的<code>__new__</code>method，<code>__new__</code>method将对象创建好之后返回给Metaclass的<code>__call__</code>method，然后由Metaclass的<code>__call__</code>method来调用类的<code>__init__</code>method。根据上面的流程可知，要实现单例模式，只需要在类中实现<code>__new__</code>method，并每次返回同一个对象即可。</p>
+<h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2.实现"></a>2.实现</h3><h5 id="2-1-Environment"><a href="#2-1-Environment" class="headerlink" title="2.1 Environment"></a>2.1 Environment</h5><ul>
+<li>ubuntu16.04</li>
+<li>python3.5</li>
+</ul>
+<h5 id="2-2-代码"><a href="#2-2-代码" class="headerlink" title="2.2 代码"></a>2.2 代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></div><div class="line">    print(<span class="string">"Creating object!"</span>)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> hasattr(cls, <span class="string">'_instance'</span>):</div><div class="line">      cls._instance = super().__new__(cls, *args, **kwargs)</div><div class="line">    <span class="keyword">return</span> cls._instance</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    print(<span class="string">"Initiating object!"</span>)</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">  obj1 = Singleton()</div><div class="line">  obj2 = Singleton()</div><div class="line">  print(id(obj1))</div><div class="line">  print(id(obj2))</div><div class="line">  print(obj1 == obj2)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Creating object!</div><div class="line">Initiating object!</div><div class="line">Creating object!</div><div class="line">Initiating object!</div><div class="line">140549528785752</div><div class="line">140549528785752</div><div class="line">True</div></pre></td></tr></table></figure>
+<p>由输出可知创建的两个对象都是同一个实例，同时也验证了对象的创建流程。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]Python单例模式的4种实现方法</a></p>
+<p><a href="https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/" target="_blank" rel="external">[2]Understanding Python metaclasses</a></p>
+
+          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -209,7 +229,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,458 +242,35 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/29/implemenation-of-singleton-using-new-method/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/26/first-letter-to-her/" class="archive-article-date">
-  	<time datetime="2017-10-26T12:16:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/26/first-letter-to-her/">写给她的第一封信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">for-her</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/我的她//" class="article-tag-list-link color4">我的她</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/24/integrate-with-mathjax-in-markdown/" class="archive-article-date">
-  	<time datetime="2017-10-24T10:42:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/24/integrate-with-mathjax-in-markdown/">markdown集成mathjax</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/" class="archive-article-date">
-  	<time datetime="2017-10-23T14:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/">从ubuntu16.04/ubuntu17.04升级到ubuntu17.10(译)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/21/myher-first-presents/" class="archive-article-date">
-  	<time datetime="2017-10-21T12:42:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/21/myher-first-presents/">送给她的第一个礼物</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">礼物</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/我的她//" class="article-tag-list-link color4">我的她</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/20/binding-serialport-device-name/" class="archive-article-date">
-  	<time datetime="2017-10-20T10:44:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/20/binding-serialport-device-name/">ubuntu下绑定串口设备名</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/15/python-black-magic-metaclass/" class="archive-article-date">
-  	<time datetime="2017-10-15T10:46:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/15/python-black-magic-metaclass/">python黑魔法－元类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/14/implementation-of-singleton-using-metaclass/" class="archive-article-date">
-  	<time datetime="2017-10-14T11:47:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/14/implementation-of-singleton-using-metaclass/">使用元类实现python 单例模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/11/implementation-of-singleton-using-decrator/" class="archive-article-date">
-  	<time datetime="2017-10-11T10:36:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/11/implementation-of-singleton-using-decrator/">python单例模式:装饰器版</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/11/access-variable-parameter-in-lua5-2/" class="archive-article-date">
-  	<time datetime="2017-10-11T10:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/11/access-variable-parameter-in-lua5-2/">lua5.2获取函数可变参数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">lua</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
 
@@ -697,8 +294,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
