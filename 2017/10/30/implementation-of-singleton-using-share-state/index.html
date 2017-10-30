@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>使用共享状态实现单例模式？ | Infinite.ft的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 概述之前介绍了3种实现单例模式方法：  使用装饰器实现python单例模式 使用元类实现python 单例模式 使用Python类new方法实现单例模式  这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后，虽然类每次">
+  <meta name="description" content="1. 概述之前介绍了3种实现单例模式方法：  使用装饰器实现python单例模式 使用元类实现python 单例模式 使用Python类 __new__ 方法实现单例模式  这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用共享状态实现单例模式？">
 <meta property="og:url" content="http://yoursite.com/2017/10/30/implementation-of-singleton-using-share-state/index.html">
 <meta property="og:site_name" content="Infinite.ft的博客">
-<meta property="og:description" content="1. 概述之前介绍了3种实现单例模式方法：  使用装饰器实现python单例模式 使用元类实现python 单例模式 使用Python类new方法实现单例模式  这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后，虽然类每次">
+<meta property="og:description" content="1. 概述之前介绍了3种实现单例模式方法：  使用装饰器实现python单例模式 使用元类实现python 单例模式 使用Python类 __new__ 方法实现单例模式  这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2017-10-30T03:35:02.068Z">
+<meta property="og:updated_time" content="2017-10-30T03:37:15.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用共享状态实现单例模式？">
-<meta name="twitter:description" content="1. 概述之前介绍了3种实现单例模式方法：  使用装饰器实现python单例模式 使用元类实现python 单例模式 使用Python类new方法实现单例模式  这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后，虽然类每次">
+<meta name="twitter:description" content="1. 概述之前介绍了3种实现单例模式方法：  使用装饰器实现python单例模式 使用元类实现python 单例模式 使用Python类 __new__ 方法实现单例模式  这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后">
   
     <link rel="alternative" href="/atom.xml" title="Infinite.ft的博客" type="application/atom+xml">
   
@@ -198,7 +198,7 @@
 <ul>
 <li><a href="/2017/10/11/implementation-of-singleton-using-decrator/">使用装饰器实现python单例模式</a></li>
 <li><a href="/2017/10/14/implementation-of-singleton-using-metaclass/">使用元类实现python 单例模式</a></li>
-<li><a href="/2017/10/29/implemenation-of-singleton-using-new-method/">使用Python类<strong>new</strong>方法实现单例模式</a></li>
+<li><a href="/2017/10/29/implemenation-of-singleton-using-new-method/">使用Python类 <strong>__new__</strong> 方法实现单例模式</a></li>
 </ul>
 <p>这种三种实现方法都是我们通常理解的单例模式：即每次创建对象时，都返回同一个对象。但从一个更广的层面上讲，单例模式不仅可以理解为一个类创建的所有对象在内存中都是同一个对象，也可以理解为一个类的所有对象都共享同一状态。共享状态之后，虽然类每次创建的对象都不同，但是它们有一个共享的状态，一个对象对自己的状态操作，也会通过共享状态反映到其他的对象上<a href="http://code.activestate.com/recipes/66531/" target="_blank" rel="external">[1]</a>，这样做也能达到传统单例模式要求的功能。对于Python而言，所谓共享状态是将每一个对象的<code>__dict__</code>指向同一个字典。这种通过共享状态实现单例模式的方法被称为<strong>Borg</strong>或者<strong>Stateless Proxy</strong>。</p>
 <h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2.实现"></a>2.实现</h3><h5 id="2-1-Environment"><a href="#2-1-Environment" class="headerlink" title="2.1 Environment"></a>2.1 Environment</h5><ul>
