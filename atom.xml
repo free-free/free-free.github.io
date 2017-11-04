@@ -74,19 +74,36 @@
     <link href="https://free-free.github.io/2017/10/30/machine-learning-latest-topic-article/"/>
     <id>https://free-free.github.io/2017/10/30/machine-learning-latest-topic-article/</id>
     <published>2017-10-30T05:02:05.000Z</published>
-    <updated>2017-10-30T06:08:58.079Z</updated>
+    <updated>2017-11-04T12:16:15.163Z</updated>
     
-    <content type="html"><![CDATA[<hr><ul><li><p><strong>Dynamic Routing Between Capsules</strong></p><p>paper : <a href="https://arxiv.org/pdf/1710.09829.pdf" target="_blank" rel="external">download</a></p><p>author : Geoffrey E. Hinton, Sara Sabour and  Nicholas Frosst</p><p>date: September 2017</p></li></ul><hr><ul><li><p><strong>Reducing the Dimensionality of Data with Neural Networks</strong></p><p>paper : <a href="https://pdfs.semanticscholar.org/7d76/b71b700846901ac4ac119403aa737a285e36.pdf" target="_blank" rel="external">download</a></p><p>author : G. E. Hinton and R. R. Salakhutdinov</p><p>date : 2006</p></li></ul><hr><ul><li><p><strong>Deep Learning：Yestoday，Today，and Tomorrow</strong></p><p>paper :  <a href="http://oymgew2u4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%98%A8%E5%A4%A9%E3%80%81%E4%BB%8A%E5%A4%A9%E5%92%8C%E6%98%8E%E5%A4%A9%28%E4%BD%99%E5%87%AF%2A%29.pdf" target="_blank" rel="external">download</a></p><p>author : Yu Kai，Jia Lei，Chen Yuqiang，and Xu Wei</p><p>date : 2013</p></li></ul><hr><ul><li><p><strong>Backpropagration Applied To Handwrittn Zip Code Recogition</strong></p><p>paper : <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf" target="_blank" rel="external">download</a></p><p>author : Y.LeCun,B.Boser,J.S.Denker,D.Henderson,R.E.Howard,W.Hubbard and L.D.Jackel</p><p>date : 1989</p></li></ul><hr><ul><li><p><strong>Experiments on Learning by Back Propagation</strong></p><p>paper : <a href="http://www.cs.toronto.edu/~fritz/absps/bptr.pdf" target="_blank" rel="external">download</a></p><p>author : David C.Plaut,Steven J.Nowlan and Geoffrey E.Hinton</p><p>date : June 1986</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<hr><ul><li><p><strong>Dynamic Routing Between Capsules</strong></p><p>paper : <a href="https://arxiv.org/pdf/1710.09829.pdf" target="_blank" rel="external">download</a></p><p>author : Geoffrey E. Hinton, Sara Sabour and  Nicholas Frosst</p><p>date: September 2017</p></li></ul><hr><ul><li><p><strong>Reducing the Dimensionality of Data with Neural Networks</strong></p><p>paper : <a href="https://pdfs.semanticscholar.org/7d76/b71b700846901ac4ac119403aa737a285e36.pdf" target="_blank" rel="external">download</a></p><p>author : G. E. Hinton and R. R. Salakhutdinov</p><p>date : 2006</p></li></ul><hr><ul><li><p><strong>Deep Learning：Yestoday，Today，and Tomorrow</strong></p><p>paper :  <a href="http://oymgew2u4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%98%A8%E5%A4%A9%E3%80%81%E4%BB%8A%E5%A4%A9%E5%92%8C%E6%98%8E%E5%A4%A9%28%E4%BD%99%E5%87%AF%2A%29.pdf" target="_blank" rel="external">download</a></p><p>author : Yu Kai，Jia Lei，Chen Yuqiang，and Xu Wei</p><p>date : 2013</p></li></ul><a id="more"></a><hr><ul><li><p><strong>Backpropagration Applied To Handwrittn Zip Code Recogition</strong></p><p>paper : <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf" target="_blank" rel="external">download</a></p><p>author : Y.LeCun,B.Boser,J.S.Denker,D.Henderson,R.E.Howard,W.Hubbard and L.D.Jackel</p><p>date : 1989</p></li></ul><hr><ul><li><p><strong>Experiments on Learning by Back Propagation</strong></p><p>paper : <a href="http://www.cs.toronto.edu/~fritz/absps/bptr.pdf" target="_blank" rel="external">download</a></p><p>author : David C.Plaut,Steven J.Nowlan and Geoffrey E.Hinton</p><p>date : June 1986</p></li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;hr&gt;
+      &lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Dynamic Routing Between Capsules&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;paper : &lt;a href=&quot;https://arxiv.org/pdf/1710.09829.pdf&quot; target=&quot;_bl
-      
+&lt;p&gt;paper : &lt;a href=&quot;https://arxiv.org/pdf/1710.09829.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;author : Geoffrey E. Hinton, Sara Sabour and  Nicholas Frosst&lt;/p&gt;
+&lt;p&gt;date: September 2017&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Reducing the Dimensionality of Data with Neural Networks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;paper : &lt;a href=&quot;https://pdfs.semanticscholar.org/7d76/b71b700846901ac4ac119403aa737a285e36.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;author : G. E. Hinton and R. R. Salakhutdinov&lt;/p&gt;
+&lt;p&gt;date : 2006&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Deep Learning：Yestoday，Today，and Tomorrow&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;paper :  &lt;a href=&quot;http://oymgew2u4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%98%A8%E5%A4%A9%E3%80%81%E4%BB%8A%E5%A4%A9%E5%92%8C%E6%98%8E%E5%A4%A9%28%E4%BD%99%E5%87%AF%2A%29.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;author : Yu Kai，Jia Lei，Chen Yuqiang，and Xu Wei&lt;/p&gt;
+&lt;p&gt;date : 2013&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
