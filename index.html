@@ -178,6 +178,126 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-brief-introduction-of-several-convolution-networks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/08/brief-introduction-of-several-convolution-networks/">A brief introduction of several useful convolutional networks</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/08/brief-introduction-of-several-convolution-networks/" class="archive-article-date">
+  	<time datetime="2017-11-08T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+            <p>This  article is the course handout for Stanford University CS231n’s. it mainly contains a brief introduction of several common Convolutional Networks.</p>
+<ul>
+<li><p><strong>LeNet</strong></p>
+<p>The first successful applications of Convolutional Networks were developed by Yann LeCun in 1990’s.</p>
+<p>Of these, the best known is the LeNet architecture that was used in read zip codes, digits,etc.</p>
+<p><em>paper</em> : <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf" target="_blank" rel="external"><em>donwload</em></a></p>
+</li>
+<li><p><strong>AlexNet</strong></p>
+<p>The first work that popularized Convolutional Networks in Computer Vision was the AlexNet,developed by Alex Krizhevsky,llya Sutskever and Geoff Hinton. The AlexNet was submitted to the  <a href="http://www.image-net.org/challenges/LSVRC/2014/" target="_blank" rel="external">ImageNet ILSVRC challenge</a> in 2012 and significantly outperformed  the second runner-up(top 5 error of 16% compared to runner-up with 26% error). The Network had a very similar architecture to LeNet, but was deeper,bigger,and featured Convolutional Layers stacked on top of each other(previously it was common to only have single CONV layer always immediately followed by a POOL layer)</p>
+<p><em>paper</em> : <a href="http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" target="_blank" rel="external"><em>download</em></a></p>
+</li>
+<li><p><strong>ZF Net</strong></p>
+<p>The ILSVRC 2013 winner was a Convolutional Network from Matthew Zeiler and Rob Fergus. It became known as the ZFNet(short for Zerler &amp; Fergus Net). It was an improvement on AlexNet by tweaking the architecture hyperparameters, in particular by expanding the size of the middle convolutional layers and making the stride and filter size on the first layer smaller</p>
+<p><em>paper</em> : <a href="http://arxiv.org/abs/1311.2901" target="_blank" rel="external"><em>download</em></a></p>
+</li>
+<li><p><strong>GoogLeNet</strong></p>
+<p>The ILSVRC 2014 winner was a Convolutional Network from Szegedy et al. from Google. Its main contribution was the development of an <em>Inception Module</em> that dramatically reduced the number of parameters in the network(4M, compared to AlexNet with 60M). Additionally, this paper uses Average Pooling instead of Fully Connected layers at the top of the ConvNet, eliminating a large amount of parameters that do not seem to matter much. There are also several follow up versions to the GoogLeNet,most recently <a href="http://arxiv.org/abs/1602.07261" target="_blank" rel="external">Inception-v4</a>.</p>
+<p><em>paper</em> : <a href="http://arxiv.org/abs/1409.4842" target="_blank" rel="external"><em>download</em></a></p>
+</li>
+<li><p><strong>VGGNet</strong></p>
+<p>The runner-up in ILSVRC 2014 was the network from Karen Simonyan and Andrew Zisserman that became known as the VGGNet. Its main contribution was in showing that the depth of the network is a critical component for good performance. Their final best network contains 16 CONV/FC layers and, appealingly , features an extremely homogeneous architecture that only performs 3x3 convolutions and 2x2 pooling from the beginning to the end .Their <a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/" target="_blank" rel="external">pretrained model</a> is available for plug and play use in Caffe. A downside of the VGGNet is that it is more expensive to evaluate and uses a lot more memory and parameters(140M). Most of these parameters are  in the first fully connected layer, and it was since found that these FC layers can be removed with no performance downgrade , significantly reducing the number of necessary parameters</p>
+<p><em>paper</em> : <a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/" target="_blank" rel="external"><em>donwload</em></a></p>
+</li>
+<li><p><strong>ResNet</strong></p>
+<p>Residual Network developed by Kaiming  He et al. was the winner of ILSVRC 2015. It features special </p>
+<p>skip connections and a heavy use of batch normalization. The architecture is also missing fully connected layers at the end of the network. The reader is also referred to Kaiming’s presentations(<a href="https://www.youtube.com/watch?v=1PGLj-uKT1w" target="_blank" rel="external">video</a>, <a href="http://research.microsoft.com/en-us/um/people/kahe/ilsvrc15/ilsvrc2015_deep_residual_learning_kaiminghe.pdf" target="_blank" rel="external">slides</a>), and some <a href="https://github.com/gcr/torch-residual-networks" target="_blank" rel="external">recent experiments</a> that reproduce these networks in Torch. ResNets are currently by far state of the art Convolutional Neural Network models and are the default choice for using ConvNets in practice(as of May 10, 2016). In particular, also see more recent developments that tweak the original architecture from <a href="https://arxiv.org/abs/1603.05027" target="_blank" rel="external">Kaiming He et al. Identity Mappings in Deep Residual Networks</a> (published  Marc 2016).</p>
+<p><em>paper</em> : <a href="http://arxiv.org/abs/1512.03385" target="_blank" rel="external"><em>donwload</em></a></p>
+</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[[Convolutional Neural Networks (CNNs / ConvNets)]][<a href="http://cs231n.github.io/convolutional-networks/" target="_blank" rel="external">http://cs231n.github.io/convolutional-networks/</a>]</p>
+
+          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine-learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">convolution-networks</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/08/brief-introduction-of-several-convolution-networks/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-mind-pattern01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1711,131 +1831,6 @@
 
 
   
-    <article id="post-upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/">从ubuntu16.04/ubuntu17.04升级到ubuntu17.10(译)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/" class="archive-article-date">
-  	<time datetime="2017-10-23T14:15:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-            <p>最近ubuntu官方发布了又一个LTS：ubuntu17.10。ubuntu17.10有着很大的变化，引入了很多的新的技术。ubuntu17.10是ubuntu第一个使用GNOME Shell作为默认桌面的版本。自己也想着感受一下ubuntu17.10引入的新技术，在这里翻译一篇从ubuntu16.04/ubuntu17.04升级到ubuntu17.10的教程。<a href="https://www.linuxbabe.com/ubuntu/upgrade-from-ubuntu-16-0417-04-to-ubuntu-17-10" target="_blank" rel="external">原本在这里</a></p>
-<h2 id="从ubuntu16-4-17-04升级到ubuntu17-10的两种方式"><a href="#从ubuntu16-4-17-04升级到ubuntu17-10的两种方式" class="headerlink" title="从ubuntu16.4/17.04升级到ubuntu17.10的两种方式"></a>从ubuntu16.4/17.04升级到ubuntu17.10的两种方式</h2><p>官方发布最近发布Ubuntu17.10。此教程打算向你展示两种从Ubuntu16.04/17.04升级到Ubuntu17.10的方法：使用图像界面升级助手升级和使用命令行升级。</p>
-<h3 id="1-使用图形界面升级助手升级到Ubuntu17-10"><a href="#1-使用图形界面升级助手升级到Ubuntu17-10" class="headerlink" title="1. 使用图形界面升级助手升级到Ubuntu17.10"></a>1. 使用图形界面升级助手升级到Ubuntu17.10</h3><p>首先，打开图形终端并且运行下面的命令更新现有的软件包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt update &amp;&amp; sudo apt dist-upgrade</div></pre></td></tr></table></figure>
-<p>请注意，在运行上面的命令的时候如果你已经安装了最新的内核，为了继续升级过程你需要重启系统，然后从Unity Dahs或者你自己的应用菜单打开<strong>Software &amp; Updates</strong></p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-16.04-to-ubuntu-17.10-01.png" alt=""></p>
-<p>选择<strong>Updates</strong>选项卡并且在窗口的底部改变通知更新设置，将<strong>For long-term support version</strong>改变成<strong>For any new version</strong>.</p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-02.png" alt=""></p>
-<p>然后点击关闭按钮。你会被要求输入密码以应用上面的改变，然后在终端中输入一下命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ update-manager</div></pre></td></tr></table></figure>
-<p>如果你正在使用的是Ubuntu17.04，你会发现软件已经是最新的，并且可以升级到<strong>Ubuntu 17.10</strong>了，点击<strong>Upgrade</strong>按钮。</p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/how-to-upgrade-from-Ubuntu-17.04-to-ubuntu-17.10-03.png" alt=""></p>
-<p>如果你正在使用Ubuntu16.04，你会发现软件已经是最新的了，并且可以升级到<strong>Ubuntu 17.04</strong>了，点击<strong>Upgrade</strong>按钮。因为Ubuntu17.04还没有过期，Canonical始终会支持会Ubuntu17.04，所以在升级到Ubuntu17.10之前你需要先升级到Ubuntu17.04。</p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-04.png" alt=""></p>
-<p>然后输入你的密码。输入密码后版本发布窗口将出现，请点击<strong>Upgrade</strong>按钮。</p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-05.png" alt=""></p>
-<p>等待升级完成。如果你发现一些第三方的软件源是disabled的，只需要accept it，在升级后完成之后你可以re-enable这些软件源。</p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-06.png" alt=""></p>
-<p>一旦升级完成之后，重启你的电脑。在登录界面，你可以点击cog图标选择使用Gnome,Gnome with X.org 或者Unity 桌面环境。</p>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/upgrade-from-ubuntu-17.04-to-ubuntu-17.10-07.png" alt=""></p>
-<p>重启之后，在终端中运行下面的命令检查你当前的Ubuntu版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ lsb_release -a</div></pre></td></tr></table></figure>
-<p>如果你成功升级到Ubuntu17.10，终端将输出下面结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">No LSB modules are available</div><div class="line">Distributor ID: Ubuntu</div><div class="line">Description:    Ubuntu 17.10</div><div class="line">Release:        17.10</div><div class="line">Codename:       artful</div></pre></td></tr></table></figure>
-<h3 id="2-使用命令行升级到Ubuntu17-10"><a href="#2-使用命令行升级到Ubuntu17-10" class="headerlink" title="2.使用命令行升级到Ubuntu17.10"></a>2.使用命令行升级到Ubuntu17.10</h3><p>你可以使用命令行升级Ubuntu桌面版本和服务器版本。首先，打开终端窗口并且运行下面的命令去升级现有的软件包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt update &amp;&amp; sudo apt dist-upgrade</div></pre></td></tr></table></figure>
-<p>然后，确保你已经安装了<code>update-manager-core</code>，如果没有安装，输入下面命令进行安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt install update-manager-core</div></pre></td></tr></table></figure>
-<p>接下来，使用nano或者你自己喜爱的文本编辑器修改配置文件<code>/etc/update-manager/release-upgrades</code>，如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo nano　/etc/update-manager/release-upgrades</div></pre></td></tr></table></figure>
-<p>在配置文件的底部，将<strong>Prompt</strong>的值从<code>lts</code>改成<code>normal</code>，如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Prompt=normal</div></pre></td></tr></table></figure>
-<p>保存并关闭文件。之后运行下面的命令开始升级。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">do</span>-release-upgrade</div></pre></td></tr></table></figure>
-<p>如果你正在使用Ubuntu17.04的话，接下来的界面将引导你升级到Ubuntu17.10。如果你正在使用Ubuntu16.04，接下来的界面将引导你先升级到Ubuntu17.04，升级到Ubuntu17.04后再重复上面相同的步骤升级到Ubuntu17.10。一旦升级完成，重启你的电脑。输入下面的命令去check你的Ubuntu版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ lsb-release -a</div></pre></td></tr></table></figure>
-<p>如果你成功升级到Ubuntu17.10，将输出下面的信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">No LSB modules are available.</div><div class="line">Distributor ID: Ubuntu</div><div class="line">Description:    Ubuntu 17.10</div><div class="line">Release:        17.10</div><div class="line">Codename:       artful</div></pre></td></tr></table></figure>
-<p>升级完成之后，你需要去re-enable第三方的软件源，比如PPA，因为在升级过程中这些软件源被disable了。</p>
-
-          
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1954,11 +1949,23 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine-learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">convolution-networks</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">for-her</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1970,23 +1977,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">礼物</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine-learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
             
             <div class="clearfix"></div>
