@@ -185,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/">find-first-nonezero-element-index-of-each-row-in-matlab-matrix</a>
+      <a class="article-title" href="/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/">find out first none-zero element&#39;s index of each row in matlab matrices</a>
     </h1>
   
 
@@ -210,13 +210,12 @@
 <p>The first try  is failed, but it doesn’t means i was defeated.So i start my second problem-solving try.</p>
 <h4 id="2-The-second-try"><a href="#2-The-second-try" class="headerlink" title="2. The second try"></a>2. The second try</h4><p><strong>code:</strong></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">idx = sum(cumsum(A~=<span class="number">0</span>, <span class="number">2</span>)==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span>;</div></pre></td></tr></table></figure>
-<p>It seems i find the path to correct answer this time, but ….. it’s not working in some special case, likes the following matrix </p>
+<p>It seems i find the way to correct answer this time, but ….. it’s not working in some special case, likes the following matrix </p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">A =</div><div class="line"></div><div class="line">     <span class="number">0</span>     <span class="number">2</span>     <span class="number">0</span>     <span class="number">0</span>    <span class="number">12</span>    <span class="number">11</span>     <span class="number">0</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">0</span></div><div class="line">     <span class="number">0</span>    <span class="number">32</span>    <span class="number">21</span>   <span class="number">343</span>    <span class="number">54</span>    <span class="number">43</span>     <span class="number">0</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span></div><div class="line"></div><div class="line">idx = sum(cumsum(A~=<span class="number">0</span>, <span class="number">2</span>)==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span></div><div class="line"><span class="comment">% The last element of output seems to be not working, it's value exceeds the maximum index of A's column.</span></div><div class="line"><span class="built_in">ans</span> =</div><div class="line"></div><div class="line">     <span class="number">2</span></div><div class="line">     <span class="number">4</span></div><div class="line">     <span class="number">2</span></div><div class="line">     <span class="number">8</span></div></pre></td></tr></table></figure>
 <p>OK, this time we get more closer to the correct answer.The next question is we  how to deal with the  index-exceeding problem.Lets go further to launch our  third try</p>
 <h4 id="3-The-third-try"><a href="#3-The-third-try" class="headerlink" title="3. The third try"></a>3. The third try</h4><p><strong>code:</strong></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">idx = sum(cumsum(A~=<span class="number">0</span>, <span class="number">2</span>)==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span>;</div><div class="line">idx(idx &gt; <span class="built_in">size</span>(A, <span class="number">2</span>)) = <span class="built_in">nan</span>;</div></pre></td></tr></table></figure>
-<p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.</p>
-<p>I can bet this time , it must work fine in all  cases. What? You don’t believe what i have said. OK, i don’t want to persuade you. The fact is alway fact, you can run the code on your machine.</p>
+<p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.               I can bet this time , it must work fine in all  cases. What? You don’t believe what i have said. OK, i don’t want to persuade you. The fact is alway fact, you can run the code on your machine.</p>
 
           
       
@@ -1103,11 +1102,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">for-her</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1119,19 +1126,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">for-her</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,10 +1143,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">礼物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             
             <div class="clearfix"></div>
