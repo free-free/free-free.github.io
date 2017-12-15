@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://free-free.github.io">
-  <title>say_hello | Infinite.ft的博客</title>
+  <title>find-first-nonezero-element-index-of-each-row-in-matlab-matrix | Infinite.ft的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="say hello to me">
-<meta name="keywords" content="生活">
+  <meta name="description" content="How to find out the none-zero element index of each row in matlab matrix without using for loop?  Honestly, this fucking problem frustrates me in all day, I have no sparks on this, fortunately, i get">
+<meta name="keywords" content="matlab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="say_hello">
-<meta property="og:url" content="https://free-free.github.io/2017/09/15/say-hello/index.html">
+<meta property="og:title" content="find-first-nonezero-element-index-of-each-row-in-matlab-matrix">
+<meta property="og:url" content="https://free-free.github.io/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/index.html">
 <meta property="og:site_name" content="Infinite.ft的博客">
-<meta property="og:description" content="say hello to me">
+<meta property="og:description" content="How to find out the none-zero element index of each row in matlab matrix without using for loop?  Honestly, this fucking problem frustrates me in all day, I have no sparks on this, fortunately, i get">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2017-11-04T12:27:34.306Z">
+<meta property="og:updated_time" content="2017-12-15T13:58:53.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="say_hello">
-<meta name="twitter:description" content="say hello to me">
+<meta name="twitter:title" content="find-first-nonezero-element-index-of-each-row-in-matlab-matrix">
+<meta name="twitter:description" content="How to find out the none-zero element index of each row in matlab matrix without using for loop?  Honestly, this fucking problem frustrates me in all day, I have no sparks on this, fortunately, i get">
   
     <link rel="alternative" href="/atom.xml" title="Infinite.ft的博客" type="application/atom+xml">
   
@@ -181,20 +181,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-say-hello" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-find-first-nonezero-element-index-of-each-row-in-matlab-matrix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/say-hello/">say_hello</a>
+      <a class="article-title" href="/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/">find-first-nonezero-element-index-of-each-row-in-matlab-matrix</a>
     </h1>
   
 
         
-        <a href="/2017/09/15/say-hello/" class="archive-article-date">
-  	<time datetime="2017-09-15T10:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
+        <a href="/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/" class="archive-article-date">
+  	<time datetime="2017-12-15T12:54:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
 </a>
         
       </header>
@@ -202,7 +202,24 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-            <p>say hello to me</p>
+            <p>How to find out the none-zero element index of each row in matlab matrix without using for loop?  Honestly, this fucking problem frustrates me in all day, I have no sparks on this, fortunately, i get a roughly problem-solving  solution with help of enthusiastic people.OK ,lets get down to code.</p>
+<p>Here we assume $A$ is $m\times n$ matrix, the problem is find out the index of first none-zero element of each row in $A$. </p>
+<h4 id="1-The-first-try"><a href="#1-The-first-try" class="headerlink" title="1. The first try"></a>1. The first try</h4><p><strong>code</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">idx = sum(A==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>The above code seems to be working, the truths is it just  works fine in some special matrices, likes</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">A = </div><div class="line"></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>    <span class="number">12</span>    <span class="number">11</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></div><div class="line">     <span class="number">0</span>    <span class="number">32</span>    <span class="number">21</span>   <span class="number">343</span>    <span class="number">54</span>    <span class="number">43</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span></div><div class="line">     </div><div class="line">idx = sum(A==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span></div><div class="line"><span class="comment">% The output follows</span></div><div class="line"><span class="built_in">ans</span> =</div><div class="line"></div><div class="line">     <span class="number">5</span></div><div class="line">     <span class="number">4</span></div><div class="line">     <span class="number">2</span></div><div class="line">     <span class="number">6</span></div><div class="line"><span class="comment">% see that,it is corret</span></div></pre></td></tr></table></figure>
+<p>but except other general matrices,likes</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">A =</div><div class="line"></div><div class="line">     <span class="number">0</span>     <span class="number">2</span>     <span class="number">0</span>     <span class="number">0</span>    <span class="number">12</span>    <span class="number">11</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></div><div class="line">     <span class="number">0</span>    <span class="number">32</span>    <span class="number">21</span>   <span class="number">343</span>    <span class="number">54</span>    <span class="number">43</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span></div><div class="line">idx = sum(A==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span></div><div class="line"><span class="comment">% The output follows</span></div><div class="line"><span class="built_in">ans</span> =</div><div class="line"></div><div class="line">     <span class="number">4</span></div><div class="line">     <span class="number">4</span></div><div class="line">     <span class="number">2</span></div><div class="line">     <span class="number">6</span></div></pre></td></tr></table></figure>
+<p>The first try  is failed, but it doesn’t means i was defeated.So i start my second problem-solving try.</p>
+<h4 id="2-The-second-try"><a href="#2-The-second-try" class="headerlink" title="2. The second try"></a>2. The second try</h4><p><strong>code:</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">idx = sum(cumsum(A~=<span class="number">0</span>, <span class="number">2</span>)==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p>It seems i find the path to correct answer this time, but ….. it’s not working in some special case, likes the following matrix </p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">A =</div><div class="line"></div><div class="line">     <span class="number">0</span>     <span class="number">2</span>     <span class="number">0</span>     <span class="number">0</span>    <span class="number">12</span>    <span class="number">11</span>     <span class="number">0</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">0</span></div><div class="line">     <span class="number">0</span>    <span class="number">32</span>    <span class="number">21</span>   <span class="number">343</span>    <span class="number">54</span>    <span class="number">43</span>     <span class="number">0</span></div><div class="line">     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span></div><div class="line"></div><div class="line">idx = sum(cumsum(A~=<span class="number">0</span>, <span class="number">2</span>)==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span></div><div class="line"><span class="comment">% The last element of output seems to be not working, it's value exceeds the maximum index of A's column.</span></div><div class="line"><span class="built_in">ans</span> =</div><div class="line"></div><div class="line">     <span class="number">2</span></div><div class="line">     <span class="number">4</span></div><div class="line">     <span class="number">2</span></div><div class="line">     <span class="number">8</span></div></pre></td></tr></table></figure>
+<p>OK, this time we get more closer to the correct answer.The next question is we  how to deal with the  index-exceeding problem.Lets go further to launch our  third try</p>
+<h4 id="3-The-third-try"><a href="#3-The-third-try" class="headerlink" title="3. The third try"></a>3. The third try</h4><p><strong>code:</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">idx = sum(cumsum(A~=<span class="number">0</span>, <span class="number">2</span>)==<span class="number">0</span>, <span class="number">2</span>) + <span class="number">1</span>;</div><div class="line">idx(idx &gt; <span class="built_in">size</span>(A, <span class="number">2</span>)) = <span class="built_in">nan</span>;</div></pre></td></tr></table></figure>
+<p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.</p>
+<p>I can bet this time , it must work fine in all  cases. What? You don’t believe what i have said. OK, i don’t want to persuade you. The fact is alway fact, you can run the code on your machine.</p>
 
           
       
@@ -217,7 +234,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">matlab</a>
         		</li>
       		
 		</ul>
@@ -238,7 +255,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/say-hello/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/">展开全文 >></a>
         </p>
       
 
