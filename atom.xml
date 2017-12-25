@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://free-free.github.io/"/>
-  <updated>2017-12-25T08:08:48.855Z</updated>
+  <updated>2017-12-25T08:10:51.448Z</updated>
   <id>https://free-free.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>python enhancement proposals(pep)</title>
+    <title>Python Enhancement Proposals(pep)</title>
     <link href="https://free-free.github.io/2017/12/22/python-pep/"/>
     <id>https://free-free.github.io/2017/12/22/python-pep/</id>
     <published>2017-12-22T12:59:28.000Z</published>
-    <updated>2017-12-25T08:08:48.855Z</updated>
+    <updated>2017-12-25T08:10:51.448Z</updated>
     
     <content type="html"><![CDATA[<p>This  article is a list notes about <code>Python Enhancement Proposal</code>, aka <code>PEP</code>, which contains proposals those should be well known to every python developer.  So, What’s means of <code>PEP</code>? Here, I don’t want to explain it too much to you, I cite a  brief definition about it  from Wikipedia, as follows:</p><blockquote><p>Python’s development is conducted largely through the <em>Python Enhancement Proposal</em> (PEP) process, the primary mechanism for proposing major new features, collecting community input on issues and documenting Python design decisions. Outstanding PEPs are reviewed and commented on by the Python community and Guido Van Rossum, Python’s <a href="https://en.wikipedia.org/wiki/Benevolent_Dictator_For_Life" target="_blank" rel="external">Benevolent Dictator For Life</a></p><p>​                                                                    — from Wikipedia</p></blockquote><h5 id="PEP-0"><a href="#PEP-0" class="headerlink" title="PEP 0"></a><strong>PEP 0</strong></h5><p>This PEP maintains  the index of all Python Enhancement Proposals, aka PEPs. Each PEP number is assigned by the PEP author, once assigned is never changed.</p><p><a href="https://www.python.org/dev/peps/" target="_blank" rel="external">PEP contents</a></p><h5 id="PEP-1"><a href="#PEP-1" class="headerlink" title="PEP 1"></a><strong>PEP 1</strong></h5><p>This PEP introduces the concept of PEPs and detailly explains the workflow of PEPs.</p><p><a href="https://www.python.org/dev/peps/pep-0001/" target="_blank" rel="external">PEP contents</a></p><h5 id="PEP-8"><a href="#PEP-8" class="headerlink" title="PEP 8"></a><strong>PEP 8</strong></h5><p>This PEP is deadly necessary to python developer who want to write human-readable and concise python code. I strongly recommend you to read it and perform it if want to go further more on python.</p><p><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">PEP contents</a></p><p>This article will be updated at all times.</p>]]></content>
     
@@ -42,7 +42,7 @@
   </entry>
   
   <entry>
-    <title>find out first none-zero element&#39;s index of each row in matlab matrices</title>
+    <title>Find Out First None-Zero Element&#39;s Index of Each Row in Matlab Matrices</title>
     <link href="https://free-free.github.io/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/"/>
     <id>https://free-free.github.io/2017/12/15/find-first-nonezero-element-index-of-each-row-in-matlab-matrix/</id>
     <published>2017-12-15T12:54:08.000Z</published>
@@ -67,7 +67,7 @@
   </entry>
   
   <entry>
-    <title>a-brief-introduction-of-pytorch</title>
+    <title>A-Brief-Introduction-of-Pytorch</title>
     <link href="https://free-free.github.io/2017/11/23/a-brief-introduction-of-pytorch/"/>
     <id>https://free-free.github.io/2017/11/23/a-brief-introduction-of-pytorch/</id>
     <published>2017-11-23T14:09:53.000Z</published>
@@ -81,7 +81,7 @@
   </entry>
   
   <entry>
-    <title>A brief introduction of several useful convolutional networks</title>
+    <title>A Brief Introduction of Several Useful Convolutional Networks</title>
     <link href="https://free-free.github.io/2017/11/08/brief-introduction-of-several-convolution-networks/"/>
     <id>https://free-free.github.io/2017/11/08/brief-introduction-of-several-convolution-networks/</id>
     <published>2017-11-08T12:09:00.000Z</published>
@@ -267,7 +267,7 @@
   </entry>
   
   <entry>
-    <title>markdown集成mathjax</title>
+    <title>Markdown集成mathjax</title>
     <link href="https://free-free.github.io/2017/10/24/integrate-with-mathjax-in-markdown/"/>
     <id>https://free-free.github.io/2017/10/24/integrate-with-mathjax-in-markdown/</id>
     <published>2017-10-24T10:42:57.000Z</published>
@@ -342,7 +342,7 @@
   </entry>
   
   <entry>
-    <title>ubuntu下绑定串口设备名</title>
+    <title>Ubuntu下绑定串口设备名</title>
     <link href="https://free-free.github.io/2017/10/20/binding-serialport-device-name/"/>
     <id>https://free-free.github.io/2017/10/20/binding-serialport-device-name/</id>
     <published>2017-10-20T10:44:39.000Z</published>
@@ -367,7 +367,7 @@
   </entry>
   
   <entry>
-    <title>python黑魔法－元类</title>
+    <title>Python黑魔法－元类</title>
     <link href="https://free-free.github.io/2017/10/15/python-black-magic-metaclass/"/>
     <id>https://free-free.github.io/2017/10/15/python-black-magic-metaclass/</id>
     <published>2017-10-15T10:46:31.000Z</published>
@@ -392,7 +392,7 @@
   </entry>
   
   <entry>
-    <title>使用元类实现python 单例模式</title>
+    <title>使用元类实现Python 单例模式</title>
     <link href="https://free-free.github.io/2017/10/14/implementation-of-singleton-using-metaclass/"/>
     <id>https://free-free.github.io/2017/10/14/implementation-of-singleton-using-metaclass/</id>
     <published>2017-10-14T11:47:18.000Z</published>
@@ -417,7 +417,7 @@
   </entry>
   
   <entry>
-    <title>python单例模式:装饰器版</title>
+    <title>Python单例模式:装饰器版</title>
     <link href="https://free-free.github.io/2017/10/11/implementation-of-singleton-using-decrator/"/>
     <id>https://free-free.github.io/2017/10/11/implementation-of-singleton-using-decrator/</id>
     <published>2017-10-11T10:36:47.000Z</published>
@@ -467,7 +467,7 @@
   </entry>
   
   <entry>
-    <title>say_hello</title>
+    <title>Say_hello</title>
     <link href="https://free-free.github.io/2017/09/15/say-hello/"/>
     <id>https://free-free.github.io/2017/09/15/say-hello/</id>
     <published>2017-09-15T10:41:29.000Z</published>
