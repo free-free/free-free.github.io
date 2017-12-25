@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://free-free.github.io/"/>
-  <updated>2017-12-21T15:07:35.292Z</updated>
+  <updated>2017-12-25T07:48:50.334Z</updated>
   <id>https://free-free.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python enhancement proposals(pep)</title>
+    <link href="https://free-free.github.io/2017/12/22/python-pep/"/>
+    <id>https://free-free.github.io/2017/12/22/python-pep/</id>
+    <published>2017-12-22T12:59:28.000Z</published>
+    <updated>2017-12-25T07:48:50.334Z</updated>
+    
+    <content type="html"><![CDATA[<p>This  article is a list notes about <code>Python Enhancement Proposal</code>, aka <code>PEP</code>, which contains proposals those should be well known to every python developer.  So, What’s means of <code>pep</code>? Here, I don’t want to explain it too much to you, I cite a  brief definition about it  from Wikipedia, as follows:</p><blockquote><p>Python’s development is conducted largely through the <em>Python Enhancement Proposal</em> (PEP) process, the primary mechanism for proposing major new features, collecting community input on issues and documenting Python design decisions.<a href="https://en.wikipedia.org/wiki/Python_(programming_language" target="_blank" rel="external">[104]</a>#cite_note-PepCite000-104) Outstanding PEPs are reviewed and commented on by the Python community and Guido Van Rossum, Python’s <a href="https://en.wikipedia.org/wiki/Benevolent_Dictator_For_Life" target="_blank" rel="external">Benevolent Dictator For Life</a>.<a href="https://en.wikipedia.org/wiki/Python_(programming_language" target="_blank" rel="external">[104]</a>#cite_note-PepCite000-104)</p><p>​                                                                    — from Wikipedia</p></blockquote><ol><li><p><strong>PEP 0</strong></p><p>This PEP maintains  the index of all Python Enhancement Proposals, aka PEPs. Each PEP number is assigned by the PEP author, once assigned is never changed.</p><p><a href="https://www.python.org/dev/peps/" target="_blank" rel="external">PEP contents</a></p></li><li><p><strong>PEP 1</strong></p><p>This PEP introduces the concept of PEPs and detailly explains the workflow of PEPs.</p><p><a href="https://www.python.org/dev/peps/pep-0001/" target="_blank" rel="external">PEP contents</a></p></li><li><p><strong>PEP 8</strong></p><p>This PEP is deadly necessary to python developer who want to write human-readable and concise python code. I strongly recommend you to read it and perform it if want to go further more on python.</p><p><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="external">PEP contents</a></p></li></ol><p>This article will be updated at all times.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This  article is a list notes about &lt;code&gt;Python Enhancement Proposal&lt;/code&gt;, aka &lt;code&gt;PEP&lt;/code&gt;, which contains proposals those should
+      
+    
+    </summary>
+    
+      <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
+    
+    
+      <category term="python" scheme="https://free-free.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>find out first none-zero element&#39;s index of each row in matlab matrices</title>
