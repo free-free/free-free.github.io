@@ -212,10 +212,10 @@
 <p>$$G(s) = C(sI - A)^{-1}B + D$$</p>
 <p>Here the calculation of $(sI - A)^{-1}$ is cumbersome,  especially for student who has no assistance with computer.The computational  method of $(sI - A)^{-1}$ can be given in a more comprehensive way, as shown below.</p>
 <p>$$(sI - A)^{-1} = \frac{adj(sI - A)}{det(sI - A)}$$</p>
-<p>$$adj(sI - A) = R<em>{n-1}s^{n-1} +R</em>{n-2}s^{n-2} + \dotsb + R_1s + R_0​$$</p>
-<p>$$det(sI - A) = s^n + a<em>{n-1}s^{n-1} + a</em>{n-2}s^{n-2}+ \dotsb + a_1s + a0$$</p>
+<p>$$adj(sI - A) = R_{n-1}s^{n-1} +R_{n-2}s^{n-2} + \dotsb + R_1s + R_0$$</p>
+<p>$$det(sI - A) = s^n + a_{n-1}s^{n-1} + a_{n-2}s^{n-2}+ \dotsb + a_1s + a_0$$</p>
 <p>So here i have already given  the method of computation of $(sI - A)^{-1}$, the next question is how to calculate $R<em>{n-1}, R</em>{n-2}, \dots, R<em>0$ and $a</em>{n-1}, a<em>{n-1}, \dots, a</em>{0}$. The relationship of them is brief and clear.</p>
-<p>$$\begin{cases} R<em>{n-1} =  I,a</em>{n-1} = - \frac{tr(R<em>{n-1}A)}{1}\ R</em>{n-2} = R<em>{n-1}A + a</em>{n-1}I, a<em>{n-2}= -\frac{tr(R</em>{n-2}A)}{2!} \ \cdots \  \cdots \R<em>{1} = R</em>{2}A + a<em>{2}I, a</em>{1}= -\frac{tr(R<em>{1}A)}{(n-1)!} \ R</em>{0} = R<em>{1}A + a</em>{1}I, a<em>{0}= -\frac{tr(R</em>{0}A)}{n!}\end{cases}$$</p>
+<p>$$\begin{cases} R_{n-1} =  I,a_{n-1} = - \frac{tr(R_{n-1}A)}{1} \\ R_{n-2} = R_{n-1}A + a_{n-1}I, a_{n-2}= -\frac{tr(R_{n-2}A)}{2!} \\ \cdots \\  \cdots \\ R_{1} = R_{2}A + a_{2}I, a_{1}= -\frac{tr(R_{1}A)}{(n-1)!} \\ R_{0} = R_{1}A + a_{1}I, a_{0}= -\frac{tr(R_{0}A)}{n!}\end{cases}$$</p>
 
           
       
