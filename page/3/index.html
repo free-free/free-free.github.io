@@ -178,6 +178,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-implementation-of-singleton-using-metaclass" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/14/implementation-of-singleton-using-metaclass/">使用元类实现Python 单例模式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/14/implementation-of-singleton-using-metaclass/" class="archive-article-date">
+  	<time datetime="2017-10-14T11:47:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+            <h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>　　上一篇博客介绍了<a href="/2017/10/11/implementation-of-singleton-using-decrator/">使用装饰器实现python单例模式</a>，这篇博客将介绍使用python的黑魔法－元类(Metaclass)来实现python的单例模式。对于知道元类的pythoner，使用元类实现单例模式应该是很简单的。然而对于不知道python元类的同行来说，理解起来可能要吃力一点，关于元类的介绍请看<a href="/2017/10/15/python-black-magic-metaclass/">这篇文档</a>。在Python中，创建一个对象的流程如下图：</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/implementation-of-singleton-using-new-method-01.png" alt=""></p>
+<p>在创建对象时，由元类的<code>__call__</code>method负责调用类的<code>__new__</code>method，<code>__new__</code>method返回对象之后，z再调用<code>__call__</code>method来初始化对象，初始化完成之后，最后由元类的<code>__call__</code>方法返回对象。从上述流程可知，我们只需要在元类的<code>__call__</code>method返回同一对象，即可实现单例模式。</p>
+<h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2.实现"></a>2.实现</h3><h5 id="2-1-Environment"><a href="#2-1-Environment" class="headerlink" title="2.1 Environment"></a>2.1 Environment</h5><ul>
+<li>ubuntu 16.04</li>
+<li>python3.5</li>
+</ul>
+<h5 id="2-2-代码"><a href="#2-2-代码" class="headerlink" title="2.2 代码"></a>2.2 代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingletonMeta</span><span class="params">(type)</span>:</span></div><div class="line">  </div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(cls, *args, **kwargs)</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="string">'_instance'</span> <span class="keyword">not</span> <span class="keyword">in</span> cls.__dict__:</div><div class="line">      cls._instance = super().__call__(*args, **kwargs)</div><div class="line">    <span class="keyword">return</span> cls._instance</div><div class="line">  </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span><span class="params">(object, metaclass=SingletonMeta)</span>:</span></div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">    <span class="keyword">pass</span> </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">  obj1 = Singleton()</div><div class="line">  obj2 = Singleton()</div><div class="line">  print(id(obj1))</div><div class="line">  print(id(obj2))</div><div class="line">  print(obj1 == obj2)</div></pre></td></tr></table></figure>
+<p>output:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">140206360941400</span></div><div class="line"><span class="number">140206360941400</span></div><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]Python单例模式的4种实现方法</a></p>
+<p><a href="https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/" target="_blank" rel="external">[2]Understanding Python metaclasses</a></p>
+
+          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/14/implementation-of-singleton-using-metaclass/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-implementation-of-singleton-using-decrator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -624,14 +722,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine-learning</a>
               </li>
              
@@ -644,11 +734,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">for-her</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">for-her</a>
               </li>
              
               <li class="article-tag-list-item">
