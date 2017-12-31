@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Infinite.ft的博客">
 <meta property="og:description" content="In this semester early, I has enrolled my first degree course Linear System Theory . The focus of this course is the state space representation  and illustrate the concept about observable and contr">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-12-31T17:18:18.638Z">
+<meta property="og:updated_time" content="2017-12-31T17:27:29.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convert State Space Representation to Transfer Function">
 <meta name="twitter:description" content="In this semester early, I has enrolled my first degree course Linear System Theory . The focus of this course is the state space representation  and illustrate the concept about observable and contr">
@@ -205,8 +205,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 <p>In this semester early, I has enrolled my first degree course <em>Linear System Theory</em> . The focus of this course is the state space representation  and illustrate the concept about observable and controllable of a linear system. As a student of Control science and Engineering, i know how importance of it to my career in latter life. Everything must be practical, this course is also not a exception. here, as a practice , <strong>i will give a implementation of converting state space to transfer function representation.</strong></p>
-<h4 id="Mathematical-representation"><a href="#Mathematical-representation" class="headerlink" title="Mathematical representation"></a>Mathematical representation</h4><p>Given the transfer function of a linear time invariant (LTI) system,as shown below.</p>
-<p>$$G(s) = \frac{b<em>{m}s^m + b</em>{m-1}s^{m-1}+ \dotsb + b<em>{1}s + b</em>{0}}{s^n + \alpha<em>{n-1}s^{n-1} + \alpha</em>{n-2}s^{n-2} + \dotsb + \alpha<em>{1}s+\alpha</em>{0}}$$ </p>
+<p>###Mathematical representation</p>
+<p>Given the transfer function of a linear time invariant (LTI) system,as shown below.</p>
+<p>$$G(s) = \frac{b_{m}s^m + b_{m-1}s^{m-1}+ \dotsb + b_{1}s + b_{0}}{s^n + \alpha_{n-1}s^{n-1} + \alpha_{n-2}s^{n-2} + \dotsb + \alpha_{1}s+\alpha_{0}}$$ </p>
 <p>It’s state space representation as follows.</p>
 <p>$$\begin{cases}\dot{x} = Ax + Bu \\ y = Cx + Du\end{cases}$$</p>
 <p> In above equation,$x$ is the state vector of system, $u$ is the input and $y$ is the output. $A$ called system matrix, it’s dimension is $n\times n$ .B called input matrix, it’s dimension is $n \times p$. C called output matrix , it’s dimension is $q \times n$. D called input &amp; output relational matrix, it’s dimension is $q \times p$.</p>
@@ -214,7 +215,7 @@
 <p>$$G(s) = C(sI - A)^{-1}B + D$$</p>
 <p>Here the calculation of $(sI - A)^{-1}$ is cumbersome,  especially for student who has no assistance with computer.The computational  method of $(sI - A)^{-1}$ can be given in a more comprehensive way, as shown below.</p>
 <p>$$(sI - A)^{-1} = \frac{adj(sI - A)}{det(sI - A)}$$</p>
-<p>$$adj(sI - A) = R<em>{n-1}s^{n-1} +R</em>{n-2}s^{n-2} + \dotsb + R_1s + R_0$$</p>
+<p>$$adj(sI - A) = R<em>{n-1}s^{n-1} +R</em>{n-2}s^{n-2} + \dotsb + R_1s + R_0​$$</p>
 <p>$$det(sI - A) = s^n + a<em>{n-1}s^{n-1} + a</em>{n-2}s^{n-2}+ \dotsb + a_1s + a0$$</p>
 <p>So here i have already given  the method of computation of $(sI - A)^{-1}$, the next question is how to calculate $R<em>{n-1}, R</em>{n-2}, \dots, R<em>0$ and $a</em>{n-1}, a<em>{n-1}, \dots, a</em>{0}$. The relationship of them is brief and clear.</p>
 <p>$$\begin{cases} R<em>{n-1} =  I,a</em>{n-1} = - \frac{tr(R<em>{n-1}A)}{1}\ R</em>{n-2} = R<em>{n-1}A + a</em>{n-1}I, a<em>{n-2}= -\frac{tr(R</em>{n-2}A)}{2!} \ \cdots \  \cdots \R<em>{1} = R</em>{2}A + a<em>{2}I, a</em>{1}= -\frac{tr(R<em>{1}A)}{(n-1)!} \ R</em>{0} = R<em>{1}A + a</em>{1}I, a<em>{0}= -\frac{tr(R</em>{0}A)}{n!}\end{cases}$$</p>
@@ -394,15 +395,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -414,11 +411,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">for-her</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
