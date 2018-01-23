@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/plot3_test1.bmp">
 <meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test1.bmp">
 <meta property="og:image" content="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test2.bmp">
-<meta property="og:updated_time" content="2018-01-23T16:00:56.749Z">
+<meta property="og:updated_time" content="2018-01-23T16:05:06.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matlab 3d Plot Function">
 <meta name="twitter:description" content="When it comes to data analysis or systematic modeling, the visualization of data is an important assistant tool to provide an intuitive understanding of data and system’s performance in some degree. T">
@@ -310,27 +310,18 @@
 </li>
 <li><p><strong><code>plot3</code></strong></p>
 <p><code>plot3</code>  plots lines and points in 3-D space. <code>plot3</code> is a three-dimensional version of <code>plot</code>. </p>
-<pre><code>t = -10*pi:pi/50:10*pi;
-plot3(sin(t), cos(t), t.^2);
-</code></pre><p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/plot3_test1.bmp" alt=""></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">t = <span class="number">-10</span>*<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</div><div class="line">plot3(<span class="built_in">sin</span>(t), <span class="built_in">cos</span>(t), t.^<span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/plot3_test1.bmp" alt=""></p>
 <center>fig 14. the view of <code>plot3</code></center>
 </li>
 <li><p><strong><code>waterfall</code></strong></p>
 <p><code>waterfall</code> is the same as <code>mesh</code> except that the column lines of the mesh are not drawn - thus producing a “waterfall” plot. For column-oriented data analysis, use <code>waterfall(Z&#39;)</code>or<br><code>waterfall(X&#39;,Y&#39;,Z&#39;)</code>.</p>
-<pre><code>figure;
-waterfall(peaks);
-[X,Y] = meshgrid(-8:.5:8);
-R = sqrt(X.^2 + Y.^2) + eps;
-Z = sin(R)./R;
-figure;
-waterfall(Z);
-</code></pre><p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test1.bmp" alt=""></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">figure;</div><div class="line">waterfall(peaks);</div><div class="line">[X,Y] = <span class="built_in">meshgrid</span>(<span class="number">-8</span>:<span class="number">.5</span>:<span class="number">8</span>);</div><div class="line">R = <span class="built_in">sqrt</span>(X.^<span class="number">2</span> + Y.^<span class="number">2</span>) + <span class="built_in">eps</span>;</div><div class="line">Z = <span class="built_in">sin</span>(R)./R;</div><div class="line">figure;</div><div class="line">waterfall(Z);</div></pre></td></tr></table></figure>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test1.bmp" alt=""></p>
 <center>fig 15. the view of <code>waterfall</code></center>
 
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test2.bmp" alt=""></p>
-<center>fig 16. the view of <code>waterfall</code></center>
-
-</li>
+<center>fig 16. the view of <code>waterfall</code></center></li>
 </ul>
 
           
@@ -508,15 +499,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine-learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">convolution-network</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,7 +527,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,10 +536,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">礼物</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
