@@ -178,6 +178,119 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-black-magic-metaclass" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/15/python-black-magic-metaclass/">Python黑魔法－元类</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/15/python-black-magic-metaclass/" class="archive-article-date">
+  	<time datetime="2017-10-15T10:46:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+            <h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><p>　　python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，<strong>descriptor</strong> 、<strong>decorator</strong>、<strong>metaclass</strong>等。拥有了这些黑魔法就等于你拥有了Thor的hammer，无敌到爆表。好了，nb吹的差不多了^o^，让我们严肃起来，端庄的迎接我们今天的主角(<em>友情提示：该主角光芒有点强烈，请大家准备好墨镜，保护好自己的眼睛</em>)，ladies and gentlemen welcome our loading actor －<strong>metaclass</strong>。</p>
+<h3 id="2-python-元类"><a href="#2-python-元类" class="headerlink" title="2. python 元类"></a>2. python 元类</h3><p>在python世界中一切皆对象，当谈到一个对象时必然地会涉及到这个对象的类。例如，字符串对象<code>&quot;dede&quot;</code>的类是<code>str</code>，列表对象<code>[1, 2, 4]</code>的类是<code>list</code>，字典对象<code>{&quot;key&quot;:&quot;value&quot;}</code>的类是<code>dict</code>，这些概念对于懂得面向对象的programmer来说都是常识。但是处在一切皆对象的python世界中，你有没有在某一时刻思考过，python中的类是否也是对象？我相信对于大多数pythoner来说，都会给出一个正确的回答。是的，在python的世界里类也是对象。那既然类也是对象，那就必然又会继续思考类的类是什么？其实在你思考类的类是什么时候，可能已经想到这个类的类应该会和普通的类一样，有一系列的method，比如<code>__init__</code>、<code>__call__</code>、<code>__new__</code>等，只是你不知道这个类的类应该叫什么名字。就在你纠结该给类的类取一个什么样的名字的时候，python世界的仲裁者出现了，他们告诉你这个类的类叫做元类。好了，从此天下太平，大家都知道了类的类就做元类。对，元类就是类的类，这个元类并没有什么特殊之处。你现在只需要改变一下你观察类时所在的位置。以前你是站在普通实例对象的位置去观察它的类，现在需要往前走一步站在类的位置去观察它的类－－元类。</p>
+<p>　　现在我们对元类已经有了intuitive的认识，为了彻底搞清楚元类是什么，我们需要到python世界里去实地考察一下。我们先从常见的类下手，去看看这些类的类是什么。就像我们平常查看一个普通实例对象的类一样，需要使用<code>type</code>函数，我们在查看类的类时候，也需要使用<code>type</code>函数，那就让我们开始吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(str)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">type</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(dict)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(list)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(tuple)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(object)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></div></pre></td></tr></table></figure>
+<p>当看到上面的输出的时候，有人可能就会产生疑问了。<code>type</code>不是一个函数吗？怎样现在又成一个类了？你以为是你长时间看电脑眼睛花了，你使劲的揉了眼睛之后，再仔细看它还是那样。没毛病，<code>type</code>就是这么的特殊，它是python世界中的万类之<code>元</code>，它是所有类的元类，包括它自己的元类也是它本身(八卦一下，你长这么大见过一个人的父亲就是他自己本身吗？没见过的话，说明你是正常的)，不信的话请看下面的输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(type)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">type</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(type<span class="params">(type)</span>)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></div></pre></td></tr></table></figure>
+<p>反正不管怎么说，你的三观肯定是被刷新了的，请直视自己的内心。好吧，既然<code>type</code>这么特殊，那它有什么怪癖呢？怪癖肯定是有的，让我们慢慢来分析一下。</p>
+<ul>
+<li><p>当<code>type</code>作为函数使用时，它的行为会根据传入参数个数的不同而不同。当传入一个参数时，<code>type</code>会返回传入参数的类型，如下面所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="string">"hello,python world!"</span>)</div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">str</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">([<span class="number">512</span>, <span class="number">1024</span>, <span class="number">2048</span>])</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">list</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="params">(<span class="number">4096</span>, )</span>)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">tuple</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(&#123;<span class="string">"name"</span>: <span class="string">"python"</span>, <span class="string">"birthday"</span>: <span class="string">"1999"</span>&#125;)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">dict</span>'&gt;</span></div><div class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(str)</span></span></div><div class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></div></pre></td></tr></table></figure>
+<p>当传入三个参数时，<code>type</code>会返回一个类，参数列表如下所示：</p>
+<ul>
+<li><p><strong>name</strong>  : 返回类的名字，必须是字符串</p>
+</li>
+<li><p><strong>bases</strong>  : 返回类的父类，必须是tuple，可以同时继承自多个父类</p>
+</li>
+<li><p><strong>attrs</strong>  : 返回类的属性，必须是dict，在类初始化的时候会添加到类的<code>__dict__</code>中。</p>
+<p>整个调用原型是这样的<code>type(name, bases, attrs)</code>，具体示例请看下面。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="string">"ClassOne"</span>, (), &#123;&#125;) <span class="comment">#</span></div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">__main__</span>.<span class="title">ClassOne</span>'&gt;</span></div><div class="line">&gt;&gt;&gt; ClassTwo = type("ClassTwo", (), &#123;"name": "python", "age": 18&#125;)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ClassTwo.name</div><div class="line"><span class="string">'python'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ClassTwo.age</div><div class="line"><span class="number">18</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(ClassTwo) <span class="comment">#并且ClassTwo的类也是'type'</span></div><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">type</span>'&gt;</span></div></pre></td></tr></table></figure>
+<p>看了上面示例之后，肯定有人心里就会有想法了。我们可以使用<code>type</code>来动态的创建类，这确实是一个很好的想法。于是有人真的将这个想法付诸于实践了，请看下面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_gender</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">return</span> self._gender</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_gender</span><span class="params">(self, val)</span>:</span></div><div class="line">    self._gender = val</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_name</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">return</span> self._name</div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(self, val)</span>:</span></div><div class="line">    self._name = val</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self, name, gender)</span>:</span></div><div class="line">    self._name = name</div><div class="line">    self._gender = gender</div><div class="line">    </div><div class="line">Student = type(<span class="string">"Student"</span>, (object ), &#123;<span class="string">"get_gender"</span>: get_gender, <span class="string">"set_gender"</span>: \</div><div class="line">                                    set_gender, <span class="string">"get_name"</span>: get_name, <span class="string">"set_name"</span>:\</div><div class="line">                                    set_name, <span class="string">"__init__"</span>: init&#125;)</div><div class="line">Teacher = type(<span class="string">"Teacher"</span>,(object, ), &#123;<span class="string">"get_gender"</span>: get_gender, <span class="string">"set_gender"</span>: \</div><div class="line">                                     set_gender, <span class="string">"get_name"</span>: get_name, <span class="string">"set_name"</span>: \</div><div class="line">                                     set_name, <span class="string">"__init__"</span>: init&#125;)</div><div class="line">stu1 = Student(<span class="string">"John"</span>, <span class="string">"male"</span>)</div><div class="line">teacher1 = Teacher(<span class="string">"John_Father"</span>, <span class="string">"male"</span>)</div></pre></td></tr></table></figure>
+<p>看了上面的代码，有没有人觉得瘆得慌，反正我是有点。</p>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.programiz.com/python-programming/methods/built-in/type" target="_blank" rel="external">[1] : Python type()</a></p>
+
+          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/15/python-black-magic-metaclass/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-implementation-of-singleton-using-metaclass" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -722,19 +835,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lua</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine-learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">convolution-network</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lua</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,7 +859,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,6 +868,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">礼物</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
               </li>
              
               <li class="article-tag-list-item">
