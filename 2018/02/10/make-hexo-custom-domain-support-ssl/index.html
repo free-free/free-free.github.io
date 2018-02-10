@@ -6,12 +6,12 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   
-      <title>Infinite.ft的博客</title>
-  
   
   
   
     
+  
+      <title>Make Hexo Custom Domain Support SSL - Infinite.ft的博客</title>
   
   
   <meta name="description" content="">
@@ -128,247 +128,117 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="flex: 1;">
-      <div class="container" id='/page/3/index.html' data-name='index' data-version='1.0.0'>
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
 
-	<div class='index-intro'>
-		..........
-	</div>
+<article class="article" id="/2018/02/10/make-hexo-custom-domain-support-ssl/" data-name='Make Hexo Custom Domain Support SSL' data-version="">
 
-	
-		<div class="grid-2_md-1 grid-equalHeight">
-		
-			<div class="col">
-	<div class='Card Card-hover' id='/2017/10/11/implementation-of-singleton-using-decrator/' data-name='Python单例模式:装饰器版' data-version=''>
-		
-			
-				
-					
-					
-				
-			
-		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2017/10/11/implementation-of-singleton-using-decrator/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
+    <!-- Title -->
 
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2017/10/11/implementation-of-singleton-using-decrator/">
-					
-					Python单例模式:装饰器版</a></h2>
-					<p class='Card-title-tags'>
+    
+        
+            
+                
+                
+            
+        
+    
 
-	
-		<label><a href="/tags/python/">#Python</a></label>
-	
-
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2017/10/11/implementation-of-singleton-using-decrator/">
-					
-					
-					
-						...
-					
-					</a></p>
-					<p>
+    <div class='article-header'>
+         
+         <h1 class='article-title'>
+            <a href="/2018/02/10/make-hexo-custom-domain-support-ssl/">
+                Make Hexo Custom Domain Support SSL
+            </a>
+        </h1>
+        
+        <ul class='article-categories'>
+            
+            
+                <li><a href="/categories/tech/" data-no-instant>
+                    <img src="/images/tech.svg" alt="tech" />
+                </a></li>
+            
+        </ul>
+        
+    </div>
+   
+    <!-- Date and Author -->
+    <p>
+       	2018-02-10
+        by infinite.ft
+        
+    </p>
+    <p>
+        
 
 	
-		
-			<label><a href="/tags/python/">#Python</a></label>
-		
+		<label><a href="/tags/security/">#Security</a></label>
 	
 
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2017-10-11</p>
-				</div>
-			</a>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card Card-hover' id='/2017/10/11/access-variable-parameter-in-lua5-2/' data-name='lua5.2获取函数可变参数' data-version=''>
-		
-			
-				
-					
-					
-				
-			
-		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
 
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
-					
-					lua5.2获取函数可变参数</a></h2>
-					<p class='Card-title-tags'>
+    </p>
+	<hr />
 
-	
-		<label><a href="/tags/lua/">#Lua</a></label>
-	
+    <!-- Gallery -->
+    
+    
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
-					
-					
-					
-						Lua(&gt;=5.2) 可变参数获取在Lua5.2之前，函数的可变参数在函数调用的时候自动获取并放在arg变量(table)中，要访问每一可变参数只需要通过arg[0],...
-					
-					</a></p>
-					<p>
+    <!-- Content -->
+    <div class='article-content'>
+    <p>​    For many hexo users, it’s a nightmare to make their custom domain blog support SSL(https). Before writing this piece of blog, I also like them , feel it’s tedious and expensive . But now  everything are changed, since the existence of <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a>. As shown by its name, <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> is an Internet service provider, offering CDN, DNS, DDos protection and security , also other cloud services that accelerate and protect your site or App. To me , it’s DNS reverse proxy attracts me. Of DNS reverse proxy , SSL supporting becomes much easier. The configuration steps will be followed.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl1.svg" alt=""></p>
+<center>Fig 1. cloudflare workflow</center>
 
-	
-		
-			<label><a href="/tags/lua/">#Lua</a></label>
-		
-	
+<p>In figure 1, there are 6 steps. I will explain each step in the following content.</p>
+<p><code>Step1</code>: user’s mobile or laptop makes a DNS request to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS server for inquiring the IP address of your blog domain name, e.g. <em>infinite.xyz</em>.</p>
+<p><code>Step2</code>: <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS server returns IP address of your domain. As shown in figure 1, your blog’s IP address just refers to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server, not your github pages server. This is the key point for your custom domain can support SSL.</p>
+<p><code>Step3-4</code>: After retrieving your blog  ’pseudo‘  IP address , user’s mobile or laptop makes a HTTPS request to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server,  then <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server makes a HTTP/HTTPS request your blog real server, i.e. Github pages server. That’s the mean of reverse proxy.</p>
+<p><code>Step5-6</code>: Github pages server  return your blog content to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server, then <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server return the content from Github pages server to user’s mobile or laptop. That’s the whole process, hope you make clear to it now.</p>
+<p>Above we have already known the mechanism of DNS reverse proxy. The next step is how to make it real work. </p>
+<ul>
+<li><p>First, sign up and log in <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a>. Then find the DNS server IP address  of cloudflare and log in your domain vendor website, modify the DNS server to cloudflare’s DNS server.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl6.png" alt=""></p>
+</li>
+<li><p>Click ‘DNS’ tab on <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website,</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl2.png" alt=""></p>
+<p>add your domain to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS records saving as CNAME type.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl3.png" alt=""></p>
+</li>
+<li><p>Click ‘Crypto’ tab on <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website,</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl4.png" alt=""></p>
+<p>change SSL configuration to <code>Flexible</code></p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl5.png" alt=""></p>
+</li>
+<li><p>Switch to ‘Page Rules’ tab,</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl7.png" alt=""></p>
+<p>click ‘Create Page Rule’ button.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl8.png" alt=""></p>
+<p>Add the following rule, this rule will ensure your whole site protected by SSL,  whenever you or others visit your site, it will automatically redirect to HTTPS site.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl9.png" alt=""></p>
+<p>​</p>
+</li>
+</ul>
+<p>Ok, you just make your custom domain support SSL, now you have to calm down and wait less than 48h, then check your <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website panel.</p>
+<p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl10.png" alt=""></p>
+<p>Congratulations! You can visit your site using HTTPS.</p>
 
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2017-10-11</p>
-				</div>
-			</a>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card Card-hover' id='/2017/09/15/say-hello/' data-name='Say_hello' data-version=''>
-		
-			
-				
-					
-					
-				
-			
-		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2017/09/15/say-hello/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
+    </div>
+    <hr />
 
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2017/09/15/say-hello/">
-					
-					Say_hello</a></h2>
-					<p class='Card-title-tags'>
+    <h2>Share and comment</h2>
+    <div class="social-share"></div>
+    
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
 
-	
-		<label><a href="/tags/生活/">#生活</a></label>
-	
-
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2017/09/15/say-hello/">
-					
-					
-					
-						say hello to me
-					
-					</a></p>
-					<p>
-
-	
-		
-			<label><a href="/tags/生活/">#生活</a></label>
-		
-	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2017-09-15</p>
-				</div>
-			</a>
-		</div>
-	</div>
-</div>
-		
-		</div>
-	
-	<br>
-	<div class='pagination'>
-	
-		<div class="pagination-item">
-			<a href="/page/2/" class="prev grow"><b><</b></a>
-		</div>
-	
-	
-	
-		<div class="pagination-item">
-			
-			
-				
-					<a class='grow' href="/">1</a>
-				
-			
-		</div>
-	
-		<div class="pagination-item">
-			
-			
-				
-					<a class='grow' href="/page/2/">2</a>
-				
-			
-		</div>
-	
-		<div class="pagination-item">
-			
-			
-				<span>3</span>
-			
-		</div>
-	
-
-	
-</div>
-</div>
+    
+    
+</article>
   </div>
 
   <footer class='footer'>
