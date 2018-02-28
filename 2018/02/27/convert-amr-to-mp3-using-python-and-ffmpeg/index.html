@@ -189,7 +189,7 @@
 
     <!-- Content -->
     <div class='article-content'>
-    <p>In the previous blog, I introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to <em>amr</em>  audio to <em>mp3</em> audio. When it comes to audio conversion using ffmpeg, I have to say it’s very simple, one line code did complete it in your command line, like the following commands. </p>
+    <p>In the previous blog, I have introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to <em>amr</em>  audio to <em>mp3</em> audio. When it comes to audio conversion using ffmpeg, I have to say it’s very simple, one line code did complete it in your command line, like the following commands. </p>
 <pre class="line-numbers language-shell"><code class="language-shell">$ ffmpeg -i input.amr output.mp3
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>To automate  the process, we also need the assistance of python, the codes is much similar to the last post, just  one place changed.</p>
@@ -240,7 +240,8 @@ parser<span class="token punctuation">.</span>add_option<span class="token punct
                 <span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Now you just need to type the following command in you shell, then your conversion result <em>mp3</em> audio will reside in your output directory.</p>
-<p>$ python audio2audio.py –src dir_amr  –dest dir_mp3 –input-type amr  –output-type mp3</p>
+<pre class="line-numbers language-bash"><code class="language-bash">$ python audio2audio.py --src dir_amr  --dest dir_mp3 --input-type amr  --output-type mp3
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
     </div>
     <hr />
