@@ -11,6 +11,8 @@
   
     
   
+      <title>Build Your Own Git Remote Repository on Centos6.5 - Infinite.ft的博客</title>
+  
   
   <meta name="description" content="">
   <meta name="author" content="">
@@ -126,13 +128,103 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="flex: 1;">
-      <div class='search-container'>
-	<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search"><input type="search" name="q" class="search-input" placeholder="Search"><button type="submit" class="search-submit">Search</button><input type="hidden" name="sitesearch" value="https://free-free.github.io"></form>
-	<div class='tag-cloud'>
-		<a href="/tags/convolution-network/" style="font-size: 0.8em; color: #488baf">convolution-network</a> <a href="/tags/git/" style="font-size: 0.8em; color: #488baf">git</a> <a href="/tags/google-dev/" style="font-size: 0.8em; color: #488baf">google-dev</a> <a href="/tags/linux/" style="font-size: 1.4em; color: #8f655d">linux</a> <a href="/tags/lua/" style="font-size: 0.8em; color: #488baf">lua</a> <a href="/tags/machine-learning/" style="font-size: 1.4em; color: #8f655d">machine-learning</a> <a href="/tags/math/" style="font-size: 0.8em; color: #488baf">math</a> <a href="/tags/matlab/" style="font-size: 1.4em; color: #8f655d">matlab</a> <a href="/tags/notes/" style="font-size: 0.8em; color: #488baf">notes</a> <a href="/tags/python/" style="font-size: 2em; color: #d63e0a">python</a> <a href="/tags/security/" style="font-size: 0.8em; color: #488baf">security</a> <a href="/tags/wechat-dev/" style="font-size: 0.8em; color: #488baf">wechat-dev</a> <a href="/tags/生活/" style="font-size: 0.8em; color: #488baf">生活</a> <a href="/tags/随笔/" style="font-size: 0.8em; color: #488baf">随笔</a>
-	</div>
-</div>
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
 
+<article class="article" id="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/" data-name='Build Your Own Git Remote Repository on Centos6.5' data-version="">
+
+    <!-- Title -->
+
+    
+        
+            
+                
+                
+            
+        
+    
+
+    <div class='article-header'>
+         
+         <h1 class='article-title'>
+            <a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
+                Build Your Own Git Remote Repository on Centos6.5
+            </a>
+        </h1>
+        
+        <ul class='article-categories'>
+            
+            
+                <li><a href="/categories/tech/" data-no-instant>
+                    <img src="/images/tech.svg" alt="tech" />
+                </a></li>
+            
+        </ul>
+        
+    </div>
+   
+    <!-- Date and Author -->
+    <p>
+       	2015-11-15
+        by infinite.ft
+        
+    </p>
+    <p>
+        
+
+	
+		<label><a href="/tags/git/">#Git</a></label>
+	
+
+	
+		<label><a href="/tags/linux/">#Linux</a></label>
+	
+
+
+    </p>
+	<hr />
+
+    <!-- Gallery -->
+    
+    
+
+    <!-- Content -->
+    <div class='article-content'>
+    <p>####远程仓库搭建</p>
+<h5 id="step1-安装git"><a href="#step1-安装git" class="headerlink" title="step1:安装git"></a>step1:安装git</h5><pre class="line-numbers language-bash"><code class="language-bash">$ yum -y <span class="token function">install</span> <span class="token function">git</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>#####step2:创建用户git,用来运行git服务</p>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">useradd</span> <span class="token function">git</span> 
+$ <span class="token function">passwd</span> <span class="token function">git</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="step3-创建登录用户证书"><a href="#step3-创建登录用户证书" class="headerlink" title="step3:创建登录用户证书"></a>step3:创建登录用户证书</h5><p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个 </p>
+<h5 id="step4-初始化git仓库"><a href="#step4-初始化git仓库" class="headerlink" title="step4:初始化git仓库"></a>step4:初始化git仓库</h5><ol>
+<li>创建目录/git,在/git目下再创建一个.git结尾的目录,作为一仓库,这里创建一个/git/test.git,并且进入/git目录;</li>
+<li>初始化仓库git init –bare test.git Git就会创建一个裸仓库，裸仓库没有工作区，服务器上的Git仓库纯粹是为了共享 所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾;</li>
+<li>将仓库的owner改为git  chown -R git:git test.git;</li>
+<li>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成,找到git用户的那一行将git:x:500:500::/home/git:/bin/bash改为git:x:500:500::/home/git:/usr/bin/git-shell .git-shell每次一登录就自动退出.</li>
+</ol>
+<h5 id="step5-自此整个git远程仓库就搭建完成-就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了"><a href="#step5-自此整个git远程仓库就搭建完成-就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了" class="headerlink" title="step5:自此整个git远程仓库就搭建完成,就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了."></a>step5:自此整个git远程仓库就搭建完成,就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了.</h5><h4 id="本地与搭建好的仓库交互"><a href="#本地与搭建好的仓库交互" class="headerlink" title="本地与搭建好的仓库交互"></a>本地与搭建好的仓库交互</h4><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">git</span> remote add origin git@192.168.0.01:/git/test.git   <span class="token comment" spellcheck="true">#这里的ip是你主机的ip</span>
+$ <span class="token function">git</span> clone git@192.168.0.1:/git/test.git  <span class="token comment" spellcheck="true">#将远程仓库克隆到本地的仓库</span>
+$ <span class="token function">git</span> push origin master   <span class="token comment" spellcheck="true">#推送到远程仓库</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+    </div>
+    <hr />
+
+    <h2>Share and comment</h2>
+    <div class="social-share"></div>
+    
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+    
+    
+</article>
   </div>
 
   <footer class='footer'>
