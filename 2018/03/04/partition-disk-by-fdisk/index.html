@@ -7,13 +7,11 @@
   <meta charset="utf-8">
   
   
-      <title>2018 - Archive - Infinite.ft的博客</title>
-  
-  
-      <title>Archive - Infinite.ft的博客</title>
   
   
     
+  
+      <title>Partition Disk by Fdisk in Linux - Infinite.ft的博客</title>
   
   
   <meta name="description" content="">
@@ -130,132 +128,101 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="flex: 1;">
-      
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
 
-	<div class="container">
+<article class="article" id="/2018/03/04/partition-disk-by-fdisk/" data-name='Partition Disk by Fdisk in Linux' data-version="">
+
+    <!-- Title -->
+
+    
+        
+            
+                
+                
+            
+        
+    
+
+    <div class='article-header'>
+         
+         <h1 class='article-title'>
+            <a href="/2018/03/04/partition-disk-by-fdisk/">
+                Partition Disk by Fdisk in Linux
+            </a>
+        </h1>
+        
+        <ul class='article-categories'>
+            
+            
+                <li><a href="/categories/tech/" data-no-instant>
+                    <img src="/images/tech.svg" alt="tech" />
+                </a></li>
+            
+        </ul>
+        
+    </div>
+   
+    <!-- Date and Author -->
+    <p>
+       	2018-03-04
+        by infinite.ft
+        
+    </p>
+    <p>
+        
+
 	
-		
-			<h2>2018</h2>
-		
-		<div class="grid-4_sm-1 grid-equalHeight">
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/03/04/partition-disk-by-fdisk/">
-				
-				Partition Disk by Fdisk in Linux</a>
-			</p>
-			<small class="Card-meta">
-				2018-03-04
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/28/python-lib-fire/">
-				
-				Create CLIs in Python Using Fire</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-28
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/27/convert-amr-to-mp3-using-python-and-ffmpeg/">
-				
-				Convert Amr to Mp3 Using Python and Ffmpeg</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-27
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/20/extract-audio-from-video-using-python-and-ffmpeg/">
-				
-				Extract Audio From Video Using Python and FFmpeg</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-20
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/13/a-letter-to-you-my-niece/">
-				
-				致未来的你，侄女</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-13
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/10/make-hexo-custom-domain-support-ssl/">
-				
-				Make Hexo Custom Domain Support SSL</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-10
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/01/18/matlab-3d-plot-function/">
-				
-				Matlab 3d Plot Function</a>
-			</p>
-			<small class="Card-meta">
-				2018-01-18
-			</small>
-		</div>
-	</div>
-</div>
-		
-		</div>
-	
-</div>
+		<label><a href="/tags/linux/">#Linux</a></label>
 	
 
+
+    </p>
+	<hr />
+
+    <!-- Gallery -->
+    
+    
+
+    <!-- Content -->
+    <div class='article-content'>
+    <p>​     </p>
+<h4 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h4><p>​            准备有一个新的磁盘，我这里是sdb，用fdisk -l 命令查看当前系统的磁盘信息。</p>
+<h4 id="step2-用fdisk-dev-sdb-要分区的磁盘-，"><a href="#step2-用fdisk-dev-sdb-要分区的磁盘-，" class="headerlink" title="step2:用fdisk  /dev/sdb (要分区的磁盘)，    "></a>step2:用fdisk  /dev/sdb (要分区的磁盘)，    <img src="http://img.blog.csdn.net/20150124202402390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></h4><p>  之后进入fdisk的见面，输入m打印出所有fdisk的命令，几个常用命令的意思：p：答应出分区磁盘已经分的区，n：建立新的分区（输入n命令后要选择分区类型，e代表扩展分区，p代表主分区），d：删除一个分区，w:将新建立的分区写入分区表，并推出fdisk界面，q：放弃当前所有操作，并推出fdisk</p>
+<p><img src="http://img.blog.csdn.net/20150124203138200?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"><img src="http://img.blog.csdn.net/20150124203203753?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p><img src="http://img.blog.csdn.net/20150124203203234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p><img src="http://img.blog.csdn.net/20150124203305404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<h4 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h4><p>​     输入w推出fdisk界面，在终端输入partprobe命令，让内核更新分区表，为已经分好的区建立文件系统：在终端输入 mke2fs -t ext4 /dev/sdb1(-t参数文件系统类型)或者mkfs.ext4 /dev/sdb1为sdb1分区建立一个ext4文件系统</p>
+<p><img src="http://img.blog.csdn.net/20150124203742734?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<h4 id="step4："><a href="#step4：" class="headerlink" title="step4："></a>step4：</h4><p>​        挂载分区，这里将刚才建立文件系统的分区挂载到/mnt目录下，用mount +/dev/sdb1(要挂载的分区）+/mnt（分区挂载的目录），挂载完后用mount -l查看挂载情况，或者用df -h命令查看目录挂载情况。mount 有几个参数值得提一下</p>
+<p>​           1.-t    执行制定文件系统的类型</p>
+<p>​           2.-o  +挂载选项：</p>
+<p>​                          ro，rw  ：以只读或只写形式挂载，默认是rw</p>
+<p>​                          sync  ：不适用缓存，所有操作直接写入磁盘</p>
+<p>​                          async：使用缓存</p>
+<p>​                          noatime：每次访问文件的时候不更新文件的访问时间</p>
+<p>​                          atime：每次访问文件的时候更新文件的访问时间</p>
+<p>​                          remount：从新挂载文件系统</p>
+<p>​               例如：mount -o remount，ro   /dev/sdb1      /mnt/</p>
+<p>​      <img src="http://img.blog.csdn.net/20150124204729765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+<p>  <img src="http://img.blog.csdn.net/20150124204752125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>
+
+    </div>
+    <hr />
+
+    <h2>Share and comment</h2>
+    <div class="social-share"></div>
+    
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+    
+    
+</article>
   </div>
 
   <footer class='footer'>
