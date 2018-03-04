@@ -193,11 +193,9 @@
 
     <!-- Content -->
     <div class='article-content'>
-    <p>####远程仓库搭建</p>
-<h5 id="step1-安装git"><a href="#step1-安装git" class="headerlink" title="step1:安装git"></a>step1:安装git</h5><pre class="line-numbers language-bash"><code class="language-bash">$ yum -y <span class="token function">install</span> <span class="token function">git</span>
+    <h4 id="远程仓库搭建"><a href="#远程仓库搭建" class="headerlink" title="远程仓库搭建"></a>远程仓库搭建</h4><h5 id="step1-安装git"><a href="#step1-安装git" class="headerlink" title="step1:安装git"></a>step1:安装git</h5><pre class="line-numbers language-bash"><code class="language-bash">$ yum -y <span class="token function">install</span> <span class="token function">git</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>#####step2:创建用户git,用来运行git服务</p>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">useradd</span> <span class="token function">git</span> 
+<h5 id="step2-创建用户git-用来运行git服务"><a href="#step2-创建用户git-用来运行git服务" class="headerlink" title="step2:创建用户git,用来运行git服务"></a>step2:创建用户git,用来运行git服务</h5><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">useradd</span> <span class="token function">git</span> 
 $ <span class="token function">passwd</span> <span class="token function">git</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="step3-创建登录用户证书"><a href="#step3-创建登录用户证书" class="headerlink" title="step3:创建登录用户证书"></a>step3:创建登录用户证书</h5><p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个 </p>
