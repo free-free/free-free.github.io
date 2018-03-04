@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://free-free.github.io/"/>
-  <updated>2018-03-04T11:41:53.999Z</updated>
+  <updated>2018-03-02T12:59:58.858Z</updated>
   <id>https://free-free.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Partition Disk by Fdisk in Linux</title>
-    <link href="https://free-free.github.io/2018/03/04/partition-disk-by-fdisk/"/>
-    <id>https://free-free.github.io/2018/03/04/partition-disk-by-fdisk/</id>
-    <published>2018-03-04T11:38:38.000Z</published>
-    <updated>2018-03-04T11:41:53.999Z</updated>
-    
-    <content type="html"><![CDATA[<p>​     </p><h4 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h4><p>​            准备有一个新的磁盘，我这里是sdb，用fdisk -l 命令查看当前系统的磁盘信息。</p><h4 id="step2-用fdisk-dev-sdb-要分区的磁盘-，"><a href="#step2-用fdisk-dev-sdb-要分区的磁盘-，" class="headerlink" title="step2:用fdisk  /dev/sdb (要分区的磁盘)，    "></a>step2:用fdisk  /dev/sdb (要分区的磁盘)，    <img src="http://img.blog.csdn.net/20150124202402390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></h4><p>  之后进入fdisk的见面，输入m打印出所有fdisk的命令，几个常用命令的意思：p：答应出分区磁盘已经分的区，n：建立新的分区（输入n命令后要选择分区类型，e代表扩展分区，p代表主分区），d：删除一个分区，w:将新建立的分区写入分区表，并推出fdisk界面，q：放弃当前所有操作，并推出fdisk</p><p><img src="http://img.blog.csdn.net/20150124203138200?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"><img src="http://img.blog.csdn.net/20150124203203753?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><p><img src="http://img.blog.csdn.net/20150124203203234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><p><img src="http://img.blog.csdn.net/20150124203305404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><h4 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h4><p>​     输入w推出fdisk界面，在终端输入partprobe命令，让内核更新分区表，为已经分好的区建立文件系统：在终端输入 mke2fs -t ext4 /dev/sdb1(-t参数文件系统类型)或者mkfs.ext4 /dev/sdb1为sdb1分区建立一个ext4文件系统</p><p><img src="http://img.blog.csdn.net/20150124203742734?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><h4 id="step4："><a href="#step4：" class="headerlink" title="step4："></a>step4：</h4><p>​        挂载分区，这里将刚才建立文件系统的分区挂载到/mnt目录下，用mount +/dev/sdb1(要挂载的分区）+/mnt（分区挂载的目录），挂载完后用mount -l查看挂载情况，或者用df -h命令查看目录挂载情况。mount 有几个参数值得提一下</p><p>​           1.-t    执行制定文件系统的类型</p><p>​           2.-o  +挂载选项：</p><p>​                          ro，rw  ：以只读或只写形式挂载，默认是rw</p><p>​                          sync  ：不适用缓存，所有操作直接写入磁盘</p><p>​                          async：使用缓存</p><p>​                          noatime：每次访问文件的时候不更新文件的访问时间</p><p>​                          atime：每次访问文件的时候更新文件的访问时间</p><p>​                          remount：从新挂载文件系统</p><p>​               例如：mount -o remount，ro   /dev/sdb1      /mnt/</p><p>​      <img src="http://img.blog.csdn.net/20150124204729765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><p>  <img src="http://img.blog.csdn.net/20150124204752125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​     &lt;/p&gt;
-&lt;h4 id=&quot;step1：&quot;&gt;&lt;a href=&quot;#step1：&quot; class=&quot;headerlink&quot; title=&quot;step1：&quot;&gt;&lt;/a&gt;step1：&lt;/h4&gt;&lt;p&gt;​            准备有一个新的磁盘，我这里是sdb，用fdisk -l
-      
-    
-    </summary>
-    
-      <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
-    
-    
-      <category term="linux" scheme="https://free-free.github.io/tags/linux/"/>
-    
-  </entry>
   
   <entry>
     <title>Create CLIs in Python Using Fire</title>
@@ -748,6 +722,32 @@
 &lt;p&gt;init.d指的是/etc/rc.d/init.d目录。&lt;/p&gt;
 &lt;p&gt;本文包括3部分内容&lt;/p&gt;
 &lt;p&gt;1、 Linux的引导过程
+      
+    
+    </summary>
+    
+      <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
+    
+    
+      <category term="linux" scheme="https://free-free.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Partition Disk by Fdisk in Linux</title>
+    <link href="https://free-free.github.io/2015/01/24/partition-disk-by-fdisk/"/>
+    <id>https://free-free.github.io/2015/01/24/partition-disk-by-fdisk/</id>
+    <published>2015-01-24T12:50:44.000Z</published>
+    <updated>2018-03-04T11:44:01.722Z</updated>
+    
+    <content type="html"><![CDATA[<p>​     </p><h4 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h4><p>​            准备有一个新的磁盘，我这里是sdb，用fdisk -l 命令查看当前系统的磁盘信息。</p><h4 id="step2-用fdisk-dev-sdb-要分区的磁盘-，"><a href="#step2-用fdisk-dev-sdb-要分区的磁盘-，" class="headerlink" title="step2:用fdisk  /dev/sdb (要分区的磁盘)，    "></a>step2:用fdisk  /dev/sdb (要分区的磁盘)，    <img src="http://img.blog.csdn.net/20150124202402390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></h4><p>  之后进入fdisk的见面，输入m打印出所有fdisk的命令，几个常用命令的意思：p：答应出分区磁盘已经分的区，n：建立新的分区（输入n命令后要选择分区类型，e代表扩展分区，p代表主分区），d：删除一个分区，w:将新建立的分区写入分区表，并推出fdisk界面，q：放弃当前所有操作，并推出fdisk</p><p><img src="http://img.blog.csdn.net/20150124203138200?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"><img src="http://img.blog.csdn.net/20150124203203753?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><p><img src="http://img.blog.csdn.net/20150124203203234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><p><img src="http://img.blog.csdn.net/20150124203305404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><h4 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h4><p>​     输入w推出fdisk界面，在终端输入partprobe命令，让内核更新分区表，为已经分好的区建立文件系统：在终端输入 mke2fs -t ext4 /dev/sdb1(-t参数文件系统类型)或者mkfs.ext4 /dev/sdb1为sdb1分区建立一个ext4文件系统</p><p><img src="http://img.blog.csdn.net/20150124203742734?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><h4 id="step4："><a href="#step4：" class="headerlink" title="step4："></a>step4：</h4><p>​        挂载分区，这里将刚才建立文件系统的分区挂载到/mnt目录下，用mount +/dev/sdb1(要挂载的分区）+/mnt（分区挂载的目录），挂载完后用mount -l查看挂载情况，或者用df -h命令查看目录挂载情况。mount 有几个参数值得提一下</p><p>​           1.-t    执行制定文件系统的类型</p><p>​           2.-o  +挂载选项：</p><p>​                          ro，rw  ：以只读或只写形式挂载，默认是rw</p><p>​                          sync  ：不适用缓存，所有操作直接写入磁盘</p><p>​                          async：使用缓存</p><p>​                          noatime：每次访问文件的时候不更新文件的访问时间</p><p>​                          atime：每次访问文件的时候更新文件的访问时间</p><p>​                          remount：从新挂载文件系统</p><p>​               例如：mount -o remount，ro   /dev/sdb1      /mnt/</p><p>​      <img src="http://img.blog.csdn.net/20150124204729765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p><p>  <img src="http://img.blog.csdn.net/20150124204752125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjg0MTg3Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​     &lt;/p&gt;
+&lt;h4 id=&quot;step1：&quot;&gt;&lt;a href=&quot;#step1：&quot; class=&quot;headerlink&quot; title=&quot;step1：&quot;&gt;&lt;/a&gt;step1：&lt;/h4&gt;&lt;p&gt;​            准备有一个新的磁盘，我这里是sdb，用fdisk -l
       
     
     </summary>
