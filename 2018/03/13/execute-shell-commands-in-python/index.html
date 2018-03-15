@@ -224,7 +224,7 @@ CompletedProcess<span class="token punctuation">(</span>args<span class="token o
 <span class="token operator">>></span><span class="token operator">></span> cp<span class="token punctuation">.</span>returncode <span class="token comment" spellcheck="true"># get return code</span>
 <span class="token operator">>></span><span class="token operator">></span> cp<span class="token punctuation">.</span>check_returncode<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># when returncode is a non-zero value, a CalledProcessError will be raised</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Other-approaches"><a href="#Other-approaches" class="headerlink" title="Other approaches"></a>Other approaches</h4><ul>
+<h4 id="2-Other-approaches"><a href="#2-Other-approaches" class="headerlink" title="2. Other approaches"></a>2. Other approaches</h4><ul>
 <li><code>os.popen</code></li>
 </ul>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> os
@@ -243,7 +243,10 @@ CompletedProcess<span class="token punctuation">(</span>args<span class="token o
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Note</strong>: The  <code>commands</code> module only exists in Python2.x , since this  module is removed in Python3.x.</p>
 <p>This method is much similar to <code>popen</code>, the difference is that <code>popen</code> returns file-like object</p>
-<h4 id="4-os-system"><a href="#4-os-system" class="headerlink" title="4. os.system"></a>4. <code>os.system</code></h4><p>This method is not recommend to use. In Python &gt;= 3.5, it’s recommend to <code>subprocess</code>.</p>
+<ul>
+<li><code>os.system</code></li>
+</ul>
+<p>This method is not recommend to use. In Python &gt;= 3.5, it’s recommend to <code>subprocess</code>.</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> os
 <span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"ls"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
