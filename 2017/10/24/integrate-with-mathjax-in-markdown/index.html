@@ -220,17 +220,17 @@
 <h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h4 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h4><p>所谓行内公式是指公式与文字显示在同一行，以<strong>$……..$</strong>来标记，在两个<code>$</code>符号插入数学公式。例如：</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</code></p>
+<p>‘$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$’</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</code></p>
+<p>`$\lim_{x \to \infty} \mathrm{e}^{-x} = 0​$`</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>$ f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</code></p>
 <h4 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h4><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以<code>$$......$$</code>来标记，例如：</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<script type="math/tex; mode=display">\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}​</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$
+<script type="math/tex; mode=display">\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <script type="math/tex; mode=display">\lim_{x \to \infty}\mathrm{e}^{-x}=0</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -445,7 +445,7 @@
 </tr>
 <tr>
 <td style="text-align:center">$\arctan$</td>
-<td style="text-align:center">\\arctan</td>
+<td style="text-align:center">\arctan</td>
 </tr>
 <tr>
 <td style="text-align:center">$\sinh$</td>
@@ -812,15 +812,15 @@
 <td style="text-align:center">[ b ]</td>
 </tr>
 <tr>
-<td style="text-align:center">$\{c\}$</td>
-<td style="text-align:center">\\{c\\}</td>
+<td style="text-align:center">${c}$</td>
+<td style="text-align:center">\{c\}</td>
 </tr>
 <tr>
 <td style="text-align:center">$</td>
 <td style="text-align:center">d</td>
 <td>$</td>
-<td>\\\</td>
-<td>d\\\</td>
+<td>\\</td>
+<td>d\\</td>
 <td></td>
 </tr>
 <tr>
@@ -839,8 +839,8 @@
 <td style="text-align:center">$\</td>
 <td style="text-align:center">e\</td>
 <td>$</td>
-<td>\\\</td>
-<td>e \\\</td>
+<td>\\</td>
+<td>e \\</td>
 <td></td>
 </tr>
 <tr>
@@ -955,12 +955,12 @@ $$
 </tr>
 <tr>
 <td>Bmatrix</td>
-<td>$\{ \ \}$</td>
+<td>${ \ }$</td>
 <td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>Bmatrix*</td>
-<td>$\{ \ \}$</td>
+<td>${ \ }$</td>
 <td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 <tr>
