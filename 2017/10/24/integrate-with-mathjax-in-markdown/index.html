@@ -700,7 +700,7 @@
 <script type="math/tex; mode=display">\sum_{i=0}^{n}{x^i}</script><p>当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sum_{\substack{ 0<i<m 0<j<n}} P(i,j)$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>​        <script type="math/tex">\sum_{\substack{0<i<m\\0<j<n}} P(i,j)</script></p>
+<p>​        <script type="math/tex">\sum_{\substack{0<i<m \\ 0<j<n}}{P(i,j)}</script></p>
 <p><strong>积分</strong></p>
 <p>使用<code>\int</code>来创建一个积分公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$
