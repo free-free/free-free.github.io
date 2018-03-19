@@ -699,17 +699,17 @@
 <p>使用<code>\sum</code>来创建一个求和的公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sum_{i=1}^{10} t_i$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<script type="math/tex; mode=display">\sum_{i=1}^{10} t_i</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$sum_{i=0}^{n} x^i$$
+<script type="math/tex; mode=display">\sum_{i=1}^{10} {t_i}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$sum_{i=0}^{n} x^i$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<script type="math/tex; mode=display">\sum_{i=0}^{n} x^i</script><p>当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
-<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sum_{\substack{ 0<i<m \\\0<j<n}} P(i,j)$$
+<script type="math/tex; mode=display">\sum_{i=0}^{n}{x^i}</script><p>当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sum_{\substack{ 0<i<m 0<j<n}} P(i,j)$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>​        <script type="math/tex">\sum_{\substack{0<i<m\\\\0<j<n}} P(i,j)</script></p>
+<p>​        <script type="math/tex">\sum_{\substack{0<i<m\\0<j<n}} P(i,j)</script></p>
 <p><strong>积分</strong></p>
 <p>使用<code>\int</code>来创建一个积分公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<script type="math/tex; mode=display">\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x</script><p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
+<script type="math/tex; mode=display">\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\mathrm{d}x</script><p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
 <div class="table-container">
 <table>
 <thead>
@@ -898,7 +898,7 @@
 </div>
 <h4 id="3-2-12-空格"><a href="#3-2-12-空格" class="headerlink" title="3.2.12 空格"></a>3.2.12 空格</h4><p>LaText语法本身会忽略空格，在LaTex中有两种空格：小空格和四格空格</p>
 <p><code>小空格</code></p>
-<p><code>\$a \ b\$</code> 呈现为：$a \ b​$</p>
+<p><code>\$a \ b\$</code> 呈现为：$a \ b$</p>
 <p><code>四格空格</code></p>
 <p><code>\$a \quad b\$</code> 呈现为：$a \quad b$</p>
 <h4 id="3-2-13-矩阵"><a href="#3-2-13-矩阵" class="headerlink" title="3.2.13 矩阵"></a>3.2.13 矩阵</h4><p>基本的矩阵可以使用matrix 环境来创建，矩阵和其他的类表结构一样，列之间使用<code>&amp;</code>来分开，行之间使用<code>\\</code>来封开，例如：</p>
