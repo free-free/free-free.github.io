@@ -189,7 +189,12 @@
 
     <!-- Content -->
     <div class='article-content'>
-    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学公式比较方便、简洁，插入的数学公式也很漂亮。遂在这里把怎样使用MathJax在markdown中插入数学公式的方法和基本的MathJax的语法记录下来，以便之后学习，如有什么错误请大家指教。</p>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学公式比较方便、简洁，插入的数学公式也很漂亮。遂在这里把怎样使用MathJax在markdown中插入数学公式的方法和基本的MathJax的语法记录下来，以便之后学习，如有什么错误请大家指教。</p>
 <h1 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h1><h2 id="1-MathJax简介"><a href="#1-MathJax简介" class="headerlink" title="1. MathJax简介"></a>1. MathJax简介</h2><p>MathJax是一个javascript软件包，它允许你通过LaTex、MathML或者AsciiMath语法在网页中插入数学公式，并通过javascript处理之后产生HTML、SVG或者MathML equations 等可视化的格式，以便在浏览器中浏览。</p>
 <h2 id="2-引入MathJax"><a href="#2-引入MathJax" class="headerlink" title="2. 引入MathJax"></a>2. 引入MathJax</h2><ul>
 <li><h3 id="通过CDN引入"><a href="#通过CDN引入" class="headerlink" title="通过CDN引入"></a>通过CDN引入</h3><p>通过CDN网络引入MathJax只需要在Markdown文档加入下面的代码<a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external">1</a></a>，在markdown解析的时候会通过CDN自动将MathJax加载到当前页面中。该方式需要联网，但也是最简单、最快速的方式，个人推荐也使用这种方式。</p>
