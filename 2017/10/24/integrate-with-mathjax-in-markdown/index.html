@@ -206,28 +206,23 @@
 </li>
 </ul>
 <h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h4 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h4><p>所谓行内公式是指公式与文字显示在同一行，以<strong>$……..$</strong>来标记，在两个<strong>$</strong>符号插入数学公式。例如：</p>
-<ul>
-<li><p>$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>$\displaystyle \cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
-</li>
-<li><p>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
-</li>
-<li><p>$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>$ f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
-<p>​</p>
-</li>
-</ul>
 <h4 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h4><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以<strong>$$……$$</strong>来标记，例如：</p>
-<ul>
-<li><p>$$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$</p>
-<script type="math/tex; mode=display">\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}</script></li>
-<li><p>$$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$</p>
-<script type="math/tex; mode=display">\lim_{x \to \infty}\mathrm{e}^{-x}=0</script></li>
-<li><p>$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
-<script type="math/tex; mode=display">f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}</script></li>
-</ul>
-<h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1-希腊字母-Greek-letters"><a href="#3-2-1-希腊字母-Greek-letters" class="headerlink" title="3.2.1 希腊字母(Greek letters)"></a>3.2.1 希腊字母(Greek letters)</h4><div class="table-container">
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\lim_{x \to \infty}\mathrm{e}^{-x}=0</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}</script><h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1-希腊字母-Greek-letters"><a href="#3-2-1-希腊字母-Greek-letters" class="headerlink" title="3.2.1 希腊字母(Greek letters)"></a>3.2.1 希腊字母(Greek letters)</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -676,59 +671,45 @@
 </table>
 </div>
 <h4 id="3-2-6-上标号和下标号的表示方法"><a href="#3-2-6-上标号和下标号的表示方法" class="headerlink" title="3.2.6 上标号和下标号的表示方法"></a>3.2.6 上标号和下标号的表示方法</h4><p>在LaTex中，使用<code>^</code>符号代表上标号，使用<code>_</code>符号代表下标号，当上/下标号是一个复合的表达式时，需要将使用curly braces<code>{}</code>将表达式包起来，例如:</p>
-<ul>
-<li><p>$$k<em>{n+1} = n^2 + k_n^2  - k\</em>{n-1}$$</p>
-<script type="math/tex; mode=display">k_{n+1} = n^2 + k_n^2 - k_{n-1}</script></li>
-<li><p>$$n^22$$</p>
-<script type="math/tex; mode=display">n^{22}</script></li>
-<li><p>$$lim_{x \to \infty} \mathrm(e)^{-x} =0 $$</p>
-<script type="math/tex; mode=display">lim_{x \to \infty} \mathrm{e}^{-x} = 0</script></li>
-</ul>
-<p>也可以使用<code>_</code>和<code>|</code>组合去显示下标的取值，例如：</p>
-<p>$$f(n) = n^5 + 4n^2 + 2 |_{n=17}$$</p>
-<script type="math/tex; mode=display">f(n) = n^2 + 4n^2 + 2 |_{n=17}</script><h4 id="3-2-7-分式和二项式的表示方法"><a href="#3-2-7-分式和二项式的表示方法" class="headerlink" title="3.2.7 分式和二项式的表示方法"></a>3.2.7 分式和二项式的表示方法</h4><ul>
-<li><p>分式</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$k_{n+1} = n^2 + k_n^2  - k\_{n-1}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">k_{n+1} = n^2 + k_n^2 - k_{n-1}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$n^22$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">n^{22}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$lim_{x \to \infty} \mathrm(e)^{-x} =0 $$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">lim_{x \to \infty} \mathrm{e}^{-x} = 0</script><p>也可以使用<code>_</code>和<code>|</code>组合去显示下标的取值，例如：</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$f(n) = n^5 + 4n^2 + 2 |_{n=17}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">f(n) = n^2 + 4n^2 + 2 |_{n=17}</script><h4 id="3-2-7-分式和二项式的表示方法"><a href="#3-2-7-分式和二项式的表示方法" class="headerlink" title="3.2.7 分式和二项式的表示方法"></a>3.2.7 分式和二项式的表示方法</h4><p><strong>分式</strong></p>
 <p>在LaTex中，使用<code>\frac{numerator}{denominator}</code>来创建一个分式，<code>numerator</code>代表分子，<code>denominator</code>代表分子，具体例子如下:</p>
-<ul>
-<li><p>$$\frac{n!}{k!(n-k)!}$$</p>
-<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!}</script></li>
-<li><p>$$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$</p>
-<script type="math/tex; mode=display">\frac{\frac{1}{x} + \frac{1}{y}}{y-z}</script></li>
-</ul>
-</li>
-<li><p>二项式</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$frac{n!}{k!(n-k)!}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\frac{\frac{1}{x} + \frac{1}{y}}{y-z}</script><p><strong>二项式</strong></p>
 <p>使用<code>\binom{n}{k}</code>来创建一个二项式表达式，例如：</p>
-<p>$$\frac{n!}{k!(n-k)!} =  \binom{n}{k}$$</p>
-<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!} = \binom{n}{k}</script></li>
-</ul>
-<h4 id="3-2-8-根号的表示方法"><a href="#3-2-8-根号的表示方法" class="headerlink" title="3.2.8 根号的表示方法"></a>3.2.8 根号的表示方法</h4><p>使用<code>\sqrt{...}</code>去创建一个根号表示，使用<code>[]</code>去改变根号的权重，具体例子如下：</p>
-<ul>
-<li><p>$$\sqrt{\frac{x+1}{x}}$$</p>
-<script type="math/tex; mode=display">\sqrt{\frac{x+1}{x}}</script></li>
-<li><p>$$\sqrt[n]{1 + x + x^2 +\cdots + x^n}$</p>
-<script type="math/tex; mode=display">\sqrt[n]{1 + x + x^2 + \cdots + x^2}</script></li>
-</ul>
-<h4 id="3-2-9-求和和积分公式的表示方法"><a href="#3-2-9-求和和积分公式的表示方法" class="headerlink" title="3.2.9 求和和积分公式的表示方法"></a>3.2.9 求和和积分公式的表示方法</h4><ul>
-<li><p>求和</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$frac{n!}{k!(n-k)!} =  \binom{n}{k}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!} = \binom{n}{k}</script><h4 id="3-2-8-根号的表示方法"><a href="#3-2-8-根号的表示方法" class="headerlink" title="3.2.8 根号的表示方法"></a>3.2.8 根号的表示方法</h4><p>使用<code>\sqrt{...}</code>去创建一个根号表示，使用<code>[]</code>去改变根号的权重，具体例子如下：</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sqrt{\frac{x+1}{x}}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\sqrt{\frac{x+1}{x}}</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sqrt[n]{1 + x + x^2 +\cdots + x^n}$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\sqrt[n]{1 + x + x^2 + \cdots + x^2}</script><h4 id="3-2-9-求和和积分公式的表示方法"><a href="#3-2-9-求和和积分公式的表示方法" class="headerlink" title="3.2.9 求和和积分公式的表示方法"></a>3.2.9 求和和积分公式的表示方法</h4><p><strong>求和</strong></p>
 <p>使用<code>\sum</code>来创建一个求和的公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
-<ul>
-<li><p>$$\sum_{i=1}^{10} t_i$$</p>
-<script type="math/tex; mode=display">\sum_{i=1}^{10} t_i</script></li>
-<li><p>$$sum_{i=0}^{n} x^i$$</p>
-<script type="math/tex; mode=display">\sum_{i=0}^{n} x^i</script></li>
-</ul>
-</li>
-</ul>
-<p>　　当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
-<p>　　$$\sum_{\substack{ 0&lt;i&lt;m \\0&lt;j&lt;n}} P(i,j)$$</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sum_{i=1}^{10} t_i$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\sum_{i=1}^{10} t_i</script><pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$sum_{i=0}^{n} x^i$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\sum_{i=0}^{n} x^i</script><p>当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\sum_{\substack{ 0<i<m \\\0<j<n}} P(i,j)$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>​        <script type="math/tex">\sum_{\substack{0<i<m\\\\0<j<n}} P(i,j)</script></p>
-<ul>
-<li><p>积分</p>
+<p><strong>积分</strong></p>
 <p>使用<code>\int</code>来创建一个积分公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
-<p>$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$</p>
-<script type="math/tex; mode=display">\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x</script></li>
-</ul>
-<p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<script type="math/tex; mode=display">\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x</script><p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
 <div class="table-container">
 <table>
 <thead>
@@ -916,14 +897,10 @@
 </table>
 </div>
 <h4 id="3-2-12-空格"><a href="#3-2-12-空格" class="headerlink" title="3.2.12 空格"></a>3.2.12 空格</h4><p>LaText语法本身会忽略空格，在LaTex中有两种空格：小空格和四格空格</p>
-<ul>
-<li><p>小空格</p>
-<p>$a \ b$ 呈现为：$a \ b$</p>
-</li>
-<li><p>四格空格</p>
-<p>$a \quad b$ 呈现为：$a \quad b$</p>
-</li>
-</ul>
+<p><code>小空格</code></p>
+<p><code>\$a \ b\$</code> 呈现为：$a \ b​$</p>
+<p><code>四格空格</code></p>
+<p><code>\$a \quad b\$</code> 呈现为：$a \quad b$</p>
 <h4 id="3-2-13-矩阵"><a href="#3-2-13-矩阵" class="headerlink" title="3.2.13 矩阵"></a>3.2.13 矩阵</h4><p>基本的矩阵可以使用matrix 环境来创建，矩阵和其他的类表结构一样，列之间使用<code>&amp;</code>来分开，行之间使用<code>\\</code>来封开，例如：</p>
 <pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ 
    \begin{matrix}  
@@ -933,7 +910,7 @@
     \end{matrix} 
 $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script type="math/tex; mode=display">\begin{matrix} a & b &c  \\\\ d & e & f \\\\ g & h & i \end{matrix}</script><p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
+<script type="math/tex; mode=display">\begin{matrix} a & b &c  \\ d & e & f \\ g & h & i \end{matrix}</script><p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
 <div class="table-container">
 <table>
 <thead>
@@ -1009,117 +986,78 @@ $$
 <li><p>pmatrix</p>
 <pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">
 $$ A_{m,n} = 
-
       \begin{pmatrix} 
-
      a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-
      a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-
      \vdots & \vdots  & \ddots & \dots \\
-
       a_{m,1} & a_{m,2 }  & \cdots & a_{m,n}
-
       \end{pmatrix}
-
 $$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为：</p>
 </li>
 </ul>
-<script type="math/tex; mode=display">A_{m,n} = \begin{pmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a\_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{pmatrix}</script><ul>
+<script type="math/tex; mode=display">A_{m,n} = \begin{pmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{pmatrix}</script><ul>
 <li><p>bmatrix</p>
 <pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ A_{m,n} = 
-
       \begin{bmatrix}
-
      a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-
      a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-
      \vdots & \vdots  & \ddots & \dots \\
-
       a_{m,1} & a_{m,2 }  & \cdots & a_{m,n}
-
       \end{bmatrix}
-
 $$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
-<script type="math/tex; mode=display">A_{m,n} = \begin{bmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a\_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{bmatrix}</script></li>
+<script type="math/tex; mode=display">A_{m,n} = \begin{bmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{bmatrix}</script></li>
 <li><p>Bmatrix</p>
 </li>
 </ul>
 <pre class="line-numbers language-lang-latex"><code class="language-lang-latex">  $$ A_{m,n} = 
-
         \begin{Bmatrix}
-
        a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-
        a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-
        \vdots & \vdots  & \ddots & \dots \\
-
        a_{m,1} & a_{m,2 }  & \cdots & a_{m,n}
-
        \end{Bmatrix}
-
   $$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  呈现为</p>
-<script type="math/tex; mode=display">A_{m,n} = \begin{Bmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a\_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{Bmatrix}</script><ul>
+<script type="math/tex; mode=display">A_{m,n} = \begin{Bmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{Bmatrix}</script><ul>
 <li><p>vmatrix</p>
 <pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ A_{m,n} = 
-
 　　　　\begin{vmatrix}
-
 　　　　a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-
 　　　　a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-
 　　　　\vdots & \vdots  & \ddots & \dots \\
-
 　　　　a_{m,1} & a_{m,2 }  & \cdots & a_{m,n}
-
 　　　　\end{vmatrix}
-
 $$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
-<script type="math/tex; mode=display">A_{m,n} = \begin{vmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{vmatrix}</script></li>
+<script type="math/tex; mode=display">A_{m,n} = \begin{vmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{vmatrix}</script></li>
 <li><p>Vmatrix</p>
 <pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ A_{m,n} = 
-
 　　　\begin{Vmatrix}
-
 　　　a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
-
 　　　a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
-
 　　　\vdots & \vdots  & \ddots & \dots \\
-
 　　　a_{m,1} & a_{m,2 }  & \cdots & a_{m,n}
-
 　　　\end{Vmatrix}
-
  $$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
-<script type="math/tex; mode=display">A_{m,n} = \begin{Vmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{Vmatrix}</script></li>
+<script type="math/tex; mode=display">A_{m,n} = \begin{Vmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{Vmatrix}</script></li>
 </ul>
 <h4 id="3-2-16-方程组"><a href="#3-2-16-方程组" class="headerlink" title="3.2.16 方程组"></a>3.2.16 方程组</h4><p>方程组可以使用cases环境来创建，起始、结束处以{cases}声明，例如：</p>
 <pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$
 \begin{cases}
-
 a_1x_1+b_1x_2+c_1x_3 = d_1\\
-
 a_2x_1+b_2x_2+c_2x_3 = d_2\\
-
 a_3x_1+b_3x_2+c_2x_3 = d_3\\
-
 \end{cases}
 $$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为:</p>
 <script type="math/tex; mode=display">\begin{cases} a_1x_1+b_1x_2+c_1x_3 = d_1 \\ a_2x_1+b_2x_2+c_2x_3 = d_2 \\ a_3x_1+b_3x_2+c_2x_3 = d_3 \end{cases}</script><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
 <p><a href="http://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="external">[2]基本数学公式语法(of MathJax)</a></p>
