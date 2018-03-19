@@ -195,7 +195,7 @@
     <div class='article-content'>
     <p>Executing shell commands in python is always attractive to me. On the one hand, shell script normally meets my daily demands, I think there has no very strong reasons to learn it. On the other hand, my focus in Python is not here, there are few chances to get in touch with it. But now, the powerful ability of Python executing shell commands impress me, as I dive into the deeper place in Python’s world. For that reason, I think it’s time to get hands on it. Here I will summarize the approaches  executing shell commands in Python.</p>
 <h4 id="1-subprocess-call"><a href="#1-subprocess-call" class="headerlink" title="1. subprocess.call"></a>1. <code>subprocess.call</code></h4><p>This approach is very known to  the most of developers. <a href="https://docs.python.org/3/library/subprocess.html" target="_blank" rel="external">subprocess</a> module is built in python library. It allows you to spawn new processes, connected to their input/output/error pipes, and obtain their return codes. It intends to replace several older modules and functions:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">os.system
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">os.system
 os.spwan
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>The related PEP is <a href="https://www.python.org/dev/peps/pep-0324" target="_blank" rel="external">PEP 324</a> which proposed the subprocess module.</p>
@@ -214,21 +214,21 @@ os.spwan
 <p><strong>encoding/errors</strong>: if either <em>encoding</em> or <em>error</em> are specified, file objects for stdin, stdout and stderr are opened in text mode using specified encoding and errors or the <code>io.TextIOWrapper</code> default. Otherwise, file objects are opened in binary mode.</p>
 <p>The <code>run()</code> function runs the command described by args. Then wait for command to complete, finally return a <code>CompletedProcess</code> instance which hold <em>args</em>, <em>returncode</em>, <em>stdout</em>, <em>stderr</em> and check_returncode(). . By default, <code>run()</code> does not capture stdout or stderr. To do so pass <code>PIPE</code> for the stdou and/or stderr arguments</p>
 <p>Examples:</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> subprocess
-<span class="token operator">>></span><span class="token operator">></span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"echo"</span><span class="token punctuation">,</span><span class="token string">"-e"</span><span class="token punctuation">,</span> <span class="token string">"\e[0;32m hello world \e[;m"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> import subprocess
+>>> subprocess.run(["echo","-e", "\e[0;32m hello world \e[;m"])
 hello world
-CompletedProcess<span class="token punctuation">(</span>args<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'echo'</span><span class="token punctuation">,</span> <span class="token string">'-e'</span><span class="token punctuation">,</span> <span class="token string">'\\e[0;32m hello world\\e[;m'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> returncode<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> cp <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"ls"</span><span class="token punctuation">,</span> <span class="token string">"-al"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># capture stdout</span>
-<span class="token operator">>></span><span class="token operator">></span> cp<span class="token punctuation">.</span>stdout <span class="token comment" spellcheck="true"># access to the stdout</span>
-<span class="token operator">>></span><span class="token operator">></span> cp<span class="token punctuation">.</span>stderr <span class="token comment" spellcheck="true"># access to the stderr</span>
-<span class="token operator">>></span><span class="token operator">></span> cp<span class="token punctuation">.</span>returncode <span class="token comment" spellcheck="true"># get return code</span>
-<span class="token operator">>></span><span class="token operator">></span> cp<span class="token punctuation">.</span>check_returncode<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># when returncode is a non-zero value, a CalledProcessError will be raised</span>
+CompletedProcess(args=['echo', '-e', '\\e[0;32m hello world\\e[;m'], returncode=0)
+>>> cp = subprocess.run(["ls", "-al"], stdout=subprocess.PIPE) # capture stdout
+>>> cp.stdout # access to the stdout
+>>> cp.stderr # access to the stderr
+>>> cp.returncode # get return code
+>>> cp.check_returncode() # when returncode is a non-zero value, a CalledProcessError will be raised
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-Other-approaches"><a href="#2-Other-approaches" class="headerlink" title="2. Other approaches"></a>2. Other approaches</h4><ul>
 <li><code>os.popen</code></li>
 </ul>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> os
-<span class="token operator">>></span><span class="token operator">>></span> ret <span class="token operator">=</span> os<span class="token punctuation">.</span>popen<span class="token punctuation">(</span><span class="token string">'ls -al'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># or os.popen('ls -al').readline()</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> import os
+>>>> ret = os.popen('ls -al').read() # or os.popen('ls -al').readline()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><code>commands</code></li>
@@ -236,10 +236,10 @@ CompletedProcess<span class="token punctuation">(</span>args<span class="token o
 <p><code>commands.getstatusoutput(cmd)</code>: return (status, output)</p>
 <p><code>commands.getoutput(cmd)</code>: return (output)</p>
 <p><code>commands.getstatus(file)</code>: get the status of the specific file</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> commands
-<span class="token operator">>></span><span class="token operator">></span> status<span class="token punctuation">,</span>output <span class="token operator">=</span> commands<span class="token punctuation">.</span>getstatusoutput<span class="token punctuation">(</span><span class="token string">"ls"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> output <span class="token operator">=</span> commands<span class="token punctuation">.</span>getoutput<span class="token punctuation">(</span><span class="token string">"ls -al"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> status <span class="token operator">=</span> commands<span class="token punctuation">.</span>getstatus<span class="token punctuation">(</span><span class="token string">"hello.c"</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> import commands
+>>> status,output = commands.getstatusoutput("ls")
+>>> output = commands.getoutput("ls -al")
+>>> status = commands.getstatus("hello.c")
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Note</strong>: The  <code>commands</code> module only exists in Python2.x , since this  module has been removed in Python3.x.</p>
 <p>This method is much similar to <code>popen</code>, the difference is that <code>popen</code> returns file-like object</p>
@@ -247,8 +247,8 @@ CompletedProcess<span class="token punctuation">(</span>args<span class="token o
 <li><code>os.system</code></li>
 </ul>
 <p>This method is not recommend to use. In Python &gt;= 3.5, it’s recommend to <code>subprocess</code>.</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> os
-<span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"ls"</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> import os
+>>> os.system("ls")
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>The downside of this method is that you must handle security stuffs yourself, like shell character escaping, etc. On top of that, this method cannot run the external programs.</p>
 

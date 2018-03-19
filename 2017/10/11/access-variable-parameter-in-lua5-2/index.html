@@ -190,23 +190,23 @@
     <!-- Content -->
     <div class='article-content'>
     <h1 id="Lua-gt-5-2-可变参数获取"><a href="#Lua-gt-5-2-可变参数获取" class="headerlink" title="Lua(&gt;=5.2) 可变参数获取"></a>Lua(&gt;=5.2) 可变参数获取</h1><p>在Lua5.2之前，函数的可变参数在函数调用的时候自动获取并放在<strong>arg</strong>变量(table)中，要访问每一可变参数只需要通过<strong>arg[0]</strong>, <strong>arg[1]</strong>,…..<strong>arg[m]</strong>来获取，并且arg中还有一个域<strong>n</strong>负责记录可变参数的个数，示例代码如下所示：</p>
-<pre class="line-numbers language-lua"><code class="language-lua"><span class="token keyword">function</span> <span class="token function">myadd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">...</span><span class="token punctuation">)</span>
-  <span class="token keyword">local</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b
-  <span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>arg<span class="token punctuation">.</span>n <span class="token keyword">do</span>
-    sum <span class="token operator">=</span> sum <span class="token operator">+</span> arg<span class="token punctuation">[</span>n<span class="token punctuation">]</span>
-  <span class="token keyword">end</span>
-  <span class="token keyword">return</span> sum
-<span class="token keyword">end</span>
+<pre class="line-numbers language-lang-lua"><code class="language-lang-lua">function myadd(a, b, ...)
+  local sum = a + b
+  for i = 1,arg.n do
+    sum = sum + arg[n]
+  end
+  return sum
+end
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在Lua5.2之后，需要自己手动获取可变参数，也没有了记录可变参数个数的域<strong>n</strong>，但可以通过长度运算符<strong>#</strong>获取参数个数，我想这也是为什么会去掉域<strong>n</strong>的原因，示例代码如下所示：</p>
-<pre class="line-numbers language-lua"><code class="language-lua"><span class="token keyword">function</span> <span class="token function">myadd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">...</span><span class="token punctuation">)</span>
-  <span class="token keyword">local</span> arg <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">...</span><span class="token punctuation">}</span>
-  <span class="token keyword">local</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b
-  <span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">#</span>arg <span class="token keyword">do</span>
-    sum <span class="token operator">=</span> sum <span class="token operator">+</span> arg<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-  <span class="token keyword">end</span>
-  <span class="token keyword">return</span> sum
-<span class="token keyword">end</span>
+<pre class="line-numbers language-lang-lua"><code class="language-lang-lua">function myadd(a, b, ...)
+  local arg = {...}
+  local sum = a + b
+  for i = 1, #arg do
+    sum = sum + arg[i]
+  end
+  return sum
+end
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
     </div>

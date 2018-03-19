@@ -199,9 +199,9 @@
 <h2 id="2-引入MathJax"><a href="#2-引入MathJax" class="headerlink" title="2. 引入MathJax"></a>2. 引入MathJax</h2><ul>
 <li><h3 id="通过CDN引入"><a href="#通过CDN引入" class="headerlink" title="通过CDN引入"></a>通过CDN引入</h3><p>通过CDN网络引入MathJax只需要在Markdown文档加入下面的代码<a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external">1</a></a>，在markdown解析的时候会通过CDN自动将MathJax加载到当前页面中。该方式需要联网，但也是最简单、最快速的方式，个人推荐也使用这种方式。</p>
 <p>​</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> <span class="token keyword">async</span>
-  src<span class="token operator">=</span><span class="token string">"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<pre class="line-numbers language-lang-javascript"><code class="language-lang-javascript"><script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>​</p>
 </li>
@@ -210,32 +210,30 @@
 <li><h3 id="本地引入"><a href="#本地引入" class="headerlink" title="本地引入"></a>本地引入</h3><p>本地引入需要将MathJax安装到你的服务器上，或者下载到本地磁盘上，具体引入方式请参考官方文档<a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external">2</a></a>。</p>
 </li>
 </ul>
-<h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h4 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h4><p>所谓行内公式是指公式与文字显示在同一行，以<strong>\$……..\$</strong>来标记，在两个<strong>$</strong>符号插入数学公式。例如：</p>
+<h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h4 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h4><p>所谓行内公式是指公式与文字显示在同一行，以<strong>$……..$</strong>来标记，在两个<strong>$</strong>符号插入数学公式。例如：</p>
 <ul>
-<li><p>\$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
+<li><p>$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
 <p>$\displaystyle \cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$</p>
 </li>
-<li><p>\$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
+<li><p>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
 <p>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
 </li>
-<li><p>\$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
+<li><p>$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
 <p>$ f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
 <p>​</p>
 </li>
 </ul>
-<h4 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h4><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以<strong>\$\$……$$</strong>来标记，例如：</p>
+<h4 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h4><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以<strong>$$……$$</strong>来标记，例如：</p>
 <ul>
-<li><p>\$\$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$</p>
-<p>$$\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$ </p>
-</li>
-<li><p>\$\$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$</p>
-<p>$$\lim_{x \to \infty}\mathrm{e}^{-x}=0$$</p>
-</li>
-<li><p>\$\$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
-<p>$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
-</li>
+<li><p>$$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$</p>
+<script type="math/tex; mode=display">\displaystyle \cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}</script></li>
+<li><p>$$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$</p>
+<script type="math/tex; mode=display">\lim_{x \to \infty}\mathrm{e}^{-x}=0</script></li>
+<li><p>$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$</p>
+<script type="math/tex; mode=display">f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}</script></li>
 </ul>
-<h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1-希腊字母-Greek-letters"><a href="#3-2-1-希腊字母-Greek-letters" class="headerlink" title="3.2.1 希腊字母(Greek letters)"></a>3.2.1 希腊字母(Greek letters)</h4><table>
+<h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1-希腊字母-Greek-letters"><a href="#3-2-1-希腊字母-Greek-letters" class="headerlink" title="3.2.1 希腊字母(Greek letters)"></a>3.2.1 希腊字母(Greek letters)</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -337,7 +335,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-2-其他常用数学符号"><a href="#3-2-2-其他常用数学符号" class="headerlink" title="3.2.2 其他常用数学符号"></a>3.2.2 其他常用数学符号</h4><table>
+</div>
+<h4 id="3-2-2-其他常用数学符号"><a href="#3-2-2-其他常用数学符号" class="headerlink" title="3.2.2 其他常用数学符号"></a>3.2.2 其他常用数学符号</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -407,7 +407,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-3-三角函数符号"><a href="#3-2-3-三角函数符号" class="headerlink" title="3.2.3 三角函数符号"></a>3.2.3 三角函数符号</h4><table>
+</div>
+<h4 id="3-2-3-三角函数符号"><a href="#3-2-3-三角函数符号" class="headerlink" title="3.2.3 三角函数符号"></a>3.2.3 三角函数符号</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -465,7 +467,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-3-4-双目运算符"><a href="#3-3-4-双目运算符" class="headerlink" title="3.3.4 双目运算符"></a>3.3.4 双目运算符</h4><table>
+</div>
+<h4 id="3-3-4-双目运算符"><a href="#3-3-4-双目运算符" class="headerlink" title="3.3.4 双目运算符"></a>3.3.4 双目运算符</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -583,7 +587,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-5-集合逻辑符号"><a href="#3-2-5-集合逻辑符号" class="headerlink" title="3.2.5 集合逻辑符号"></a>3.2.5 集合逻辑符号</h4><table>
+</div>
+<h4 id="3-2-5-集合逻辑符号"><a href="#3-2-5-集合逻辑符号" class="headerlink" title="3.2.5 集合逻辑符号"></a>3.2.5 集合逻辑符号</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号(大小写)</th>
@@ -673,72 +679,62 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="3-2-6-上标号和下标号的表示方法"><a href="#3-2-6-上标号和下标号的表示方法" class="headerlink" title="3.2.6 上标号和下标号的表示方法"></a>3.2.6 上标号和下标号的表示方法</h4><p>在LaTex中，使用<code>^</code>符号代表上标号，使用<code>_</code>符号代表下标号，当上/下标号是一个复合的表达式时，需要将使用curly braces<code>{}</code>将表达式包起来，例如:</p>
 <ul>
-<li><p>\$\$k_{n+1} = n^2 + k<em>n^2  - k\</em>{n-1}$$</p>
-<p>$$k_{n+1} = n^2 + k<em>n^2 - k</em>{n-1}$$</p>
-</li>
-<li><p>\$\$n^22$$</p>
-<p>$$n^{22}$$</p>
-</li>
-<li><p>\$\$lim_{x \to \infty} \mathrm(e)^{-x} =0 $$</p>
-<p>$$lim_{x \to \infty} \mathrm{e}^{-x} = 0$$</p>
-</li>
+<li><p>$$k<em>{n+1} = n^2 + k_n^2  - k\</em>{n-1}$$</p>
+<script type="math/tex; mode=display">k_{n+1} = n^2 + k_n^2 - k_{n-1}</script></li>
+<li><p>$$n^22$$</p>
+<script type="math/tex; mode=display">n^{22}</script></li>
+<li><p>$$lim_{x \to \infty} \mathrm(e)^{-x} =0 $$</p>
+<script type="math/tex; mode=display">lim_{x \to \infty} \mathrm{e}^{-x} = 0</script></li>
 </ul>
 <p>也可以使用<code>_</code>和<code>|</code>组合去显示下标的取值，例如：</p>
-<p>\$\$f(n) = n^5 + 4n^2 + 2 |_{n=17}$$</p>
-<p>$$f(n) = n^2 + 4n^2 + 2 |_{n=17}$$</p>
-<h4 id="3-2-7-分式和二项式的表示方法"><a href="#3-2-7-分式和二项式的表示方法" class="headerlink" title="3.2.7 分式和二项式的表示方法"></a>3.2.7 分式和二项式的表示方法</h4><ul>
+<p>$$f(n) = n^5 + 4n^2 + 2 |_{n=17}$$</p>
+<script type="math/tex; mode=display">f(n) = n^2 + 4n^2 + 2 |_{n=17}</script><h4 id="3-2-7-分式和二项式的表示方法"><a href="#3-2-7-分式和二项式的表示方法" class="headerlink" title="3.2.7 分式和二项式的表示方法"></a>3.2.7 分式和二项式的表示方法</h4><ul>
 <li><p>分式</p>
 <p>在LaTex中，使用<code>\frac{numerator}{denominator}</code>来创建一个分式，<code>numerator</code>代表分子，<code>denominator</code>代表分子，具体例子如下:</p>
 <ul>
-<li><p>\$\$\frac{n!}{k!(n-k)!}$$</p>
-<p>$$\frac{n!}{k!(n-k)!}$$</p>
-</li>
-<li><p>\$\$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$</p>
-<p>$$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$</p>
-</li>
+<li><p>$$\frac{n!}{k!(n-k)!}$$</p>
+<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!}</script></li>
+<li><p>$$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$</p>
+<script type="math/tex; mode=display">\frac{\frac{1}{x} + \frac{1}{y}}{y-z}</script></li>
 </ul>
 </li>
 <li><p>二项式</p>
 <p>使用<code>\binom{n}{k}</code>来创建一个二项式表达式，例如：</p>
-<p>\$\$\frac{n!}{k!(n-k)!} =  \binom{n}{k}$$</p>
-<p>$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$</p>
-</li>
+<p>$$\frac{n!}{k!(n-k)!} =  \binom{n}{k}$$</p>
+<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!} = \binom{n}{k}</script></li>
 </ul>
 <h4 id="3-2-8-根号的表示方法"><a href="#3-2-8-根号的表示方法" class="headerlink" title="3.2.8 根号的表示方法"></a>3.2.8 根号的表示方法</h4><p>使用<code>\sqrt{...}</code>去创建一个根号表示，使用<code>[]</code>去改变根号的权重，具体例子如下：</p>
 <ul>
-<li><p>\$\$\sqrt{\frac{x+1}{x}}$$</p>
-<p>$$\sqrt{\frac{x+1}{x}}$$</p>
-</li>
-<li><p>\$\$\sqrt[n]{1 + x + x^2 +\cdots + x^n}$</p>
-<p>$$\sqrt[n]{1 + x + x^2 + \cdots + x^2}$$</p>
-</li>
+<li><p>$$\sqrt{\frac{x+1}{x}}$$</p>
+<script type="math/tex; mode=display">\sqrt{\frac{x+1}{x}}</script></li>
+<li><p>$$\sqrt[n]{1 + x + x^2 +\cdots + x^n}$</p>
+<script type="math/tex; mode=display">\sqrt[n]{1 + x + x^2 + \cdots + x^2}</script></li>
 </ul>
 <h4 id="3-2-9-求和和积分公式的表示方法"><a href="#3-2-9-求和和积分公式的表示方法" class="headerlink" title="3.2.9 求和和积分公式的表示方法"></a>3.2.9 求和和积分公式的表示方法</h4><ul>
 <li><p>求和</p>
 <p>使用<code>\sum</code>来创建一个求和的公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
 <ul>
-<li><p>\$\$\sum_{i=1}^{10} t_i$$</p>
-<p>$$\sum_{i=1}^{10} t_i$$</p>
-</li>
-<li><p>\$\$sum_{i=0}^{n} x^i$$</p>
-<p>$$\sum_{i=0}^{n} x^i$$</p>
-</li>
+<li><p>$$\sum_{i=1}^{10} t_i$$</p>
+<script type="math/tex; mode=display">\sum_{i=1}^{10} t_i</script></li>
+<li><p>$$sum_{i=0}^{n} x^i$$</p>
+<script type="math/tex; mode=display">\sum_{i=0}^{n} x^i</script></li>
 </ul>
 </li>
 </ul>
 <p>　　当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
-<p>　　\$\$\sum_{\substack{ 0&lt;i&lt;m \\0&lt;j&lt;n}} P(i,j)$$</p>
-<p>​        $$\sum_{\substack{0&lt;i&lt;m\\0&lt;j&lt;n}} P(i,j)$$</p>
+<p>　　$$\sum_{\substack{ 0&lt;i&lt;m \\0&lt;j&lt;n}} P(i,j)$$</p>
+<p>​        <script type="math/tex">\sum_{\substack{0<i<m\\\\0<j<n}} P(i,j)</script></p>
 <ul>
 <li><p>积分</p>
 <p>使用<code>\int</code>来创建一个积分公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
-<p>\$\$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$</p>
 <p>$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$</p>
-</li>
+<script type="math/tex; mode=display">\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x</script></li>
 </ul>
 <p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -809,7 +805,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-10-方括号，圆括号，分隔符"><a href="#3-2-10-方括号，圆括号，分隔符" class="headerlink" title="3.2.10 方括号，圆括号，分隔符"></a>3.2.10 方括号，圆括号，分隔符</h4><table>
+</div>
+<h4 id="3-2-10-方括号，圆括号，分隔符"><a href="#3-2-10-方括号，圆括号，分隔符" class="headerlink" title="3.2.10 方括号，圆括号，分隔符"></a>3.2.10 方括号，圆括号，分隔符</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号</th>
@@ -863,7 +861,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-2-11-省略号"><a href="#3-2-11-省略号" class="headerlink" title="3.2.11 省略号"></a>3.2.11 省略号</h4><table>
+</div>
+<h4 id="3-2-11-省略号"><a href="#3-2-11-省略号" class="headerlink" title="3.2.11 省略号"></a>3.2.11 省略号</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">显示符号</th>
@@ -919,17 +919,18 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="3-2-12-空格"><a href="#3-2-12-空格" class="headerlink" title="3.2.12 空格"></a>3.2.12 空格</h4><p>LaText语法本身会忽略空格，在LaTex中有两种空格：小空格和四格空格</p>
 <ul>
 <li><p>小空格</p>
-<p>\$a \ b\$ 呈现为：$a \ b$</p>
+<p>$a \ b$ 呈现为：$a \ b$</p>
 </li>
 <li><p>四格空格</p>
-<p>\$a \quad b\$ 呈现为：$a \quad b$</p>
+<p>$a \quad b$ 呈现为：$a \quad b$</p>
 </li>
 </ul>
 <h4 id="3-2-13-矩阵"><a href="#3-2-13-矩阵" class="headerlink" title="3.2.13 矩阵"></a>3.2.13 矩阵</h4><p>基本的矩阵可以使用matrix 环境来创建，矩阵和其他的类表结构一样，列之间使用<code>&amp;</code>来分开，行之间使用<code>\\</code>来封开，例如：</p>
-<pre class="line-numbers language-laTex"><code class="language-laTex">$$ 
+<pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ 
    \begin{matrix}  
      a &  b & c \\ 
      d &  e & f  \\ 
@@ -937,8 +938,8 @@
     \end{matrix} 
 $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>$$ \begin{matrix} a &amp; b &amp;c  \\ d &amp; e &amp; f \\ g &amp; h &amp; i \end{matrix} $$</p>
-<p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
+<script type="math/tex; mode=display">\begin{matrix} a & b &c  \\\\ d & e & f \\\\ g & h & i \end{matrix}</script><p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1008,9 +1009,10 @@ $$
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li><p>pmatrix</p>
-<pre class="line-numbers language-laTex"><code class="language-laTex">
+<pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">
 $$ A_{m,n} = 
 
       \begin{pmatrix} 
@@ -1030,10 +1032,9 @@ $$
 <p>呈现为：</p>
 </li>
 </ul>
-<p>$$A<em>{m,n} = \begin{pmatrix} a\</em>{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\ a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n} \end{pmatrix}$$</p>
-<ul>
+<script type="math/tex; mode=display">A_{m,n} = \begin{pmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a\_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{pmatrix}</script><ul>
 <li><p>bmatrix</p>
-<pre class="line-numbers language-laTex"><code class="language-laTex">$$ A_{m,n} = 
+<pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ A_{m,n} = 
 
       \begin{bmatrix}
 
@@ -1050,32 +1051,30 @@ $$
 $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
-<p>$$ A<em>{m,n} = \begin{bmatrix} a\</em>{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\ a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n} \end{bmatrix}$$</p>
-</li>
+<script type="math/tex; mode=display">A_{m,n} = \begin{bmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a\_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{bmatrix}</script></li>
 <li><p>Bmatrix</p>
 </li>
 </ul>
-<pre class="line-numbers language-latex"><code class="language-latex">  <span class="token equation string">$$</span> A_<span class="token punctuation">{</span>m,n<span class="token punctuation">}</span> = 
+<pre class="line-numbers language-lang-latex"><code class="language-lang-latex">  $$ A_{m,n} = 
 
-        <span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">Bmatrix</span><span class="token punctuation">}</span>
+        \begin{Bmatrix}
 
-       a_<span class="token punctuation">{</span>1,1<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> a_<span class="token punctuation">{</span>1,2<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\cdots</span> <span class="token punctuation">&amp;</span> a_<span class="token punctuation">{</span>1,n<span class="token punctuation">}</span> <span class="token function selector">\\</span>
+       a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
 
-       a_<span class="token punctuation">{</span>2,1<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> a_<span class="token punctuation">{</span>2,2<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\cdots</span> <span class="token punctuation">&amp;</span> a_<span class="token punctuation">{</span>2,n<span class="token punctuation">}</span> <span class="token function selector">\\</span>
+       a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
 
-       <span class="token function selector">\vdots</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\vdots</span>  <span class="token punctuation">&amp;</span> <span class="token function selector">\ddots</span> <span class="token punctuation">&amp;</span> <span class="token function selector">\dots</span> <span class="token function selector">\\</span>
+       \vdots & \vdots  & \ddots & \dots \\
 
-       a_<span class="token punctuation">{</span>m,1<span class="token punctuation">}</span> <span class="token punctuation">&amp;</span> a_<span class="token punctuation">{</span>m,2 <span class="token punctuation">}</span>  <span class="token punctuation">&amp;</span> <span class="token function selector">\cdots</span> <span class="token punctuation">&amp;</span> a_<span class="token punctuation">{</span>m,n<span class="token punctuation">}</span>
+       a_{m,1} & a_{m,2 }  & \cdots & a_{m,n}
 
-       <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">Bmatrix</span><span class="token punctuation">}</span>
+       \end{Bmatrix}
 
-  <span class="token equation string">$$</span>
+  $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  呈现为</p>
-<p>  $$ A<em>{m,n} = \begin{Bmatrix} a\</em>{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\ a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n} \end{Bmatrix}$$</p>
-<ul>
+<script type="math/tex; mode=display">A_{m,n} = \begin{Bmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a\_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{Bmatrix}</script><ul>
 <li><p>vmatrix</p>
-<pre class="line-numbers language-laTex"><code class="language-laTex">$$ A_{m,n} = 
+<pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ A_{m,n} = 
 
 　　　　\begin{vmatrix}
 
@@ -1092,10 +1091,9 @@ $$
 $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
-<p>$$ A<em>{m,n} = \begin{vmatrix} a\</em>{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\ a<em>{2,1} &amp; a\</em>{2,2} &amp; \cdots &amp; a_{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n} \end{vmatrix}$$</p>
-</li>
+<script type="math/tex; mode=display">A_{m,n} = \begin{vmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{vmatrix}</script></li>
 <li><p>Vmatrix</p>
-<pre class="line-numbers language-laTex"><code class="language-laTex">$$ A_{m,n} = 
+<pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$ A_{m,n} = 
 
 　　　\begin{Vmatrix}
 
@@ -1112,11 +1110,10 @@ $$
  $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为</p>
-<p>$$ A<em>{m,n} = \begin{Vmatrix} a\</em>{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\ a<em>{2,1} &amp; a\</em>{2,2} &amp; \cdots &amp; a_{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n} \end{Vmatrix}$$</p>
-</li>
+<script type="math/tex; mode=display">A_{m,n} = \begin{Vmatrix} a\_{1,1} & a\_{1,2} & \cdots & a\_{1,n} \\\\ a_{2,1} & a\_{2,2} & \cdots & a\_{2,n} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ a\_{m,1} & a\_{m,2} & \cdots & a\_{m,n} \end{Vmatrix}</script></li>
 </ul>
 <h4 id="3-2-16-方程组"><a href="#3-2-16-方程组" class="headerlink" title="3.2.16 方程组"></a>3.2.16 方程组</h4><p>方程组可以使用cases环境来创建，起始、结束处以{cases}声明，例如：</p>
-<pre class="line-numbers language-laTex"><code class="language-laTex">$$
+<pre class="line-numbers language-lang-laTex"><code class="language-lang-laTex">$$
 \begin{cases}
 
 a_1x_1+b_1x_2+c_1x_3 = d_1\\
@@ -1129,8 +1126,7 @@ a_3x_1+b_3x_2+c_2x_3 = d_3\\
 $$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>呈现为:</p>
-<p>$$\begin{cases} a_1x_1+b_1x_2+c_1x_3 = d_1 \\ a_2x_1+b_2x_2+c_2x_3 = d_2 \\ a_3x_1+b_3x_2+c_2x_3 = d_3 \end{cases}$$</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
+<script type="math/tex; mode=display">\begin{cases} a\_1x\_1+b\_1x\_2+c\_1x\_3 = d\_1 \\\\ a\_2x\_1+b\_2x\_2+c\_2x\_3 = d\_2 \\\\ a\_3x\_1+b\_3x\_2+c\_2x\_3 = d\_3 \end{cases}</script><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
 <p><a href="http://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="external">[2]基本数学公式语法(of MathJax)</a></p>
 <p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">[3]MathJax basic tutorial and quick reference</a></p>
 

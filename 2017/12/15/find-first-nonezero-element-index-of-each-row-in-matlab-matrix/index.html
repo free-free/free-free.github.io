@@ -192,67 +192,67 @@
     <p>How to find out the none-zero element index of each row in matlab matrix without using for loop?  Honestly, this fucking problem frustrates me  all day, I have no spark about this, fortunately, i get a roughly problem-solving  solution with the help of enthusiastic people. Ok ,lets get down to code.</p>
 <p>Here we assume $A$ is a $m\times n$ matrix, the problem is find out the index of first none-zero element of each row in $A$. </p>
 <h4 id="The-first-try"><a href="#The-first-try" class="headerlink" title="The first try"></a>The first try</h4><p><strong>code</strong></p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">idx <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>A<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">idx = sum(A==0, 2) + 1
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>The above code seems to be working, the truths is that it just  works fine in some special matrices, like</p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">A <span class="token operator">=</span> 
+<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">A = 
 
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>    <span class="token number">12</span>    <span class="token number">11</span>
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">1</span>     <span class="token number">2</span>     <span class="token number">3</span>
-     <span class="token number">0</span>    <span class="token number">32</span>    <span class="token number">21</span>   <span class="token number">343</span>    <span class="token number">54</span>    <span class="token number">43</span>
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">1</span>
+     0     0     0     0    12    11
+     0     0     0     1     2     3
+     0    32    21   343    54    43
+     0     0     0     0     0     1
 
-idx <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>A<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token comment" spellcheck="true">% The output follows</span>
-ans <span class="token operator">=</span>
+idx = sum(A==0, 2) + 1
+% The output follows
+ans =
 
-     <span class="token number">5</span>
-     <span class="token number">4</span>
-     <span class="token number">2</span>
-     <span class="token number">6</span>
-<span class="token comment" spellcheck="true">% see that,it is corret</span>
+     5
+     4
+     2
+     6
+% see that,it is corret
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>but except other general matrices,like</p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">A <span class="token operator">=</span>
+<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">A =
 
-     <span class="token number">0</span>     <span class="token number">2</span>     <span class="token number">0</span>     <span class="token number">0</span>    <span class="token number">12</span>    <span class="token number">11</span>
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">1</span>     <span class="token number">2</span>     <span class="token number">3</span>
-     <span class="token number">0</span>    <span class="token number">32</span>    <span class="token number">21</span>   <span class="token number">343</span>    <span class="token number">54</span>    <span class="token number">43</span>
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">1</span>
-idx <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span>A<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token comment" spellcheck="true">% The output follows</span>
-ans <span class="token operator">=</span>
+     0     2     0     0    12    11
+     0     0     0     1     2     3
+     0    32    21   343    54    43
+     0     0     0     0     0     1
+idx = sum(A==0, 2) + 1
+% The output follows
+ans =
 
-     <span class="token number">4</span>
-     <span class="token number">4</span>
-     <span class="token number">2</span>
-     <span class="token number">6</span>
+     4
+     4
+     2
+     6
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>The first try  is failed, but it doesn’t mean i was defeated.So i start my second problem-solving try.</p>
 <h4 id="The-second-try"><a href="#The-second-try" class="headerlink" title="The second try"></a>The second try</h4><p><strong>code:</strong></p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">idx <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token function">cumsum</span><span class="token punctuation">(</span>A<span class="token operator">~=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>It seems i find the way to correct answer this time, but ….. it’s not working in some special case, likes the following matrix </p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">A <span class="token operator">=</span>
+<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">A =
 
-     <span class="token number">0</span>     <span class="token number">2</span>     <span class="token number">0</span>     <span class="token number">0</span>    <span class="token number">12</span>    <span class="token number">11</span>     <span class="token number">0</span>
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">1</span>     <span class="token number">2</span>     <span class="token number">3</span>     <span class="token number">0</span>
-     <span class="token number">0</span>    <span class="token number">32</span>    <span class="token number">21</span>   <span class="token number">343</span>    <span class="token number">54</span>    <span class="token number">43</span>     <span class="token number">0</span>
-     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>     <span class="token number">0</span>
+     0     2     0     0    12    11     0
+     0     0     0     1     2     3     0
+     0    32    21   343    54    43     0
+     0     0     0     0     0     0     0
 
-idx <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token function">cumsum</span><span class="token punctuation">(</span>A<span class="token operator">~=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token comment" spellcheck="true">% The last element of output seems to be not working, it's value exceeds the maximum index of A's column.</span>
-ans <span class="token operator">=</span>
+idx = sum(cumsum(A~=0, 2)==0, 2) + 1
+% The last element of output seems to be not working, it's value exceeds the maximum index of A's column.
+ans =
 
-     <span class="token number">2</span>
-     <span class="token number">4</span>
-     <span class="token number">2</span>
-     <span class="token number">8</span>
+     2
+     4
+     2
+     8
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>OK, this time we get more closer to the correct answer.The next question is we  how to deal with the  index-exceeding problem.Lets go further to launch our  third try</p>
 <h4 id="The-third-try"><a href="#The-third-try" class="headerlink" title="The third try"></a>The third try</h4><p><strong>code:</strong></p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">idx <span class="token operator">=</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token function">cumsum</span><span class="token punctuation">(</span>A<span class="token operator">~=</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token function">idx</span><span class="token punctuation">(</span>idx <span class="token operator">></span> <span class="token function">size</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span> nan<span class="token punctuation">;</span>
+<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
+idx(idx > size(A, 2)) = nan;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.               I can bet this time , it must work fine in all  cases. What? You don’t believe what i have said. Ok, i don’t want to persuade you. The fact is alway fact, you can run the code on your machine.</p>
 
