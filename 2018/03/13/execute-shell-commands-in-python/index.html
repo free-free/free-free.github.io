@@ -193,7 +193,7 @@
 
     <!-- Content -->
     <div class='article-content'>
-    <p>Executing shell commands in python is alway unfamiliar to me. On the one hand, shell script normally meets my daily demands, I think there have no very strong reasons for me to learn it. On the other hand, my focus in Python is not here, there are few chances to  get in touch with it. But now, the powerful ability of Python executing shell commands are attract to me, as I dive into the Python’s world. For that reason, I think it’s time to get hands on it. Here I will summarize the approaches  executing shell commands in Python.</p>
+    <p>Executing shell commands in python is always attractive to me. On the one hand, shell script normally meets my daily demands, I think there has no very strong reasons to learn it. On the other hand, my focus in Python is not here, there are few chances to get in touch with it. But now, the powerful ability of Python executing shell commands impress me, as I dive into the deeper place in Python’s world. For that reason, I think it’s time to get hands on it. Here I will summarize the approaches  executing shell commands in Python.</p>
 <h4 id="1-subprocess-call"><a href="#1-subprocess-call" class="headerlink" title="1. subprocess.call"></a>1. <code>subprocess.call</code></h4><p>This approach is very known to  the most of developers. <a href="https://docs.python.org/3/library/subprocess.html" target="_blank" rel="external">subprocess</a> module is built in python library. It allows you to spawn new processes, connected to their input/output/error pipes, and obtain their return codes. It intends to replace several older modules and functions:</p>
 <pre class="line-numbers language-shell"><code class="language-shell">os.system
 os.spwan
@@ -201,7 +201,7 @@ os.spwan
 <p>The related PEP is <a href="https://www.python.org/dev/peps/pep-0324" target="_blank" rel="external">PEP 324</a> which proposed the subprocess module.</p>
 <p>In <em>subprocess</em>, the <code>run()</code> function is the most powerful and convenient  function , it can handle all use cases. Unfortunately, the <code>run()</code> was added in Python 3.5,  so if you want to keep compatibility with older version, your might need to use older high-level API <a href="https://docs.python.org/3/library/subprocess.html#call-function-trio" target="_blank" rel="external">call()</a>. The prototype of <code>run()</code> is followed:</p>
 <p><code>subprocess.run</code>(<em>args</em>, * , <em>stdin=None</em>, <em>input=None</em>, <em>stdout=None</em>, <em>stderr=None</em>, <em>shell=False</em>, <em>cwd=None</em>, <em>timeout=None</em>, <em>check=False</em>, <em>encoding=None</em>, <em>errors=None</em>)<a href="https://docs.python.org/3/library/subprocess.html#subprocess.run" target="_blank" rel="external">¶</a></p>
-<p>The underlying mechanism of <code>run()</code> is just  a proxy for <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a> which provide a lot of flexibility so that developers are able to handle the less common cases not covered by the convenience functions.</p>
+<p>The underlying mechanism of <code>run()</code> is just a proxy for <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a> which provide a lot of flexibility so that developers are able to handle the less common cases not covered by the convenience functions.</p>
 <p><strong>args</strong> : command list included the command name and parameters.</p>
 <p><strong>stdin</strong>: pass to <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a></p>
 <p><strong>input</strong>: pass to <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a></p>
@@ -241,7 +241,7 @@ CompletedProcess<span class="token punctuation">(</span>args<span class="token o
 <span class="token operator">>></span><span class="token operator">></span> output <span class="token operator">=</span> commands<span class="token punctuation">.</span>getoutput<span class="token punctuation">(</span><span class="token string">"ls -al"</span><span class="token punctuation">)</span>
 <span class="token operator">>></span><span class="token operator">></span> status <span class="token operator">=</span> commands<span class="token punctuation">.</span>getstatus<span class="token punctuation">(</span><span class="token string">"hello.c"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>Note</strong>: The  <code>commands</code> module only exists in Python2.x , since this  module is removed in Python3.x.</p>
+<p><strong>Note</strong>: The  <code>commands</code> module only exists in Python2.x , since this  module has been removed in Python3.x.</p>
 <p>This method is much similar to <code>popen</code>, the difference is that <code>popen</code> returns file-like object</p>
 <ul>
 <li><code>os.system</code></li>
@@ -250,7 +250,7 @@ CompletedProcess<span class="token punctuation">(</span>args<span class="token o
 <pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> os
 <span class="token operator">>></span><span class="token operator">></span> os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"ls"</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>The downside of this method is that you must handle security stuff yourself, like shell character escaping and etc. Beside that, this method cannot run the external programs.</p>
+<p>The downside of this method is that you must handle security stuffs yourself, like shell character escaping, etc. On top of that, this method cannot run the external programs.</p>
 
     </div>
     <hr />
