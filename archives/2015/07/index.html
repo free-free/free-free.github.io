@@ -40,25 +40,10 @@
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-        menuSettings:{
-	  zoom: "None"
-	},
-	showMathMenu: false,
-	jax: ["input/Tex", "output/CommonHTML"],
-	extensions: ["text2jax.js"],
-	TeX: {
-	  extensions: ["AMSmath.js", "AMSsymbols.js"],
-          equationNumbers: {
-            autoNumber: "AMS"
-          }
-	},
-  	tex2jax: {
-          inlineMath: [["\\(","\\)"]],
-          displayMath: [["\\[","\\]"]]
-        }
+    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
   });
   </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
