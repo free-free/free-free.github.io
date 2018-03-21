@@ -7,13 +7,11 @@
   <meta charset="utf-8">
   
   
-      <title>2018 - Archive - Infinite.ft的博客</title>
-  
-  
-      <title>Archive - Infinite.ft的博客</title>
   
   
     
+  
+      <title>Make Hexo Support Latex - Infinite.ft的博客</title>
   
   
   <meta name="description" content="">
@@ -131,164 +129,118 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="flex: 1;">
-      
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
 
-	<div class="container">
+<article class="article" id="/2018/03/21/make-hexo-support-latex/" data-name='Make Hexo Support Latex' data-version="">
+
+    <!-- Title -->
+
+    
+        
+            
+                
+                
+            
+        
+    
+
+    <div class='article-header'>
+         
+         <h1 class='article-title'>
+            <a href="/2018/03/21/make-hexo-support-latex/">
+                Make Hexo Support Latex
+            </a>
+        </h1>
+        
+        <ul class='article-categories'>
+            
+            
+                <li><a href="/categories/tech/" data-no-instant>
+                    <img src="/images/tech.svg" alt="tech" />
+                </a></li>
+            
+        </ul>
+        
+    </div>
+   
+    <!-- Date and Author -->
+    <p>
+       	2018-03-21
+        by infinite.ft
+        
+    </p>
+    <p>
+        
+
 	
-		
-			<h2>2018</h2>
-		
-		<div class="grid-4_sm-1 grid-equalHeight">
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/03/21/make-hexo-support-latex/">
-				
-				Make Hexo Support Latex</a>
-			</p>
-			<small class="Card-meta">
-				2018-03-21
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/03/19/basic-arithmetical-operations-on-the-digital-image/">
-				
-				Basic Arithmetical Operations on the Digital Image</a>
-			</p>
-			<small class="Card-meta">
-				2018-03-19
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/03/13/execute-shell-commands-in-python/">
-				
-				Execute Shell Commands in Python</a>
-			</p>
-			<small class="Card-meta">
-				2018-03-13
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/28/python-lib-fire/">
-				
-				Create CLIs in Python Using Fire</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-28
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/27/convert-amr-to-mp3-using-python-and-ffmpeg/">
-				
-				Convert Amr to Mp3 Using Python and Ffmpeg</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-27
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/20/extract-audio-from-video-using-python-and-ffmpeg/">
-				
-				Extract Audio From Video Using Python and FFmpeg</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-20
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/13/a-letter-to-you-my-niece/">
-				
-				致未来的你，侄女</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-13
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/02/10/make-hexo-custom-domain-support-ssl/">
-				
-				Make Hexo Custom Domain Support SSL</a>
-			</p>
-			<small class="Card-meta">
-				2018-02-10
-			</small>
-		</div>
-	</div>
-</div>
-		
-			<div class="col">
-	<div class='Card-archive'>
-		<div class="Card-body">
-			<p class='Card-title'>
-				
-					<a href="/2018/01/18/matlab-3d-plot-function/">
-				
-				Matlab 3d Plot Function</a>
-			</p>
-			<small class="Card-meta">
-				2018-01-18
-			</small>
-		</div>
-	</div>
-</div>
-		
-		</div>
-	
-</div>
+		<label><a href="/tags/LaTex/">#Latex</a></label>
 	
 
+	
+		<label><a href="/tags/hexo/">#Hexo</a></label>
+	
+
+
+    </p>
+	<hr />
+
+    <!-- Gallery -->
+    
+    
+
+    <!-- Content -->
+    <div class='article-content'>
+    <p>In the previous post, I have briefly introduced some basic syntaxes about LaTex , and how to write mathematical equations with markdown. In this post, I am about to focus on making hexo support LaTex mathematical equations syntax with Mathjax and summarize the approach .</p>
+<h3 id="1-Replace-hexo-renderer-marked-with-hexo-renderer-kramed"><a href="#1-Replace-hexo-renderer-marked-with-hexo-renderer-kramed" class="headerlink" title="1. Replace hexo-renderer-marked  with hexo-renderer-kramed"></a>1. Replace hexo-renderer-marked  with hexo-renderer-kramed</h3><p>The default rendering engine is hexo-renderer-marked  in hexo, unfortunately, hexo-renderer-marked doesn’t support Mathjax syntaxes. To fix that, a new rendering engine: <code>hexo-renderer-kramed</code> comes along at the that moment. To fully support Mathjax in your hexo , just need you to uninstall hexo-renderer-marked  and install hexo-renderer-kramed.</p>
+<pre class="line-numbers language-lang-shell"><code class="language-lang-shell">
+$ npm uninstall hexo-renderer-marked --save
+$ npm install hexo-renderer-kramed --save
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Now your hexo  can render Mathjax fully.</p>
+<h3 id="2-Fix-the-syntax-conflicts-between-LaTex-and-markdown"><a href="#2-Fix-the-syntax-conflicts-between-LaTex-and-markdown" class="headerlink" title="2. Fix the syntax conflicts between LaTex and markdown"></a>2. Fix the syntax conflicts between LaTex and markdown</h3><p>If you know very well about LaTex and markdown, you may be aware of the syntax conflicts between them. In markdown, asterisk <code>*</code> and underline <code>_</code> represent bold and italic. At the same time , underline <code>_</code>  denotes subscript in LaTex. So how to fix that? Here we only use asterisk <code>*</code> to the represent bold and italic in markdown, and assign underline <code>_</code> to LaTex.</p>
+<p>Open  <code>node_modules\kramed\lib\rules\inline.js</code>, and replace <code>escape</code> and <code>em</code>  to following content.</p>
+<pre class="line-numbers language-lang-js"><code class="language-lang-js">
+escape: /^\\([`*\[\]()#$+\-.!_>])/,
+em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-Enable-Mathjax"><a href="#3-Enable-Mathjax" class="headerlink" title="3. Enable Mathjax"></a>3. Enable Mathjax</h3><p>Open your theme configuration file:<code>_config.yaml</code> , add the following content to it.</p>
+<pre class="line-numbers language-lang-yaml"><code class="language-lang-yaml">mathjax:
+  enable: true
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Just now you already have made your hexo support LaTex. When you want to write mathematical equations  in you blog , you just need to enable Mathjax in your article header part, like the following.</p>
+<pre class="line-numbers language-lang-markdown"><code class="language-lang-markdown">----
+title: Hello Mathjax
+categories: god
+date: 2018/03/21
+tags:
+  - LaTex
+mathjax: true
+
+----
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="http://blog.csdn.net/u014630987/article/details/78670258" target="_blank" rel="external">[1] reference 1</a></p>
+<p><a href="http://blog.csdn.net/crazy_scott/article/details/79293576" target="_blank" rel="external">[2] reference 2</a></p>
+<p><a href="https://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="external">[3] reference 3</a></p>
+<p><a href="http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/" target="_blank" rel="external">[4] refercence 4</a></p>
+<p><a href="https://github.com/sun11/hexo-renderer-kramed" target="_blank" rel="external">[5] reference 5</a></p>
+
+    </div>
+    <hr />
+
+    <h2>Share and comment</h2>
+    <div class="social-share"></div>
+    
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+    
+    
+</article>
   </div>
 
   <footer class='footer'>
