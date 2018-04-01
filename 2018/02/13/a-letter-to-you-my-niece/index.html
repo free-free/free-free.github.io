@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,135 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-toc'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
-			</a>
-		</div>
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
 	</div>
 	
-	
+	<div class='nav-item' id='nav-item-archive'>
 		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
 		
-			<div class='menu-item grow'>
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -135,19 +201,49 @@
     }
 </style>
 
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
 <article class="article" id="/2018/02/13/a-letter-to-you-my-niece/" data-name='致未来的你，侄女' data-version="">
 
     <!-- Title -->
-
-    
-        
-            
-                
-                
-            
-        
-    
-
     <div class='article-header'>
          
          <h1 class='article-title'>
@@ -155,195 +251,336 @@
                 致未来的你，侄女
             </a>
         </h1>
+        <!-- TODO: support nested categories,display them nicely -->
         
         <ul class='article-categories'>
             
             
                 <li><a href="/categories/mylife/" data-no-instant>
-                    <img src="/images/mylife.svg" alt="mylife" />
+                    <img src="/images/mylife.svg" alt="mylife" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='mylife'/>
                 </a></li>
             
         </ul>
         
     </div>
-   
-    <!-- Date and Author -->
-    <p>
-       	2018-02-13
-        by infinite.ft
-        
-    </p>
-    <p>
-        
-
-	
-		<label><a href="/tags/notes/">#Notes</a></label>
-	
-
-
-    </p>
-	<hr />
-
-    <!-- Gallery -->
     
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2018-02-13</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/notes/">Notes</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
     
 
     <!-- Content -->
-    <div class='article-content'>
-    <p>​    侄女/小汤，今天是你的第一个生日，老舅祝你生日快乐，愿你在未来的日子里开开心心、健健康康的成长下去。</p>
-<p>​    为了你的一周岁生日，老舅想了很久，最终决定写下这封信，希望未来的你能够从这封信中有所收获。之所以要在你一周岁的生日的时候写这样一封信给你，原因主要有三点。原因一：老舅今年23岁，虽然不会有太多的经历和感悟，但有些东西是我这个年龄所独有的，必须要以这个年龄的身份写给你，如果等我到了中年足够干练之后才写给你，就会失去它原本的味道；原因二：这是你的一周岁礼物，我希望它是一份能够长存，并对你未来的生活有所帮助的礼物；原因三：老舅目前是一个不善于表达情感的人，所以我想现在把我想对你说的话以文字的方式保存下来，以防未来遗失了。</p>
-<h4 id="你的出生，我的独白"><a href="#你的出生，我的独白" class="headerlink" title="你的出生，我的独白"></a>你的出生，我的独白</h4><p>​        自你妈妈(我姐)刚怀上你，到你调皮地踢她的肚子的时候，我的心都处于一种即期待又有一丝小紧张的状态。期待着你从你妈妈肚子里出来的那一天，期待着你叫我舅舅的那一天；紧张着自己怎样去做好一个舅舅。就这样持续着，直到去年的今天调皮的你从你妈妈的肚子里“蹦”了出来，来到这个新奇的世界(Welcome to the new world!  ((o(^_ ^)o)) )，我心中的期待和那一丝小紧张转变成了一种紧迫感。我迫切需要知道我怎样去扮演好一个舅舅的角色。但我越是着急，越是束手无策。直到今天，我依然没有找到很清晰的答案，但我知道做好一个舅舅，我还需要很多的成长和历练。对此，老舅并没有畏惧，反而是有了更多的动力。</p>
-<h4 id="对你的希望"><a href="#对你的希望" class="headerlink" title="对你的希望"></a>对你的希望</h4><ul>
-<li><p>学会感恩和情感表达</p>
-<p><code>学会感恩</code></p>
-<p>​    学会感恩。一个人无论多么聪明、多么能干、自身外在条件多么好、取得多么大的成就，如果不懂得感恩，必定也是令人不齿的。老舅坚信感恩是做人的基本能力，一个人要是懂得了感恩，那么他的其他品质也不会差到哪里去，他的生活也不会坏到哪里去。老舅希望你能够很早就能学会感恩。感恩你的父母、感恩帮助你的人。千万不要把父母对你的付出和关怀以及别人对你的帮助视为理所当然的，这是大忌。别人施恩于你，你要懂得回报他人。</p>
-<p>​    感恩不是放在心里，要付诸于行动。当老舅还在上小学的时候，经常听老师说要我们心存感恩，但老师并没有教授我们要把感恩付诸于行动，所以老舅有一段时间一直对感恩存在认知误差。在此老舅需要强调一下，感恩绝对不是只放在心里，是要表现出来的，放在心里的感恩，别人是感受不到的，这不是真正意义上的感恩。希望你不要像老舅以前一样对感恩存在这样的认知误差，即要心存感恩，也要将感恩体现你的行动上。</p>
-<p>​    感恩不在于能力大小，要及时感恩。老舅受到过很多人的帮助，心里也懂得要去感恩那些帮助过我的人，但是老舅犯了一个严重的错误。老舅一直想着等自己有了能力之后才去感恩他们。但是时间不等人，等你有了能力之后才去感恩，时间可能已经晚了。不管在什么时候，不管你在哪里，不管是你的父母还是其他帮助过你的人，你都要懂得及时去感恩他们。平时多联系他们，这是感恩；平时节假日的时候，多去看看他们，这也是感恩。感恩并不在于你当下能力的大小，在于你是否及时付诸于你的行动中。老舅已经犯了错误，我不想你也一样。</p>
-<p><code>学会情感表达</code></p>
-<p>​    学会情感表达。没有一个人会自成一体。刚出生的时候会有你的父母和亲人在你身边，随着你的长大，你会有朋友，会有自己的爱人，最终也会有自己的孩子。你身边的父母和亲人、朋友、爱人和孩子都会陪着你走过你的大半生，他们是你在这个世上最亲密的人，你和他们之间必然会有情感的表达。在你需要表达对他们的情感的时候，一定要表达出来，不要不好意思。人都是情感的动物，情感的表达是生活的重要一部分。没有情感表达的生活，就如同没有加盐的饭菜，淡而无味。情感是联系你周围的人关系的纽带，无论何时何地，只要你想要把它表达出来，就不要怯于环境，也不用太在意别人的眼光。老舅在此给你强调情感表达的重要性，也是在于老舅是一个不善于表达情感的人，很多人和事因此而错过了，所以希望你不要像老舅一样。自小，老舅就不知道如何去表达对别人的情感，就连对你外公外婆以及你妈妈也是一样。现在到了这个年龄，突然感悟到自己在这方面的缺陷，想要去弥补却又不知道该如何做起。有时想要去表达对你外婆和妈妈的情感，都感觉不好意思。老舅也时常在想，可能是已经过了学会情感表达的最佳时期。但老舅不会就此罢了，我就不信那个邪了。就让我们两个一起在这件事上努力吧。娃哈哈。</p>
-</li>
-<li><p>学会用书本来充实自己</p>
-<p>​    可能从小到大你父母或者老师都会叮嘱你要多读书，当然老舅也不例外。书是一个人精神财富的重要来源，它能让你的内心世界丰富起来，能够建立你的世界观、价值观、人生观，能够培养你看事物的角度和为人处事的态度，能够让你的胸襟变得豁达…..etc。我知道上面这些都感觉很虚，不那么让人信服。但它确实能对你的实际生活起到很大的帮助。当你心很浮躁，不能专心做事的时候，试着去拿起自己喜欢的一本书，打开它随便阅读起来，你会奇迹地发现你的心慢慢地平静下来了。当你自己独处的时候也不会感到孤独，那是你因为书让你无论身出何处，你的内心依然如此的热闹。当别人都在从众地追逐着本不适合自己的东西的时候，你却不为所动，依然坚持自己的内心，那是因为书让你有了自己独立的思想，你知道自己想什么不想要什么。当你再也不和别人争论的时候，那是因为书让你更加冷静和理智，懂得换个角度看问题。当别人都在放弃自己的原则的时候，而你却默默地坚持着，那是因为书让你懂得原则对你生活的重要性。书会让你拥有自己的独立灵魂，懂得独立思考；会让你认清自己的内心，知道自己真正想要准求的是什么；同样会让你养成自己的人生态度，它决定了你未来的生活状态。老舅希望你懂得书本对于你人生的重要性，能够让书本陪伴你的一生。</p>
-<p>​    书是手段，不是目的。老舅让你多读书并不是让你为了读书而读书，那是读死书，你要懂得活学活用。书永远都只是手段，而你的内心世界的丰富和自己的成长才是终极目的。如果你把读书当成你的目的，那将会是很枯燥无味的。但反过来，当你把读书当成一种充实自己、建立自己的三观、寻找乐趣的、丰富自己内心世界的目的，它将会显得亲切并有趣的多。读书就像你平时吃饭一样，你从一个小不点长到大，并不知道是哪顿饭让你长大了，同样你也不知道是哪本书让你成长了。读书是一个长期的过程，不要急于去期望通过读几本书就能快速成长起来。希望你从小就能够把读书当做一种成长自己的手段，并且不要太功利，养成一个终生阅读的好习惯。期待有一天你能成为老舅羡慕和膜拜的人。</p>
-</li>
-<li><p>学会独立思考，以辩证的眼光看待事物</p>
-<p>​    学会独立思考。在我们所处的这个时代，由于计算机和网络的发展，各种各样的信息充斥在我们周围，有些是假的，有些是真的，有些是有害的，有些是有益的。懂得如何排除噪声找出真正有用的信号对你的生活和发展很重要。而独立思考在此时便担当着帮你找出有用信号的角色。老舅让你多用书充实自己的原因之一，便是希望你能够在书本的影响下学会独立思考，开阔自己的眼界(有句话虽说，读万卷书不如行万里路，但在你还无法行万里路的时候，你只有多读书)。无论在什么情况下，都要有一颗清醒理智的头脑，不要人云亦云。别人说一的时候，千万不要顺口也说一，一定要经过自己头脑的思考，判断自己是否也需要这样做。也不要因为周围群体强大的声势而随意放弃了自己独立思考的能力，凡事都要通过独立思考，形成自己的观点和立场，并将此坚持下去(这不是偏执，偏执是明知自己的错，依然不放弃)。在大多数时候，你宁愿相信自己的判断，也不要相信群体的言行(特别网络上的群体)，这并不是老舅偏激，但凡你以后涉猎一点心理学并仔细观察一下，你便会了解到群体的言行在很多时候都是不理智的。当你有了独立思考能力之后，你会对这个时代充满信心，发现这个时代并没有言论中的那么糟，它交通发达、生活便利、言论相对自由，你的选择和机会也会很多；当你缺少独立思考能力，你会感觉这个时代四处都充满了黑暗，你发现不了它的优点和价值所在。老舅希望你能够在成年之前便养成这种独立思考的能力，我相信你父母也会放心在外奔波的你。</p>
-<p>​    以辩证的眼光看待事物。没有绝对的不变，只有相对的不变。在审视事物的时候一定要以辩证的眼光看待它们，既要发现它们绝对变化的地方，也要发现相对不变的地方。这对于你以后解决事业上(当然这里对于老舅来说，只是学业上的，之后也会迁移到事业上)和生活上的问题有很大裨益。在生活上，谁的人生都不会完全一帆风顺，总会有低谷的时候，也会有高潮的时候。当你处在人生低谷的时候，要以辩证的眼光看待它，低谷是你成长的机会，低谷只是暂时的，只要你在努力，一切总会有好起来的时候。当你处在人生高潮的时候，也要用辩证的眼光考察它，不要骄傲自满，停滞不前，既要发现并保留可取之处，也要改正不可取之处。在事业上，当你用辩证的眼光看待你所遇到的问题时，你会有完全不同的思路去解决它。时刻提醒自己不要使用一种方法死磕，换角度多方位观察，你必然能发现问题的薄弱之处。对于影响你事业走向的决定，既不要犯短视的错误，也不要眼光太超前，以致看不见脚下所处的位置。老舅知道让你一下学会这些很难，但这不妨碍让你养成这样的意识。</p>
-</li>
-<li><p>要有自己的信仰，并保护好它</p>
-<p>​    当你懂得了用书本充实自己，有独立思考的能力，并能够用辩证的眼光看待事物的时候，你心中或许已经有了自己的信仰雏形，只是你可能还不知道它具体是什么？它对你的生活有什么影响？以老舅的理解，信仰是你内心中一种对某个事物的信念，这种信念能够在你心力交瘁、激情殆尽的时候，继续推动着你不畏风雨地向自己坚持的方向前行。它是你内心当中一种隐形的能量之源。信仰既然有这么强大的力量，当你有了它之后，你的生活也将变得与众不同。一个人不可能让所有人都信服，做什么事也不可能一次就成功，当其他人都在反对你的时候，当你已经失败几次，但你坚信你的方向是正确的时候，支持你走下去的不是别人的鼓励，也不是你的激情，而是你的信仰。当在生活上或者事业上失意的时候，支持你站起来的，是你的信仰。当你快坚持不下准备放弃的时候，是你的信仰给了你坚持下去的毅力。信仰对你的生活就是有这么大的影响，至少从老舅的经历来说，它就是这么重要。一旦你有了自己的信仰之后，它就像你的终生挚友一样，默默地并忠诚的守候着你，在你需要它的时候，立马站出来帮助你。虽然你的信仰对你很忠诚，但并不意味你不会弄丢它。在这个既“理想”又“骨干”的时代，外部的诱惑实在太多了，在各种利益和所谓“现实”的驱使下，让太多人在不经意之间弄丢了自己的信仰，当自己反应过来的时候，已经找不回来了。我不希望你也因为外在诱惑和“现实”而弄丢了自己的信仰，要时刻保护它，把它当做你生活上的伙伴。退一万步，你可以没有自己的目标，也可以没有丰富的外在财富，但是你必须要有自己的信仰和时刻保护它的警觉。老舅还要强调一点：现实和信仰并不冲突。现实和信仰如同硬币的两面，你可以同时拥有它们，不要自我决断地玩“翻硬币游戏”，没有人强迫你要必须丢掉它们当中的一个。既要拥抱现实，也是守护信仰。</p>
-</li>
-<li><p>要永远保持好奇心(站在兔毛尖上)</p>
-<p>​    如果信仰使你在生活中奋力前行，那么好奇心便使你在生活中不断发现新的乐趣、体验新的感受。每个人自娘胎里出来就充满了很大的好奇心(你也一样)，对看见的每件事物都感到新奇，有时候对着某个事物就能够整整玩上好几小时，并且不会感到厌烦，总能在其中找到乐趣所在。有了好奇心，你的生活便不会枯燥无味，因为每时每刻你都在试着发现新的东西，而且最后你总能发现自己之前从未见过的东西。同样也是因为好奇心，你才会去学习自己不会、看似无用实际却挺有用的东西，去尝试之前未做过的事，去走之前未走过的路，去接触之前未接触过人。你的生活会因为有了好奇心而变得与众不同、五彩斑斓。你自己也会因为有了好奇心而成为一个有趣的人。而你的家人和朋友也会因为你的好奇心因此受到感染，他们最终也可能像你一样，充满了好奇心。既然好奇心这么重要，你可能会问：怎样去获得好奇心呢？其实好奇心不需要去获得。好奇心是人生来就有的天性，并不需要你从后天习得。而你需要做的便是好好守护你的好奇心，不要让它随着你年龄的增长丢失了(这是很多人的好奇心丢失的原因，这也是我要给你强调要保持好奇心的原因之一)，不管你年龄多大，都要保持好奇心，它并不是小孩子的专利。刚生下来的我们就像兔毛尖的“跳蚤”一样，随着年龄的增长，很多人便会顺着兔毛爬到最深处去，因为那里很“舒适”，最终只有少部分人继续留在兔毛尖上，去感受这个新奇的世界。老舅希望你是那个一直留在兔毛尖上的“跳蚤”中的一员，大胆的去感受这个新奇的世界，不要把所有“大孩子”认为理所当然的事当成理所当然，一定要用自己的好奇心去重新审视它、挖掘它，这样你总会发现别人发现不了的东西，你总会比别人过得快乐、精彩。</p>
-</li>
-</ul>
-<p>​    最后的最后，希望你长大之后，能够好好孝敬你的父母，不要把父母为你的付出和关心视为理所应当，也不要把父母的啰嗦当成累赘，因为只有关心你的人才会对你啰嗦。－… . … －   .－－ .. … …. . …   ..－. －－－ .－.   －.－－ －－－ ..－</p>
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
 
     </div>
-    <hr />
+    <div class='article-content'>
+    <p>​	侄女/小汤，今天是你的第一个生日，老舅祝你生日快乐，愿你在未来的日子里开开心心、健健康康的成长下去。</p>
+<p>​	为了你的一周岁生日，老舅想了很久，最终决定写下这封信，希望未来的你能够从这封信中有所收获。之所以要在你一周岁的生日的时候写这样一封信给你，原因主要有三点。原因一：老舅今年23岁，虽然不会有太多的经历和感悟，但有些东西是我这个年龄所独有的，必须要以这个年龄的身份写给你，如果等我到了中年足够干练之后才写给你，就会失去它原本的味道；原因二：这是你的一周岁礼物，我希望它是一份能够长存，并对你未来的生活有所帮助的礼物；原因三：老舅目前是一个不善于表达情感的人，所以我想现在把我想对你说的话以文字的方式保存下来，以防未来遗失了。</p>
+<h4 id="你的出生-我的独白">你的出生，我的独白</h4>
+<p>​        自你妈妈(我姐)刚怀上你，到你调皮地踢她的肚子的时候，我的心都处于一种即期待又有一丝小紧张的状态。期待着你从你妈妈肚子里出来的那一天，期待着你叫我舅舅的那一天；紧张着自己怎样去做好一个舅舅。就这样持续着，直到去年的今天调皮的你从你妈妈的肚子里“蹦”了出来，来到这个新奇的世界(Welcome to the new world!  ((o(^_ ^)o)) )，我心中的期待和那一丝小紧张转变成了一种紧迫感。我迫切需要知道我怎样去扮演好一个舅舅的角色。但我越是着急，越是束手无策。直到今天，我依然没有找到很清晰的答案，但我知道做好一个舅舅，我还需要很多的成长和历练。对此，老舅并没有畏惧，反而是有了更多的动力。</p>
+<h4 id="对你的希望">对你的希望</h4>
+<ul>
+<li>
+<p>学会感恩和情感表达</p>
+<p><code>学会感恩</code></p>
+<p>​	学会感恩。一个人无论多么聪明、多么能干、自身外在条件多么好、取得多么大的成就，如果不懂得感恩，必定也是令人不齿的。老舅坚信感恩是做人的基本能力，一个人要是懂得了感恩，那么他的其他品质也不会差到哪里去，他的生活也不会坏到哪里去。老舅希望你能够很早就能学会感恩。感恩你的父母、感恩帮助你的人。千万不要把父母对你的付出和关怀以及别人对你的帮助视为理所当然的，这是大忌。别人施恩于你，你要懂得回报他人。</p>
+<p>​	感恩不是放在心里，要付诸于行动。当老舅还在上小学的时候，经常听老师说要我们心存感恩，但老师并没有教授我们要把感恩付诸于行动，所以老舅有一段时间一直对感恩存在认知误差。在此老舅需要强调一下，感恩绝对不是只放在心里，是要表现出来的，放在心里的感恩，别人是感受不到的，这不是真正意义上的感恩。希望你不要像老舅以前一样对感恩存在这样的认知误差，即要心存感恩，也要将感恩体现你的行动上。</p>
+<p>​	感恩不在于能力大小，要及时感恩。老舅受到过很多人的帮助，心里也懂得要去感恩那些帮助过我的人，但是老舅犯了一个严重的错误。老舅一直想着等自己有了能力之后才去感恩他们。但是时间不等人，等你有了能力之后才去感恩，时间可能已经晚了。不管在什么时候，不管你在哪里，不管是你的父母还是其他帮助过你的人，你都要懂得及时去感恩他们。平时多联系他们，这是感恩；平时节假日的时候，多去看看他们，这也是感恩。感恩并不在于你当下能力的大小，在于你是否及时付诸于你的行动中。老舅已经犯了错误，我不想你也一样。</p>
+<p><code>学会情感表达</code></p>
+<p>​	学会情感表达。没有一个人会自成一体。刚出生的时候会有你的父母和亲人在你身边，随着你的长大，你会有朋友，会有自己的爱人，最终也会有自己的孩子。你身边的父母和亲人、朋友、爱人和孩子都会陪着你走过你的大半生，他们是你在这个世上最亲密的人，你和他们之间必然会有情感的表达。在你需要表达对他们的情感的时候，一定要表达出来，不要不好意思。人都是情感的动物，情感的表达是生活的重要一部分。没有情感表达的生活，就如同没有加盐的饭菜，淡而无味。情感是联系你周围的人关系的纽带，无论何时何地，只要你想要把它表达出来，就不要怯于环境，也不用太在意别人的眼光。老舅在此给你强调情感表达的重要性，也是在于老舅是一个不善于表达情感的人，很多人和事因此而错过了，所以希望你不要像老舅一样。自小，老舅就不知道如何去表达对别人的情感，就连对你外公外婆以及你妈妈也是一样。现在到了这个年龄，突然感悟到自己在这方面的缺陷，想要去弥补却又不知道该如何做起。有时想要去表达对你外婆和妈妈的情感，都感觉不好意思。老舅也时常在想，可能是已经过了学会情感表达的最佳时期。但老舅不会就此罢了，我就不信那个邪了。就让我们两个一起在这件事上努力吧。娃哈哈。</p>
+</li>
+<li>
+<p>学会用书本来充实自己</p>
+<p>​	可能从小到大你父母或者老师都会叮嘱你要多读书，当然老舅也不例外。书是一个人精神财富的重要来源，它能让你的内心世界丰富起来，能够建立你的世界观、价值观、人生观，能够培养你看事物的角度和为人处事的态度，能够让你的胸襟变得豁达…etc。我知道上面这些都感觉很虚，不那么让人信服。但它确实能对你的实际生活起到很大的帮助。当你心很浮躁，不能专心做事的时候，试着去拿起自己喜欢的一本书，打开它随便阅读起来，你会奇迹地发现你的心慢慢地平静下来了。当你自己独处的时候也不会感到孤独，那是你因为书让你无论身出何处，你的内心依然如此的热闹。当别人都在从众地追逐着本不适合自己的东西的时候，你却不为所动，依然坚持自己的内心，那是因为书让你有了自己独立的思想，你知道自己想什么不想要什么。当你再也不和别人争论的时候，那是因为书让你更加冷静和理智，懂得换个角度看问题。当别人都在放弃自己的原则的时候，而你却默默地坚持着，那是因为书让你懂得原则对你生活的重要性。书会让你拥有自己的独立灵魂，懂得独立思考；会让你认清自己的内心，知道自己真正想要准求的是什么；同样会让你养成自己的人生态度，它决定了你未来的生活状态。老舅希望你懂得书本对于你人生的重要性，能够让书本陪伴你的一生。</p>
+<p>​	书是手段，不是目的。老舅让你多读书并不是让你为了读书而读书，那是读死书，你要懂得活学活用。书永远都只是手段，而你的内心世界的丰富和自己的成长才是终极目的。如果你把读书当成你的目的，那将会是很枯燥无味的。但反过来，当你把读书当成一种充实自己、建立自己的三观、寻找乐趣的、丰富自己内心世界的目的，它将会显得亲切并有趣的多。读书就像你平时吃饭一样，你从一个小不点长到大，并不知道是哪顿饭让你长大了，同样你也不知道是哪本书让你成长了。读书是一个长期的过程，不要急于去期望通过读几本书就能快速成长起来。希望你从小就能够把读书当做一种成长自己的手段，并且不要太功利，养成一个终生阅读的好习惯。期待有一天你能成为老舅羡慕和膜拜的人。</p>
+</li>
+<li>
+<p>学会独立思考，以辩证的眼光看待事物</p>
+<p>​	学会独立思考。在我们所处的这个时代，由于计算机和网络的发展，各种各样的信息充斥在我们周围，有些是假的，有些是真的，有些是有害的，有些是有益的。懂得如何排除噪声找出真正有用的信号对你的生活和发展很重要。而独立思考在此时便担当着帮你找出有用信号的角色。老舅让你多用书充实自己的原因之一，便是希望你能够在书本的影响下学会独立思考，开阔自己的眼界(有句话虽说，读万卷书不如行万里路，但在你还无法行万里路的时候，你只有多读书)。无论在什么情况下，都要有一颗清醒理智的头脑，不要人云亦云。别人说一的时候，千万不要顺口也说一，一定要经过自己头脑的思考，判断自己是否也需要这样做。也不要因为周围群体强大的声势而随意放弃了自己独立思考的能力，凡事都要通过独立思考，形成自己的观点和立场，并将此坚持下去(这不是偏执，偏执是明知自己的错，依然不放弃)。在大多数时候，你宁愿相信自己的判断，也不要相信群体的言行(特别网络上的群体)，这并不是老舅偏激，但凡你以后涉猎一点心理学并仔细观察一下，你便会了解到群体的言行在很多时候都是不理智的。当你有了独立思考能力之后，你会对这个时代充满信心，发现这个时代并没有言论中的那么糟，它交通发达、生活便利、言论相对自由，你的选择和机会也会很多；当你缺少独立思考能力，你会感觉这个时代四处都充满了黑暗，你发现不了它的优点和价值所在。老舅希望你能够在成年之前便养成这种独立思考的能力，我相信你父母也会放心在外奔波的你。</p>
+<p>​	以辩证的眼光看待事物。没有绝对的不变，只有相对的不变。在审视事物的时候一定要以辩证的眼光看待它们，既要发现它们绝对变化的地方，也要发现相对不变的地方。这对于你以后解决事业上(当然这里对于老舅来说，只是学业上的，之后也会迁移到事业上)和生活上的问题有很大裨益。在生活上，谁的人生都不会完全一帆风顺，总会有低谷的时候，也会有高潮的时候。当你处在人生低谷的时候，要以辩证的眼光看待它，低谷是你成长的机会，低谷只是暂时的，只要你在努力，一切总会有好起来的时候。当你处在人生高潮的时候，也要用辩证的眼光考察它，不要骄傲自满，停滞不前，既要发现并保留可取之处，也要改正不可取之处。在事业上，当你用辩证的眼光看待你所遇到的问题时，你会有完全不同的思路去解决它。时刻提醒自己不要使用一种方法死磕，换角度多方位观察，你必然能发现问题的薄弱之处。对于影响你事业走向的决定，既不要犯短视的错误，也不要眼光太超前，以致看不见脚下所处的位置。老舅知道让你一下学会这些很难，但这不妨碍让你养成这样的意识。</p>
+</li>
+<li>
+<p>要有自己的信仰，并保护好它</p>
+<p>​	当你懂得了用书本充实自己，有独立思考的能力，并能够用辩证的眼光看待事物的时候，你心中或许已经有了自己的信仰雏形，只是你可能还不知道它具体是什么？它对你的生活有什么影响？以老舅的理解，信仰是你内心中一种对某个事物的信念，这种信念能够在你心力交瘁、激情殆尽的时候，继续推动着你不畏风雨地向自己坚持的方向前行。它是你内心当中一种隐形的能量之源。信仰既然有这么强大的力量，当你有了它之后，你的生活也将变得与众不同。一个人不可能让所有人都信服，做什么事也不可能一次就成功，当其他人都在反对你的时候，当你已经失败几次，但你坚信你的方向是正确的时候，支持你走下去的不是别人的鼓励，也不是你的激情，而是你的信仰。当在生活上或者事业上失意的时候，支持你站起来的，是你的信仰。当你快坚持不下准备放弃的时候，是你的信仰给了你坚持下去的毅力。信仰对你的生活就是有这么大的影响，至少从老舅的经历来说，它就是这么重要。一旦你有了自己的信仰之后，它就像你的终生挚友一样，默默地并忠诚的守候着你，在你需要它的时候，立马站出来帮助你。虽然你的信仰对你很忠诚，但并不意味你不会弄丢它。在这个既“理想”又“骨干”的时代，外部的诱惑实在太多了，在各种利益和所谓“现实”的驱使下，让太多人在不经意之间弄丢了自己的信仰，当自己反应过来的时候，已经找不回来了。我不希望你也因为外在诱惑和“现实”而弄丢了自己的信仰，要时刻保护它，把它当做你生活上的伙伴。退一万步，你可以没有自己的目标，也可以没有丰富的外在财富，但是你必须要有自己的信仰和时刻保护它的警觉。老舅还要强调一点：现实和信仰并不冲突。现实和信仰如同硬币的两面，你可以同时拥有它们，不要自我决断地玩“翻硬币游戏”，没有人强迫你要必须丢掉它们当中的一个。既要拥抱现实，也是守护信仰。</p>
+</li>
+<li>
+<p>要永远保持好奇心(站在兔毛尖上)</p>
+<p>​	如果信仰使你在生活中奋力前行，那么好奇心便使你在生活中不断发现新的乐趣、体验新的感受。每个人自娘胎里出来就充满了很大的好奇心(你也一样)，对看见的每件事物都感到新奇，有时候对着某个事物就能够整整玩上好几小时，并且不会感到厌烦，总能在其中找到乐趣所在。有了好奇心，你的生活便不会枯燥无味，因为每时每刻你都在试着发现新的东西，而且最后你总能发现自己之前从未见过的东西。同样也是因为好奇心，你才会去学习自己不会、看似无用实际却挺有用的东西，去尝试之前未做过的事，去走之前未走过的路，去接触之前未接触过人。你的生活会因为有了好奇心而变得与众不同、五彩斑斓。你自己也会因为有了好奇心而成为一个有趣的人。而你的家人和朋友也会因为你的好奇心因此受到感染，他们最终也可能像你一样，充满了好奇心。既然好奇心这么重要，你可能会问：怎样去获得好奇心呢？其实好奇心不需要去获得。好奇心是人生来就有的天性，并不需要你从后天习得。而你需要做的便是好好守护你的好奇心，不要让它随着你年龄的增长丢失了(这是很多人的好奇心丢失的原因，这也是我要给你强调要保持好奇心的原因之一)，不管你年龄多大，都要保持好奇心，它并不是小孩子的专利。刚生下来的我们就像兔毛尖的“跳蚤”一样，随着年龄的增长，很多人便会顺着兔毛爬到最深处去，因为那里很“舒适”，最终只有少部分人继续留在兔毛尖上，去感受这个新奇的世界。老舅希望你是那个一直留在兔毛尖上的“跳蚤”中的一员，大胆的去感受这个新奇的世界，不要把所有“大孩子”认为理所当然的事当成理所当然，一定要用自己的好奇心去重新审视它、挖掘它，这样你总会发现别人发现不了的东西，你总会比别人过得快乐、精彩。</p>
+</li>
+</ul>
+<p>​	最后的最后，希望你长大之后，能够好好孝敬你的父母，不要把父母为你的付出和关心视为理所应当，也不要把父母的啰嗦当成累赘，因为只有关心你的人才会对你啰嗦。－… . … －   .－－ … … … . …   …－. －－－ .－.   －.－－ －－－ …－</p>
 
-    <h2>Share and comment</h2>
-    <div class="social-share"></div>
     
-        <div id="disqus_thread"></div>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
+    </div>
     
     
+        
 </article>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
 </script>
 
 <!-- End Document

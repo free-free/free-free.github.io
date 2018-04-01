@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  
+  
+  
+  
+    
+  
+      <title>An Introduce to BMP File - Infinite.ft的博客</title>
+  
+  
+  <meta name="description" content="">
+  <meta name="author" content="infinite.ft">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
+
+
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/js/social-share.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+  <!-- include cookie.js -->
+  
+  
+
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+ 
+
+<header id="header">
+	<div class="header-title">
+		
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
+			</div>
+		
+	
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
+		
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
+			
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
+							<span>Home</span>
+						</a>
+					</div>
+			</div>
+		
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+</header>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div style="flex: 1;">
+      <style>
+    body {
+        background-color: white;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
+<article class="article" id="/2018/03/26/an-introduce-to-BMP-file/" data-name='An Introduce to BMP File' data-version="">
+
+    <!-- Title -->
+    <div class='article-header'>
+         
+         <h1 class='article-title'>
+            <a href="/2018/03/26/an-introduce-to-BMP-file/">
+                An Introduce to BMP File
+            </a>
+        </h1>
+        <!-- TODO: support nested categories,display them nicely -->
+        
+        <ul class='article-categories'>
+            
+            
+                <li><a href="/categories/tech/" data-no-instant>
+                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
+                </a></li>
+            
+        </ul>
+        
+    </div>
+    
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2018-03-26</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/digital-image-processing/">Digital image processing</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>BMP, known as Bitmap, is a standard image file format on the window X platform original created by Microsoft. Now It  be broadly used, especially in digital image processing, and supported by almost all of platforms. Though it’s very popular in image processing fields, it’s not suitable for...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
+    
+
+    <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+    </div>
+    <div class='article-content'>
+    <p>BMP, known as Bitmap, is a standard image file format on the window X platform original created by Microsoft. Now It  be broadly used, especially in digital image processing, and supported by almost all of platforms. Though it’s very popular in image processing fields, it’s not suitable for storage as it’s not be compressed.</p>
+<p>BMP is simply divided into two types: Device Independent Bitmap(DIB) and Device Dependent Bitmap(DDB).  DDB was widely used in early  windows system. As the development of monitor technology, a variety of display devices was produced, DDB was hard to meet all the device’s demands. e.g. DDB cannot store the resolution information of the device that originally created it, so that applications cannot rapidly check whether if the BMP image can be displayed on the current host display device. To solve this, Microsoft has created a new type  Bitmap called Device Independent Bitmap.</p>
+<p>Each DIB image contains a information structure, in which color and spatial side are stored. The information structure is explained as below:</p>
+<ul>
+<li>The color type of original device</li>
+<li>The resolution of original device</li>
+<li>Palette</li>
+<li>Bit array contains RGB channel’s color value of each pixel</li>
+<li>Flag which indicates the compression scheme of Bit Array</li>
+</ul>
+<p>One Bitmap file mainly contains the four parts, shown in Figure 1.</p>
+<center>
+<figure class="half">
+<img src="http://oy4cno18k.bkt.clouddn.com/an-introduce-to-BMP-file_01.bmp">
+</figure>
+</center>
+<center>
+<p>​	Figure 1.</p>
+</center>
+<ul>
+<li>File Header(14 bytes)</li>
+<li>Info Header(40 bytes)</li>
+<li>Palette</li>
+<li>Image Data</li>
+</ul>
+<p><strong>1. File Header(14 bytes)</strong></p>
+<p>File Header is defined as a fixed size structure, which has the size of 14 bytes. the fields of File Header is shown below.</p>
+<pre class="line-numbers language-language-c"><code class="language-language-c">typedef struct tagBITMAPFILEHEADER{
+  WORD bfType;
+  DWORD bfSize;
+  WORD bfReserved1;
+  WORD bfReserved2;
+  DWORD bfOffBits;
+}BITMAPFILEHADER;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Note</strong>: <code>WORD</code> represents 16-bits unsigned integer type, <code>DWORD</code> represents  32-bits unsigned integer type.</p>
+<p><code>bfType</code>: denote file type, the value must be 0x424D, i.e. “BM”.</p>
+<p><code>bfSize</code>: the total file size, The size of File Header also be included.</p>
+<p><code>bfReserved1,bfReserved2</code>: padding bytes, ignore it.</p>
+<p><code>bfOffBits</code>: The number of bytes where the first byte of Image Data offset to the first byte of file.</p>
+<p><strong>2. Info Header(40 bytes)</strong></p>
+<p>Info Header has the fixed size of 40 bytes, defined as the following.</p>
+<pre class="line-numbers language-language-c"><code class="language-language-c">typedef struct tagBITMAPINFOHEADER{
+  DWORD biSize;
+  LONG biWidth;
+  LONG biHeight;
+  WORD biPlanes;
+  WORD biBitCount;
+  DWORD biCompression;
+  DWORD biSizeImage;
+  LONG biXPelsPerMeter;
+  LONG biYPelsPerMeter;
+  DWORD biClrUsed;
+  DWORD biClrImportant;
+} BITMAPINFOHEADER;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Note</strong>: <code>LONG</code> represents 32-bits integer type.</p>
+<p><code>biSize</code>: structure size(Info Header), the value must be <em>40</em>.</p>
+<p><code>biWidth</code>: image width with respect to the pixel.</p>
+<p><code>biHeight</code>: image height with respect to the pixel.</p>
+<p><code>biPlanes</code>: must be <em>1</em>, ignore it.</p>
+<p><code>biBitCount</code>: The bit number when represent color. the commonly used value can be <em>1</em>(two colors), <em>4</em>(16 colors), <em>8</em>(256 colors) and <em>24</em>(true color).</p>
+<p><code>biCompression</code>: the indicator of the compression method. The valid value can be <em>BI_RGB</em>, <em>BI_RLE8</em>, <em>BI_RLE4</em> and <em>BI_BITFIELDS</em>(these are constant variables defined in the windows platform). As a mention, <em>BI_RGB</em> denotes that image file will not be compressed.</p>
+<p><code>biSizeImage</code>: <code>biWidth</code> * <code>biHeight</code>, note that the <code>biWidth</code> must be the multiplier of four, for example, when <code>biWidth</code> is 241, the actual value of <code>biWidth</code> is equal to 244.</p>
+<p><code>biXPelsPerMeter</code>: the horizontal resolution of the device that created it, the unit is pixels-per-meter.</p>
+<p><code>biYPelsPerMeter</code>： the vertical resolution of the device that created i. the unit is pixels-per-meter.</p>
+<p><code>biClrUsed</code>: the actual used color number. when value is equal to 0, the actual color number is $2^{biBitCount}$ .</p>
+<p><code>biClrImportant</code>: the number of color which be thought as  important. When the value is 0 , represent all color is important.</p>
+<p><strong>3. Palette</strong></p>
+<p>The palette of one BMP image is optional, some image file doesn’t need palette, e.g. true color image. Actually, the palette is an structure array ,in which the number of elements is equal to <code>biClrUsed</code>. Each element is defined as the following structure.</p>
+<pre class="line-numbers language-language-c"><code class="language-language-c">typedef struct tagRGBQUAD{
+  // the value of blue color channel
+  BYTE rgbBlue;
+  // the value of green color channel
+  BYTE rgbGreen;
+  // the value of red color channel
+  BYTE rgbRed;
+  // padding
+  BYTE rgbReserved;
+}RGBQUAD;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>4.Image Data</strong></p>
+<p>When the palette exists in the image file, the image data represent the index values of the pixels in the palette, otherwise, the image data represent the actual color value of the pixels(RGB). Let’s take a example:</p>
+<p><code>biBitCount=1</code>: the size of palette is 2, the value of each pixel can be 0 or 1, which represents the index value in the palette. The reason is that there are just  two kind of colors. one  data byte can represent 8 pixels.</p>
+<p><code>biBitCount=4</code>: the size of palette is $2^4=16$, the value of each pixel ranges from 0 to 15. one data byte can store two pixels.</p>
+<p><code>biBitCount=8</code>: the size of palette is $2^8=256$, the value of each pixel ranges from 0 to 255. one data byte just represent one pixel.</p>
+<p>Besides, when image file is a true color image, each pixel requires the  space size of 3 bytes.</p>
+
+    
+    </div>
+    
+    
+        
+</article>
+  </div>
+
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
+    </div>
+    
+    <div class='footer-social'>
+        
+            
+                
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
+                
+            
+        
+    </div>
+</footer>
+
+  <br>
+
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+				
+			
+		
+		
+	
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
+		
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
+			
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
+							<span>Home</span>
+						</a>
+					</div>
+			</div>
+		
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+	</div>
+	</div>
+</nav>
+
+	</div>
+
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
+
+<script data-no-instant type='text/javascript'>
+changeLayoutOnTouchScreen();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
+</script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

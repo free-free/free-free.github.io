@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,135 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-toc'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
-			</a>
-		</div>
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
 	</div>
 	
-	
+	<div class='nav-item' id='nav-item-archive'>
 		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
 		
-			<div class='menu-item grow'>
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -135,19 +201,49 @@
     }
 </style>
 
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
 <article class="article" id="/2017/12/31/convert-state-space-representation-to-transfer-function/" data-name='Convert State Space Representation to Transfer Function' data-version="">
 
     <!-- Title -->
-
-    
-        
-            
-                
-                
-            
-        
-    
-
     <div class='article-header'>
          
          <h1 class='article-title'>
@@ -155,51 +251,141 @@
                 Convert State Space Representation to Transfer Function
             </a>
         </h1>
+        <!-- TODO: support nested categories,display them nicely -->
         
         <ul class='article-categories'>
             
             
                 <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" />
+                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
                 </a></li>
             
         </ul>
         
     </div>
-   
-    <!-- Date and Author -->
-    <p>
-       	2017-12-31
-        by infinite.ft
-        
-    </p>
-    <p>
-        
-
-	
-		<label><a href="/tags/matlab/">#Matlab</a></label>
-	
-
-
-    </p>
-	<hr />
-
-    <!-- Gallery -->
     
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2017-12-31</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/matlab/">Matlab</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>In this semester early, I have enrolled my first-degree course Linear System Theory. The focus of this course is the state space representation  and illustrate the concept of observable and controllable of a linear system. As a student of Control Science and Engineering, I know how  important of...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
     
 
     <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+    </div>
     <div class='article-content'>
     <p>In this semester early, I have enrolled my first-degree course <em>Linear System Theory</em>. The focus of this course is the state space representation  and illustrate the concept of observable and controllable of a linear system. As a student of Control Science and Engineering, I know how  important of it to my career in later life. Everything must be practical, this course is also not an exception. here, as a practice , <strong>I will give a implementation of converting state space to transfer function representation.</strong></p>
-<h3 id="Mathematical-representation"><a href="#Mathematical-representation" class="headerlink" title="Mathematical representation"></a>Mathematical representation</h3><p>Given the transfer function of a linear time invariant (LTI) system,as shown below.</p>
-<script type="math/tex; mode=display">G(s) = \frac{b\_{m}s^m + b\_{m-1}s^{m-1}+ \dotsb + b\_{1}s + b\_{0}}{s^n + \alpha\_{n-1}s^{n-1} + \alpha\_{n-2}s^{n-2} + \dotsb + \alpha\_{1}s+\alpha\_{0}}</script><p>It’s state space representation as follows.</p>
-<script type="math/tex; mode=display">\begin{cases}\dot{x} = Ax + Bu \\\\ y = Cx + Du\end{cases}</script><p> In the above equation,$x$ is the state vector of system, $u$ is the input and $y$ is the output. $A$ called system matrix, it’s dimension is $n\times n$ .B called input matrix, it’s dimension is $n \times p$. C called output matrix , it’s dimension is $q \times n$. D called input &amp; output relational matrix, it’s dimension is $q \times p$.</p>
+<h3 id="mathematical-representation">Mathematical representation</h3>
+<p>Given the transfer function of a linear time invariant (LTI) system,as shown below.</p>
+<p>$$G(s) = \frac{b_{m}s^m + b_{m-1}s^{m-1}+ \dotsb + b_{1}s + b_{0}}{s^n + \alpha_{n-1}s^{n-1} + \alpha_{n-2}s^{n-2} + \dotsb + \alpha_{1}s+\alpha_{0}}$$</p>
+<p>It’s state space representation as follows.</p>
+<p>$$\begin{cases}\dot{x} = Ax + Bu \\ y = Cx + Du\end{cases}$$</p>
+<p>In the above equation,$x$ is the state vector of system, $u$ is the input and $y$ is the output. $A$ called system matrix, it’s dimension is $n\times n$ .B called input matrix, it’s dimension is $n \times p$. C called output matrix , it’s dimension is $q \times n$. D called input &amp; output relational matrix, it’s dimension is $q \times p$.</p>
 <p>According to system’s transfer function , it’s <em>kalman I form</em>  , <em>kalman II form</em> and <em>standard observable  form</em> can be easily provided. Conversely,  given the state space representation , the transfer function could be given in the following formula.</p>
-<script type="math/tex; mode=display">G(s) = C(sI - A)^{-1}B + D</script><p>Here the calculation of $(sI - A)^{-1}$ is cumbersome,  especially for student who has no assistance with computer.The computational  method of $(sI - A)^{-1}$ can be given in a more comprehensive way, as shown below.</p>
-<script type="math/tex; mode=display">(sI - A)^{-1} = \frac{adj(sI - A)}{det(sI - A)}</script><script type="math/tex; mode=display">adj(sI - A) = R\_{n-1}s^{n-1} +R\_{n-2}s^{n-2} + \dotsb + R\_1s + R\_0</script><script type="math/tex; mode=display">det(sI - A) = s^n + a\_{n-1}s^{n-1} + a\_{n-2}s^{n-2}+ \dotsb + a\_1s + a\_0</script><p>So here i have already given  the method of computation of $(sI - A)^{-1}$, the next question is how to calculate $R_{n-1}, R_{n-2}, \dots, R_0$ and $a_{n-1}, a_{n-1}, \dots, a_{0}$. The relationship of them is brief and clear.</p>
-<script type="math/tex; mode=display">\begin{cases} R\_{n-1} =  I,a\_{n-1} = - \frac{tr(R\_{n-1}A)}{1} \\\\ R\_{n-2} = R\_{n-1}A + a\_{n-1}I, a\_{n-2}= -\frac{tr(R\_{n-2}A)}{2} \\\\ \cdots \\\\  \cdots \\\\ R\_{1} = R\_{2}A + a\_{2}I, a\_{1}= -\frac{tr(R\_{1}A)}{(n-1)} \\\\ R\_{0} = R\_{1}A + a\_{1}I, a\_{0}= -\frac{tr(R\_{0}A)}{n}\end{cases}</script><p>As shown above,  $R_{n-1}$ and $a_{n-1}$  are firstly calculated, $R_{n-2}$ and $a_{n-2}$ are followed, then continue the calculation process until the subscript of $R$ and $a$ is reached to <em>$0$</em>. According to equations above, we can easily give the implementation of converting to state space representation to transfer function representation using Matlab. </p>
-<h3 id="Matlab-implementation"><a href="#Matlab-implementation" class="headerlink" title="Matlab implementation"></a>Matlab implementation</h3><p>In the previous section, we already have introduced mathematics basis of state space representation and transfer function representation of the linear system, and given the method of conversion between each other. So the process of implementing it is much easier using computer language, here I give an implementation using Matlab, the code as follows.</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">% @file: ss2tf.m
+<p>$$G(s) = C(sI - A)^{-1}B + D$$</p>
+<p>Here the calculation of $(sI - A)^{-1}$ is cumbersome,  especially for student who has no assistance with computer.The computational  method of $(sI - A)^{-1}$ can be given in a more comprehensive way, as shown below.</p>
+<p>$$(sI - A)^{-1} = \frac{adj(sI - A)}{det(sI - A)}$$</p>
+<p>$$adj(sI - A) = R_{n-1}s^{n-1} +R_{n-2}s^{n-2} + \dotsb + R_1s + R_0$$</p>
+<p>$$det(sI - A) = s^n + a_{n-1}s^{n-1} + a_{n-2}s^{n-2}+ \dotsb + a_1s + a_0$$</p>
+<p>So here i have already given  the method of computation of $(sI - A)^{-1}$, the next question is how to calculate $R_{n-1}, R_{n-2}, \dots, R_0$ and $a_{n-1}, a_{n-1}, \dots, a_{0}$. The relationship of them is brief and clear.</p>
+<p>$$\begin{cases} R_{n-1} =  I,a_{n-1} = - \frac{tr(R_{n-1}A)}{1} \\ R_{n-2} = R_{n-1}A + a_{n-1}I, a_{n-2}= -\frac{tr(R_{n-2}A)}{2} \\ \cdots \\  \cdots \\ R_{1} = R_{2}A + a_{2}I, a_{1}= -\frac{tr(R_{1}A)}{(n-1)} \\ R_{0} = R_{1}A + a_{1}I, a_{0}= -\frac{tr(R_{0}A)}{n}\end{cases}$$</p>
+<p>As shown above,  $R_{n-1}$ and $a_{n-1}$  are firstly calculated, $R_{n-2}$ and $a_{n-2}$ are followed, then continue the calculation process until the subscript of $R$ and $a$ is reached to <em>$0$</em>. According to equations above, we can easily give the implementation of converting to state space representation to transfer function representation using Matlab.</p>
+<h3 id="matlab-implementation">Matlab implementation</h3>
+<p>In the previous section, we already have introduced mathematics basis of state space representation and transfer function representation of the linear system, and given the method of conversion between each other. So the process of implementing it is much easier using computer language, here I give an implementation using Matlab, the code as follows.</p>
+<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">% @file: ss2tf.m
 % @description: 
 %     The reponsibility of this function is to convert the linear 
 %     system's state  space representation to transfer function
@@ -247,7 +433,7 @@ function [G, CSAI] = ss2tf(A, B, C, D)
 end
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Though the code is implemented, in a real world, the testing and implementation are the same importance to the problem. In the following content, the testing code is provided.</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">% kalman I form 
+<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">% kalman I form 
 A = [0 1 0 0; 
      0 0 1 0; 
      0 0 0 1; 
@@ -262,15 +448,16 @@ D = 0;
 G
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>output:</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">G =
-
+<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">G =
+ 
      -s^3 + 2 s^2 + 23 s + 8
   -----------------------------
   s^4 + 7 s^3 + 3 s^2 + 5 s + 1
-
+ 
 Continuous-time transfer function.
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">% standard observable form 
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">% standard observable form 
 A = [0 0 0 -1; 
      1 0 0 -5; 
      0 1 0 -3; 
@@ -285,141 +472,195 @@ D = 0;
 G
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>output:</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">G =
-
+<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">G =
+ 
      -s^3 + 2 s^2 + 23 s + 8
   -----------------------------
   s^4 + 7 s^3 + 3 s^2 + 5 s + 1
-
+ 
 Continuous-time transfer function.
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://xueshu.baidu.com/s?wd=paperuri%3A%28269231923bf2d6a86441e28d24e8930c%29&amp;filter=sc_long_sign&amp;sc_ks_para=q%3D%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%28%E7%AC%AC2%E7%89%88%29&amp;sc_us=8313367311188451873&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" rel="external">[1] 郑大钟. 线性系统理论(第2版)[J]. 2002.</a></p>
+<h3 id="reference">Reference</h3>
+<p>[[1] 郑大钟. 线性系统理论(第2版)[J]. 2002.](<a href="http://xueshu.baidu.com/s?wd=paperuri%3A%28269231923bf2d6a86441e28d24e8930c%29&amp;filter=sc_long_sign&amp;sc_ks_para=q%3D%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%28%E7%AC%AC2%E7%89%88%29&amp;sc_us=8313367311188451873&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" rel="external">http://xueshu.baidu.com/s?wd=paperuri%3A(269231923bf2d6a86441e28d24e8930c)&amp;filter=sc_long_sign&amp;sc_ks_para=q%3D线性系统理论(第2版)&amp;sc_us=8313367311188451873&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8</a>)</p>
 
+    
     </div>
-    <hr />
-
-    <h2>Share and comment</h2>
-    <div class="social-share"></div>
-    
-        <div id="disqus_thread"></div>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
     
     
+        
 </article>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
 </script>
 
 <!-- End Document

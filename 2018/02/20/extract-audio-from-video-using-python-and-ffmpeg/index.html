@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,135 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-toc'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
-			</a>
-		</div>
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
 	</div>
 	
-	
+	<div class='nav-item' id='nav-item-archive'>
 		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
 		
-			<div class='menu-item grow'>
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -135,19 +201,49 @@
     }
 </style>
 
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
 <article class="article" id="/2018/02/20/extract-audio-from-video-using-python-and-ffmpeg/" data-name='Extract Audio From Video Using Python and FFmpeg' data-version="">
 
     <!-- Title -->
-
-    
-        
-            
-                
-                
-            
-        
-    
-
     <div class='article-header'>
          
          <h1 class='article-title'>
@@ -155,48 +251,134 @@
                 Extract Audio From Video Using Python and FFmpeg
             </a>
         </h1>
+        <!-- TODO: support nested categories,display them nicely -->
         
         <ul class='article-categories'>
             
             
                 <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" />
+                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
                 </a></li>
             
         </ul>
         
     </div>
-   
-    <!-- Date and Author -->
-    <p>
-       	2018-02-20
-        by infinite.ft
-        
-    </p>
-    <p>
-        
-
-	
-		<label><a href="/tags/python/">#Python</a></label>
-	
-
-
-    </p>
-	<hr />
-
-    <!-- Gallery -->
     
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2018-02-20</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/python/">Python</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>​	过年回家后，老妈叫我帮她把糖豆里下载的广场舞视频的歌曲下载下来，我拿她手机一看，50几个视频，难道我还要一个一个的手动下载下来，这个一点也不妥。仔细想一想，既然已经有视频了，那只需要将视频中的歌曲自动提取出来即可，不需要费时间在网上一个一个的搜索，一个个的下载。咱说干就干，是时候拿出视频和音频处理利器：ffmpeg，以及脚本利器：python。
+ffmpeg
+​	作为程序员应该对ffmpeg不陌生，它是一个高效的跨平台视频和音频处理库，详细介绍和用法请见官网...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
     
 
     <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+    </div>
     <div class='article-content'>
-    <p>​    过年回家后，老妈叫我帮她把糖豆里下载的广场舞视频的歌曲下载下来，我拿她手机一看，50几个视频，难道我还要一个一个的手动下载下来，这个一点也不妥。仔细想一想，既然已经有视频了，那只需要将视频中的歌曲自动提取出来即可，不需要费时间在网上一个一个的搜索，一个个的下载。咱说干就干，是时候拿出视频和音频处理利器：<strong>ffmpeg</strong>，以及脚本利器：<strong>python</strong>。</p>
-<h4 id="ffmpeg"><a href="#ffmpeg" class="headerlink" title="ffmpeg"></a>ffmpeg</h4><p>​    作为程序员应该对<strong>ffmpeg</strong>不陌生，它是一个高效的跨平台视频和音频处理库，详细介绍和用法请见<a href="https://ffmpeg.org/ffmpeg.html" target="_blank" rel="external">官网</a> 。接下来讲一讲<strong>ffmpeg</strong>在ubuntu上的安装。由于我的机子上ubuntu版本是16.04，在软件库里正好自带了ffmpeg以及相关的软件库，只需要apt 安装一下即可。</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">$ sudo apt install ffmpeg
+    <p>​	过年回家后，老妈叫我帮她把糖豆里下载的广场舞视频的歌曲下载下来，我拿她手机一看，50几个视频，难道我还要一个一个的手动下载下来，这个一点也不妥。仔细想一想，既然已经有视频了，那只需要将视频中的歌曲自动提取出来即可，不需要费时间在网上一个一个的搜索，一个个的下载。咱说干就干，是时候拿出视频和音频处理利器：<strong>ffmpeg</strong>，以及脚本利器：<strong>python</strong>。</p>
+<h4 id="ffmpeg">ffmpeg</h4>
+<p>​	作为程序员应该对<strong>ffmpeg</strong>不陌生，它是一个高效的跨平台视频和音频处理库，详细介绍和用法请见<a href="https://ffmpeg.org/ffmpeg.html" target="_blank" rel="external">官网</a> 。接下来讲一讲<strong>ffmpeg</strong>在ubuntu上的安装。由于我的机子上ubuntu版本是16.04，在软件库里正好自带了ffmpeg以及相关的软件库，只需要apt 安装一下即可。</p>
+<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ sudo apt install ffmpeg
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>对于没有自带ffmpeg的ubuntu版本，需要自行编译安装。在自行编译安装的时候，ffmpeg默认情况下没有mp3 audio encoder，需要将mp3 audio encoder的mp3lame先安装上，并在编译ffmpeg的时候使能mp3lame。详细的编译安装过程请见<a href="http://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu" target="_blank" rel="external">这里</a> 。</p>
-<h4 id="python-ffmpeg从视频中提取语音"><a href="#python-ffmpeg从视频中提取语音" class="headerlink" title="python+ffmpeg从视频中提取语音"></a>python+ffmpeg从视频中提取语音</h4><h5 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h5><p>该版本是直接通过python的<code>os.system</code>调用ffmpeg，代码如下：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python"># @file: video2audio.py
+<h4 id="python-ffmpeg从视频中提取语音">python+ffmpeg从视频中提取语音</h4>
+<h5 id="版本1">版本1</h5>
+<p>该版本是直接通过python的<code>os.system</code>调用ffmpeg，代码如下：</p>
+<pre class="line-numbers language-language-python"><code class="language-language-python"># @file: video2audio.py
 # -*- coding:utf-8 -*-
 
 import os
@@ -242,10 +424,11 @@ if __name__ == '__main__':
         aFullFilename = os.path.join(dest, aFilename)
         print("Start converting {0}".format(vFilename))
         os.system(ffmpegFormatCode.format(vFullFilename, audioType, aFullFilename))
-        print("Finish conversion of {0}".format(aFilename))
+        print("Finish conversion of {0}".format(aFilename)) 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="版本2"><a href="#版本2" class="headerlink" title="版本2"></a>版本2</h5><p>该版本是需要安装python的一个ffmpeg binding: <a href="https://github.com/kkroening/ffmpeg-python" target="_blank" rel="external">ffmpeg-python</a>。然后通过<strong>ffmpeg-python</strong>来进行音频提取操作。版本1和版本2都需要提前安装ffmpeg，只不过<strong>ffmpeg-python</strong>使得ffmpeg的调用变得更加brief and human-readable。代码如下：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python"># @file: video2audio.py
+<h5 id="版本2">版本2</h5>
+<p>该版本是需要安装python的一个ffmpeg binding: <a href="https://github.com/kkroening/ffmpeg-python" target="_blank" rel="external">ffmpeg-python</a>。然后通过<strong>ffmpeg-python</strong>来进行音频提取操作。版本1和版本2都需要提前安装ffmpeg，只不过<strong>ffmpeg-python</strong>使得ffmpeg的调用变得更加brief and human-readable。代码如下：</p>
+<pre class="line-numbers language-language-python"><code class="language-language-python"># @file: video2audio.py
 # -*- coding:utf-8 -*-
 
 import os
@@ -293,137 +476,191 @@ if __name__ == '__main__':
         (ffmpeg.input(vFullFilename)
                 .output(aFullFilename, **{'vn':None, 'f': audioType})
                 .run())
-        print("Finish conversion of {0}".format(aFilename))
+        print("Finish conversion of {0}".format(aFilename)) 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h4><pre class="line-numbers language-lang-shell"><code class="language-lang-shell">$ python video2audio.py --src ./video --dest ./video/audio -a mp3 -v mp4
+<h4 id="调用方法">调用方法</h4>
+<pre class="line-numbers language-language-shell"><code class="language-language-shell">$ python video2audio.py --src ./video --dest ./video/audio -a mp3 -v mp4
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>--src</code>指定视频所放的目录，<code>--dest</code>指定输出的音频所放的目录，<code>-a</code>指定输出的音频类型，<code>-v</code>指定输入的视频类型。在shell下面运行上述命令之后，最终将在<code>./video/audio</code>目录下找到提取出来的音频。有了上述脚本，原本几个小时的工作，现在分分钟就搞定，太爽了。第一次在家里写博客，罪过呀，回家不应该好好玩的吗！</p>
 
+    
     </div>
-    <hr />
-
-    <h2>Share and comment</h2>
-    <div class="social-share"></div>
-    
-        <div id="disqus_thread"></div>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
     
     
+        
 </article>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
 </script>
 
 <!-- End Document

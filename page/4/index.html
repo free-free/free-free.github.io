@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,123 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-archive'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -129,559 +183,620 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div style="flex: 1;">
-      <div class="container" id='/page/4/index.html' data-name='index' data-version='1.0.0'>
+      
 
+
+<div class="index-container" id='/page/4/index.html' data-name='index' data-version='2.0.6-beta'>
 	<div class='index-intro'>
-		..........
+		.......
 	</div>
-
 	
-		<div class="grid-2_md-1 grid-equalHeight">
+		<div class="grid-2_md-1 grid-equalHeight index-cards">
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2017/10/11/access-variable-parameter-in-lua5-2/' data-name='lua5.2获取函数可变参数' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-1' id='/2017/10/11/implementation-of-singleton-using-decrator/' data-name='Python单例模式:装饰器版' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
-					
-					lua5.2获取函数可变参数</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/lua/">#Lua</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2017/10/11/implementation-of-singleton-using-decrator/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
-					
-					
-					
-						Lua(&gt;=5.2) 可变参数获取在Lua5.2之前，函数的可变参数在函数调用的时候自动获取并放在arg变量(table)中，要访问每一可变参数只需要通过arg[0],...
-					
-					</a></p>
-					<p>
-
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2017/10/11/implementation-of-singleton-using-decrator/">
+				
+				Python单例模式:装饰器版</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2017/10/11/implementation-of-singleton-using-decrator/">
+				
+				
+				
+					...
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/lua/">#Lua</a></label>
+			
+				<label class='tag-1'><a href="/tags/python/">Python</a></label>
+			
 		
 	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2017-10-11</p>
-				</div>
-			</a>
-		</div>
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2017-10-11</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2017/09/15/say-hello/' data-name='Say_hello' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-2' id='/2017/10/11/access-variable-parameter-in-lua5-2/' data-name='lua5.2获取函数可变参数' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2017/09/15/say-hello/">
-			
-			
-				<img class='grow' src="/images/mylife.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2017/09/15/say-hello/">
-					
-					Say_hello</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/notes/">#Notes</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2017/09/15/say-hello/">
-					
-					
-					
-						say hello to me
-					
-					</a></p>
-					<p>
-
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
+				
+				lua5.2获取函数可变参数</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2017/10/11/access-variable-parameter-in-lua5-2/">
+				
+				
+				
+					Lua(&gt;=5.2) 可变参数获取
+在Lua5.2之前，函数的可变参数在函数调用的时候自动获取并放在arg变量(table)中，要访问每一可变参数只需要通过arg[0],...
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/notes/">#Notes</a></label>
+			
+				<label class='tag-1'><a href="/tags/lua/">Lua</a></label>
+			
 		
 	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2017-09-15</p>
-				</div>
-			</a>
-		</div>
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2017-10-11</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2016/08/09/token-generation-and-verification-using-python/' data-name='Wechat Official Account's Token Generation and Verification Using Python' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-3' id='/2017/09/15/say-hello/' data-name='Say_hello' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2016/08/09/token-generation-and-verification-using-python/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2016/08/09/token-generation-and-verification-using-python/">
-					
-					Wechat Official Account's Token Generation and Verification Using Python</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/python/">#Python</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2017/09/15/say-hello/">
+		
+		
+			<img class='grow' src="/images/mylife.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-	
-		<label><a href="/tags/wechat-dev/">#Wechat-dev</a></label>
-	
-
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2016/08/09/token-generation-and-verification-using-python/">
-					
-					
-					
-						...
-					
-					</a></p>
-					<p>
-
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2017/09/15/say-hello/">
+				
+				Say_hello</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2017/09/15/say-hello/">
+				
+				
+				
+					say hello to me
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/python/">#Python</a></label>
+			
+				<label class='tag-1'><a href="/tags/notes/">Notes</a></label>
+			
 		
 	
-
-	
-		
-			<label><a href="/tags/wechat-dev/">#Wechat-dev</a></label>
-		
-	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2016-08-09</p>
-				</div>
-			</a>
-		</div>
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2017-09-15</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2016/03/12/aiomysql-insertion-operation-failed/' data-name='Aiomysql Insertion Operation Failed' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-4' id='/2016/08/09/token-generation-and-verification-using-python/' data-name='Wechat Official Account's Token Generation and Verification Using Python' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2016/03/12/aiomysql-insertion-operation-failed/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2016/03/12/aiomysql-insertion-operation-failed/">
-					
-					Aiomysql Insertion Operation Failed</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/python/">#Python</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2016/08/09/token-generation-and-verification-using-python/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2016/03/12/aiomysql-insertion-operation-failed/">
-					
-					
-					
-						emotions:
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2016/08/09/token-generation-and-verification-using-python/">
+				
+				Wechat Official Account's Token Generation and Verification Using Python</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2016/08/09/token-generation-and-verification-using-python/">
+				
+				
+				
+					...
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
+	
+		
+			
+				<label class='tag-1'><a href="/tags/python/">Python</a></label>
+			
+		
+	
+		
+			
+				<label class='tag-2'><a href="/tags/wechat-dev/">Wechat dev</a></label>
+			
+		
+	
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2016-08-09</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
+	</div>
+</div>
+		
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-5' id='/2016/03/12/aiomysql-insertion-operation-failed/' data-name='Aiomysql Insertion Operation Failed' data-version=''>
+	
+		
+			
+				
+				
+			
+		
+	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2016/03/12/aiomysql-insertion-operation-failed/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
+
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2016/03/12/aiomysql-insertion-operation-failed/">
+				
+				Aiomysql Insertion Operation Failed</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2016/03/12/aiomysql-insertion-operation-failed/">
+				
+				
+				
+					####emotions:
+
 those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I...
-					
-					</a></p>
-					<p>
-
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/python/">#Python</a></label>
+			
+				<label class='tag-1'><a href="/tags/python/">Python</a></label>
+			
 		
 	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2016-03-12</p>
-				</div>
-			</a>
-		</div>
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2016-03-12</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2015/12/21/git-common-commands/' data-name='Git Common Commands' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-6' id='/2015/12/21/git-common-commands/' data-name='Git Common Commands' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2015/12/21/git-common-commands/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2015/12/21/git-common-commands/">
-					
-					Git Common Commands</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/git/">#Git</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2015/12/21/git-common-commands/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2015/12/21/git-common-commands/">
-					
-					
-					
-						git常用命令#配置git
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2015/12/21/git-common-commands/">
+				
+				Git Common Commands</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2015/12/21/git-common-commands/">
+				
+				
+				
+					git常用命令
+#配置git
 $ git config --global user.name "K-John"
 $ git config --global user.email "19941222hb@gmail.com"
 #初始化 git workspace(就是你当前所在的目录)
 $...
-					
-					</a></p>
-					<p>
-
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/git/">#Git</a></label>
+			
+				<label class='tag-1'><a href="/tags/git/">Git</a></label>
+			
 		
 	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2015-12-21</p>
-				</div>
-			</a>
-		</div>
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2015-12-21</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/' data-name='Build Your Own Git Remote Repository on Centos6.5' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-7' id='/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/' data-name='Build Your Own Git Remote Repository on Centos6.5' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
-					
-					Build Your Own Git Remote Repository on Centos6.5</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/git/">#Git</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-	
-		<label><a href="/tags/linux/">#Linux</a></label>
-	
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
+				
+				Build Your Own Git Remote Repository on Centos6.5</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
+				
+				
+				
+					远程仓库搭建
+step1:安装git
+$ yum -y install git
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2015/11/15/build-your-own-git-remote-repository-on-Centos6-5/">
-					
-					
-					
-						远程仓库搭建step1:安装git$ yum -y install git
-
-step2:创建用户git,用来运行git服务$ useradd git 
-$ passwd...
-					
-					</a></p>
-					<p>
-
+step2:创建用户git,用来运行git服务
+$ useradd git 
+$ passwd git...
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/git/">#Git</a></label>
+			
+				<label class='tag-1'><a href="/tags/git/">Git</a></label>
+			
 		
 	
-
-	
 		
-			<label><a href="/tags/linux/">#Linux</a></label>
+			
+				<label class='tag-2'><a href="/tags/linux/">Linux</a></label>
+			
 		
 	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2015-11-15</p>
-				</div>
-			</a>
-		</div>
+	</div>
+</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2015-11-15</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
-			<div class="col">
-	<div class='Card Card-hover' id='/2015/07/21/the-machanism-of-rcd-in-linux/' data-name='The Working Machanism of Rcd in Linux' data-version=''>
+			
+
+
+
+
+
+
+
+
+<div class='Card Card-hover Card-index-8' id='/2015/07/21/the-machanism-of-rcd-in-linux/' data-name='The Working Machanism of Rcd in Linux' data-version=''>
+	
 		
 			
 				
-					
-					
 				
 			
 		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2015/07/21/the-machanism-of-rcd-in-linux/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2015/07/21/the-machanism-of-rcd-in-linux/">
-					
-					The Working Machanism of Rcd in Linux</a></h2>
-					<p class='Card-title-tags'>
-
 	
-		<label><a href="/tags/linux/">#Linux</a></label>
-	
+	<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
+	<div class='Card-figure'>
+		
+			<a href="/2015/07/21/the-machanism-of-rcd-in-linux/">
+		
+		
+			<img class='grow' src="/images/tech.svg" alt="" onerror='if (this.src != "/images/uncategorized.svg") this.src = "/images/uncategorized.svg"'>
+		
+		</a>
+	</div>
+	<div class="Card-body">
 
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2015/07/21/the-machanism-of-rcd-in-linux/">
-					
-					
-					
-						/etc/init.d 是 /etc/rc.d/init.d 的软链接(soft link)。可以通过 ll 命令查看，如下：
+			<div class='Card-title'>
+				<h2>
+				
+					<a href="/2015/07/21/the-machanism-of-rcd-in-linux/">
+				
+				The Working Machanism of Rcd in Linux</a></h2>
+			</div>
+			<div class='Card-excerpt'>
+				<p>
+				
+					<a href="/2015/07/21/the-machanism-of-rcd-in-linux/">
+				
+				
+				
+					/etc/init.d 是 /etc/rc.d/init.d 的软链接(soft link)。可以通过 ll 命令查看，如下：
 init.d指的是/etc/rc.d/init.d目录。
 本文包括3部分内容
 1、 Linux的引导过程
 2、 运行级别
 3、 /etc/rc.d/...
-					
-					</a></p>
-					<p>
-
+				
+				</a></p>
+			</div>
+			
+			<div class="Card-meta">
+				<div class='Card-tags'>
+<div class="tags">
 	
 		
-			<label><a href="/tags/linux/">#Linux</a></label>
+			
+				<label class='tag-1'><a href="/tags/linux/">Linux</a></label>
+			
 		
 	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2015-07-21</p>
-				</div>
-			</a>
-		</div>
 	</div>
 </div>
-		
-			<div class="col">
-	<div class='Card Card-hover' id='/2015/01/24/partition-disk-by-fdisk/' data-name='Partition Disk by Fdisk in Linux' data-version=''>
-		
-			
-				
-					
-					
-				
-			
-		
-		<mark class='Card-badge' style='{visibility: "hidden"}'></mark>
-		<div class='Card-figure'>
-			
-				<a href="/2015/01/24/partition-disk-by-fdisk/">
-			
-			
-				<img class='grow' src="/images/tech.svg" alt="">
-			
-			</a>
-		</div>
-		<div class="Card-body">
-
-				<div class='Card-title'>
-					<h2>
-					
-						<a href="/2015/01/24/partition-disk-by-fdisk/">
-					
-					Partition Disk by Fdisk in Linux</a></h2>
-					<p class='Card-title-tags'>
-
-	
-		<label><a href="/tags/linux/">#Linux</a></label>
-	
-
-</p>
-				</div>
-				<div class='Card-excerpt'>
-					<p>
-					
-						<a href="/2015/01/24/partition-disk-by-fdisk/">
-					
-					
-					
-						​     
-step1：​            准备有一个新的磁盘，我这里是sdb，用fdisk -l 命令查看当前系统的磁盘信息。
-step2:用fdisk  /dev/sdb (要分区的磁盘)，     ...
-					
-					</a></p>
-					<p>
-
-	
-		
-			<label><a href="/tags/linux/">#Linux</a></label>
-		
-	
-
-</p>
-				</div>
-				<div class="Card-meta">
-					<p>2015-01-24</p>
-				</div>
-			</a>
-		</div>
+				<ul>
+						<li><i class='fa fa-calendar'></i> 2015-07-21</li>
+						
+						
+						
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 		
@@ -691,7 +806,7 @@ step2:用fdisk  /dev/sdb (要分区的磁盘)，     ...
 	<div class='pagination'>
 	
 		<div class="pagination-item">
-			<a href="/page/3/" class="prev grow"><b><</b></a>
+			<a href="/page/3/" class="prev grow"><b><i class='fas fa-arrow-circle-left'></i></b></a>
 		</div>
 	
 	
@@ -730,122 +845,207 @@ step2:用fdisk  /dev/sdb (要分区的磁盘)，     ...
 			
 		</div>
 	
+		<div class="pagination-item">
+			
+			
+				
+					<a class='grow' href="/page/5/">5</a>
+				
+			
+		</div>
+	
 
+	
+		<div class="pagination-item">
+			<a href="/page/5/" class="grow next"><b><i class="fas fa-arrow-circle-right"></i></b></a>
+		</div>
 	
 </div>
 </div>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+console.log(post);
+$('.Card').each(function(){
+    var post_url = $(this).attr('id');
+    var true_url = $(this).find('.Card-title a').first().attr('href');
+    var card = this;
+    if(true_url.startsWith('http')){ //external link
+        $(card).find('.Card-title a').first().click(function(e){
+            post.updatePostVersion(post_url); 
+        });
+        $(card).find('.Card-excerpt a').first().click(function(e){
+            post.updatePostVersion(post_url); 
+        });
+        $(card).find('.Card-figure a').first().click(function(e){
+            post.updatePostVersion(post_url); 
+        });
+    }
+
+    post.checkUpdate(post_url, function(post_url, hasUpdate){
+        if(hasUpdate){
+            $(card).find('mark.Card-badge').show();
+        }else{
+            $(card).find('mark.Card-badge').hide();
+        } 
+    });
+        post.getCommentCount(post_url, function(count){
+            $(card).find('.card-comment-count').first().text(count);
+        });
+        post.getVisitCount(post_url, function(count){
+            $(card).find('.card-visit-count').first().text(count);
+        });
+    
+});
+
+
 </script>
 
 <!-- End Document

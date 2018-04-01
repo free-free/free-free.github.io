@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,135 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-toc'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
-			</a>
-		</div>
+
+
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用装饰器实现python单例模式"><span class="toc-number">1.</span> <span class="toc-text">使用装饰器实现python单例模式</span></a></li></ol>
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
 	</div>
 	
-	
+	<div class='nav-item' id='nav-item-archive'>
 		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
 		
-			<div class='menu-item grow'>
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -135,19 +201,49 @@
     }
 </style>
 
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
 <article class="article" id="/2017/10/11/implementation-of-singleton-using-decrator/" data-name='Python单例模式:装饰器版' data-version="">
 
     <!-- Title -->
-
-    
-        
-            
-                
-                
-            
-        
-    
-
     <div class='article-header'>
          
          <h1 class='article-title'>
@@ -155,58 +251,162 @@
                 Python单例模式:装饰器版
             </a>
         </h1>
+        <!-- TODO: support nested categories,display them nicely -->
         
         <ul class='article-categories'>
             
             
                 <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" />
+                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
                 </a></li>
             
         </ul>
         
     </div>
-   
-    <!-- Date and Author -->
-    <p>
-       	2017-10-11
-        by infinite.ft
-        
-    </p>
-    <p>
-        
-
-	
-		<label><a href="/tags/python/">#Python</a></label>
-	
-
-
-    </p>
-	<hr />
-
-    <!-- Gallery -->
     
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2017-10-11</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/python/">Python</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>使用装饰器实现python单例模式
+1.概述
+不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:
+
+装饰器实现单例模式[1]1
+
+
+元类实现单例模式
+__new__方法实现单例模式
+共享__dict__实现单例模式
+
+本节主要简述使用装饰器实现单例模式。
+2. 实现
+plateform:
+
+python3.5
+ubuntu16.04
+
+code:
+def singleton(cls):
+   ...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
     
 
     <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用装饰器实现python单例模式"><span class="toc-number">1.</span> <span class="toc-text">使用装饰器实现python单例模式</span></a></li></ol>
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+    </div>
     <div class='article-content'>
-    <h2 id="使用装饰器实现python单例模式"><a href="#使用装饰器实现python单例模式" class="headerlink" title="使用装饰器实现python单例模式"></a>使用装饰器实现python单例模式</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:</p>
+    <h2 id="使用装饰器实现python单例模式">使用装饰器实现python单例模式</h2>
+<h3 id="1-概述">1.概述</h3>
+<p>不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:</p>
 <ul>
-<li><strong>装饰器实现单例模式<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external"><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a></a></strong></li>
+<li><strong>装饰器实现单例模式[<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a>]<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a></strong></li>
 </ul>
 <ul>
 <li><strong>元类实现单例模式</strong></li>
-<li><strong>_<em>new_</em>方法实现单例模式</strong></li>
-<li><strong>共享_<em>dict_</em>实现单例模式</strong></li>
+<li><strong>__new__方法实现单例模式</strong></li>
+<li><strong>共享__dict__实现单例模式</strong></li>
 </ul>
 <p>本节主要简述使用装饰器实现单例模式。</p>
-<h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h3><p><strong>plateform</strong>:</p>
+<h3 id="2-实现">2. 实现</h3>
+<p><strong>plateform</strong>:</p>
 <ul>
 <li>python3.5</li>
 <li>ubuntu16.04</li>
 </ul>
 <p><strong>code</strong>:</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def singleton(cls):
+<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -214,31 +414,31 @@
         return instances[cls]
     return singleton_wrapper
 
-
+  
 @singleton
 class Point2D(object):
 
     def __init__(self, x=0, y=0):
         self._x = x
         self._y = y
-
+       
     @property
     def x(self):
         return self._x
-
+      
     @property
     def y(self):
         return self._y
-
+      
     @x.setter
     def x(self, val):
         self._x = val
-
+        
     @y.setter
     def y(self, val):
         self._y = val
-
-
+        
+        
 if __name__ == '__main__':
     p1 = Point2D(1, 10)
     p2 = Point2D(2, 10)
@@ -246,12 +446,13 @@ if __name__ == '__main__':
     print(id(p2))
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>output</strong>:</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">139685819815696
+<pre class="line-numbers language-language-bash"><code class="language-language-bash">139685819815696
 139685819815696
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>由输出可知p1和p2为同一示例，即上述code完美实现了单例模式。</p>
-<h3 id="3-code-辩证分析"><a href="#3-code-辩证分析" class="headerlink" title="3.code 辩证分析"></a>3.code 辩证分析</h3><p>在单例的装饰器函数中，使用词典变量<strong>instances</strong>来储存类的实例，并且<strong>singleton_wrapper</strong>与<strong>instances</strong>形成了闭包环境。当使用<code>类名(*args, **kwargs)</code>实例化时，实际上调用了<code>singleton_wrapper(*args, **kwargs)</code>来进行实例化。通过在<strong>singleton_wrapper</strong>判断<strong>instances</strong>中是否存在类的实例，如果不存在则创建实例，如果存在则直接中从<strong>instances</strong>返回实例。每调用一次<strong>singleton</strong>返回一个闭包，各个闭包之间并没有共享<strong>instances</strong>变量，所以<strong>instances</strong>变量中最多只储存了一个实例，为了验证此将code修改成如下：</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def singleton(cls):
+<h3 id="3-code-辩证分析">3.code 辩证分析</h3>
+<p>在单例的装饰器函数中，使用词典变量<strong>instances</strong>来储存类的实例，并且<strong>singleton_wrapper</strong>与<strong>instances</strong>形成了闭包环境。当使用<code>类名(*args, **kwargs)</code>实例化时，实际上调用了<code>singleton_wrapper(*args, **kwargs)</code>来进行实例化。通过在<strong>singleton_wrapper</strong>判断<strong>instances</strong>中是否存在类的实例，如果不存在则创建实例，如果存在则直接中从<strong>instances</strong>返回实例。每调用一次<strong>singleton</strong>返回一个闭包，各个闭包之间并没有共享<strong>instances</strong>变量，所以<strong>instances</strong>变量中最多只储存了一个实例，为了验证此将code修改成如下：</p>
+<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -259,65 +460,66 @@ if __name__ == '__main__':
         print(instances)
         return instances[cls]
     return singleton_wrapper
-
+  
 @singleton
 class ClassOne(object):
-
-
+  
+  
     def __init__(self):
-          pass
-
-
-
+  	    pass
+  
+  
+  
 @singleton
 class ClassTwo(object):
 
 
     def __init__(self):
         pass
-
+  
 
 
 if __name__ == '__main__':
     obj1 = ClassOne()
     obj2 = ClassTwo()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">{<class '__main__.ClassOne'>: <__main__.ClassOne object at 0x7f276523a828>}
+<pre class="line-numbers language-language-bash"><code class="language-language-bash">{<class '__main__.ClassOne'>: <__main__.ClassOne object at 0x7f276523a828>}
 {<class '__main__.ClassTwo'>: <__main__.ClassTwo object at 0x7f276523a940>}
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>从以上输出可以看出，各个类闭包之间没有共享<strong>instances</strong>字典变量，这时小黄鸭问那为什么还需要一个字典变量来保存类的实例，何不直接使用一个普通的变量来保存类的实例呢?说的太多不如直接上code验证一下</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def singleton(cls):
+<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
     instance = None
     def singleton_wrapper(*args, **kwargs):
         if not instance:
             instance = cls(*args, **kwargs)
         return instance
     return singleton_wrapper
-
-
+  
+  
 @singleton
 class ClassOne(object):
-
-
+  
+  
     def __init__(self):
-          pass
+  	    pass
 
 
 if __name__ == '__main__':
     obj1 = ClassOne()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">Traceback (most recent call last):
+<pre class="line-numbers language-language-bash"><code class="language-language-bash">Traceback (most recent call last):
   File "test.py", line 21, in <module>
     obj1 = ClassOne()
   File "test.py", line 6, in singleton_wrapper
     if not instance:
 UnboundLocalError: local variable 'instance' referenced before assignment
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输出结果如上，在<strong>singleton_wrapper</strong>中访问<strong>instance</strong>变量时，遇到<em>UnboundLocalError</em>错误。在这里之所以抛出<em>UnboundLocalError</em>，和python的词法作用域有关。<strong>python内部函数只能访问全局变量不可对全局变量进行赋值修改；当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external"><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a></a>。</strong>说到这里结果好像已经很明显了，既然不能在内部函数中赋值修改一个全局变量，那我们只需要在修改的变量之前，加一个<strong>global</strong>关键字就能解决了。好吧，还是需要用code来验证一下</p>
+<p>输出结果如上，在<strong>singleton_wrapper</strong>中访问<strong>instance</strong>变量时，遇到<em>UnboundLocalError</em>错误。在这里之所以抛出<em>UnboundLocalError</em>，和python的词法作用域有关。<strong>python内部函数只能访问全局变量不可对全局变量进行赋值修改；当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误[<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a>]<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a>。<strong>说到这里结果好像已经很明显了，既然不能在内部函数中赋值修改一个全局变量，那我们只需要在修改的变量之前，加一个</strong>global</strong>关键字就能解决了。好吧，还是需要用code来验证一下</p>
 <p><strong>note！！！：这里的赋值修改不包括list 或者dict的添加，删除等操作；这也证明我们一开始使用dict来存类实例，巧妙避过UnboundLocalError的问题，god, are you kidding me?</strong></p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def singleton(cls):
+<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
     instance = None
     def singleton_wrapper(*args, **kwargs):
         global instance
@@ -325,21 +527,21 @@ UnboundLocalError: local variable 'instance' referenced before assignment
             instance = cls(*args, **kwargs)
         return instance
     return singleton_wrapper
-
-
+  
+  
 @singleton
 class ClassOne(object):
-
-
+  
+  
     def __init__(self):
-          pass
+  	    pass
 
 
 if __name__ == '__main__':
     obj1 = ClassOne()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">Traceback (most recent call last):
+<pre class="line-numbers language-language-bash"><code class="language-language-bash">Traceback (most recent call last):
   File "test.py", line 30, in <module>
     obj1 = ClassOne()
   File "test.py", line 7, in singleton_wrapper
@@ -352,7 +554,7 @@ NameError: name 'instance' is not defined
 <p>当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；</p>
 <p>在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误。</p>
 </blockquote>
-<p>仔细研读和思考后，我们发现，<strong>instance</strong>对于<strong>singleton_wrapper</strong>并不是全局变量，而是extenal 变量。好吧我们以偏概全了，太大意了。事已到此好像已经没有思路，这个时候该是Google大神显神通的时候，在Google大神的帮助下，我们终于找到了一点思路,让我们穿到墙外去看一看这两篇文章吧<a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external"><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">3</a></a><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external"><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a></a>。这两篇文章指出：</p>
+<p>仔细研读和思考后，我们发现，<strong>instance</strong>对于<strong>singleton_wrapper</strong>并不是全局变量，而是extenal 变量。好吧我们以偏概全了，太大意了。事已到此好像已经没有思路，这个时候该是Google大神显神通的时候，在Google大神的帮助下，我们终于找到了一点思路,让我们穿到墙外去看一看这两篇文章吧[<a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">3</a>][3][<a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a>]<a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a>。这两篇文章指出：</p>
 <blockquote>
 <p>在closures中不能对external进行赋值修改;</p>
 <p>当在closures中修改同名external变量之前读取变量名，会引发UnboundLocalError错误。</p>
@@ -362,16 +564,18 @@ NameError: name 'instance' is not defined
 <p>使用<strong>dict</strong>或者<strong>list</strong>是最明智的选择，也是唯一的办法。</p>
 <p><strong>python3.x:</strong></p>
 <ol>
-<li><p>使用<strong>dict</strong>或者<strong>list</strong>储存类实例</p>
+<li>
+<p>使用<strong>dict</strong>或者<strong>list</strong>储存类实例</p>
 </li>
-<li><p>在closures中访问修改external 变量之前，使用<strong>nonlocal</strong>对external变量进行声明，<strong>nonlocal</strong>关键字是python3.0之后加入的新关键字,说明如下:</p>
+<li>
+<p>在closures中访问修改external 变量之前，使用<strong>nonlocal</strong>对external变量进行声明，<strong>nonlocal</strong>关键字是python3.0之后加入的新关键字,说明如下:</p>
+</li>
+</ol>
 <blockquote>
 <p>The <code>nonlocal</code> statement causes the listed identifiers to refer to previously bound variables in the nearest enclosing scope excluding globals. This is important because the default behavior for binding is to search the local namespace first. The statement allows encapsulated code to rebind variables outside of the local scope besides the global (module) scope.</p>
 </blockquote>
-</li>
-</ol>
 <p>经过我们不断思考与实践，结局还不赖。让我们把完整的code写下来吧</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def singleton1(cls):
+<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton1(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -387,8 +591,8 @@ def singleton2(cls):
             instance = cls(*args, **kwargs)
         return instance
     return singleton_wrapper
-
-
+  
+  
 @singleton1
 class Point2D(object):
 
@@ -396,24 +600,24 @@ class Point2D(object):
     def __init__(self, x=0, y=0):
         self._x = x
         self._y = y
-
+       
     @property
     def x(self):
         return self._x
-
+      
     @property
     def y(self):
         return self._y
-
+      
     @x.setter
     def x(self, val):
         self._x = val
-
+        
     @y.setter
     def y(self, val):
         self._y = val
 
-
+        
 @singleton2
 class Point3D(object):
 
@@ -422,9 +626,9 @@ class Point3D(object):
         self._x = x
         self._y = y
         self._z = z
-
-
-
+    
+  
+        
 if __name__ == '__main__':
     p1 = Point2D(1, 10)
     p2 = Point2D(2, 10)
@@ -434,143 +638,198 @@ if __name__ == '__main__':
     p4 = Point3D(100, 100, 100)
     print(id(p3))
     print(id(p4))
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">140322002741008
+<pre class="line-numbers language-language-python"><code class="language-language-python">140322002741008
 140322002741008
 140322002741176
 140322002741176
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]  Python单例模式的4种实现方法</a></p>
+<h3 id="参考">参考</h3>
+<p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]  Python单例模式的4种实现方法</a></p>
 <p><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">[2]  全局变量报错-UnboundLocalError: local variable ‘l’ referenced before assignment</a></p>
 <p><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">[3]  Understanding UnboundLocalError in Python</a></p>
 <p><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">[4]  What limitations have closures in Python compared to language X closures</a></p>
 
+    
     </div>
-    <hr />
-
-    <h2>Share and comment</h2>
-    <div class="social-share"></div>
-    
-        <div id="disqus_thread"></div>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
     
     
+        
 </article>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用装饰器实现python单例模式"><span class="toc-number">1.</span> <span class="toc-text">使用装饰器实现python单例模式</span></a></li></ol>
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
 </script>
 
 <!-- End Document

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,135 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-toc'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
-			</a>
-		</div>
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
 	</div>
 	
-	
+	<div class='nav-item' id='nav-item-archive'>
 		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
 		
-			<div class='menu-item grow'>
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -135,19 +201,49 @@
     }
 </style>
 
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
 <article class="article" id="/2015/07/21/the-machanism-of-rcd-in-linux/" data-name='The Working Machanism of Rcd in Linux' data-version="">
 
     <!-- Title -->
-
-    
-        
-            
-                
-                
-            
-        
-    
-
     <div class='article-header'>
          
          <h1 class='article-title'>
@@ -155,40 +251,126 @@
                 The Working Machanism of Rcd in Linux
             </a>
         </h1>
+        <!-- TODO: support nested categories,display them nicely -->
         
         <ul class='article-categories'>
             
             
                 <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" />
+                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
                 </a></li>
             
         </ul>
         
     </div>
-   
-    <!-- Date and Author -->
-    <p>
-       	2015-07-21
-        by infinite.ft
-        
-    </p>
-    <p>
-        
-
-	
-		<label><a href="/tags/linux/">#Linux</a></label>
-	
-
-
-    </p>
-	<hr />
-
-    <!-- Gallery -->
     
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2015-07-21</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/linux/">Linux</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>/etc/init.d 是 /etc/rc.d/init.d 的软链接(soft link)。可以通过 ll 命令查看，如下：
+init.d指的是/etc/rc.d/init.d目录。
+本文包括3部分内容
+1、 Linux的引导过程
+2、 运行级别
+3、 /etc/rc.d/...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
     
 
     <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+    </div>
     <div class='article-content'>
     <p>/etc/init.d 是 /etc/rc.d/init.d 的软链接(soft link)。可以通过 ll 命令查看，如下：</p>
 <p>init.d指的是/etc/rc.d/init.d目录。</p>
@@ -196,158 +378,214 @@
 <p>1、 Linux的引导过程</p>
 <p>2、 运行级别</p>
 <p>3、 /etc/rc.d/ 与/etc/rc.d/init.d的关系</p>
-<p>   “/etc/rc.d/init.d/目录下的脚本就类似与windows中的注册表，在系统启动的时候某些指定脚本将被执行”。开始之前，先引用李善明经理昨天晚上总结时的一个理解，让大家先对init.d目录有个大概的印象。在进入init.d之前，我们一起来做两个准备工作，linux的引导过程和运行级别的概念。</p>
-<h4 id="一、-Linux的引导过程"><a href="#一、-Linux的引导过程" class="headerlink" title="一、 Linux的引导过程"></a>一、 Linux的引导过程</h4><p>   系统启动之后，在进入init.d之前，我们先来看看系统都做了什么工作。</p>
-<p>   系统加电之后，首先进行的硬件自检，然后是bootloader对系统的初始化，加载内核。内核被加载到内存中之后，就开始执行了。一旦内核启动运行，对硬件的检测就会决定需要对哪些设备驱动程序进行初始化。从这里开始，内核就能够挂装根文件系统（这个过程类似于Windows识别并存取C盘的过程）。内核挂装了根文件系统，并已初始化所有的设备驱动程序和数据结构等之后，就通过启动一个叫init的用户级程序，完成引导进程。</p>
-<h4 id="二、-运行级别-run-level"><a href="#二、-运行级别-run-level" class="headerlink" title="二、 运行级别(run level)"></a>二、 运行级别(run level)</h4><p>   Init进程是系统启动之后的第一个用户进程，所以它的pid(进程编号)始终为1。init进程上来首先做的事是去读取/etc/目录下inittab文件中initdefault id值，这个值称为运行级别(run-level)。它决定了系统启动之后运行于什么级别。运行级别决定了系统启动的绝大部分行为和目的。这个级别从0到6 ，具有不同的功能。不同的运行级定义如下： </p>
-<p>　　# 0 - 停机（千万别把initdefault设置为0，否则系统永远无法启动）</p>
-<p>　　# 1 - 单用户模式</p>
-<p>　　# 2 - 多用户，没有 NFS</p>
-<p>　　# 3 - 完全多用户模式(标准的运行级)</p>
-<p>　　# 4 – 系统保留的</p>
-<p>　　# 5 - X11 （x window)</p>
-<p>　　# 6 - 重新启动 （千万不要把initdefault 设置为6，否则将一直在重启 ）</p>
-<p>   这是两个表较常用运行级别(后期补上),左图redhat9 级别3启动的将是文本界面，右图fc7级别5启动的将是图形界面。</p>
-<h4 id="三、-etc-rc-d-与-etc-rc-d-init-d的关系"><a href="#三、-etc-rc-d-与-etc-rc-d-init-d的关系" class="headerlink" title="三、 /etc/rc.d/与/etc/rc.d/init.d的关系"></a>三、 /etc/rc.d/与/etc/rc.d/init.d的关系</h4><p>   写到这里，应该差不多要进入init.d了，可是我觉得单写/etc/rc.d/init.d的话不一定能说得清楚明白，就拿它跟/etc/rc.d这个它上一级的目录一起来讨论，可能比较合适一些，因为他们之间有着千丝万缕的关系。</p>
-<p>   在这里先解释一下init.d里面放的都是什么东西。这个目录存放的是一些脚本，一般是linux以rpm包安装时设定的一些服务的启动脚本。系统在安装时装了好多rpm包，这里面就有很多对应的脚本。执行这些脚本可以用来启动，停止，重启这些服务。</p>
-<p>   前面说到，/etc/rc.d/init.d这个目录下的脚本就类似与windows中的注册表，在系统启动的时候执行。程序运行到这里(init进程读取了运行级别)，相信从命名的角度大家也能猜到该运行/etc/rc.d/init.d里面的脚本了，不然它为什么也叫init(.d)呢是吧。没错，是该运行init.d里的脚本了，但是并不是直接运行，而是有选择的因为系统并不需要启动所有的服务。</p>
-<p>   那么，系统是如何选择哪些需要启动哪些不要呢？这时刚才说的运行级别就起作用了。在决定了系统启动的run level之后，/etc/rc.d/rc这个脚本先执行。在RH9和FC7的源码中它都是一上来就check_runlevel()（虽然实现的代码不一样，也大同小异），知道了运行级别之后，对于每一个运行级别，在rc.d下都有一个子目录分别是rc0.d，rc1.d ….. rc6.d。每个目录下都是到init.d目录的一部分脚本一些链接。每个级别要执行哪些服务就在相对应的目录下，比如级别5要启动的服务就都放在rc5.d下，但是放在这个rc5.d下的都是一些链接文件，链接到init.d中相对应的文件，真正干活到init.d里的脚本。</p>
+<p>“/etc/rc.d/init.d/目录下的脚本就类似与windows中的注册表，在系统启动的时候某些指定脚本将被执行”。开始之前，先引用李善明经理昨天晚上总结时的一个理解，让大家先对init.d目录有个大概的印象。在进入init.d之前，我们一起来做两个准备工作，linux的引导过程和运行级别的概念。</p>
+<h4 id="一-linux的引导过程">一、 Linux的引导过程</h4>
+<p>系统启动之后，在进入init.d之前，我们先来看看系统都做了什么工作。</p>
+<p>系统加电之后，首先进行的硬件自检，然后是bootloader对系统的初始化，加载内核。内核被加载到内存中之后，就开始执行了。一旦内核启动运行，对硬件的检测就会决定需要对哪些设备驱动程序进行初始化。从这里开始，内核就能够挂装根文件系统（这个过程类似于Windows识别并存取C盘的过程）。内核挂装了根文件系统，并已初始化所有的设备驱动程序和数据结构等之后，就通过启动一个叫init的用户级程序，完成引导进程。</p>
+<h4 id="二-运行级别-run-level">二、 运行级别(run level)</h4>
+<p>Init进程是系统启动之后的第一个用户进程，所以它的pid(进程编号)始终为1。init进程上来首先做的事是去读取/etc/目录下inittab文件中initdefault id值，这个值称为运行级别(run-level)。它决定了系统启动之后运行于什么级别。运行级别决定了系统启动的绝大部分行为和目的。这个级别从0到6 ，具有不同的功能。不同的运行级定义如下：</p>
+<p># 0 - 停机（千万别把initdefault设置为0，否则系统永远无法启动）</p>
+<p># 1 - 单用户模式</p>
+<p># 2 - 多用户，没有 NFS</p>
+<p># 3 - 完全多用户模式(标准的运行级)</p>
+<p># 4 – 系统保留的</p>
+<p># 5 - X11 （x window)</p>
+<p># 6 - 重新启动 （千万不要把initdefault 设置为6，否则将一直在重启 ）</p>
+<p>这是两个表较常用运行级别(后期补上),左图redhat9 级别3启动的将是文本界面，右图fc7级别5启动的将是图形界面。</p>
+<h4 id="三-etc-rc-d-与-etc-rc-d-init-d的关系">三、 /etc/rc.d/与/etc/rc.d/init.d的关系</h4>
+<p>写到这里，应该差不多要进入init.d了，可是我觉得单写/etc/rc.d/init.d的话不一定能说得清楚明白，就拿它跟/etc/rc.d这个它上一级的目录一起来讨论，可能比较合适一些，因为他们之间有着千丝万缕的关系。</p>
+<p>在这里先解释一下init.d里面放的都是什么东西。这个目录存放的是一些脚本，一般是linux以rpm包安装时设定的一些服务的启动脚本。系统在安装时装了好多rpm包，这里面就有很多对应的脚本。执行这些脚本可以用来启动，停止，重启这些服务。</p>
+<p>前面说到，/etc/rc.d/init.d这个目录下的脚本就类似与windows中的注册表，在系统启动的时候执行。程序运行到这里(init进程读取了运行级别)，相信从命名的角度大家也能猜到该运行/etc/rc.d/init.d里面的脚本了，不然它为什么也叫init(.d)呢是吧。没错，是该运行init.d里的脚本了，但是并不是直接运行，而是有选择的因为系统并不需要启动所有的服务。</p>
+<p>那么，系统是如何选择哪些需要启动哪些不要呢？这时刚才说的运行级别就起作用了。在决定了系统启动的run level之后，/etc/rc.d/rc这个脚本先执行。在RH9和FC7的源码中它都是一上来就check_runlevel()（虽然实现的代码不一样，也大同小异），知道了运行级别之后，对于每一个运行级别，在rc.d下都有一个子目录分别是rc0.d，rc1.d …… rc6.d。每个目录下都是到init.d目录的一部分脚本一些链接。每个级别要执行哪些服务就在相对应的目录下，比如级别5要启动的服务就都放在rc5.d下，但是放在这个rc5.d下的都是一些链接文件，链接到init.d中相对应的文件，真正干活到init.d里的脚本。</p>
 <p>redhat9 ls</p>
 <p>fc7     ls -l</p>
-<p>   这样看的就很清楚了。</p>
+<p>这样看的就很清楚了。</p>
 <p>到这里，估计大家可能都比较清楚了，我开始也以为是这样的。可是后来我仔细看过和比较这些链接文件和init.d里真正被执行的脚本的文件名之后，一直有几个问题没弄明白。借着写这个文章的机会，我做了一些功课，总算是大概解开了那些疑惑。</p>
-<p>   1、这些链接文件前面为什么会带一个Kxx或者Sxx呢？</p>
+<p>1、这些链接文件前面为什么会带一个Kxx或者Sxx呢？</p>
 <p>是这样的，带K的表示停止(Kill)一个服务，S表示开启(Start)的意思</p>
-<p>   2、K和S后面带的数字呢？干什么用的</p>
-<p>   这个我开始的时候还以为是排列起来好看或者数数用呢。后来发现不是的。它的作用是用来排序，就是决定这些脚本执行的顺序，数值小的先执行，数值大的后执行。很多时候这些执行顺序是很重要的，比如要启动Apache服务，就必须先配置网络接口，不然一个没有IP的机子来启动http服务那岂不是很搞笑。。。</p>
-<p>   3、无意中我发现同一个服务带S的和带K的链接到init.d之后是同一个脚本。我就纳闷了，为什么会是执行同一个脚本呢？</p>
-<p>   这个时候真是S和K的妙用了，原来S和K并不止是用来看起来分的清楚而已。S给和K还分别给init.d下面的脚本传递了start和stop的参数。哦，是这样的(焕然大悟的样子,呵呵)！这时我才想起来原来曾经无数用过的/etc/rc.d/init.d/network restart命令。原来传S时相当于执行了/etc/rc.d/init.d/xxx start这条命令，当然K就相当于/etc/rc.d/init.d/xxx stop了</p>
+<p>2、K和S后面带的数字呢？干什么用的</p>
+<p>这个我开始的时候还以为是排列起来好看或者数数用呢。后来发现不是的。它的作用是用来排序，就是决定这些脚本执行的顺序，数值小的先执行，数值大的后执行。很多时候这些执行顺序是很重要的，比如要启动Apache服务，就必须先配置网络接口，不然一个没有IP的机子来启动http服务那岂不是很搞笑。。。</p>
+<p>3、无意中我发现同一个服务带S的和带K的链接到init.d之后是同一个脚本。我就纳闷了，为什么会是执行同一个脚本呢？</p>
+<p>这个时候真是S和K的妙用了，原来S和K并不止是用来看起来分的清楚而已。S给和K还分别给init.d下面的脚本传递了start和stop的参数。哦，是这样的(焕然大悟的样子,呵呵)！这时我才想起来原来曾经无数用过的/etc/rc.d/init.d/network restart命令。原来传S时相当于执行了/etc/rc.d/init.d/xxx start这条命令，当然K就相当于/etc/rc.d/init.d/xxx stop了</p>
 
+    
     </div>
-    <hr />
-
-    <h2>Share and comment</h2>
-    <div class="social-share"></div>
-    
-        <div id="disqus_thread"></div>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
     
     
+        
 </article>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
 </script>
 
 <!-- End Document

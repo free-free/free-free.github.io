@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,33 +19,35 @@
   
   
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="infinite.ft">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- Load scheme css -->
+  <link rel="stylesheet" href="/css/lightgallery.css">
+  
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-  <link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/gridlex.min.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/theme.css">
-<link rel="stylesheet" href="/css/share.min.css">
-<link rel="stylesheet" href="/css/lightgallery.css">
+
+
+
+    <link rel="stylesheet" href="/css/taurus.css">
+    
+        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
+    
+
+
+  <!-- load font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
-    tex2jax: {inlineMath: [["$","$"],['\\(','\\)']]}
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/js/social-share.min.js"></script>
@@ -51,75 +57,135 @@
   
   
 
+  <!-- include comment system code -->
+  
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
-
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-  <header class="header">
+
+ 
+
+<header id="header">
 	<div class="header-title">
 		
-			<div class='header-logo'><a href='/'>
-				<img class='grow' src='/images/avatar.png' />
-			</a></div>
-			<div class='header-text' >
-			    <h1>Infinite.ft的博客</h1>
-				<p><small></small></p>
+		<div class='header-logo'>
+			<a href='/'>
+				<img src='/images/avatar.png' />
+			</a>
+		</div>
+		<div class='header-text'>
+			<h1>
+				<a href="/">Infinite.ft的博客</a>
+			</h1>
+			<subtitle>
+				Hello
+			</subtitle>
+		</div>
+		
+	</div>
+	<div id='header-nav'>
+		
+
+
+
+<nav id="nav">
+	
+	
+		
+			
+		
+		
+			<div class='nav-item'>
+				
+					<div class="nav-name active_page">
+				
+					<a class='nav-link' href="/">
+						<span>Home </span>
+					</a>
+				</div>
 			</div>
 		
-	</div>
-	<div id="header-menu-container">
-		<nav class="menu">
 	
+	
+	<div class='nav-item' id='nav-item-toc'>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
-			</a>
-		</div>
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
 	</div>
 	
-	
+	<div class='nav-item' id='nav-item-archive'>
 		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class='nav-item' id='nav-item-search'>
 		
-			<div class='menu-item grow'>
+		<div class='nav-icon'>
+		
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
@@ -135,19 +201,49 @@
     }
 </style>
 
+
+
+
+
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        
+    
+
+
+
+
+
+
+
+
+
 <article class="article" id="/2017/10/15/python-black-magic-metaclass/" data-name='Python黑魔法－元类' data-version="">
 
     <!-- Title -->
-
-    
-        
-            
-                
-                
-            
-        
-    
-
     <div class='article-header'>
          
          <h1 class='article-title'>
@@ -155,45 +251,129 @@
                 Python黑魔法－元类
             </a>
         </h1>
+        <!-- TODO: support nested categories,display them nicely -->
         
         <ul class='article-categories'>
             
             
                 <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" />
+                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
                 </a></li>
             
         </ul>
         
     </div>
-   
-    <!-- Date and Author -->
-    <p>
-       	2017-10-15
-        by infinite.ft
-        
-    </p>
-    <p>
-        
-
-	
-		<label><a href="/tags/python/">#Python</a></label>
-	
-
-
-    </p>
-	<hr />
-
-    <!-- Gallery -->
     
+    <!-- Date and Author -->
+    <div class='article-meta'>
+    <ul>
+            <li><i class='fa fa-calendar'></i> 2017-10-15</li>
+            
+            <li><i class="fa fa-user"></i> infinite.ft</li>
+            
+            <li><i class="fas fa-copyright"></i>
+            
+                
+                
+            
+            
+                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
+            
+            </li>
+    </ul>
+    
+<div class="tags">
+	
+		
+			<label class='tag-1'><a href="/tags/python/">Python</a></label>
+		
+	
+	</div>
+
+    </div>
+    <div class='article-cards'>
+        <!-- Author Card -->
+        <!---
+        <div class='Card-article Card-author'>
+            <div class='card-title'>
+                <h3></h3>
+            </div>
+            <div class='card-content'>
+                    <div class="author-meta">
+                            <div class='author-figure'>
+                                <img src="" alt="">
+                            </div>
+                            <div class='author-name'>
+                                infinite.ft
+                            </div>
+                        </div>
+                        <div class="author-ai">
+                            <div class='author-intro'>
+                                <!-- TODO: auto generating author description -->
+                                <!-- 
+                            </div>
+                            <div class="author-articles">
+                                <!-- TODO: auto generating author articles -->
+                                <!-- <ul>
+                                    <li>Article 1</li>
+                                    <li>Article 2</li>
+                                    <li>Article 3</li>
+                                    <li>Article 4</li>
+                                    <li>Article 5</li>
+                                    <li>Article 6</li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+            
+        </div> -->
+
+        <!-- Visit Card -->
+        <!-- <div class="Card-article Card-visit"> -->
+            <!-- <div class="card-title">
+  <h3>Post Visit</h3>
+</div>
+<div class="card-chart">
+  <div id='chart-post-visit'></div>
+</div> -->
+        <!-- </div> -->
+        
+        <!-- Auto Excerpt Card -->
+        <!-- <div class="Card-article Card-excerpt">
+            <div class="card-title">
+  <h3>Quick Read</h3>
+</div>
+<div class="card-text">
+  <p id='text-post-summary'>1. 概述
+python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，descriptor...</p>
+</div>
+        </div> -->
+    </div>
+    
+    <!-- Gallery -->
+    <!-- TODO: add a slider to gallery -->
     
 
     <!-- Content -->
+    <!-- TODO: support table of content -->
+    <div class="article-toc" id='article-toc'>
+        
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+    </div>
     <div class='article-content'>
-    <h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h3><p>　　python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，<strong>descriptor</strong> 、<strong>decorator</strong>、<strong>metaclass</strong>等。拥有了这些黑魔法就等于你拥有了Thor的hammer，无敌到爆表。好了，nb吹的差不多了^o^，让我们严肃起来，端庄的迎接我们今天的主角(<em>友情提示：该主角光芒有点强烈，请大家准备好墨镜，保护好自己的眼睛</em>)，ladies and gentlemen welcome our loading actor －<strong>metaclass</strong>。</p>
-<h3 id="2-python-元类"><a href="#2-python-元类" class="headerlink" title="2. python 元类"></a>2. python 元类</h3><p>在python世界中一切皆对象，当谈到一个对象时必然地会涉及到这个对象的类。例如，字符串对象<code>&quot;dede&quot;</code>的类是<code>str</code>，列表对象<code>[1, 2, 4]</code>的类是<code>list</code>，字典对象<code>{&quot;key&quot;:&quot;value&quot;}</code>的类是<code>dict</code>，这些概念对于懂得面向对象的programmer来说都是常识。但是处在一切皆对象的python世界中，你有没有在某一时刻思考过，python中的类是否也是对象？我相信对于大多数pythoner来说，都会给出一个正确的回答。是的，在python的世界里类也是对象。那既然类也是对象，那就必然又会继续思考类的类是什么？其实在你思考类的类是什么时候，可能已经想到这个类的类应该会和普通的类一样，有一系列的method，比如<code>__init__</code>、<code>__call__</code>、<code>__new__</code>等，只是你不知道这个类的类应该叫什么名字。就在你纠结该给类的类取一个什么样的名字的时候，python世界的仲裁者出现了，他们告诉你这个类的类叫做元类。好了，从此天下太平，大家都知道了类的类就做元类。对，元类就是类的类，这个元类并没有什么特殊之处。你现在只需要改变一下你观察类时所在的位置。以前你是站在普通实例对象的位置去观察它的类，现在需要往前走一步站在类的位置去观察它的类－－元类。</p>
-<p>　　现在我们对元类已经有了intuitive的认识，为了彻底搞清楚元类是什么，我们需要到python世界里去实地考察一下。我们先从常见的类下手，去看看这些类的类是什么。就像我们平常查看一个普通实例对象的类一样，需要使用<code>type</code>函数，我们在查看类的类时候，也需要使用<code>type</code>函数，那就让我们开始吧。</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> type(str)
+    <h3 id="1-概述">1. 概述</h3>
+<p>python作为一门动态解释型语言，相比于静态编译语言有着相当丰富的语言特性，这些特性是你在静态语言中所无法想象的。以美学的观点来看，这些特性会让你的程序实现的非常优美和简洁，这也正好符合python所遵从的哲学思想。这些特性就像魔法一样，让你为它们感到深深的着迷。而这些魔法特性里还有一部分会让你感觉到比魔法还神奇，这就是传说中的黑魔法，比如，<strong>descriptor</strong> 、<strong>decorator</strong>、<strong>metaclass</strong>等。拥有了这些黑魔法就等于你拥有了Thor的hammer，无敌到爆表。好了，nb吹的差不多了<sup>o</sup>，让我们严肃起来，端庄的迎接我们今天的主角(<em>友情提示：该主角光芒有点强烈，请大家准备好墨镜，保护好自己的眼睛</em>)，ladies and gentlemen welcome our loading actor －<strong>metaclass</strong>。</p>
+<h3 id="2-python-元类">2. python 元类</h3>
+<p>在python世界中一切皆对象，当谈到一个对象时必然地会涉及到这个对象的类。例如，字符串对象<code>&quot;dede&quot;</code>的类是<code>str</code>，列表对象<code>[1, 2, 4]</code>的类是<code>list</code>，字典对象<code>{&quot;key&quot;:&quot;value&quot;}</code>的类是<code>dict</code>，这些概念对于懂得面向对象的programmer来说都是常识。但是处在一切皆对象的python世界中，你有没有在某一时刻思考过，python中的类是否也是对象？我相信对于大多数pythoner来说，都会给出一个正确的回答。是的，在python的世界里类也是对象。那既然类也是对象，那就必然又会继续思考类的类是什么？其实在你思考类的类是什么时候，可能已经想到这个类的类应该会和普通的类一样，有一系列的method，比如<code>__init__</code>、<code>__call__</code>、<code>__new__</code>等，只是你不知道这个类的类应该叫什么名字。就在你纠结该给类的类取一个什么样的名字的时候，python世界的仲裁者出现了，他们告诉你这个类的类叫做元类。好了，从此天下太平，大家都知道了类的类就做元类。对，元类就是类的类，这个元类并没有什么特殊之处。你现在只需要改变一下你观察类时所在的位置。以前你是站在普通实例对象的位置去观察它的类，现在需要往前走一步站在类的位置去观察它的类－－元类。</p>
+<p>现在我们对元类已经有了intuitive的认识，为了彻底搞清楚元类是什么，我们需要到python世界里去实地考察一下。我们先从常见的类下手，去看看这些类的类是什么。就像我们平常查看一个普通实例对象的类一样，需要使用<code>type</code>函数，我们在查看类的类时候，也需要使用<code>type</code>函数，那就让我们开始吧。</p>
+<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type(str)
 <class 'type'>
 >>> type(dict)
 <class 'type'>
@@ -205,15 +385,16 @@
 <class 'type'>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当看到上面的输出的时候，有人可能就会产生疑问了。<code>type</code>不是一个函数吗？怎样现在又成一个类了？你以为是你长时间看电脑眼睛花了，你使劲的揉了眼睛之后，再仔细看它还是那样。没毛病，<code>type</code>就是这么的特殊，它是python世界中的万类之<code>元</code>，它是所有类的元类，包括它自己的元类也是它本身(八卦一下，你长这么大见过一个人的父亲就是他自己本身吗？没见过的话，说明你是正常的)，不信的话请看下面的输出。</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> type(type)
+<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type(type)
 <class 'type'>
 >>> type(type(type))
 <class 'type'>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>反正不管怎么说，你的三观肯定是被刷新了的，请直视自己的内心。好吧，既然<code>type</code>这么特殊，那它有什么怪癖呢？怪癖肯定是有的，让我们慢慢来分析一下。</p>
 <ul>
-<li><p>当<code>type</code>作为函数使用时，它的行为会根据传入参数个数的不同而不同。当传入一个参数时，<code>type</code>会返回传入参数的类型，如下面所示。</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> type("hello,python world!")
+<li>
+<p>当<code>type</code>作为函数使用时，它的行为会根据传入参数个数的不同而不同。当传入一个参数时，<code>type</code>会返回传入参数的类型，如下面所示。</p>
+<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type("hello,python world!")
 <class 'str'>
 >>> type([512, 1024, 2048])
 <class 'list'>
@@ -226,15 +407,18 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当传入三个参数时，<code>type</code>会返回一个类，参数列表如下所示：</p>
 <ul>
-<li><p><strong>name</strong>  : 返回类的名字，必须是字符串</p>
+<li>
+<p><strong>name</strong>  : 返回类的名字，必须是字符串</p>
 </li>
-<li><p><strong>bases</strong>  : 返回类的父类，必须是tuple，可以同时继承自多个父类</p>
+<li>
+<p><strong>bases</strong>  : 返回类的父类，必须是tuple，可以同时继承自多个父类</p>
 </li>
-<li><p><strong>attrs</strong>  : 返回类的属性，必须是dict，在类初始化的时候会添加到类的<code>__dict__</code>中。</p>
+<li>
+<p><strong>attrs</strong>  : 返回类的属性，必须是dict，在类初始化的时候会添加到类的<code>__dict__</code>中。</p>
 <p>整个调用原型是这样的<code>type(name, bases, attrs)</code>，具体示例请看下面。</p>
 </li>
 </ul>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">>>> type("ClassOne", (), {}) #
+<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type("ClassOne", (), {}) #
 <class '__main__.ClassOne'>
 >>> ClassTwo = type("ClassTwo", (), {"name": "python", "age": 18})
 >>> ClassTwo.name
@@ -245,22 +429,22 @@
 <class 'type'>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>看了上面示例之后，肯定有人心里就会有想法了。我们可以使用<code>type</code>来动态的创建类，这确实是一个很好的想法。于是有人真的将这个想法付诸于实践了，请看下面。</p>
-<pre class="line-numbers language-lang-python"><code class="language-lang-python">def get_gender(self):
+<pre class="line-numbers language-language-python"><code class="language-language-python">def get_gender(self):
     return self._gender
 
 def set_gender(self, val):
     self._gender = val
-
+  
 def get_name(self):
     return self._name
-
+  
 def set_name(self, val):
     self._name = val
-
+    
 def init(self, name, gender):
     self._name = name
     self._gender = gender
-
+    
 Student = type("Student", (object ), {"get_gender": get_gender, "set_gender": \
                                     set_gender, "get_name": get_name, "set_name":\
                                     set_name, "__init__": init})
@@ -273,133 +457,187 @@ teacher1 = Teacher("John_Father", "male")
 <p>看了上面的代码，有没有人觉得瘆得慌，反正我是有点。</p>
 </li>
 </ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.programiz.com/python-programming/methods/built-in/type" target="_blank" rel="external">[1] : Python type()</a></p>
+<h3 id="参考">参考</h3>
+<p><a href="https://www.programiz.com/python-programming/methods/built-in/type" target="_blank" rel="external">[1] : Python type()</a></p>
 
+    
     </div>
-    <hr />
-
-    <h2>Share and comment</h2>
-    <div class="social-share"></div>
-    
-        <div id="disqus_thread"></div>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
     
     
+        
 </article>
   </div>
 
-  <footer class='footer'>
-    <div class='footer-logo'>
-        <span>infinite.ft</span>
+  
+
+<footer id='footer'>
+    <div class='footer-copyright'>
+        <div>
+            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
+            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
+        </div>
     </div>
+    
     <div class='footer-social'>
         
-        
             
                 
-                    <div class='footer-social-item'><a href='https://www.facebook.com/huang.biao.77' target='_blank' title='Find me on facebook' ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='https://twitter.com/19941222hb' target='_blank' title='Find me on twitter' ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-                
-                    <div class='footer-social-item'><a href='mailto:infinite.ft@gmail.com' target='_blank' title='Find me on mail' ><i class="fa fa-mail fa-2x" aria-hidden="true"></i></a></div>
+                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
                 
             
         
     </div>
-    <p> Copyright by <a href="">@infinite.ft</a> in 2018</p>
-    <p> Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">Flaticon</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
-    <p>Theme <a href="http://qutang.github.io/2017/06/27/Hexo-theme-cutie/">Cutie 1.0.0</a> | Powered by <a href="http://hexo.io">Hexo.</a></p>
 </footer>
 
   <br>
 
-  <div id="footer-menu-container">
-		<nav class="menu">
+  <div id="footer-nav">
+		
+
+
+
+<nav id="nav">
+	
 	
 		
+			
+				
+			
+		
+		
 	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/archives/">
-			<img src="/images/archive.svg" alt="">
-			</a>
-		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/archives/">
-				<span>Archives</span>
+	
+	<div class='nav-item' id='nav-item-toc'>
+		
+
+
+
+
+<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
+    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
+</div>
+
+	</div>
+	
+	<div class='nav-item' id='nav-item-archive'>
+		
+				<div class='nav-icon'>
+				
+			<a href="/archives/" title='Archives'>
+			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
 			</a>
 		</div>
 	</div>
-	
-	
+	<div class='nav-item' id='nav-item-search'>
 		
+		<div class='nav-icon'>
 		
-			<div class='menu-item grow'>
+			<a href="/search/" title='Search'>
+			<img src="/images/icons/colorful-outlined/search.svg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="nav-item" id='nav-item-more'>
+		<div class="nav-icon">
+				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
+				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
+				</a>
+		</div>
+		<div class="nav-more-menu">
+		
 			
-				<div class='menu-icon'>
-				<a href="/">
-					<img src="/images/home.svg" alt="">
-					</a>
-					</div>
-					
-					<div class="menu-name">
-						<a class='menu-link' href="/">
+			
+				
+			
+				
+			
+		
+			<div class='nav-more-item'>
+					<div class="nav-name">
+						<a class='nav-link' href="/">
 							<span>Home</span>
 						</a>
 					</div>
-				</a>
 			</div>
 		
-	
-	<div class='menu-item grow'>
-		<div class='menu-icon'>
-			<a href="/search/">
-			<img src="/images/search.svg" alt="">
-			</a>
+		
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/tech/">
+						<span>Tech</span>
+					</a>
+				</div>
 		</div>
-		<div class="menu-name">
-			<a class='menu-link' href="/search/">
-				<span>Search</span>
-			</a>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
 		</div>
+		
+	</div>
 	</div>
 </nav>
 
 	</div>
 
-  <script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://qutang-github-io.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
+  
+
+
+
+    
+
+
+
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="/js/lg-zoom.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery(); 
+        $(".article-content img").each(function(){
+            console.log($(this).attr('src'))
+            $(this).attr('data-src', $(this).attr('src')).lightGallery({
+                selector: 'this'
+            })
+        });
+    });
 </script>
 
-<script src="/js/lightgallery.min.js"></script>
-<script type='text/javascript'>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
+
+
+
+
+
+
+
+<script src="/js/post.js"></script>
 
 <script data-no-instant type='text/javascript'>
 changeLayoutOnTouchScreen();
-setVersionForCurrentPage();
-setVersionBadgeForIndexPages();
+
+
+var post = new Post('', '');
+        post.getCommentCount(window.location.pathname, function(count){
+            $('#article-comment-count').text(count);
+        });
+        post.addVisitRecord(window.location.pathname, userip);
+        post.getVisitCount(window.location.pathname, function(count){
+            $('#article-visit-count').text(count);
+        });
+post.updatePostVersion(window.location.pathname);
+
+
 </script>
 
 <!-- End Document
