@@ -158,6 +158,8 @@
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -171,6 +173,14 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -179,8 +189,8 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>
@@ -344,7 +354,7 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>BMP, known as Bitmap, is a standard image file format on the window X platform original created by Microsoft. Now It  be broadly used, especially in digital image processing, and supported by almost all of platforms. Though it’s very popular in image processing fields, it’s not suitable for...</p>
+  <p id='text-post-summary'>BMP, known as Bitmap, is a standard image file format on the window X platform original created by Microsoft. Now It  be broadly used, especially in digital image processing, and supported by almost all of platforms. Though it's very popular in image processing fields, it's not suitable for...</p>
 </div>
         </div> -->
     </div>
@@ -367,14 +377,14 @@
 
     </div>
     <div class='article-content'>
-    <p>BMP, known as Bitmap, is a standard image file format on the window X platform original created by Microsoft. Now It  be broadly used, especially in digital image processing, and supported by almost all of platforms. Though it’s very popular in image processing fields, it’s not suitable for storage as it’s not be compressed.</p>
-<p>BMP is simply divided into two types: Device Independent Bitmap(DIB) and Device Dependent Bitmap(DDB).  DDB was widely used in early  windows system. As the development of monitor technology, a variety of display devices was produced, DDB was hard to meet all the device’s demands. e.g. DDB cannot store the resolution information of the device that originally created it, so that applications cannot rapidly check whether if the BMP image can be displayed on the current host display device. To solve this, Microsoft has created a new type  Bitmap called Device Independent Bitmap.</p>
+    <p>BMP, known as Bitmap, is a standard image file format on the window X platform original created by Microsoft. Now It  be broadly used, especially in digital image processing, and supported by almost all of platforms. Though it's very popular in image processing fields, it's not suitable for storage as it's not be compressed.</p>
+<p>BMP is simply divided into two types: Device Independent Bitmap(DIB) and Device Dependent Bitmap(DDB).  DDB was widely used in early  windows system. As the development of monitor technology, a variety of display devices was produced, DDB was hard to meet all the device's demands. e.g. DDB cannot store the resolution information of the device that originally created it, so that applications cannot rapidly check whether if the BMP image can be displayed on the current host display device. To solve this, Microsoft has created a new type  Bitmap called Device Independent Bitmap.</p>
 <p>Each DIB image contains a information structure, in which color and spatial side are stored. The information structure is explained as below:</p>
 <ul>
 <li>The color type of original device</li>
 <li>The resolution of original device</li>
 <li>Palette</li>
-<li>Bit array contains RGB channel’s color value of each pixel</li>
+<li>Bit array contains RGB channel's color value of each pixel</li>
 <li>Flag which indicates the compression scheme of Bit Array</li>
 </ul>
 <p>One Bitmap file mainly contains the four parts, shown in Figure 1.</p>
@@ -403,7 +413,7 @@
 }BITMAPFILEHADER;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Note</strong>: <code>WORD</code> represents 16-bits unsigned integer type, <code>DWORD</code> represents  32-bits unsigned integer type.</p>
-<p><code>bfType</code>: denote file type, the value must be 0x424D, i.e. “BM”.</p>
+<p><code>bfType</code>: denote file type, the value must be 0x424D, i.e. &quot;BM&quot;.</p>
 <p><code>bfSize</code>: the total file size, The size of File Header also be included.</p>
 <p><code>bfReserved1,bfReserved2</code>: padding bytes, ignore it.</p>
 <p><code>bfOffBits</code>: The number of bytes where the first byte of Image Data offset to the first byte of file.</p>
@@ -436,7 +446,7 @@
 <p><code>biClrUsed</code>: the actual used color number. when value is equal to 0, the actual color number is $2^{biBitCount}$ .</p>
 <p><code>biClrImportant</code>: the number of color which be thought as  important. When the value is 0 , represent all color is important.</p>
 <p><strong>3. Palette</strong></p>
-<p>The palette of one BMP image is optional, some image file doesn’t need palette, e.g. true color image. Actually, the palette is an structure array ,in which the number of elements is equal to <code>biClrUsed</code>. Each element is defined as the following structure.</p>
+<p>The palette of one BMP image is optional, some image file doesn't need palette, e.g. true color image. Actually, the palette is an structure array ,in which the number of elements is equal to <code>biClrUsed</code>. Each element is defined as the following structure.</p>
 <pre class="line-numbers language-language-c"><code class="language-language-c">typedef struct tagRGBQUAD{
   // the value of blue color channel
   BYTE rgbBlue;
@@ -449,7 +459,7 @@
 }RGBQUAD;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>4.Image Data</strong></p>
-<p>When the palette exists in the image file, the image data represent the index values of the pixels in the palette, otherwise, the image data represent the actual color value of the pixels(RGB). Let’s take a example:</p>
+<p>When the palette exists in the image file, the image data represent the index values of the pixels in the palette, otherwise, the image data represent the actual color value of the pixels(RGB). Let's take a example:</p>
 <p><code>biBitCount=1</code>: the size of palette is 2, the value of each pixel can be 0 or 1, which represents the index value in the palette. The reason is that there are just  two kind of colors. one  data byte can represent 8 pixels.</p>
 <p><code>biBitCount=4</code>: the size of palette is $2^4=16$, the value of each pixel ranges from 0 to 15. one data byte can store two pixels.</p>
 <p><code>biBitCount=8</code>: the size of palette is $2^8=256$, the value of each pixel ranges from 0 to 255. one data byte just represent one pixel.</p>
@@ -546,6 +556,8 @@
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -559,6 +571,14 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -567,8 +587,8 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>

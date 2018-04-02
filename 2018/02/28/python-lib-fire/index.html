@@ -158,6 +158,8 @@
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -171,6 +173,14 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -179,8 +189,8 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>
@@ -344,7 +354,7 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>In 2018 early, Google open-source it’s one of new Python library called Fire. Fire is a powerful tool to automatically generate command line interfaces(CLIs) from any Python object. With it’s assistance, you can easily transition between Bash and Python, also develop and debug your Python code....</p>
+  <p id='text-post-summary'>In 2018 early, Google open-source it's one of new Python library called Fire. Fire is a powerful tool to automatically generate command line interfaces(CLIs) from any Python object. With it's assistance, you can easily transition between Bash and Python, also develop and debug your Python code....</p>
 </div>
         </div> -->
     </div>
@@ -367,7 +377,7 @@
 
     </div>
     <div class='article-content'>
-    <p>In 2018 early, Google open-source it’s one of new Python library called <a href="https://github.com/google/python-fire" target="_blank" rel="external"><strong>Fire</strong></a>. <strong>Fire</strong> is a powerful tool to automatically generate command line interfaces(CLIs) from any Python object. With it’s assistance, you can easily transition between Bash and Python, also develop and debug your Python code. That’s why here I choose it.</p>
+    <p>In 2018 early, Google open-source it's one of new Python library called <a href="https://github.com/google/python-fire" target="_blank" rel="external"><strong>Fire</strong></a>. <strong>Fire</strong> is a powerful tool to automatically generate command line interfaces(CLIs) from any Python object. With it's assistance, you can easily transition between Bash and Python, also develop and debug your Python code. That's why here I choose it.</p>
 <h4 id="installation">Installation</h4>
 <p>Like other Python library, The installation of <strong>Fire</strong> is very simple and clear. You just need to type the following command in your bash interface, then it will automatically finish.</p>
 <pre class="line-numbers language-language-shell"><code class="language-language-shell">$ pip install fire
@@ -402,7 +412,7 @@ Hello john
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <hr>
 <h5 id="multiple-commands">Multiple commands</h5>
-<p>In the previous section, we just have one function totally, it’s hard to show you the power of <strong>fire</strong>. In this section, multiple commands will be introduced.</p>
+<p>In the previous section, we just have one function totally, it's hard to show you the power of <strong>fire</strong>. In this section, multiple commands will be introduced.</p>
 <p><strong>version 1:<code>fire.Fire()</code></strong></p>
 <p>Like the <code>hello world</code> example, here you also can write multiple function , then call it directly in your bash shell.</p>
 <pre class="line-numbers language-language-python"><code class="language-language-python">#@file: mcmds.py
@@ -447,7 +457,7 @@ $ python mcmds.py cumsum 1 2 3 4
 10
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>version 3: <code>fire.Fire(&lt;object&gt;)</code></strong></p>
-<p>As shown by the previous examples,  they are all functions,  if you are going to expose your object’s method as a command line . Is there all solution for satisfying your demands?</p>
+<p>As shown by the previous examples,  they are all functions,  if you are going to expose your object's method as a command line . Is there all solution for satisfying your demands?</p>
 <pre class="line-numbers language-language-python"><code class="language-language-python">#@file: hello.py
 import fire
 import functools
@@ -543,7 +553,7 @@ if __name__ == '__main__':
     fire.Fire(Robot)
                   
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Here’s how this looks at the command line:</p>
+<p>Here's how this looks at the command line:</p>
 <pre class="line-numbers language-language-bash"><code class="language-language-bash">$ python hello.py run
 The arm is moving!
 The leg is moving forward!
@@ -673,12 +683,12 @@ The red car is runing below the maximum speed 100 mph!
 <p>From the above invocation example, you might found some interesting things.</p>
 <ul>
 <li>Hyphens and underscores (<code>-</code> and <code>_</code>) are interchangeable in member names and flag names.</li>
-<li>The constructor’s arguments can come after the function’s arguments or before the function.</li>
+<li>The constructor's arguments can come after the function's arguments or before the function.</li>
 <li>The equal sign between the flag name and its value is optional.</li>
 </ul>
 <hr>
 <h5 id="arguments-separator">Arguments Separator</h5>
-<p>Normally, the arguments passed to a function are fixed, so you can append the further operations on the results, This is the chaining function call rule that are introduced before. But when your arguments are variable, the further operations( i.e. function)  on the results will be treated as an another argument that passed to the function. So, you need to an extra syntax to separate the arguments and the operations on the results. The default separator in <strong>fire</strong>  is the hyphens <code>-</code> , you can change the default separator using <code>--separator</code>  flags. Flags are alway separated from your Fire command by an isolated <code>--</code>. All arguments after the separator will be used to process the result of the function, rather than being passed to the function itself. Here’s an example will show how it works.</p>
+<p>Normally, the arguments passed to a function are fixed, so you can append the further operations on the results, This is the chaining function call rule that are introduced before. But when your arguments are variable, the further operations( i.e. function)  on the results will be treated as an another argument that passed to the function. So, you need to an extra syntax to separate the arguments and the operations on the results. The default separator in <strong>fire</strong>  is the hyphens <code>-</code> , you can change the default separator using <code>--separator</code>  flags. Flags are alway separated from your Fire command by an isolated <code>--</code>. All arguments after the separator will be used to process the result of the function, rather than being passed to the function itself. Here's an example will show how it works.</p>
 <pre class="line-numbers language-language-python"><code class="language-language-python">#@file: hello.py
 import fire
 
@@ -695,11 +705,11 @@ if __name__ == '__main__':
 <pre class="line-numbers language-language-bash"><code class="language-language-bash">$ python hello.py cat dog pig chicken
 cat > dog > pig > chicken
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>If we want to convert all animal’s name characters to the uppercase, how to do that?</p>
+<p>If we want to convert all animal's name characters to the uppercase, how to do that?</p>
 <pre class="line-numbers language-language-bash"><code class="language-language-bash">$ python hello.py cat dog pig chicken upper
 cat > dog > pig > upper > chicken
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>As you see the above output result, it didn’t work! Hey, don’t forget thing mentioned just now:<strong>Separator</strong>.</p>
+<p>As you see the above output result, it didn't work! Hey, don't forget thing mentioned just now:<strong>Separator</strong>.</p>
 <pre class="line-numbers language-language-bash"><code class="language-language-bash">$ python hello.py cat dog pig chicken - upper
 CAT > DOG > PIG > CHICKEN
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -803,6 +813,8 @@ CAT > DOG > PIG > CHICKEN
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -816,6 +828,14 @@ CAT > DOG > PIG > CHICKEN
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -824,8 +844,8 @@ CAT > DOG > PIG > CHICKEN
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>

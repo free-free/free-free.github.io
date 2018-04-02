@@ -158,6 +158,8 @@
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -171,6 +173,14 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -179,8 +189,8 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>
@@ -396,7 +406,7 @@ init.d指的是/etc/rc.d/init.d目录。
 <p>写到这里，应该差不多要进入init.d了，可是我觉得单写/etc/rc.d/init.d的话不一定能说得清楚明白，就拿它跟/etc/rc.d这个它上一级的目录一起来讨论，可能比较合适一些，因为他们之间有着千丝万缕的关系。</p>
 <p>在这里先解释一下init.d里面放的都是什么东西。这个目录存放的是一些脚本，一般是linux以rpm包安装时设定的一些服务的启动脚本。系统在安装时装了好多rpm包，这里面就有很多对应的脚本。执行这些脚本可以用来启动，停止，重启这些服务。</p>
 <p>前面说到，/etc/rc.d/init.d这个目录下的脚本就类似与windows中的注册表，在系统启动的时候执行。程序运行到这里(init进程读取了运行级别)，相信从命名的角度大家也能猜到该运行/etc/rc.d/init.d里面的脚本了，不然它为什么也叫init(.d)呢是吧。没错，是该运行init.d里的脚本了，但是并不是直接运行，而是有选择的因为系统并不需要启动所有的服务。</p>
-<p>那么，系统是如何选择哪些需要启动哪些不要呢？这时刚才说的运行级别就起作用了。在决定了系统启动的run level之后，/etc/rc.d/rc这个脚本先执行。在RH9和FC7的源码中它都是一上来就check_runlevel()（虽然实现的代码不一样，也大同小异），知道了运行级别之后，对于每一个运行级别，在rc.d下都有一个子目录分别是rc0.d，rc1.d …… rc6.d。每个目录下都是到init.d目录的一部分脚本一些链接。每个级别要执行哪些服务就在相对应的目录下，比如级别5要启动的服务就都放在rc5.d下，但是放在这个rc5.d下的都是一些链接文件，链接到init.d中相对应的文件，真正干活到init.d里的脚本。</p>
+<p>那么，系统是如何选择哪些需要启动哪些不要呢？这时刚才说的运行级别就起作用了。在决定了系统启动的run level之后，/etc/rc.d/rc这个脚本先执行。在RH9和FC7的源码中它都是一上来就check_runlevel()（虽然实现的代码不一样，也大同小异），知道了运行级别之后，对于每一个运行级别，在rc.d下都有一个子目录分别是rc0.d，rc1.d ….. rc6.d。每个目录下都是到init.d目录的一部分脚本一些链接。每个级别要执行哪些服务就在相对应的目录下，比如级别5要启动的服务就都放在rc5.d下，但是放在这个rc5.d下的都是一些链接文件，链接到init.d中相对应的文件，真正干活到init.d里的脚本。</p>
 <p>redhat9 ls</p>
 <p>fc7     ls -l</p>
 <p>这样看的就很清楚了。</p>
@@ -499,6 +509,8 @@ init.d指的是/etc/rc.d/init.d目录。
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -512,6 +524,14 @@ init.d指的是/etc/rc.d/init.d目录。
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -520,8 +540,8 @@ init.d指的是/etc/rc.d/init.d目录。
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>

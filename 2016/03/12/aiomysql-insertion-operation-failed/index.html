@@ -158,6 +158,8 @@
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -171,6 +173,14 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -179,8 +189,8 @@
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>
@@ -346,7 +356,7 @@
 <div class="card-text">
   <p id='text-post-summary'>####emotions:
 
-those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I can’t insert data into my database table using aiomysql’s cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq’s...</p>
+those days,I am using aiomysql(python3.5) to acess my database .But a 'strange' problem make me trouble more times.The problem is I can't insert data into my database table using aiomysql's cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq's...</p>
 </div>
         </div> -->
     </div>
@@ -371,7 +381,7 @@ those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange
     <div class='article-content'>
     <p>####emotions:</p>
 <blockquote>
-<p>those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I can’t insert data into my database table using aiomysql’s cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq’s manual.</p>
+<p>those days,I am using aiomysql(python3.5) to acess my database .But a 'strange' problem make me trouble more times.The problem is I can't insert data into my database table using aiomysql's cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq's manual.</p>
 </blockquote>
 <p>####plateform:
 1.ubuntu14.04
@@ -397,7 +407,7 @@ loop.run_forever()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>I run the above code many times,but there is still no data in my database table.</strong></p>
 <h4 id="solution">solution:</h4>
-<p><strong>After refering aiomysql’s manual,I found ‘aiomysql.commit’ method  is coroutine,that’s a critical point.just rewrite ‘con.commit()’ to ‘yield from con.commit()’,the problem is sovled!</strong>
+<p><strong>After refering aiomysql's manual,I found 'aiomysql.commit' method  is coroutine,that's a critical point.just rewrite 'con.commit()' to 'yield from con.commit()',the problem is sovled!</strong>
 ####correct code:</p>
 <pre class="line-numbers language-language-python"><code class="language-language-python">import aiomysql 
 import asyncio
@@ -509,6 +519,8 @@ loop.run_forever()
 			
 				
 			
+				
+			
 		
 			<div class='nav-more-item'>
 					<div class="nav-name">
@@ -522,6 +534,14 @@ loop.run_forever()
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
+					<a class='nav-link' href="/categories/mylife/">
+						<span>Mylife</span>
+					</a>
+				</div>
+		</div>
+		
+		<div class='nav-more-item'>
+				<div class="nav-name">
 					<a class='nav-link' href="/categories/tech/">
 						<span>Tech</span>
 					</a>
@@ -530,8 +550,8 @@ loop.run_forever()
 		
 		<div class='nav-more-item'>
 				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
+					<a class='nav-link' href="/categories/math/">
+						<span>Math</span>
 					</a>
 				</div>
 		</div>
