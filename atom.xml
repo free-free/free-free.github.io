@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://free-free.github.io/"/>
-  <updated>2018-04-01T14:28:20.160Z</updated>
+  <updated>2018-04-03T05:49:20.398Z</updated>
   <id>https://free-free.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://free-free.github.io/2018/04/01/givens-transformation/"/>
     <id>https://free-free.github.io/2018/04/01/givens-transformation/</id>
     <published>2018-04-01T13:53:13.000Z</published>
-    <updated>2018-04-01T14:28:20.160Z</updated>
+    <updated>2018-04-03T05:49:20.398Z</updated>
     
-    <content type="html"><![CDATA[<p>What is the Givens transformation? you might have encountered it dozen times without knowing its formal name. Very broadly speaking,  Givens transformation , also known as Givens rotation, is a rotation transformation  that performed in the 2-dimensional plane spanned by two vectors. Let's think about the rotation transformation in 2-D Euclidean space. As we have learned from the linear algebra class , a linear transformation can be represent with a matrix. So the rotation transformation in 2-D Euclidean space  is defined as the following matrix.</p>]]></content>
+    <content type="html"><![CDATA[<p>What is the Givens transformation? you might have encountered it dozen times without knowing its formal name. Very broadly speaking,  Givens transformation , also known as Givens rotation, is a rotation transformation  that performed in the plane spanned by two vectors. Let's think about the rotation transformation in 2-D Euclidean space. As what you have learned in your linear algebra class , a linear transformation can be represent with a matrix. So the rotation transformation in 2-D Euclidean space  is defined as the following matrix.</p><p>$$T = \begin{bmatrix} \cos{\theta} &amp; \sin{\theta} \ -\sin{\theta} &amp; \cos{\theta} \end{bmatrix}$$</p><p>Given a  vector $x$ in the 2-D Euclidean space, you can rotate it $\theta$ degrees by multiply it with $T$, i.e. $x_{\theta} = Tx$</p>]]></content>
     
     <summary type="html">
     
@@ -89,9 +89,9 @@
       <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
     
     
-      <category term="hexo" scheme="https://free-free.github.io/tags/hexo/"/>
-    
       <category term="LaTex" scheme="https://free-free.github.io/tags/LaTex/"/>
+    
+      <category term="hexo" scheme="https://free-free.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -269,9 +269,9 @@
       <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
     
     
-      <category term="hexo" scheme="https://free-free.github.io/tags/hexo/"/>
-    
       <category term="security" scheme="https://free-free.github.io/tags/security/"/>
+    
+      <category term="hexo" scheme="https://free-free.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -551,9 +551,9 @@
       <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
     
     
-      <category term="LaTex" scheme="https://free-free.github.io/tags/LaTex/"/>
-    
       <category term="math" scheme="https://free-free.github.io/tags/math/"/>
+    
+      <category term="LaTex" scheme="https://free-free.github.io/tags/LaTex/"/>
     
   </entry>
   
