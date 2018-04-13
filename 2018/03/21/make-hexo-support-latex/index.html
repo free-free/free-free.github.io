@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -384,26 +383,26 @@
     <div class='article-content'>
     <p>In the previous post, I have briefly introduced some basic syntaxes about LaTex , and how to write mathematical equations with markdown. In this post, I am about to focus on making hexo support LaTex mathematical equations syntax with Mathjax and summarize the approach .</p>
 <h3 id="1-replace-hexo-renderer-marked-with-hexo-renderer-kramed">1. Replace hexo-renderer-marked with hexo-renderer-kramed</h3>
-<p>The default rendering engine in hexo is hexo-renderer-marked, unfortunately, hexo-renderer-marked doesn't support Mathjax syntaxes. To fix that, a new rendering engine: <code>hexo-renderer-kramed</code> comes along at the that moment. To fully support Mathjax in your hexo , just need you to uninstall hexo-renderer-marked  and install hexo-renderer-kramed.</p>
-<pre class="line-numbers language-language-shell"><code class="language-language-shell">
+<p>The default rendering engine in hexo is hexo-renderer-marked, unfortunately, hexo-renderer-marked doesn’t support Mathjax syntaxes. To fix that, a new rendering engine: <code>hexo-renderer-kramed</code> comes along at the that moment. To fully support Mathjax in your hexo , just need you to uninstall hexo-renderer-marked  and install hexo-renderer-kramed.</p>
+<pre><code class="language-shell">
 $ npm uninstall hexo-renderer-marked --save
 $ npm install hexo-renderer-kramed --save
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>Now your hexo  can render Mathjax fully.</p>
 <h3 id="2-fix-the-syntax-conflicts-between-latex-and-markdown">2. Fix the syntax conflicts between LaTex and markdown</h3>
 <p>If you know very well about LaTex and markdown, you may be aware of the syntax conflicts between them. In markdown, asterisk <code>*</code> and underline <code>_</code> represent bold and italic. At the same time , underline <code>_</code>  denotes subscript in LaTex. So how to fix that? Here we only use asterisk <code>*</code> to the represent bold and italic in markdown, and assign underline <code>_</code> to LaTex.</p>
 <p>Open  <code>node_modules\kramed\lib\rules\inline.js</code>, and replace <code>escape</code> and <code>em</code>  to following code.</p>
-<pre class="line-numbers language-language-js"><code class="language-language-js"> 
-escape: /^\\([`*\[\]()#$+\-.!_>])/,
+<pre><code class="language-js"> 
+escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
 em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="3-enable-mathjax">3. Enable Mathjax</h3>
 <p>Open your theme configuration file:<code>_config.yaml</code> , add the following content to it.</p>
-<pre class="line-numbers language-language-yaml"><code class="language-language-yaml">mathjax:
+<pre><code class="language-yaml">mathjax:
   enable: true
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</code></pre>
 <p>Until now you already have made your hexo support LaTex. When you want to write mathematical equations  in you blog , you just need to enable Mathjax in your article header part, like the following.</p>
-<pre class="line-numbers language-language-markdown"><code class="language-language-markdown">----
+<pre><code class="language-markdown">----
 title: Hello Mathjax
 categories: god
 date: 2018/03/21
@@ -412,7 +411,7 @@ tags:
 mathjax: true
 
 ----
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="references">References</h3>
 <p>[[1] reference 1](<a href="http://blog.csdn.net/u014630987/article/details/78670258" target="_blank" rel="external">http://blog.csdn.net/u014630987/article/details/78670258</a>)</p>
 <p>[[2] reference 2](<a href="http://blog.csdn.net/crazy_scott/article/details/79293576" target="_blank" rel="external">http://blog.csdn.net/crazy_scott/article/details/79293576</a>)</p>

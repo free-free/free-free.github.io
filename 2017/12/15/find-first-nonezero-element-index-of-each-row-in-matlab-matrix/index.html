@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -381,10 +380,10 @@
 <p>Here we assume $A$ is a $m\times n$ matrix, the problem is find out the index of first none-zero element of each row in $A$.</p>
 <h4 id="the-first-try">The first try</h4>
 <p><strong>code</strong></p>
-<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">idx = sum(A==0, 2) + 1
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-matlab">idx = sum(A==0, 2) + 1
+</code></pre>
 <p>The above code seems to be working, the truths is that it just  works fine in some special matrices, like</p>
-<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">A = 
+<pre><code class="language-matlab">A = 
 
      0     0     0     0    12    11
      0     0     0     1     2     3
@@ -400,9 +399,9 @@ ans =
      2
      6
 % see that,it is corret
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>but except other general matrices,like</p>
-<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">A =
+<pre><code class="language-matlab">A =
 
      0     2     0     0    12    11
      0     0     0     1     2     3
@@ -416,14 +415,14 @@ ans =
      4
      2
      6
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>The first try  is failed, but it doesn't mean i was <a href="http://defeated.So" target="_blank" rel="external">defeated.So</a> i start my second problem-solving try.</p>
+</code></pre>
+<p>The first try  is failed, but it doesn’t mean i was <a href="http://defeated.So" target="_blank" rel="external">defeated.So</a> i start my second problem-solving try.</p>
 <h4 id="the-second-try">The second try</h4>
 <p><strong>code:</strong></p>
-<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>It seems i find the way to correct answer this time, but ..... it's not working in some special case, likes the following matrix</p>
-<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">A =
+<pre><code class="language-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
+</code></pre>
+<p>It seems i find the way to correct answer this time, but … it’s not working in some special case, likes the following matrix</p>
+<pre><code class="language-matlab">A =
 
      0     2     0     0    12    11     0
      0     0     0     1     2     3     0
@@ -438,14 +437,14 @@ ans =
      4
      2
      8
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>OK, this time we get more closer to the correct answer.The next question is we  how to deal with the  index-exceeding problem.Lets go further to launch our  third try</p>
 <h4 id="the-third-try">The third try</h4>
 <p><strong>code:</strong></p>
-<pre class="line-numbers language-language-matlab"><code class="language-language-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
-idx(idx > size(A, 2)) = nan;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.               I can bet this time , it must work fine in all  cases. What? You don't believe what i have said. Ok, i don't want to persuade you. The fact is alway fact, you can run the code on your machine.</p>
+<pre><code class="language-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
+idx(idx &gt; size(A, 2)) = nan;
+</code></pre>
+<p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.               I can bet this time , it must work fine in all  cases. What? You don’t believe what i have said. Ok, i don’t want to persuade you. The fact is alway fact, you can run the code on your machine.</p>
 
     
     </div>

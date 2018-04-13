@@ -1177,7 +1177,7 @@ html {
 }
 .article,
 .page {
-  max-width: 800px;
+  max-width: 70vw;
   margin: 0 auto;
   padding: 0;
   margin-top: 10em;
@@ -1185,13 +1185,13 @@ html {
 @media only screen and (min-width: 601px) and (max-width: 800px) {
   .article,
   .page {
-    width: 800px;
+    width: 70vw;
   }
 }
 @media only screen and (max-width: 600px) {
   .article,
   .page {
-    width: 85vw;
+    width: 80vw;
   }
 }
 @media only screen and (max-width: 600px) {

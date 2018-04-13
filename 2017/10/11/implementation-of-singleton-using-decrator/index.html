@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -416,7 +415,7 @@ def singleton(cls):
 <li>ubuntu16.04</li>
 </ul>
 <p><strong>code</strong>:</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
+<pre><code class="language-python">def singleton(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -454,15 +453,15 @@ if __name__ == '__main__':
     p2 = Point2D(2, 10)
     print(id(p1))
     print(id(p2))
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>output</strong>:</p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">139685819815696
+<pre><code class="language-bash">139685819815696
 139685819815696
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</code></pre>
 <p>由输出可知p1和p2为同一示例，即上述code完美实现了单例模式。</p>
 <h3 id="3-code-辩证分析">3.code 辩证分析</h3>
 <p>在单例的装饰器函数中，使用词典变量<strong>instances</strong>来储存类的实例，并且<strong>singleton_wrapper</strong>与<strong>instances</strong>形成了闭包环境。当使用<code>类名(*args, **kwargs)</code>实例化时，实际上调用了<code>singleton_wrapper(*args, **kwargs)</code>来进行实例化。通过在<strong>singleton_wrapper</strong>判断<strong>instances</strong>中是否存在类的实例，如果不存在则创建实例，如果存在则直接中从<strong>instances</strong>返回实例。每调用一次<strong>singleton</strong>返回一个闭包，各个闭包之间并没有共享<strong>instances</strong>变量，所以<strong>instances</strong>变量中最多只储存了一个实例，为了验证此将code修改成如下：</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
+<pre><code class="language-python">def singleton(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -493,13 +492,13 @@ if __name__ == '__main__':
     obj1 = ClassOne()
     obj2 = ClassTwo()
   
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">{<class '__main__.ClassOne'>: <__main__.ClassOne object at 0x7f276523a828>}
-{<class '__main__.ClassTwo'>: <__main__.ClassTwo object at 0x7f276523a940>}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="language-bash">{&lt;class '__main__.ClassOne'&gt;: &lt;__main__.ClassOne object at 0x7f276523a828&gt;}
+{&lt;class '__main__.ClassTwo'&gt;: &lt;__main__.ClassTwo object at 0x7f276523a940&gt;}
+</code></pre>
 <p>从以上输出可以看出，各个类闭包之间没有共享<strong>instances</strong>字典变量，这时小黄鸭问那为什么还需要一个字典变量来保存类的实例，何不直接使用一个普通的变量来保存类的实例呢?说的太多不如直接上code验证一下</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
+<pre><code class="language-python">def singleton(cls):
     instance = None
     def singleton_wrapper(*args, **kwargs):
         if not instance:
@@ -518,18 +517,18 @@ class ClassOne(object):
 
 if __name__ == '__main__':
     obj1 = ClassOne()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">Traceback (most recent call last):
-  File "test.py", line 21, in <module>
+<pre><code class="language-bash">Traceback (most recent call last):
+  File &quot;test.py&quot;, line 21, in &lt;module&gt;
     obj1 = ClassOne()
-  File "test.py", line 6, in singleton_wrapper
+  File &quot;test.py&quot;, line 6, in singleton_wrapper
     if not instance:
 UnboundLocalError: local variable 'instance' referenced before assignment
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>输出结果如上，在<strong>singleton_wrapper</strong>中访问<strong>instance</strong>变量时，遇到<em>UnboundLocalError</em>错误。在这里之所以抛出<em>UnboundLocalError</em>，和python的词法作用域有关。<strong>python内部函数只能访问全局变量不可对全局变量进行赋值修改；当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误[<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a>]<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a>。<strong>说到这里结果好像已经很明显了，既然不能在内部函数中赋值修改一个全局变量，那我们只需要在修改的变量之前，加一个</strong>global</strong>关键字就能解决了。好吧，还是需要用code来验证一下</p>
 <p><strong>note！！！：这里的赋值修改不包括list 或者dict的添加，删除等操作；这也证明我们一开始使用dict来存类实例，巧妙避过UnboundLocalError的问题，god, are you kidding me?</strong></p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton(cls):
+<pre><code class="language-python">def singleton(cls):
     instance = None
     def singleton_wrapper(*args, **kwargs):
         global instance
@@ -549,15 +548,15 @@ class ClassOne(object):
 
 if __name__ == '__main__':
     obj1 = ClassOne()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">Traceback (most recent call last):
-  File "test.py", line 30, in <module>
+<pre><code class="language-bash">Traceback (most recent call last):
+  File &quot;test.py&quot;, line 30, in &lt;module&gt;
     obj1 = ClassOne()
-  File "test.py", line 7, in singleton_wrapper
+  File &quot;test.py&quot;, line 7, in singleton_wrapper
     if not instance:
 NameError: name 'instance' is not defined
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>what?又出错了，这次遇到了<em>NameError</em>，简直像是唐僧取经一难又一难。好吧，请不要放弃，让我们继续分析为什么会出现<em>NameError</em>。我们在<strong>singleton_wrapper</strong>中添加<strong>global</strong>关键字时就意味着直接去全局作用域搜索<strong>instance</strong>变量，但在全局作用域中并没有<strong>instance</strong>的存在，所以在这里出现<em>NameError</em>是再正常不过的。这时让我们重新回到上一步，看一下python的词法作用域的规则:</p>
 <blockquote>
 <p>python内部函数只能访问全局变量不可对全局变量进行赋值修改；</p>
@@ -585,7 +584,7 @@ NameError: name 'instance' is not defined
 <p>The <code>nonlocal</code> statement causes the listed identifiers to refer to previously bound variables in the nearest enclosing scope excluding globals. This is important because the default behavior for binding is to search the local namespace first. The statement allows encapsulated code to rebind variables outside of the local scope besides the global (module) scope.</p>
 </blockquote>
 <p>经过我们不断思考与实践，结局还不赖。让我们把完整的code写下来吧</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">def singleton1(cls):
+<pre><code class="language-python">def singleton1(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -649,16 +648,16 @@ if __name__ == '__main__':
     print(id(p3))
     print(id(p4))
     
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>output</strong></p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">140322002741008
+<pre><code class="language-python">140322002741008
 140322002741008
 140322002741176
 140322002741176
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="参考">参考</h3>
 <p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]  Python单例模式的4种实现方法</a></p>
-<p><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">[2]  全局变量报错-UnboundLocalError: local variable 'l' referenced before assignment</a></p>
+<p><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">[2]  全局变量报错-UnboundLocalError: local variable ‘l’ referenced before assignment</a></p>
 <p><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">[3]  Understanding UnboundLocalError in Python</a></p>
 <p><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">[4]  What limitations have closures in Python compared to language X closures</a></p>
 

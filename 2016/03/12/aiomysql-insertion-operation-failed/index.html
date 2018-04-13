@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -356,7 +355,7 @@
 <div class="card-text">
   <p id='text-post-summary'>####emotions:
 
-those days,I am using aiomysql(python3.5) to acess my database .But a 'strange' problem make me trouble more times.The problem is I can't insert data into my database table using aiomysql's cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq's...</p>
+those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I can’t insert data into my database table using aiomysql’s cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq’s...</p>
 </div>
         </div> -->
     </div>
@@ -381,13 +380,13 @@ those days,I am using aiomysql(python3.5) to acess my database .But a 'strange' 
     <div class='article-content'>
     <p>####emotions:</p>
 <blockquote>
-<p>those days,I am using aiomysql(python3.5) to acess my database .But a 'strange' problem make me trouble more times.The problem is I can't insert data into my database table using aiomysql's cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq's manual.</p>
+<p>those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I can’t insert data into my database table using aiomysql’s cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq’s manual.</p>
 </blockquote>
 <p>####plateform:
 1.ubuntu14.04
 2.python3.5</p>
 <p>####error code:</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">import aiomysql 
+<pre><code class="language-python">import aiomysql 
 import asyncio
 
 loop=asyncio.get_event_loop()
@@ -396,7 +395,7 @@ def insert(loop):
         pl=yield from aiomysql.create_pool(host='127.0.0.1',user='root',password='xxxxx',db='blog',loop=loop,port=3306)
         with (yield from pl) as con:
                 cursor=yield from con.cursor()
-                yield from cursor.execute('insert into users(`user_name`,`email`,`password`) values("coder","1xxxxxb@gmail.com","FHEUIE@#@@##JNDJA")')
+                yield from cursor.execute('insert into users(`user_name`,`email`,`password`) values(&quot;coder&quot;,&quot;1xxxxxb@gmail.com&quot;,&quot;FHEUIE@#@@##JNDJA&quot;)')
                 yield from cursor.close()
                 con.commit()
         pl.close()
@@ -404,12 +403,12 @@ def insert(loop):
 
 loop.run_until_complete(insert(loop))
 loop.run_forever()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p><strong>I run the above code many times,but there is still no data in my database table.</strong></p>
 <h4 id="solution">solution:</h4>
-<p><strong>After refering aiomysql's manual,I found 'aiomysql.commit' method  is coroutine,that's a critical point.just rewrite 'con.commit()' to 'yield from con.commit()',the problem is sovled!</strong>
+<p><strong>After refering aiomysql’s manual,I found ‘aiomysql.commit’ method  is coroutine,that’s a critical point.just rewrite ‘con.commit()’ to ‘yield from con.commit()’,the problem is sovled!</strong>
 ####correct code:</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">import aiomysql 
+<pre><code class="language-python">import aiomysql 
 import asyncio
 
 loop=asyncio.get_event_loop()
@@ -418,7 +417,7 @@ def insert(loop):
         pl=yield from aiomysql.create_pool(host='127.0.0.1',user='root',password='xxxxx',db='blog',loop=loop,port=3306)
         with (yield from pl) as con:
                 cursor=yield from con.cursor()
-                yield from cursor.execute('insert into users(`user_name`,`email`,`password`) values("coder","1xxxxxb@gmail.com","FHEUIE@#@@##JNDJA")')
+                yield from cursor.execute('insert into users(`user_name`,`email`,`password`) values(&quot;coder&quot;,&quot;1xxxxxb@gmail.com&quot;,&quot;FHEUIE@#@@##JNDJA&quot;)')
                 yield from cursor.close()
                 yield from con.commit()
         pl.close()
@@ -426,7 +425,7 @@ def insert(loop):
 
 loop.run_until_complete(insert(loop))
 loop.run_forever()
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
     
     </div>

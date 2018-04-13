@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -379,10 +378,10 @@ $...</p>
     </div>
     <div class='article-content'>
     <p>In the previous blog, I have introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to <em>amr</em>  audio to <em>mp3</em> audio.  one line code did complete it in your command line, like the following commands.</p>
-<pre class="line-numbers language-language-shell"><code class="language-language-shell">$ ffmpeg -i input.amr output.mp3
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-shell">$ ffmpeg -i input.amr output.mp3
+</code></pre>
 <p>To automate  the process, we also need the assistance of python, the codes is much similar to the last post, just  one place changed.</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># -*- coding:utf-8 -*-
+<pre><code class="language-python"># -*- coding:utf-8 -*-
 #@file: audio2audio.py
 
 import os
@@ -394,7 +393,7 @@ parser = OptionParser()
 parser.add_option('-s', '--src', dest='src', action='store', help='source dir', default='./')
 parser.add_option('-d', '--dest', dest='dest', action='store', help='destination dir', default='./output')
 parser.add_option('--input-type', dest='inputType', action='store', help='input type', default='amr')
-parser.add_option("--ouput-type", dest='outputType', action='store', help='ouput type', default='mp3')
+parser.add_option(&quot;--ouput-type&quot;, dest='outputType', action='store', help='ouput type', default='mp3')
 
 def filter_file(path, file_ext):
     flist = os.listdir(path)
@@ -430,10 +429,10 @@ if __name__ == '__main__':
 
 
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>Now you just need to type the following command in you shell, then your conversion result <em>mp3</em> audio will reside in your output directory.</p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ python audio2audio.py --src dir_amr  --dest dir_mp3 --input-type amr  --output-type mp3
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-bash">$ python audio2audio.py --src dir_amr  --dest dir_mp3 --input-type amr  --output-type mp3
+</code></pre>
 
     
     </div>

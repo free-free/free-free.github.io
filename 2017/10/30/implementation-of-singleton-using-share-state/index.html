@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -397,7 +396,7 @@
 <li>python3.5</li>
 </ul>
 <h5 id="2-2-代码">2.2 代码</h5>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># -*- coding:utf-8 -*-
+<pre><code class="language-python"># -*- coding:utf-8 -*-
 
 class Singleton(object):
   
@@ -421,15 +420,15 @@ if __name__ == '__main__':
   obj2.age += 10
   # 对obj2的操作也会通过贡献状态反映到obj1上
   print(obj1.age)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>output</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">140481749803528
+<pre><code class="language-python">140481749803528
 140481749803640
 21
 31
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>another way: 在<code>__new__</code>method实现状态的共享，如下：</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># -*- coding:utf-8 -*-
+<pre><code class="language-python"># -*- coding:utf-8 -*-
 
 class Singleton(object):
   
@@ -440,9 +439,9 @@ class Singleton(object):
     obj = super().__new__(cls, *args, **kwargs)
     obj.__dict__ = cls._share_state
     return obj
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>上面的两种实现方法是在<code>__init__</code>method中或者<code>__new__</code>method中实现状态共享，都是侵入式的。为了让类的实现显得更加的优美、解耦，可以使用装饰器来实现，如下：</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># -*- coding:utf-8 -*-
+<pre><code class="language-python"># -*- coding:utf-8 -*-
 
 def Borg(cls):
   cls._obj_share_state = {}
@@ -469,15 +468,15 @@ if __name__ == '__main__':
   print(obj2.age)
   obj2.age += 30
   print(obj1.age)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>output：</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">139977434952480
+<pre><code class="language-python">139977434952480
 139977434952648
 10
 40
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="参考">参考</h3>
-<p><a href="http://code.activestate.com/recipes/66531/" target="_blank" rel="external">[1]SINGLETON? WE DON'T NEED NO STINKIN' SINGLETON: THE BORG DESIGN PATTERN</a></p>
+<p><a href="http://code.activestate.com/recipes/66531/" target="_blank" rel="external">[1]SINGLETON? WE DON’T NEED NO STINKIN’ SINGLETON: THE BORG DESIGN PATTERN</a></p>
 <p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[2]Python单例模式的4种实现方法</a></p>
 
     

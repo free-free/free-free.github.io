@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -388,19 +387,19 @@
 <li>python3.5</li>
 </ul>
 <h5 id="2-2-代码">2.2 代码</h5>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># -*- coding:utf-8 -*-
+<pre><code class="language-python"># -*- coding:utf-8 -*-
 
 class Singleton(object):
 
   
   def __new__(cls, *args, **kwargs):
-    print("Creating object!")
+    print(&quot;Creating object!&quot;)
     if not hasattr(cls, '_instance'):
       cls._instance = super().__new__(cls, *args, **kwargs)
     return cls._instance
   
   def __init__(self):
-    print("Initiating object!")
+    print(&quot;Initiating object!&quot;)
     
     
 if __name__ == '__main__':
@@ -409,9 +408,9 @@ if __name__ == '__main__':
   print(id(obj1))
   print(id(obj2))
   print(obj1 == obj2)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>output:</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">Creating object!
+<pre><code class="language-python">Creating object!
 Initiating object!
 Creating object!
 Initiating object!
@@ -419,7 +418,7 @@ Initiating object!
 140549528785752
 True
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>由输出可知创建的两个对象都是同一个实例，同时也验证了对象的创建流程。</p>
 <h2 id="参考">参考</h2>
 <p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]Python单例模式的4种实现方法</a></p>

@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -389,30 +388,30 @@
 <ul>
 <li>
 <p>查看当前的串口设备文件名</p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ ls /dev/ |grep ttyUSB
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-bash">$ ls /dev/ |grep ttyUSB
+</code></pre>
 <p>输出:</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name-1.png" alt=""></p>
 </li>
 <li>
 <p>查看串口信息，找出串口设备的<code>idVendor</code>和<code>idProduct</code></p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ udevadm info --name /dev/ttyUSB0  --attribute-walk
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-bash">$ udevadm info --name /dev/ttyUSB0  --attribute-walk
+</code></pre>
 <p>输出:</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name-2.png" alt=""></p>
 </li>
 <li>
 <p>创建文件<code>/etc/udev/rules.d/usb-serialport.rules</code>，并在文件中添加一下内容</p>
-<pre class="line-numbers language-language-conf"><code class="language-language-conf">SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="ch34-serial", MODE:="0777", GROUP:="dialout"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-conf">SUBSYSTEM==&quot;tty&quot;, ATTRS{idVendor}==&quot;1a86&quot;, ATTRS{idProduct}==&quot;7523&quot;, SYMLINK+=&quot;ch34-serial&quot;, MODE:=&quot;0777&quot;, GROUP:=&quot;dialout&quot;
+</code></pre>
 <p><strong>SYMLINK</strong>即为你为该串口设备指定文件设备名，该设备每次插入时在<code>/dev</code>设备名都为<code>usb-serialport</code>.</p>
 <p><strong>idVendor</strong>和<strong>idProduct</strong>改为你串口对应的vendorid和productid. <strong>MODE</strong>该设备的权限.<strong>GROUP</strong>为该设备所属的组。</p>
 </li>
 <li>
 <p>将配置生效，并查看是否绑定成功</p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ sudo udevadm trigger
+<pre><code class="language-bash">$ sudo udevadm trigger
 $ ls -l /dev/ch34-serial
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</code></pre>
 <p>输出：</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/binding-serialport-device-name3.png" alt=""></p>
 <p>可以从输出看到<code>ch34-serial</code>只是真实设备名的一个连接，每次重新插入串口设备的时候，会自动创建<code>ch34-serial</code>链接到真正的设备文件名(可能是<code>/dev/ttyUSB0</code>或者<code>/dev/ttyUSB1</code>)。</p>

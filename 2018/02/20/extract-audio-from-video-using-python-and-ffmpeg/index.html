@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -382,13 +381,13 @@ ffmpeg
     <p>​	过年回家后，老妈叫我帮她把糖豆里下载的广场舞视频的歌曲下载下来，我拿她手机一看，50几个视频，难道我还要一个一个的手动下载下来，这个一点也不妥。仔细想一想，既然已经有视频了，那只需要将视频中的歌曲自动提取出来即可，不需要费时间在网上一个一个的搜索，一个个的下载。咱说干就干，是时候拿出视频和音频处理利器：<strong>ffmpeg</strong>，以及脚本利器：<strong>python</strong>。</p>
 <h4 id="ffmpeg">ffmpeg</h4>
 <p>​	作为程序员应该对<strong>ffmpeg</strong>不陌生，它是一个高效的跨平台视频和音频处理库，详细介绍和用法请见<a href="https://ffmpeg.org/ffmpeg.html" target="_blank" rel="external">官网</a> 。接下来讲一讲<strong>ffmpeg</strong>在ubuntu上的安装。由于我的机子上ubuntu版本是16.04，在软件库里正好自带了ffmpeg以及相关的软件库，只需要apt 安装一下即可。</p>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ sudo apt install ffmpeg
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-bash">$ sudo apt install ffmpeg
+</code></pre>
 <p>对于没有自带ffmpeg的ubuntu版本，需要自行编译安装。在自行编译安装的时候，ffmpeg默认情况下没有mp3 audio encoder，需要将mp3 audio encoder的mp3lame先安装上，并在编译ffmpeg的时候使能mp3lame。详细的编译安装过程请见<a href="http://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu" target="_blank" rel="external">这里</a> 。</p>
 <h4 id="python-ffmpeg从视频中提取语音">python+ffmpeg从视频中提取语音</h4>
 <h5 id="版本1">版本1</h5>
 <p>该版本是直接通过python的<code>os.system</code>调用ffmpeg，代码如下：</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># @file: video2audio.py
+<pre><code class="language-python"># @file: video2audio.py
 # -*- coding:utf-8 -*-
 
 import os
@@ -397,10 +396,10 @@ from optparse import OptionParser
 
 
 parser = OptionParser()
-parser.add_option("-s","--src", dest="src", action="store",help="source dir", default="./")
-parser.add_option("-d","--dest", dest="dest", action="store", help="destination dir", default="./audio")
-parser.add_option("-v", "--video-type", dest="videoType", action="store", help="input video type", default="mp4")
-parser.add_option("-a", "--audio-type", dest="audioType", action="store", help="output audio type", default="mp3")
+parser.add_option(&quot;-s&quot;,&quot;--src&quot;, dest=&quot;src&quot;, action=&quot;store&quot;,help=&quot;source dir&quot;, default=&quot;./&quot;)
+parser.add_option(&quot;-d&quot;,&quot;--dest&quot;, dest=&quot;dest&quot;, action=&quot;store&quot;, help=&quot;destination dir&quot;, default=&quot;./audio&quot;)
+parser.add_option(&quot;-v&quot;, &quot;--video-type&quot;, dest=&quot;videoType&quot;, action=&quot;store&quot;, help=&quot;input video type&quot;, default=&quot;mp4&quot;)
+parser.add_option(&quot;-a&quot;, &quot;--audio-type&quot;, dest=&quot;audioType&quot;, action=&quot;store&quot;, help=&quot;output audio type&quot;, default=&quot;mp3&quot;)
 
 
 def filter_file(path, file_ext):
@@ -432,13 +431,13 @@ if __name__ == '__main__':
         aFilename = vFilename.split('.')[0] + '.' + audioType
         vFullFilename = os.path.join(src, vFilename)
         aFullFilename = os.path.join(dest, aFilename)
-        print("Start converting {0}".format(vFilename))
+        print(&quot;Start converting {0}&quot;.format(vFilename))
         os.system(ffmpegFormatCode.format(vFullFilename, audioType, aFullFilename))
-        print("Finish conversion of {0}".format(aFilename)) 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        print(&quot;Finish conversion of {0}&quot;.format(aFilename)) 
+</code></pre>
 <h5 id="版本2">版本2</h5>
 <p>该版本是需要安装python的一个ffmpeg binding: <a href="https://github.com/kkroening/ffmpeg-python" target="_blank" rel="external">ffmpeg-python</a>。然后通过<strong>ffmpeg-python</strong>来进行音频提取操作。版本1和版本2都需要提前安装ffmpeg，只不过<strong>ffmpeg-python</strong>使得ffmpeg的调用变得更加brief and human-readable。代码如下：</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python"># @file: video2audio.py
+<pre><code class="language-python"># @file: video2audio.py
 # -*- coding:utf-8 -*-
 
 import os
@@ -448,10 +447,10 @@ from optparse import OptionParser
 
 
 parser = OptionParser()
-parser.add_option("-s","--src", dest="src", action="store",help="source dir", default="./")
-parser.add_option("-d","--dest", dest="dest", action="store", help="destination dir", default="./audio")
-parser.add_option("-v", "--video-type", dest="videoType", action="store", help="input video type", default="mp4")
-parser.add_option("-a", "--audio-type", dest="audioType", action="store", help="output audio type", default="mp3")
+parser.add_option(&quot;-s&quot;,&quot;--src&quot;, dest=&quot;src&quot;, action=&quot;store&quot;,help=&quot;source dir&quot;, default=&quot;./&quot;)
+parser.add_option(&quot;-d&quot;,&quot;--dest&quot;, dest=&quot;dest&quot;, action=&quot;store&quot;, help=&quot;destination dir&quot;, default=&quot;./audio&quot;)
+parser.add_option(&quot;-v&quot;, &quot;--video-type&quot;, dest=&quot;videoType&quot;, action=&quot;store&quot;, help=&quot;input video type&quot;, default=&quot;mp4&quot;)
+parser.add_option(&quot;-a&quot;, &quot;--audio-type&quot;, dest=&quot;audioType&quot;, action=&quot;store&quot;, help=&quot;output audio type&quot;, default=&quot;mp3&quot;)
 
 
 def filter_file(path, file_ext):
@@ -482,15 +481,15 @@ if __name__ == '__main__':
         aFilename = vFilename.split('.')[0] + '.' + audioType
         vFullFilename = os.path.join(src, vFilename)
         aFullFilename = os.path.join(dest, aFilename)
-        print("Start converting {0}".format(vFilename))
+        print(&quot;Start converting {0}&quot;.format(vFilename))
         (ffmpeg.input(vFullFilename)
                 .output(aFullFilename, **{'vn':None, 'f': audioType})
                 .run())
-        print("Finish conversion of {0}".format(aFilename)) 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        print(&quot;Finish conversion of {0}&quot;.format(aFilename)) 
+</code></pre>
 <h4 id="调用方法">调用方法</h4>
-<pre class="line-numbers language-language-shell"><code class="language-language-shell">$ python video2audio.py --src ./video --dest ./video/audio -a mp3 -v mp4
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-shell">$ python video2audio.py --src ./video --dest ./video/audio -a mp3 -v mp4
+</code></pre>
 <p><code>--src</code>指定视频所放的目录，<code>--dest</code>指定输出的音频所放的目录，<code>-a</code>指定输出的音频类型，<code>-v</code>指定输入的视频类型。在shell下面运行上述命令之后，最终将在<code>./video/audio</code>目录下找到提取出来的音频。有了上述脚本，原本几个小时的工作，现在分分钟就搞定，太爽了。第一次在家里写博客，罪过呀，回家不应该好好玩的吗！</p>
 
     

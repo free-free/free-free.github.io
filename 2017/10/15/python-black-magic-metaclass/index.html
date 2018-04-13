@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -383,38 +382,38 @@ python作为一门动态解释型语言，相比于静态编译语言有着相�
 <h3 id="2-python-元类">2. python 元类</h3>
 <p>在python世界中一切皆对象，当谈到一个对象时必然地会涉及到这个对象的类。例如，字符串对象<code>&quot;dede&quot;</code>的类是<code>str</code>，列表对象<code>[1, 2, 4]</code>的类是<code>list</code>，字典对象<code>{&quot;key&quot;:&quot;value&quot;}</code>的类是<code>dict</code>，这些概念对于懂得面向对象的programmer来说都是常识。但是处在一切皆对象的python世界中，你有没有在某一时刻思考过，python中的类是否也是对象？我相信对于大多数pythoner来说，都会给出一个正确的回答。是的，在python的世界里类也是对象。那既然类也是对象，那就必然又会继续思考类的类是什么？其实在你思考类的类是什么时候，可能已经想到这个类的类应该会和普通的类一样，有一系列的method，比如<code>__init__</code>、<code>__call__</code>、<code>__new__</code>等，只是你不知道这个类的类应该叫什么名字。就在你纠结该给类的类取一个什么样的名字的时候，python世界的仲裁者出现了，他们告诉你这个类的类叫做元类。好了，从此天下太平，大家都知道了类的类就做元类。对，元类就是类的类，这个元类并没有什么特殊之处。你现在只需要改变一下你观察类时所在的位置。以前你是站在普通实例对象的位置去观察它的类，现在需要往前走一步站在类的位置去观察它的类－－元类。</p>
 <p>现在我们对元类已经有了intuitive的认识，为了彻底搞清楚元类是什么，我们需要到python世界里去实地考察一下。我们先从常见的类下手，去看看这些类的类是什么。就像我们平常查看一个普通实例对象的类一样，需要使用<code>type</code>函数，我们在查看类的类时候，也需要使用<code>type</code>函数，那就让我们开始吧。</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type(str)
-<class 'type'>
->>> type(dict)
-<class 'type'>
->>> type(list)
-<class 'type'>
->>> type(tuple)
-<class 'type'>
->>> type(object)
-<class 'type'>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; type(str)
+&lt;class 'type'&gt;
+&gt;&gt;&gt; type(dict)
+&lt;class 'type'&gt;
+&gt;&gt;&gt; type(list)
+&lt;class 'type'&gt;
+&gt;&gt;&gt; type(tuple)
+&lt;class 'type'&gt;
+&gt;&gt;&gt; type(object)
+&lt;class 'type'&gt;
+</code></pre>
 <p>当看到上面的输出的时候，有人可能就会产生疑问了。<code>type</code>不是一个函数吗？怎样现在又成一个类了？你以为是你长时间看电脑眼睛花了，你使劲的揉了眼睛之后，再仔细看它还是那样。没毛病，<code>type</code>就是这么的特殊，它是python世界中的万类之<code>元</code>，它是所有类的元类，包括它自己的元类也是它本身(八卦一下，你长这么大见过一个人的父亲就是他自己本身吗？没见过的话，说明你是正常的)，不信的话请看下面的输出。</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type(type)
-<class 'type'>
->>> type(type(type))
-<class 'type'>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; type(type)
+&lt;class 'type'&gt;
+&gt;&gt;&gt; type(type(type))
+&lt;class 'type'&gt;
+</code></pre>
 <p>反正不管怎么说，你的三观肯定是被刷新了的，请直视自己的内心。好吧，既然<code>type</code>这么特殊，那它有什么怪癖呢？怪癖肯定是有的，让我们慢慢来分析一下。</p>
 <ul>
 <li>
 <p>当<code>type</code>作为函数使用时，它的行为会根据传入参数个数的不同而不同。当传入一个参数时，<code>type</code>会返回传入参数的类型，如下面所示。</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type("hello,python world!")
-<class 'str'>
->>> type([512, 1024, 2048])
-<class 'list'>
->>> type((4096, ))
-<class 'tuple'>
->>> type({"name": "python", "birthday": "1999"})
-<class 'dict'>
->>> type(str)
-<class 'type'>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; type(&quot;hello,python world!&quot;)
+&lt;class 'str'&gt;
+&gt;&gt;&gt; type([512, 1024, 2048])
+&lt;class 'list'&gt;
+&gt;&gt;&gt; type((4096, ))
+&lt;class 'tuple'&gt;
+&gt;&gt;&gt; type({&quot;name&quot;: &quot;python&quot;, &quot;birthday&quot;: &quot;1999&quot;})
+&lt;class 'dict'&gt;
+&gt;&gt;&gt; type(str)
+&lt;class 'type'&gt;
+</code></pre>
 <p>当传入三个参数时，<code>type</code>会返回一个类，参数列表如下所示：</p>
 <ul>
 <li>
@@ -428,18 +427,18 @@ python作为一门动态解释型语言，相比于静态编译语言有着相�
 <p>整个调用原型是这样的<code>type(name, bases, attrs)</code>，具体示例请看下面。</p>
 </li>
 </ul>
-<pre class="line-numbers language-language-python"><code class="language-language-python">>>> type("ClassOne", (), {}) #
-<class '__main__.ClassOne'>
->>> ClassTwo = type("ClassTwo", (), {"name": "python", "age": 18})
->>> ClassTwo.name
+<pre><code class="language-python">&gt;&gt;&gt; type(&quot;ClassOne&quot;, (), {}) #
+&lt;class '__main__.ClassOne'&gt;
+&gt;&gt;&gt; ClassTwo = type(&quot;ClassTwo&quot;, (), {&quot;name&quot;: &quot;python&quot;, &quot;age&quot;: 18})
+&gt;&gt;&gt; ClassTwo.name
 'python'
->>> ClassTwo.age
+&gt;&gt;&gt; ClassTwo.age
 18
->>> type(ClassTwo) #并且ClassTwo的类也是'type'
-<class 'type'>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&gt;&gt;&gt; type(ClassTwo) #并且ClassTwo的类也是'type'
+&lt;class 'type'&gt;
+</code></pre>
 <p>看了上面示例之后，肯定有人心里就会有想法了。我们可以使用<code>type</code>来动态的创建类，这确实是一个很好的想法。于是有人真的将这个想法付诸于实践了，请看下面。</p>
-<pre class="line-numbers language-language-python"><code class="language-language-python">def get_gender(self):
+<pre><code class="language-python">def get_gender(self):
     return self._gender
 
 def set_gender(self, val):
@@ -455,15 +454,15 @@ def init(self, name, gender):
     self._name = name
     self._gender = gender
     
-Student = type("Student", (object ), {"get_gender": get_gender, "set_gender": \
-                                    set_gender, "get_name": get_name, "set_name":\
-                                    set_name, "__init__": init})
-Teacher = type("Teacher",(object, ), {"get_gender": get_gender, "set_gender": \
-                                     set_gender, "get_name": get_name, "set_name": \
-                                     set_name, "__init__": init})
-stu1 = Student("John", "male")
-teacher1 = Teacher("John_Father", "male")
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Student = type(&quot;Student&quot;, (object ), {&quot;get_gender&quot;: get_gender, &quot;set_gender&quot;: \
+                                    set_gender, &quot;get_name&quot;: get_name, &quot;set_name&quot;:\
+                                    set_name, &quot;__init__&quot;: init})
+Teacher = type(&quot;Teacher&quot;,(object, ), {&quot;get_gender&quot;: get_gender, &quot;set_gender&quot;: \
+                                     set_gender, &quot;get_name&quot;: get_name, &quot;set_name&quot;: \
+                                     set_name, &quot;__init__&quot;: init})
+stu1 = Student(&quot;John&quot;, &quot;male&quot;)
+teacher1 = Teacher(&quot;John_Father&quot;, &quot;male&quot;)
+</code></pre>
 <p>看了上面的代码，有没有人觉得瘆得慌，反正我是有点。</p>
 </li>
 </ul>

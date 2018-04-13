@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -358,7 +357,7 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>​	For many hexo users, it's a nightmare to make their custom domain blog support SSL(https). Before writing this piece of blog, I also like them , feel it's tedious and expensive . But now  everything are changed, since the existence of cloudflare. As shown by its name, cloudflare is an Internet...</p>
+  <p id='text-post-summary'>​	For many hexo users, it’s a nightmare to make their custom domain blog support SSL(https). Before writing this piece of blog, I also like them , feel it’s tedious and expensive . But now  everything are changed, since the existence of cloudflare. As shown by its name, cloudflare is an Internet...</p>
 </div>
         </div> -->
     </div>
@@ -381,36 +380,36 @@
 
     </div>
     <div class='article-content'>
-    <p>​	For many hexo users, it's a nightmare to make their custom domain blog support SSL(https). Before writing this piece of blog, I also like them , feel it's tedious and expensive . But now  everything are changed, since the existence of <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a>. As shown by its name, <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> is an Internet service provider, offering CDN, DNS, DDos protection and security , also other cloud services that accelerate and protect your site or App. To me , it's DNS reverse proxy attracts me. Of DNS reverse proxy , SSL supporting becomes much easier. The configuration steps will be followed.</p>
+    <p>​	For many hexo users, it’s a nightmare to make their custom domain blog support SSL(https). Before writing this piece of blog, I also like them , feel it’s tedious and expensive . But now  everything are changed, since the existence of <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a>. As shown by its name, <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> is an Internet service provider, offering CDN, DNS, DDos protection and security , also other cloud services that accelerate and protect your site or App. To me , it’s DNS reverse proxy attracts me. Of DNS reverse proxy , SSL supporting becomes much easier. The configuration steps will be followed.</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl1.svg" alt=""></p>
 <center>Fig 1. cloudflare workflow</center>
 <p>In figure 1, there are 6 steps. I will explain each step in the following content.</p>
-<p><code>Step1</code>: user's mobile or laptop makes a DNS request to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS server for inquiring the IP address of your blog domain name, e.g. <em>infinite.xyz</em>.</p>
-<p><code>Step2</code>: <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS server returns IP address of your domain. As shown in figure 1, your blog's IP address just refers to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server, not your github pages server. This is the key point for your custom domain can support SSL.</p>
-<p><code>Step3-4</code>: After retrieving your blog  ’pseudo‘  IP address , user's mobile or laptop makes a HTTPS request to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server,  then <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server makes a HTTP/HTTPS request your blog real server, i.e. Github pages server. That's the mean of reverse proxy.</p>
-<p><code>Step5-6</code>: Github pages server  return your blog content to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server, then <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server return the content from Github pages server to user's mobile or laptop. That's the whole process, hope you make clear to it now.</p>
+<p><code>Step1</code>: user’s mobile or laptop makes a DNS request to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS server for inquiring the IP address of your blog domain name, e.g. <em>infinite.xyz</em>.</p>
+<p><code>Step2</code>: <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS server returns IP address of your domain. As shown in figure 1, your blog’s IP address just refers to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server, not your github pages server. This is the key point for your custom domain can support SSL.</p>
+<p><code>Step3-4</code>: After retrieving your blog  ’pseudo‘  IP address , user’s mobile or laptop makes a HTTPS request to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server,  then <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server makes a HTTP/HTTPS request your blog real server, i.e. Github pages server. That’s the mean of reverse proxy.</p>
+<p><code>Step5-6</code>: Github pages server  return your blog content to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server, then <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> SSL server return the content from Github pages server to user’s mobile or laptop. That’s the whole process, hope you make clear to it now.</p>
 <p>Above we have already known the mechanism of DNS reverse proxy. The next step is how to make it real work.</p>
 <ul>
 <li>
-<p>First, sign up and log in <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a>. Then find the DNS server IP address  of cloudflare and log in your domain vendor website, modify the DNS server to cloudflare's DNS server.</p>
+<p>First, sign up and log in <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a>. Then find the DNS server IP address  of cloudflare and log in your domain vendor website, modify the DNS server to cloudflare’s DNS server.</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl6.png" alt=""></p>
 </li>
 <li>
-<p>Click 'DNS' tab on <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website,</p>
+<p>Click ‘DNS’ tab on <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website,</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl2.png" alt=""></p>
 <p>add your domain to <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> DNS records saving as CNAME type.</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl3.png" alt=""></p>
 </li>
 <li>
-<p>Click 'Crypto' tab on <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website,</p>
+<p>Click ‘Crypto’ tab on <a href="https://www.cloudflare.com/" target="_blank" rel="external">cloudflare</a> website,</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl4.png" alt=""></p>
 <p>change SSL configuration to <code>Flexible</code></p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl5.png" alt=""></p>
 </li>
 <li>
-<p>Switch to 'Page Rules' tab,</p>
+<p>Switch to ‘Page Rules’ tab,</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl7.png" alt=""></p>
-<p>click 'Create Page Rule' button.</p>
+<p>click ‘Create Page Rule’ button.</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl8.png" alt=""></p>
 <p>Add the following rule, this rule will ensure your whole site protected by SSL,  whenever you or others visit your site, it will automatically redirect to HTTPS site.</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/make-hexo-custom-domain-support-ssl9.png" alt=""></p>

@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -356,16 +355,14 @@
 <div class="card-text">
   <p id='text-post-summary'>git常用命令
 #配置git
-$ git config --global user.name "K-John"
-$ git config --global user.email "19941222hb@gmail.com"
+$ git config --global user.name &quot;K-John&quot;
+$ git config --global user.email &quot;19941222hb@gmail.com&quot;
 #初始化 git workspace(就是你当前所在的目录)
 $ git init
 #将当前工作区的文件加到暂存区,实际上是将文件的改动加到暂存区
 $ git add README
 $ #将暂存区的内容添加到当前分支所对应的分支的版本库中(git的仓库)
-$ git commit -m "desriptions"
-#查看仓库当前的状态
-$ git...</p>
+$ git commit -m...</p>
 </div>
         </div> -->
     </div>
@@ -389,15 +386,15 @@ $ git...</p>
     </div>
     <div class='article-content'>
     <h4 id="git常用命令">git常用命令</h4>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">#配置git
-$ git config --global user.name "K-John"
-$ git config --global user.email "19941222hb@gmail.com"
+<pre><code class="language-bash">#配置git
+$ git config --global user.name &quot;K-John&quot;
+$ git config --global user.email &quot;19941222hb@gmail.com&quot;
 #初始化 git workspace(就是你当前所在的目录)
 $ git init
 #将当前工作区的文件加到暂存区,实际上是将文件的改动加到暂存区
 $ git add README
 $ #将暂存区的内容添加到当前分支所对应的分支的版本库中(git的仓库)
-$ git commit -m "desriptions"
+$ git commit -m &quot;desriptions&quot;
 #查看仓库当前的状态
 $ git status
 #修改某一文件,但是没有添加到缓冲区,此时可以用git diff 查看修改前和未修改前的区别
@@ -408,7 +405,7 @@ $ git log [--pretty=oneline]
 #回退到上一次commit
 $ git reset  --hard HEAD^
 #回退到上上一次commit(没回退一次相应的commit详情都会自动消失)
-#HEAD 相当于一个指针,总是指向当前的分支的指针(分支名代表一个分支的指针),而当前分支指针指向commit,(HEAD-->分支指针--->commit) 改变HEAD就相当于改变>    分支指针 所指向的commit,这样就可以在不同commit之间切换,每次提交分支指针都会向前移动一步
+#HEAD 相当于一个指针,总是指向当前的分支的指针(分支名代表一个分支的指针),而当前分支指针指向commit,(HEAD--&gt;分支指针---&gt;commit) 改变HEAD就相当于改变&gt;    分支指针 所指向的commit,这样就可以在不同commit之间切换,每次提交分支指针都会向前移动一步
 $ git reset --hard HEAD^^
 #查看当前每一次对commit的操作,用于回到未来某一版本时查看commit id
 $ git reflog
@@ -420,10 +417,10 @@ $ git checkout -- README
 $ git reset HEAD  README 
 #从版本库中删除某一文件
 $ git rm LICENSE
-$ git commit -m "deleted LICENSE"
+$ git commit -m &quot;deleted LICENSE&quot;
 #从版本库中恢复已经删除的文件,只需要回到以前的版本
 #创建ssh key
-$ ssh-keygen -t rsa -C "19941222hb@gmail.com"
+$ ssh-keygen -t rsa -C &quot;19941222hb@gmail.com&quot;
 #将本地仓库关联到github的远程仓库(前提是已经将你电脑的ssh key添加到github的SSH key列表)
 $ git remote add origin git@github.com:free-free/algorithm.git   #origin 为远程仓库的叫法(只是为了方面操作),也可以自己取名;free-free为github账号名;a    lgorithm为你想要关 联的仓库,必须现在现在github上创建
 #将本地版本库推送到远程github库
@@ -432,7 +429,7 @@ $ git push -u origin master # -u 参数 Git不但会把本地的master分支内�
 $ git push origin dev
 #将远程的仓库克隆到本地
 $ git clone git@github.com:free/algorithm.git
-#git创建一个分支只需要重新创建一个分支指针,并且将该分支指针指向创建时所对应的commit,分支间切换就只需要让HEAD指向另一分支指针,分支切换后对文件的修>    改就指向该分支了
+#git创建一个分支只需要重新创建一个分支指针,并且将该分支指针指向创建时所对应的commit,分支间切换就只需要让HEAD指向另一分支指针,分支切换后对文件的修&gt;    改就指向该分支了
 #创建分支,并且切换到分支
 $ git checkout -b dev #相当于 git branch dev git checkout dev
 #切换到指定分支
@@ -448,8 +445,8 @@ $ git branch -D dev
 #合并指定分支到当前分支(假设当前出master分支,则下面指令将dev分支合并到master分支)
 $ git merge dev #需要自己解决合并冲突
 #合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。--no-ff(禁用Fast forward mode)方式的git merge
-$ git merge --no-ff -m "merge dev into master"  dev
-#假设你在dev分支上工作,突然需要跳到bug分支去修复bug,但是你当前的工作区的工作还没#完成,但是你又不想要提交修改,这是你可以通过以前命令将当前工作保存>    起来,然后切换到其他bug分支去修复bug,
+$ git merge --no-ff -m &quot;merge dev into master&quot;  dev
+#假设你在dev分支上工作,突然需要跳到bug分支去修复bug,但是你当前的工作区的工作还没#完成,但是你又不想要提交修改,这是你可以通过以前命令将当前工作保存&gt;    起来,然后切换到其他bug分支去修复bug,
 $ git stash
 #当你把bug修复完之后,切换到刚才工作的分支,这是可以通过命令去恢复刚才没有提交的工作区
 $ git stash list #查看所有的stash
@@ -481,7 +478,7 @@ $ git push origin v1.0
 $ git push origin --tags
 # 删除远程的标签
 $ git push origin :refs/tags/v0.9
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
     
     </div>

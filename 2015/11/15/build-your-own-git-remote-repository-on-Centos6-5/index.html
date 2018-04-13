@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -396,12 +395,12 @@ step4:初始化git仓库
     <div class='article-content'>
     <h4 id="远程仓库搭建">远程仓库搭建</h4>
 <h5 id="step1-安装git">step1:安装git</h5>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ yum -y install git
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="language-bash">$ yum -y install git
+</code></pre>
 <h5 id="step2-创建用户git-用来运行git服务">step2:创建用户git,用来运行git服务</h5>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ useradd git 
+<pre><code class="language-bash">$ useradd git 
 $ passwd git 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</code></pre>
 <h5 id="step3-创建登录用户证书">step3:创建登录用户证书</h5>
 <p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个</p>
 <h5 id="step4-初始化git仓库">step4:初始化git仓库</h5>
@@ -413,10 +412,10 @@ $ passwd git
 </ol>
 <h5 id="step5-自此整个git远程仓库就搭建完成-就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了">step5:自此整个git远程仓库就搭建完成,就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了.</h5>
 <h4 id="本地与搭建好的仓库交互">本地与搭建好的仓库交互</h4>
-<pre class="line-numbers language-language-bash"><code class="language-language-bash">$ git remote add origin git@192.168.0.01:/git/test.git   #这里的ip是你主机的ip
+<pre><code class="language-bash">$ git remote add origin git@192.168.0.01:/git/test.git   #这里的ip是你主机的ip
 $ git clone git@192.168.0.1:/git/test.git  #将远程仓库克隆到本地的仓库
 $ git push origin master   #推送到远程仓库
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
     
     </div>

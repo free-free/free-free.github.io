@@ -66,8 +66,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="/css/prism-duotone-light.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+</head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
  
@@ -407,7 +406,7 @@ import...</p>
 将这个消息摘要和最大过期时间戳通过&quot;:&quot;拼接起来，再进行base64编码，生成最终的token</p>
 </blockquote>
 <h4 id="实现">实现:</h4>
-<pre class="line-numbers language-language-python"><code class="language-language-python">import time
+<pre><code class="language-python">import time
 import base64
 import hmac
 
@@ -420,13 +419,13 @@ def generate_token(key, expire=3600):
             state: str
     '''
     ts_str = str(time.time() + expire)
-    ts_byte = ts_str.encode("utf-8")
-    sha1_tshexstr  = hmac.new(key.encode("utf-8"),ts_byte,'sha1').hexdigest() 
+    ts_byte = ts_str.encode(&quot;utf-8&quot;)
+    sha1_tshexstr  = hmac.new(key.encode(&quot;utf-8&quot;),ts_byte,'sha1').hexdigest() 
     token = ts_str+':'+sha1_tshexstr
-    b64_token = base64.urlsafe_b64encode(token.encode("utf-8"))
-    return b64_token.decode("utf-8")
+    b64_token = base64.urlsafe_b64encode(token.encode(&quot;utf-8&quot;))
+    return b64_token.decode(&quot;utf-8&quot;)
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="3-验证token">3.验证token</h3>
 <h4 id="原理-v2">原理:</h4>
 <blockquote>
@@ -435,7 +434,7 @@ def generate_token(key, expire=3600):
 最后将产生的摘要与通过token取得消息摘要进行对比， 如果两个摘要相等，则token有效，否则token无效 。</p>
 </blockquote>
 <h4 id="实现：">实现：</h4>
-<pre class="line-numbers language-language-python"><code class="language-language-python">import time
+<pre><code class="language-python">import time
 import base64
 import hmac
 
@@ -452,11 +451,11 @@ def certify_token(key, token):
     if len(token_list) != 2:
         return False
     ts_str = token_list[0]
-    if float(ts_str) < time.time():
+    if float(ts_str) &lt; time.time():
         # token expired
         return False
     known_sha1_tsstr = token_list[1]
-    sha1 = hmac.new(key.encode("utf-8"),ts_str.encode('utf-8'),'sha1')
+    sha1 = hmac.new(key.encode(&quot;utf-8&quot;),ts_str.encode('utf-8'),'sha1')
     calc_sha1_tsstr = sha1.hexdigest()
     if calc_sha1_tsstr != known_sha1_tsstr:
         # token certification failed
@@ -464,17 +463,17 @@ def certify_token(key, token):
     # token certification success
     return True 
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="4-用法">4.用法</h3>
-<pre class="line-numbers language-language-python"><code class="language-language-python">
-key  = "JD98Dskw=23njQndW9D"
+<pre><code class="language-python">
+key  = &quot;JD98Dskw=23njQndW9D&quot;
 # 一小时后过期
 token = generate_token(key, 3600)
 
 certify_token(key, token)
 
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="5-note">5.Note!!!</h3>
 <blockquote>
 <p>本代码只能在python3.x 中运行，</p>
