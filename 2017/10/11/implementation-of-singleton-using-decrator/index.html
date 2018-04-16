@@ -353,11 +353,9 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>使用装饰器实现python单例模式
-1.概述
-不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:
+  <p id='text-post-summary'>使用装饰器实现python单例模式1.概述不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:
 
-装饰器实现单例模式[1]1
+装饰器实现单例模式1
 
 
 元类实现单例模式
@@ -365,8 +363,7 @@ __new__方法实现单例模式
 共享__dict__实现单例模式
 
 本节主要简述使用装饰器实现单例模式。
-2. 实现
-plateform:
+2. 实现plateform:
 
 python3.5
 ubuntu16.04
@@ -396,11 +393,9 @@ def singleton(cls):
 
     </div>
     <div class='article-content'>
-    <h2 id="使用装饰器实现python单例模式">使用装饰器实现python单例模式</h2>
-<h3 id="1-概述">1.概述</h3>
-<p>不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:</p>
+    <h2 id="使用装饰器实现python单例模式"><a href="#使用装饰器实现python单例模式" class="headerlink" title="使用装饰器实现python单例模式"></a>使用装饰器实现python单例模式</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>不同的编程语言所支持的语言特性不一样，导致实现单例模式的方式也各不相同。python作为一门动态语言，有很大的灵活性，实现的单例模式的方式也不尽相同，在这里总结一下python实现单例模式的方法，以便之后学习。本系列主要简述4种方式实现单例模式:</p>
 <ul>
-<li><strong>装饰器实现单例模式[<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a>]<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a></strong></li>
+<li><strong>装饰器实现单例模式<a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external"><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">1</a></a></strong></li>
 </ul>
 <ul>
 <li><strong>元类实现单例模式</strong></li>
@@ -408,14 +403,13 @@ def singleton(cls):
 <li><strong>共享__dict__实现单例模式</strong></li>
 </ul>
 <p>本节主要简述使用装饰器实现单例模式。</p>
-<h3 id="2-实现">2. 实现</h3>
-<p><strong>plateform</strong>:</p>
+<h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2. 实现"></a>2. 实现</h3><p><strong>plateform</strong>:</p>
 <ul>
 <li>python3.5</li>
 <li>ubuntu16.04</li>
 </ul>
 <p><strong>code</strong>:</p>
-<pre><code class="language-python">def singleton(cls):
+<pre><code class="lang-python">def singleton(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -423,45 +417,44 @@ def singleton(cls):
         return instances[cls]
     return singleton_wrapper
 
-  
+
 @singleton
 class Point2D(object):
 
     def __init__(self, x=0, y=0):
         self._x = x
         self._y = y
-       
+
     @property
     def x(self):
         return self._x
-      
+
     @property
     def y(self):
         return self._y
-      
+
     @x.setter
     def x(self, val):
         self._x = val
-        
+
     @y.setter
     def y(self, val):
         self._y = val
-        
-        
-if __name__ == '__main__':
+
+
+if __name__ == &#39;__main__&#39;:
     p1 = Point2D(1, 10)
     p2 = Point2D(2, 10)
     print(id(p1))
     print(id(p2))
 </code></pre>
 <p><strong>output</strong>:</p>
-<pre><code class="language-bash">139685819815696
+<pre><code class="lang-bash">139685819815696
 139685819815696
 </code></pre>
 <p>由输出可知p1和p2为同一示例，即上述code完美实现了单例模式。</p>
-<h3 id="3-code-辩证分析">3.code 辩证分析</h3>
-<p>在单例的装饰器函数中，使用词典变量<strong>instances</strong>来储存类的实例，并且<strong>singleton_wrapper</strong>与<strong>instances</strong>形成了闭包环境。当使用<code>类名(*args, **kwargs)</code>实例化时，实际上调用了<code>singleton_wrapper(*args, **kwargs)</code>来进行实例化。通过在<strong>singleton_wrapper</strong>判断<strong>instances</strong>中是否存在类的实例，如果不存在则创建实例，如果存在则直接中从<strong>instances</strong>返回实例。每调用一次<strong>singleton</strong>返回一个闭包，各个闭包之间并没有共享<strong>instances</strong>变量，所以<strong>instances</strong>变量中最多只储存了一个实例，为了验证此将code修改成如下：</p>
-<pre><code class="language-python">def singleton(cls):
+<h3 id="3-code-辩证分析"><a href="#3-code-辩证分析" class="headerlink" title="3.code 辩证分析"></a>3.code 辩证分析</h3><p>在单例的装饰器函数中，使用词典变量<strong>instances</strong>来储存类的实例，并且<strong>singleton_wrapper</strong>与<strong>instances</strong>形成了闭包环境。当使用<code>类名(*args, **kwargs)</code>实例化时，实际上调用了<code>singleton_wrapper(*args, **kwargs)</code>来进行实例化。通过在<strong>singleton_wrapper</strong>判断<strong>instances</strong>中是否存在类的实例，如果不存在则创建实例，如果存在则直接中从<strong>instances</strong>返回实例。每调用一次<strong>singleton</strong>返回一个闭包，各个闭包之间并没有共享<strong>instances</strong>变量，所以<strong>instances</strong>变量中最多只储存了一个实例，为了验证此将code修改成如下：</p>
+<pre><code class="lang-python">def singleton(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -469,66 +462,65 @@ if __name__ == '__main__':
         print(instances)
         return instances[cls]
     return singleton_wrapper
-  
+
 @singleton
 class ClassOne(object):
-  
-  
+
+
     def __init__(self):
-  	    pass
-  
-  
-  
+          pass
+
+
+
 @singleton
 class ClassTwo(object):
 
 
     def __init__(self):
         pass
-  
 
 
-if __name__ == '__main__':
+
+if __name__ == &#39;__main__&#39;:
     obj1 = ClassOne()
     obj2 = ClassTwo()
-  
 </code></pre>
 <p><strong>output</strong></p>
-<pre><code class="language-bash">{&lt;class '__main__.ClassOne'&gt;: &lt;__main__.ClassOne object at 0x7f276523a828&gt;}
-{&lt;class '__main__.ClassTwo'&gt;: &lt;__main__.ClassTwo object at 0x7f276523a940&gt;}
+<pre><code class="lang-bash">{&lt;class &#39;__main__.ClassOne&#39;&gt;: &lt;__main__.ClassOne object at 0x7f276523a828&gt;}
+{&lt;class &#39;__main__.ClassTwo&#39;&gt;: &lt;__main__.ClassTwo object at 0x7f276523a940&gt;}
 </code></pre>
 <p>从以上输出可以看出，各个类闭包之间没有共享<strong>instances</strong>字典变量，这时小黄鸭问那为什么还需要一个字典变量来保存类的实例，何不直接使用一个普通的变量来保存类的实例呢?说的太多不如直接上code验证一下</p>
-<pre><code class="language-python">def singleton(cls):
+<pre><code class="lang-python">def singleton(cls):
     instance = None
     def singleton_wrapper(*args, **kwargs):
         if not instance:
             instance = cls(*args, **kwargs)
         return instance
     return singleton_wrapper
-  
-  
+
+
 @singleton
 class ClassOne(object):
-  
-  
+
+
     def __init__(self):
-  	    pass
+          pass
 
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     obj1 = ClassOne()
 </code></pre>
 <p><strong>output</strong></p>
-<pre><code class="language-bash">Traceback (most recent call last):
+<pre><code class="lang-bash">Traceback (most recent call last):
   File &quot;test.py&quot;, line 21, in &lt;module&gt;
     obj1 = ClassOne()
   File &quot;test.py&quot;, line 6, in singleton_wrapper
     if not instance:
-UnboundLocalError: local variable 'instance' referenced before assignment
+UnboundLocalError: local variable &#39;instance&#39; referenced before assignment
 </code></pre>
-<p>输出结果如上，在<strong>singleton_wrapper</strong>中访问<strong>instance</strong>变量时，遇到<em>UnboundLocalError</em>错误。在这里之所以抛出<em>UnboundLocalError</em>，和python的词法作用域有关。<strong>python内部函数只能访问全局变量不可对全局变量进行赋值修改；当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误[<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a>]<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a>。<strong>说到这里结果好像已经很明显了，既然不能在内部函数中赋值修改一个全局变量，那我们只需要在修改的变量之前，加一个</strong>global</strong>关键字就能解决了。好吧，还是需要用code来验证一下</p>
+<p>输出结果如上，在<strong>singleton_wrapper</strong>中访问<strong>instance</strong>变量时，遇到<em>UnboundLocalError</em>错误。在这里之所以抛出<em>UnboundLocalError</em>，和python的词法作用域有关。<strong>python内部函数只能访问全局变量不可对全局变量进行赋值修改；当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误<a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external"><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">2</a></a>。</strong>说到这里结果好像已经很明显了，既然不能在内部函数中赋值修改一个全局变量，那我们只需要在修改的变量之前，加一个<strong>global</strong>关键字就能解决了。好吧，还是需要用code来验证一下</p>
 <p><strong>note！！！：这里的赋值修改不包括list 或者dict的添加，删除等操作；这也证明我们一开始使用dict来存类实例，巧妙避过UnboundLocalError的问题，god, are you kidding me?</strong></p>
-<pre><code class="language-python">def singleton(cls):
+<pre><code class="lang-python">def singleton(cls):
     instance = None
     def singleton_wrapper(*args, **kwargs):
         global instance
@@ -536,26 +528,26 @@ UnboundLocalError: local variable 'instance' referenced before assignment
             instance = cls(*args, **kwargs)
         return instance
     return singleton_wrapper
-  
-  
+
+
 @singleton
 class ClassOne(object):
-  
-  
+
+
     def __init__(self):
-  	    pass
+          pass
 
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     obj1 = ClassOne()
 </code></pre>
 <p><strong>output</strong></p>
-<pre><code class="language-bash">Traceback (most recent call last):
+<pre><code class="lang-bash">Traceback (most recent call last):
   File &quot;test.py&quot;, line 30, in &lt;module&gt;
     obj1 = ClassOne()
   File &quot;test.py&quot;, line 7, in singleton_wrapper
     if not instance:
-NameError: name 'instance' is not defined
+NameError: name &#39;instance&#39; is not defined
 </code></pre>
 <p>what?又出错了，这次遇到了<em>NameError</em>，简直像是唐僧取经一难又一难。好吧，请不要放弃，让我们继续分析为什么会出现<em>NameError</em>。我们在<strong>singleton_wrapper</strong>中添加<strong>global</strong>关键字时就意味着直接去全局作用域搜索<strong>instance</strong>变量，但在全局作用域中并没有<strong>instance</strong>的存在，所以在这里出现<em>NameError</em>是再正常不过的。这时让我们重新回到上一步，看一下python的词法作用域的规则:</p>
 <blockquote>
@@ -563,7 +555,7 @@ NameError: name 'instance' is not defined
 <p>当在内部函数中修改同名的全局变量时，则python会认为它是一个局部变量；</p>
 <p>在内部函数中修改同名全局变量之前读取变量名时，会引发UnboundLocalError错误。</p>
 </blockquote>
-<p>仔细研读和思考后，我们发现，<strong>instance</strong>对于<strong>singleton_wrapper</strong>并不是全局变量，而是extenal 变量。好吧我们以偏概全了，太大意了。事已到此好像已经没有思路，这个时候该是Google大神显神通的时候，在Google大神的帮助下，我们终于找到了一点思路,让我们穿到墙外去看一看这两篇文章吧[<a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">3</a>][3][<a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a>]<a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a>。这两篇文章指出：</p>
+<p>仔细研读和思考后，我们发现，<strong>instance</strong>对于<strong>singleton_wrapper</strong>并不是全局变量，而是extenal 变量。好吧我们以偏概全了，太大意了。事已到此好像已经没有思路，这个时候该是Google大神显神通的时候，在Google大神的帮助下，我们终于找到了一点思路,让我们穿到墙外去看一看这两篇文章吧<a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external"><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">3</a></a><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external"><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">4</a></a>。这两篇文章指出：</p>
 <blockquote>
 <p>在closures中不能对external进行赋值修改;</p>
 <p>当在closures中修改同名external变量之前读取变量名，会引发UnboundLocalError错误。</p>
@@ -573,18 +565,16 @@ NameError: name 'instance' is not defined
 <p>使用<strong>dict</strong>或者<strong>list</strong>是最明智的选择，也是唯一的办法。</p>
 <p><strong>python3.x:</strong></p>
 <ol>
-<li>
-<p>使用<strong>dict</strong>或者<strong>list</strong>储存类实例</p>
+<li><p>使用<strong>dict</strong>或者<strong>list</strong>储存类实例</p>
 </li>
-<li>
-<p>在closures中访问修改external 变量之前，使用<strong>nonlocal</strong>对external变量进行声明，<strong>nonlocal</strong>关键字是python3.0之后加入的新关键字,说明如下:</p>
-</li>
-</ol>
+<li><p>在closures中访问修改external 变量之前，使用<strong>nonlocal</strong>对external变量进行声明，<strong>nonlocal</strong>关键字是python3.0之后加入的新关键字,说明如下:</p>
 <blockquote>
 <p>The <code>nonlocal</code> statement causes the listed identifiers to refer to previously bound variables in the nearest enclosing scope excluding globals. This is important because the default behavior for binding is to search the local namespace first. The statement allows encapsulated code to rebind variables outside of the local scope besides the global (module) scope.</p>
 </blockquote>
+</li>
+</ol>
 <p>经过我们不断思考与实践，结局还不赖。让我们把完整的code写下来吧</p>
-<pre><code class="language-python">def singleton1(cls):
+<pre><code class="lang-python">def singleton1(cls):
     instances = {}
     def singleton_wrapper(*args, **kwargs):
         if cls not in instances:
@@ -600,8 +590,8 @@ def singleton2(cls):
             instance = cls(*args, **kwargs)
         return instance
     return singleton_wrapper
-  
-  
+
+
 @singleton1
 class Point2D(object):
 
@@ -609,24 +599,24 @@ class Point2D(object):
     def __init__(self, x=0, y=0):
         self._x = x
         self._y = y
-       
+
     @property
     def x(self):
         return self._x
-      
+
     @property
     def y(self):
         return self._y
-      
+
     @x.setter
     def x(self, val):
         self._x = val
-        
+
     @y.setter
     def y(self, val):
         self._y = val
 
-        
+
 @singleton2
 class Point3D(object):
 
@@ -635,10 +625,10 @@ class Point3D(object):
         self._x = x
         self._y = y
         self._z = z
-    
-  
-        
-if __name__ == '__main__':
+
+
+
+if __name__ == &#39;__main__&#39;:
     p1 = Point2D(1, 10)
     p2 = Point2D(2, 10)
     print(id(p1))
@@ -647,16 +637,14 @@ if __name__ == '__main__':
     p4 = Point3D(100, 100, 100)
     print(id(p3))
     print(id(p4))
-    
 </code></pre>
 <p><strong>output</strong></p>
-<pre><code class="language-python">140322002741008
+<pre><code class="lang-python">140322002741008
 140322002741008
 140322002741176
 140322002741176
 </code></pre>
-<h3 id="参考">参考</h3>
-<p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]  Python单例模式的4种实现方法</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://ghostfromheaven.iteye.com/blog/1562618" target="_blank" rel="external">[1]  Python单例模式的4种实现方法</a></p>
 <p><a href="http://blog.csdn.net/my2010sam/article/details/17735159" target="_blank" rel="external">[2]  全局变量报错-UnboundLocalError: local variable ‘l’ referenced before assignment</a></p>
 <p><a href="https://eli.thegreenplace.net/2011/05/15/understanding-unboundlocalerror-in-python" target="_blank" rel="external">[3]  Understanding UnboundLocalError in Python</a></p>
 <p><a href="https://stackoverflow.com/questions/141642/what-limitations-have-closures-in-python-compared-to-language-x-closures" target="_blank" rel="external">[4]  What limitations have closures in Python compared to language X closures</a></p>

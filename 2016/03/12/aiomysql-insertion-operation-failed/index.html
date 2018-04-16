@@ -353,8 +353,7 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>####emotions:
-
+  <p id='text-post-summary'>emotions:
 those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I can’t insert data into my database table using aiomysql’s cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq’s...</p>
 </div>
         </div> -->
@@ -378,24 +377,20 @@ those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange
 
     </div>
     <div class='article-content'>
-    <p>####emotions:</p>
-<blockquote>
+    <h4 id="emotions"><a href="#emotions" class="headerlink" title="emotions:"></a>emotions:</h4><blockquote>
 <p>those days,I am using aiomysql(python3.5) to acess my database .But a ‘strange’ problem make me trouble more times.The problem is I can’t insert data into my database table using aiomysql’s cursor.execute(**) method. Fortunately,I sovled it after refering  aiomysq’s manual.</p>
 </blockquote>
-<p>####plateform:
-1.ubuntu14.04
-2.python3.5</p>
-<p>####error code:</p>
-<pre><code class="language-python">import aiomysql 
+<h4 id="plateform"><a href="#plateform" class="headerlink" title="plateform:"></a>plateform:</h4><p>1.ubuntu14.04<br>2.python3.5</p>
+<h4 id="error-code"><a href="#error-code" class="headerlink" title="error code:"></a>error code:</h4><pre><code class="lang-python">import aiomysql 
 import asyncio
 
 loop=asyncio.get_event_loop()
 @asyncio.coroutine
 def insert(loop):
-        pl=yield from aiomysql.create_pool(host='127.0.0.1',user='root',password='xxxxx',db='blog',loop=loop,port=3306)
+        pl=yield from aiomysql.create_pool(host=&#39;127.0.0.1&#39;,user=&#39;root&#39;,password=&#39;xxxxx&#39;,db=&#39;blog&#39;,loop=loop,port=3306)
         with (yield from pl) as con:
                 cursor=yield from con.cursor()
-                yield from cursor.execute('insert into users(`user_name`,`email`,`password`) values(&quot;coder&quot;,&quot;1xxxxxb@gmail.com&quot;,&quot;FHEUIE@#@@##JNDJA&quot;)')
+                yield from cursor.execute(&#39;insert into users(`user_name`,`email`,`password`) values(&quot;coder&quot;,&quot;1xxxxxb@gmail.com&quot;,&quot;FHEUIE@#@@##JNDJA&quot;)&#39;)
                 yield from cursor.close()
                 con.commit()
         pl.close()
@@ -405,19 +400,17 @@ loop.run_until_complete(insert(loop))
 loop.run_forever()
 </code></pre>
 <p><strong>I run the above code many times,but there is still no data in my database table.</strong></p>
-<h4 id="solution">solution:</h4>
-<p><strong>After refering aiomysql’s manual,I found ‘aiomysql.commit’ method  is coroutine,that’s a critical point.just rewrite ‘con.commit()’ to ‘yield from con.commit()’,the problem is sovled!</strong>
-####correct code:</p>
-<pre><code class="language-python">import aiomysql 
+<h4 id="solution"><a href="#solution" class="headerlink" title="solution:"></a>solution:</h4><p><strong>After refering aiomysql’s manual,I found ‘aiomysql.commit’ method  is coroutine,that’s a critical point.just rewrite ‘con.commit()’ to ‘yield from con.commit()’,the problem is sovled!</strong></p>
+<h4 id="correct-code"><a href="#correct-code" class="headerlink" title="correct code:"></a>correct code:</h4><pre><code class="lang-python">import aiomysql 
 import asyncio
 
 loop=asyncio.get_event_loop()
 @asyncio.coroutine
 def insert(loop):
-        pl=yield from aiomysql.create_pool(host='127.0.0.1',user='root',password='xxxxx',db='blog',loop=loop,port=3306)
+        pl=yield from aiomysql.create_pool(host=&#39;127.0.0.1&#39;,user=&#39;root&#39;,password=&#39;xxxxx&#39;,db=&#39;blog&#39;,loop=loop,port=3306)
         with (yield from pl) as con:
                 cursor=yield from con.cursor()
-                yield from cursor.execute('insert into users(`user_name`,`email`,`password`) values(&quot;coder&quot;,&quot;1xxxxxb@gmail.com&quot;,&quot;FHEUIE@#@@##JNDJA&quot;)')
+                yield from cursor.execute(&#39;insert into users(`user_name`,`email`,`password`) values(&quot;coder&quot;,&quot;1xxxxxb@gmail.com&quot;,&quot;FHEUIE@#@@##JNDJA&quot;)&#39;)
                 yield from cursor.close()
                 yield from con.commit()
         pl.close()

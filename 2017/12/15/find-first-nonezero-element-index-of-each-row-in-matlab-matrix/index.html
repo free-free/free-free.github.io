@@ -377,19 +377,18 @@
     </div>
     <div class='article-content'>
     <p>How to find out the none-zero element index of each row in matlab matrix without using for loop?  Honestly, this fucking problem frustrates me  all day, I have no spark about this, fortunately, i get a roughly problem-solving  solution with the help of enthusiastic people. Ok ,lets get down to code.</p>
-<p>Here we assume $A$ is a $m\times n$ matrix, the problem is find out the index of first none-zero element of each row in $A$.</p>
-<h4 id="the-first-try">The first try</h4>
-<p><strong>code</strong></p>
-<pre><code class="language-matlab">idx = sum(A==0, 2) + 1
+<p>Here we assume $A$ is a $m\times n$ matrix, the problem is find out the index of first none-zero element of each row in $A$. </p>
+<h4 id="The-first-try"><a href="#The-first-try" class="headerlink" title="The first try"></a>The first try</h4><p><strong>code</strong></p>
+<pre><code class="lang-matlab">idx = sum(A==0, 2) + 1
 </code></pre>
 <p>The above code seems to be working, the truths is that it just  works fine in some special matrices, like</p>
-<pre><code class="language-matlab">A = 
+<pre><code class="lang-matlab">A = 
 
      0     0     0     0    12    11
      0     0     0     1     2     3
      0    32    21   343    54    43
      0     0     0     0     0     1
-     
+
 idx = sum(A==0, 2) + 1
 % The output follows
 ans =
@@ -401,7 +400,7 @@ ans =
 % see that,it is corret
 </code></pre>
 <p>but except other general matrices,like</p>
-<pre><code class="language-matlab">A =
+<pre><code class="lang-matlab">A =
 
      0     2     0     0    12    11
      0     0     0     1     2     3
@@ -416,13 +415,12 @@ ans =
      2
      6
 </code></pre>
-<p>The first try  is failed, but it doesn’t mean i was <a href="http://defeated.So" target="_blank" rel="external">defeated.So</a> i start my second problem-solving try.</p>
-<h4 id="the-second-try">The second try</h4>
-<p><strong>code:</strong></p>
-<pre><code class="language-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
+<p>The first try  is failed, but it doesn’t mean i was defeated.So i start my second problem-solving try.</p>
+<h4 id="The-second-try"><a href="#The-second-try" class="headerlink" title="The second try"></a>The second try</h4><p><strong>code:</strong></p>
+<pre><code class="lang-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
 </code></pre>
-<p>It seems i find the way to correct answer this time, but … it’s not working in some special case, likes the following matrix</p>
-<pre><code class="language-matlab">A =
+<p>It seems i find the way to correct answer this time, but ….. it’s not working in some special case, likes the following matrix </p>
+<pre><code class="lang-matlab">A =
 
      0     2     0     0    12    11     0
      0     0     0     1     2     3     0
@@ -430,7 +428,7 @@ ans =
      0     0     0     0     0     0     0
 
 idx = sum(cumsum(A~=0, 2)==0, 2) + 1
-% The last element of output seems to be not working, it's value exceeds the maximum index of A's column.
+% The last element of output seems to be not working, it&#39;s value exceeds the maximum index of A&#39;s column.
 ans =
 
      2
@@ -439,9 +437,8 @@ ans =
      8
 </code></pre>
 <p>OK, this time we get more closer to the correct answer.The next question is we  how to deal with the  index-exceeding problem.Lets go further to launch our  third try</p>
-<h4 id="the-third-try">The third try</h4>
-<p><strong>code:</strong></p>
-<pre><code class="language-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
+<h4 id="The-third-try"><a href="#The-third-try" class="headerlink" title="The third try"></a>The third try</h4><p><strong>code:</strong></p>
+<pre><code class="lang-matlab">idx = sum(cumsum(A~=0, 2)==0, 2) + 1;
 idx(idx &gt; size(A, 2)) = nan;
 </code></pre>
 <p>In the above code, we directly assign the  index which exceed the maximum index number to <code>nan</code>.               I can bet this time , it must work fine in all  cases. What? You don’t believe what i have said. Ok, i don’t want to persuade you. The fact is alway fact, you can run the code on your machine.</p>

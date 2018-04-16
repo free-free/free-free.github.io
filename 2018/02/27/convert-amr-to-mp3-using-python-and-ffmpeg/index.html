@@ -353,7 +353,7 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>In the previous blog, I have introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to amr  audio to mp3 audio.  one line code did complete it in your command line, like the following commands.
+  <p id='text-post-summary'>In the previous blog, I have introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to amr  audio to mp3 audio.  one line code did complete it in your command line, like the following commands. 
 $...</p>
 </div>
         </div> -->
@@ -377,11 +377,11 @@ $...</p>
 
     </div>
     <div class='article-content'>
-    <p>In the previous blog, I have introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to <em>amr</em>  audio to <em>mp3</em> audio.  one line code did complete it in your command line, like the following commands.</p>
-<pre><code class="language-shell">$ ffmpeg -i input.amr output.mp3
+    <p>In the previous blog, I have introduced how to extract audio from video using python + ffmpeg. In this blog, the toolkit is same, but the purpose is slightly different, here convert to <em>amr</em>  audio to <em>mp3</em> audio.  one line code did complete it in your command line, like the following commands. </p>
+<pre><code class="lang-shell">$ ffmpeg -i input.amr output.mp3
 </code></pre>
 <p>To automate  the process, we also need the assistance of python, the codes is much similar to the last post, just  one place changed.</p>
-<pre><code class="language-python"># -*- coding:utf-8 -*-
+<pre><code class="lang-python"># -*- coding:utf-8 -*-
 #@file: audio2audio.py
 
 import os
@@ -390,10 +390,10 @@ import ffmpeg
 from optparse import OptionParser
 
 parser = OptionParser()
-parser.add_option('-s', '--src', dest='src', action='store', help='source dir', default='./')
-parser.add_option('-d', '--dest', dest='dest', action='store', help='destination dir', default='./output')
-parser.add_option('--input-type', dest='inputType', action='store', help='input type', default='amr')
-parser.add_option(&quot;--ouput-type&quot;, dest='outputType', action='store', help='ouput type', default='mp3')
+parser.add_option(&#39;-s&#39;, &#39;--src&#39;, dest=&#39;src&#39;, action=&#39;store&#39;, help=&#39;source dir&#39;, default=&#39;./&#39;)
+parser.add_option(&#39;-d&#39;, &#39;--dest&#39;, dest=&#39;dest&#39;, action=&#39;store&#39;, help=&#39;destination dir&#39;, default=&#39;./output&#39;)
+parser.add_option(&#39;--input-type&#39;, dest=&#39;inputType&#39;, action=&#39;store&#39;, help=&#39;input type&#39;, default=&#39;amr&#39;)
+parser.add_option(&quot;--ouput-type&quot;, dest=&#39;outputType&#39;, action=&#39;store&#39;, help=&#39;ouput type&#39;, default=&#39;mp3&#39;)
 
 def filter_file(path, file_ext):
     flist = os.listdir(path)
@@ -402,14 +402,14 @@ def filter_file(path, file_ext):
         filepath = os.path.join(path, filename)
         if os.path.isdir(filepath):
             all_file.extend(filter_file(filepath, file_ext))
-        elif fnmatch.fnmatch(filepath, '*.' + file_ext):
+        elif fnmatch.fnmatch(filepath, &#39;*.&#39; + file_ext):
             all_file.append(filepath)
         else:
             pass
     return all_file
 
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     (options, args) = parser.parse_args()
     src = options.src
     dest = options.dest
@@ -420,18 +420,15 @@ if __name__ == '__main__':
         os.mkdir(dest)
     for f in all_file:
         iFilename = os.path.split(f)[-1]
-        oFilename = iFilename.split('.')[0] + '.' + outputType
+        oFilename = iFilename.split(&#39;.&#39;)[0] + &#39;.&#39; + outputType
         iFullFilename = os.path.join(src, iFilename)
         oFullFilename = os.path.join(dest, oFilename)
         (ffmpeg.input(iFullFilename)
                 .output(oFullFilename)
                 .run())
-
-
-
 </code></pre>
 <p>Now you just need to type the following command in you shell, then your conversion result <em>mp3</em> audio will reside in your output directory.</p>
-<pre><code class="language-bash">$ python audio2audio.py --src dir_amr  --dest dir_mp3 --input-type amr  --output-type mp3
+<pre><code class="lang-bash">$ python audio2audio.py --src dir_amr  --dest dir_mp3 --input-type amr  --output-type mp3
 </code></pre>
 
     

@@ -381,9 +381,8 @@
     </div>
     <div class='article-content'>
     <p>Executing shell commands in python is not always attractive to me. On the one hand, shell script normally meets my daily demands, I think there are no very strong reasons to learn it. On the other hand, my focus in Python is not here, there are few chances to get in touch with it. But now, the powerful ability of Python executing shell commands impress me, as I dive into the deeper place in Python’s world. For that reason, I think it’s time to get hands on it. Here I will summarize the approaches  executing shell commands in Python.</p>
-<h4 id="1-subprocess-call">1. <code>subprocess.call</code></h4>
-<p>This approach is very known to  the most of developers. <a href="https://docs.python.org/3/library/subprocess.html" target="_blank" rel="external">subprocess</a> module is built in python library. It allows you to spawn new processes, connected to their input/output/error pipes, and obtain their return codes. It intends to replace several older modules and functions:</p>
-<pre><code class="language-shell">os.system
+<h4 id="1-subprocess-call"><a href="#1-subprocess-call" class="headerlink" title="1. subprocess.call"></a>1. <code>subprocess.call</code></h4><p>This approach is very known to  the most of developers. <a href="https://docs.python.org/3/library/subprocess.html" target="_blank" rel="external">subprocess</a> module is built in python library. It allows you to spawn new processes, connected to their input/output/error pipes, and obtain their return codes. It intends to replace several older modules and functions:</p>
+<pre><code class="lang-shell">os.system
 os.spwan
 </code></pre>
 <p>The related PEP is <a href="https://www.python.org/dev/peps/pep-0324" target="_blank" rel="external">PEP 324</a> which proposed the subprocess module.</p>
@@ -397,27 +396,26 @@ os.spwan
 <p><strong>stderr</strong>: pass to <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a></p>
 <p><strong>shell</strong>: pass to <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a></p>
 <p><strong>cwd</strong>: pass to <a href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" target="_blank" rel="external">Popen</a></p>
-<p><strong>timeout</strong>: pass to <code>Popen.communicate()</code>. If the timeout expires, the child process will be killed. The<code>TimeoutExpired</code> exception will be raised after the child process has terminated.</p>
+<p><strong>timeout</strong>: pass to <code>Popen.communicate()</code>. If the timeout expires, the child process will be killed. The<code>TimeoutExpired</code> exception will be raised after the child process has terminated. </p>
 <p><strong>check</strong>: Check whether the process exits with a non-zero exit code. if that , a <code>CalledProcessError</code> exception will be raised.  Attribute of that exception contain the arguments, the exit code, and stdout and stderr if they were captured.</p>
 <p><strong>encoding/errors</strong>: if either <em>encoding</em> or <em>error</em> are specified, file objects for stdin, stdout and stderr are opened in text mode using specified encoding and errors or the <code>io.TextIOWrapper</code> default. Otherwise, file objects are opened in binary mode.</p>
 <p>The <code>run()</code> function runs the command described by args. Then wait for command to complete, finally return a <code>CompletedProcess</code> instance which hold <em>args</em>, <em>returncode</em>, <em>stdout</em>, <em>stderr</em> and check_returncode(). . By default, <code>run()</code> does not capture stdout or stderr. To do so pass <code>PIPE</code> for the stdou and/or stderr arguments</p>
 <p>Examples:</p>
-<pre><code class="language-python">&gt;&gt;&gt; import subprocess
+<pre><code class="lang-python">&gt;&gt;&gt; import subprocess
 &gt;&gt;&gt; subprocess.run([&quot;echo&quot;,&quot;-e&quot;, &quot;\e[0;32m hello world \e[;m&quot;])
 hello world
-CompletedProcess(args=['echo', '-e', '\\e[0;32m hello world\\e[;m'], returncode=0)
+CompletedProcess(args=[&#39;echo&#39;, &#39;-e&#39;, &#39;\\e[0;32m hello world\\e[;m&#39;], returncode=0)
 &gt;&gt;&gt; cp = subprocess.run([&quot;ls&quot;, &quot;-al&quot;], stdout=subprocess.PIPE) # capture stdout
 &gt;&gt;&gt; cp.stdout # access to the stdout
 &gt;&gt;&gt; cp.stderr # access to the stderr
 &gt;&gt;&gt; cp.returncode # get return code
 &gt;&gt;&gt; cp.check_returncode() # when returncode is a non-zero value, a CalledProcessError will be raised
 </code></pre>
-<h4 id="2-other-approaches">2. Other approaches</h4>
-<ul>
+<h4 id="2-Other-approaches"><a href="#2-Other-approaches" class="headerlink" title="2. Other approaches"></a>2. Other approaches</h4><ul>
 <li><code>os.popen</code></li>
 </ul>
-<pre><code class="language-python">&gt;&gt;&gt; import os
-&gt;&gt;&gt;&gt; ret = os.popen('ls -al').read() # or os.popen('ls -al').readline()
+<pre><code class="lang-python">&gt;&gt;&gt; import os
+&gt;&gt;&gt;&gt; ret = os.popen(&#39;ls -al&#39;).read() # or os.popen(&#39;ls -al&#39;).readline()
 </code></pre>
 <ul>
 <li><code>commands</code></li>
@@ -425,7 +423,7 @@ CompletedProcess(args=['echo', '-e', '\\e[0;32m hello world\\e[;m'], returncode=
 <p><code>commands.getstatusoutput(cmd)</code>: return (status, output)</p>
 <p><code>commands.getoutput(cmd)</code>: return (output)</p>
 <p><code>commands.getstatus(file)</code>: get the status of the specific file</p>
-<pre><code class="language-python">&gt;&gt;&gt; import commands
+<pre><code class="lang-python">&gt;&gt;&gt; import commands
 &gt;&gt;&gt; status,output = commands.getstatusoutput(&quot;ls&quot;)
 &gt;&gt;&gt; output = commands.getoutput(&quot;ls -al&quot;)
 &gt;&gt;&gt; status = commands.getstatus(&quot;hello.c&quot;)
@@ -436,7 +434,7 @@ CompletedProcess(args=['echo', '-e', '\\e[0;32m hello world\\e[;m'], returncode=
 <li><code>os.system</code></li>
 </ul>
 <p>This method is not recommend to use. In Python &gt;= 3.5, it’s recommend to <code>subprocess</code>.</p>
-<pre><code class="language-python">&gt;&gt;&gt; import os
+<pre><code class="lang-python">&gt;&gt;&gt; import os
 &gt;&gt;&gt; os.system(&quot;ls&quot;)
 </code></pre>
 <p>The downside of this method is that you must handle security stuffs yourself, like shell character escaping, etc. On top of that, this method cannot run the external programs.</p>

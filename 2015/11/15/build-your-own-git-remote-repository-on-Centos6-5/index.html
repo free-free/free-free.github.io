@@ -357,20 +357,15 @@
   <h3>Quick Read</h3>
 </div>
 <div class="card-text">
-  <p id='text-post-summary'>远程仓库搭建
-step1:安装git
-$ yum -y install git
+  <p id='text-post-summary'>远程仓库搭建step1:安装git$ yum -y install git
 
-step2:创建用户git,用来运行git服务
-$ useradd git 
-$ passwd git 
+step2:创建用户git,用来运行git服务$ useradd git 
+$ passwd git
 
-step3:创建登录用户证书
-收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个
+step3:创建登录用户证书收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个 
 step4:初始化git仓库
-
 创建目录/git,在/git目下再创建一个.git结尾的目录,作为一仓库,这里创建一个/git/test.git,并且进入/git目录;
-初始化仓库git init...</p>
+初始化仓库git init —bare...</p>
 </div>
         </div> -->
     </div>
@@ -393,26 +388,19 @@ step4:初始化git仓库
 
     </div>
     <div class='article-content'>
-    <h4 id="远程仓库搭建">远程仓库搭建</h4>
-<h5 id="step1-安装git">step1:安装git</h5>
-<pre><code class="language-bash">$ yum -y install git
+    <h4 id="远程仓库搭建"><a href="#远程仓库搭建" class="headerlink" title="远程仓库搭建"></a>远程仓库搭建</h4><h5 id="step1-安装git"><a href="#step1-安装git" class="headerlink" title="step1:安装git"></a>step1:安装git</h5><pre><code class="lang-bash">$ yum -y install git
 </code></pre>
-<h5 id="step2-创建用户git-用来运行git服务">step2:创建用户git,用来运行git服务</h5>
-<pre><code class="language-bash">$ useradd git 
-$ passwd git 
+<h5 id="step2-创建用户git-用来运行git服务"><a href="#step2-创建用户git-用来运行git服务" class="headerlink" title="step2:创建用户git,用来运行git服务"></a>step2:创建用户git,用来运行git服务</h5><pre><code class="lang-bash">$ useradd git 
+$ passwd git
 </code></pre>
-<h5 id="step3-创建登录用户证书">step3:创建登录用户证书</h5>
-<p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个</p>
-<h5 id="step4-初始化git仓库">step4:初始化git仓库</h5>
-<ol>
+<h5 id="step3-创建登录用户证书"><a href="#step3-创建登录用户证书" class="headerlink" title="step3:创建登录用户证书"></a>step3:创建登录用户证书</h5><p>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个 </p>
+<h5 id="step4-初始化git仓库"><a href="#step4-初始化git仓库" class="headerlink" title="step4:初始化git仓库"></a>step4:初始化git仓库</h5><ol>
 <li>创建目录/git,在/git目下再创建一个.git结尾的目录,作为一仓库,这里创建一个/git/test.git,并且进入/git目录;</li>
-<li>初始化仓库git init --bare test.git Git就会创建一个裸仓库，裸仓库没有工作区，服务器上的Git仓库纯粹是为了共享 所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾;</li>
+<li>初始化仓库git init —bare test.git Git就会创建一个裸仓库，裸仓库没有工作区，服务器上的Git仓库纯粹是为了共享 所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾;</li>
 <li>将仓库的owner改为git  chown -R git:git test.git;</li>
 <li>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成,找到git用户的那一行将git:x:500:500::/home/git:/bin/bash改为git:x:500:500::/home/git:/usr/bin/git-shell .git-shell每次一登录就自动退出.</li>
 </ol>
-<h5 id="step5-自此整个git远程仓库就搭建完成-就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了">step5:自此整个git远程仓库就搭建完成,就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了.</h5>
-<h4 id="本地与搭建好的仓库交互">本地与搭建好的仓库交互</h4>
-<pre><code class="language-bash">$ git remote add origin git@192.168.0.01:/git/test.git   #这里的ip是你主机的ip
+<h5 id="step5-自此整个git远程仓库就搭建完成-就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了"><a href="#step5-自此整个git远程仓库就搭建完成-就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了" class="headerlink" title="step5:自此整个git远程仓库就搭建完成,就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了."></a>step5:自此整个git远程仓库就搭建完成,就可以像使用github那样使用搭建好的远程仓库与你的team功能开发了.</h5><h4 id="本地与搭建好的仓库交互"><a href="#本地与搭建好的仓库交互" class="headerlink" title="本地与搭建好的仓库交互"></a>本地与搭建好的仓库交互</h4><pre><code class="lang-bash">$ git remote add origin git@192.168.0.01:/git/test.git   #这里的ip是你主机的ip
 $ git clone git@192.168.0.1:/git/test.git  #将远程仓库克隆到本地的仓库
 $ git push origin master   #推送到远程仓库
 </code></pre>

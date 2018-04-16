@@ -376,88 +376,84 @@
 
     </div>
     <div class='article-content'>
-    <p>In 2018 early, Google open-source it’s one of new Python library called <a href="https://github.com/google/python-fire" target="_blank" rel="external"><strong>Fire</strong></a>. <strong>Fire</strong> is a powerful tool to automatically generate command line interfaces(CLIs) from any Python object. With it’s assistance, you can easily transition between Bash and Python, also develop and debug your Python code. That’s why I choose it.</p>
-<h4 id="installation">Installation</h4>
-<p>Like other Python library, The installation of <strong>Fire</strong> is very simple and clear. You just need to type the following command in your bash interface, then leaving processes will automatically finish.</p>
-<pre><code class="language-shell">$ pip install fire
+    <p>In 2018 early, Google open-source it’s one of new Python library called <a href="https://github.com/google/python-fire" target="_blank" rel="external"><strong>Fire</strong></a>. <strong>Fire</strong> is a powerful tool to automatically generate command line interfaces(CLIs) from any Python object. With it’s assistance, you can easily transition between Bash and Python, also develop and debug your Python code. That’s why I choose it. </p>
+<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p>Like other Python library, The installation of <strong>Fire</strong> is very simple and clear. You just need to type the following command in your bash interface, then leaving processes will automatically finish.</p>
+<pre><code class="lang-shell">$ pip install fire
 </code></pre>
-<h4 id="usage-exmaples">Usage Exmaples</h4>
-<h5 id="hello-world">Hello World</h5>
-<p><strong>version1: <code>fire.Fire()</code></strong></p>
-<pre><code class="language-python">#@file: hello.py
+<h4 id="Usage-Exmaples"><a href="#Usage-Exmaples" class="headerlink" title="Usage Exmaples"></a>Usage Exmaples</h4><h5 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h5><p><strong>version1: <code>fire.Fire()</code></strong></p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 def say_hello(name):
-	return &quot;Hello {name}&quot;.format(name=name)
-if __name__ == '__main__':
-	fire.Fire()
+    return &quot;Hello {name}&quot;.format(name=name)
+if __name__ == &#39;__main__&#39;:
+    fire.Fire()
 </code></pre>
 <p>Here expose  <code>say_hello</code> function to command line,so you can call it in your bash like the following manner.</p>
-<pre><code class="language-bash">$ python hello.py say_hello john
+<pre><code class="lang-bash">$ python hello.py say_hello john
 Hello john
 </code></pre>
 <p><strong>version2: <code>fire.Fire(&lt;fn&gt;)</code></strong></p>
 <p>Besides call <code>fire.Fire()</code> directly, also you can pass a function to it. Doing this,  it will be slightly different when you call it in your bash shell command line.</p>
-<pre><code class="language-python">#file: hello.py
+<pre><code class="lang-python">#file: hello.py
 import fire
 
 def say_hello(name):
-  	return &quot;Hello {name}&quot;.format(name=name)
-  
-if __name__ == '__main__':
-  	fire.Fire(say_hello)
+      return &quot;Hello {name}&quot;.format(name=name)
+
+if __name__ == &#39;__main__&#39;:
+      fire.Fire(say_hello)
 </code></pre>
-<pre><code class="language-shell">$ python hello.py john
+<pre><code class="lang-shell">$ python hello.py john
 Hello john
 </code></pre>
 <hr>
-<h5 id="multiple-commands">Multiple commands</h5>
-<p>In the previous section, we just have one function totally, it’s hard to show you the power of <strong>fire</strong>. In this section, multiple commands will be introduced.</p>
+<h5 id="Multiple-commands"><a href="#Multiple-commands" class="headerlink" title="Multiple commands"></a>Multiple commands</h5><p>In the previous section, we just have one function totally, it’s hard to show you the power of <strong>fire</strong>. In this section, multiple commands will be introduced. </p>
 <p><strong>version 1:<code>fire.Fire()</code></strong></p>
 <p>Like the <code>hello world</code> example, here you also can write multiple function , then call it directly in your bash shell.</p>
-<pre><code class="language-python">#@file: mcmds.py
+<pre><code class="lang-python">#@file: mcmds.py
 import fire
 import functools
 
 def add(x, y):
-	return x + y
-  
+    return x + y
+
 def cumsum(*args):
-  	return functools.reduce(lambda x,y: x + y, args)
-    
-if __name__ == '__main__':
-	fire.Fire()
+      return functools.reduce(lambda x,y: x + y, args)
+
+if __name__ == &#39;__main__&#39;:
+    fire.Fire()
 </code></pre>
-<pre><code class="language-bash">$ python mcmds.py cumsum 1 2 3 4
+<pre><code class="lang-bash">$ python mcmds.py cumsum 1 2 3 4
 10
 $ python mcmds.py add 12 32
 44
 </code></pre>
 <p><strong>version 2: <code>fire.Fire(&lt;dict&gt;)</code></strong></p>
 <p>If you intend to expose your function as a different name, this version may be suitable for you.</p>
-<pre><code class="language-python">#@file: mcmds.py
+<pre><code class="lang-python">#@file: mcmds.py
 import fire
 import functools
 
 def add(x, y):
-  	return x + y
-  
+      return x + y
+
 def cumsum(*args):
-	return functools.reduce(lambda x, y: x + y, args)
-  
-if __name__ == '__main__':
-	fire.Fire({
-        'add':add,
-      	'cumsum': cumsum
+    return functools.reduce(lambda x, y: x + y, args)
+
+if __name__ == &#39;__main__&#39;:
+    fire.Fire({
+        &#39;add&#39;:add,
+          &#39;cumsum&#39;: cumsum
     })
 </code></pre>
-<pre><code class="language-bash">$ python mcmds.py add 10 32
+<pre><code class="lang-bash">$ python mcmds.py add 10 32
 44
 $ python mcmds.py cumsum 1 2 3 4
 10
 </code></pre>
 <p><strong>version 3: <code>fire.Fire(&lt;object&gt;)</code></strong></p>
-<p>As shown by the previous examples,  they are all functions,  if you are going to expose your object’s method as a command line . Is there all solution for satisfying your demands?</p>
-<pre><code class="language-python">#@file: hello.py
+<p>As shown by the previous examples,  they are all functions,  if you are going to expose your object’s method as a command line . Is there all solution for satisfying your demands? </p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 import functools
 
@@ -470,18 +466,18 @@ class Calculator(object):
         return functools.reduce(lambda x, y: x + y, args)
 
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     calc = Calculator()
     fire.Fire(calc)
 </code></pre>
-<pre><code class="language-bash">$ python hello.py add 10 10
+<pre><code class="lang-bash">$ python hello.py add 10 10
 20
 $ python hello.py cumsum 10 1 2 3 4 
 20
 </code></pre>
 <p><strong>version 4: <code>fire.Fire(&lt;class&gt;)</code></strong></p>
-<p>The one of difference between version 3 and version 4 is that you can pass arguments for constructing the class.</p>
-<pre><code class="language-python">#@file: hello.py
+<p>The one of difference between version 3 and version 4 is that you can pass arguments for constructing the class. </p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 
 class IntNumber(object):
@@ -496,11 +492,11 @@ class IntNumber(object):
         return self._ival * x
 
 
-if __name__ == '__main__':
-    fire.Fire(IntNumber)                   
+if __name__ == &#39;__main__&#39;:
+    fire.Fire(IntNumber)
 </code></pre>
-<p>The arguments to <code>__init__</code> method must be passed with the --flag syntax, like the following usage.</p>
-<pre><code class="language-bash">$ python hello.py plus 10
+<p>The arguments to <code>__init__</code> method must be passed with the —flag syntax, like the following usage.</p>
+<pre><code class="lang-bash">$ python hello.py plus 10
 11
 $ python hello.py times 10
 10
@@ -510,9 +506,8 @@ $ python hello.py times 10 --initial_value=0 # here you pass initial value to in
 0
 </code></pre>
 <hr>
-<h5 id="grouping-commands">Grouping Commands</h5>
-<p>In addition, you can make a command line interface with grouped commands, like the below.</p>
-<pre><code class="language-python">#@file: hello.py
+<h5 id="Grouping-Commands"><a href="#Grouping-Commands" class="headerlink" title="Grouping Commands"></a>Grouping Commands</h5><p>In addition, you can make a command line interface with grouped commands, like the below.</p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 
 class RobotLeg(object):
@@ -542,18 +537,17 @@ class Robot(object):
         print(self.arm.run())
         print(self.leg.run())
     &quot;&quot;&quot;
-    # also can you define 'run' function as a generator, it works samely!
+    # also can you define &#39;run&#39; function as a generator, it works samely!
     def run(self):
-      	yield self.arm.run()
+          yield self.arm.run()
         yield self.leg.run()
-	&quot;&quot;&quot;
+    &quot;&quot;&quot;
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     fire.Fire(Robot)
-                  
 </code></pre>
 <p>Here’s how this looks at the command line:</p>
-<pre><code class="language-bash">$ python hello.py run
+<pre><code class="lang-bash">$ python hello.py run
 The arm is moving!
 The leg is moving forward!
 $ python hello.py arm run
@@ -566,9 +560,8 @@ $ python hello.py leg state
 The leg is active!
 </code></pre>
 <hr>
-<h5 id="accessing-properties">Accessing Properties</h5>
-<p>Accessing Properties of object is much necessary and useful, as you expose the specific object to the command line.</p>
-<pre><code class="language-python">#@file: hello.py
+<h5 id="Accessing-Properties"><a href="#Accessing-Properties" class="headerlink" title="Accessing Properties"></a>Accessing Properties</h5><p>Accessing Properties of object is much necessary and useful, as you expose the specific object to the command line.</p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 
 class City(object):
@@ -578,24 +571,22 @@ class City(object):
         self.name = name
 
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     fire.Fire(City)
-
 </code></pre>
-<pre><code class="language-bash">$ python hello.py --postal_code=521002 pcode
+<pre><code class="lang-bash">$ python hello.py --postal_code=521002 pcode
 521002
 $ python hello.py --postal_code=512002 name
 paradise
 </code></pre>
 <hr>
-<h5 id="chaining-function-calls">Chaining Function Calls</h5>
-<p>When you call a <strong>Fire</strong> command, the same action you can take on the <em>result</em> of the call to <strong>Fire</strong>. For example:</p>
-<pre><code class="language-bash">$ python hello.py --postal_code=521000 name upper
+<h5 id="Chaining-Function-Calls"><a href="#Chaining-Function-Calls" class="headerlink" title="Chaining Function Calls"></a>Chaining Function Calls</h5><p>When you call a <strong>Fire</strong> command, the same action you can take on the <em>result</em> of the call to <strong>Fire</strong>. For example:</p>
+<pre><code class="lang-bash">$ python hello.py --postal_code=521000 name upper
 PARADISE
 </code></pre>
-<p>The above code works because the <code>upper</code> is a method on all strings.</p>
+<p>The above code works because the <code>upper</code> is a method on all strings. </p>
 <p>So, if you want to set up your functions to chain nicely, all you have to do is have a class whose methods return self. An example is following.(tip: this example is taken from official document).</p>
-<pre><code class="language-python">#@file: hello.py
+<pre><code class="lang-python">#@file: hello.py
 import fire
 
 
@@ -608,7 +599,7 @@ class BinaryCanvas(object):
         self._col = 0
 
     def __str__(self):
-        return '\r\n'.join(' '.join(str(pixel) for pixel in row) for row in self.pixels)
+        return &#39;\r\n&#39;.join(&#39; &#39;.join(str(pixel) for pixel in row) for row in self.pixels)
 
     def show(self):
         print(self)
@@ -630,11 +621,10 @@ class BinaryCanvas(object):
         return self
 
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     fire.Fire(BinaryCanvas)
-
 </code></pre>
-<pre><code class="language-bash">$ python hello.py move 3 3 on move 3 6 on move 6 3 on move 6 6 on move 7 4 move 7 5 on __str__
+<pre><code class="lang-bash">$ python hello.py move 3 3 on move 3 6 on move 6 3 on move 6 6 on move 7 4 move 7 5 on __str__
 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0
@@ -647,9 +637,8 @@ if __name__ == '__main__':
 0 0 0 0 0 0 0 0 0 0
 </code></pre>
 <hr>
-<h5 id="passing-arguments-to-function">Passing Arguments To Function</h5>
-<p>Except positional argument can be passed , as you run a function at command line, also you can pass argument by using flag syntax, like the arguments to <code>__init__</code>  method.</p>
-<pre><code class="language-python">#@file: hello.py
+<h5 id="Passing-Arguments-To-Function"><a href="#Passing-Arguments-To-Function" class="headerlink" title="Passing Arguments To Function"></a>Passing Arguments To Function</h5><p>Except positional argument can be passed , as you run a function at command line, also you can pass argument by using flag syntax, like the arguments to <code>__init__</code>  method.</p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 
 
@@ -663,12 +652,10 @@ class Car(object):
         return &quot;The {color} car is runing below the maximum speed {max_speed} mph!&quot;\
         .format(color=self._color, max_speed=max_speed)
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     fire.Fire(Car)
-
-
 </code></pre>
-<pre><code class="language-bash">$ python hello.py --color red run 100
+<pre><code class="lang-bash">$ python hello.py --color red run 100
 The red car is runing below the maximum speed 100 mph!
 $ python hello.py --color red run --max-speed=100
 The red car is runing below the maximum speed 100 mph!
@@ -686,40 +673,36 @@ The red car is runing below the maximum speed 100 mph!
 <li>The equal sign between the flag name and its value is optional.</li>
 </ul>
 <hr>
-<h5 id="arguments-separator">Arguments Separator</h5>
-<p>Normally, the arguments passed to a function are fixed, so you can append the further operations on the results, This is the chaining function call rule that are introduced before. But when your arguments are variable, the further operations( i.e. function)  on the results will be treated as an another argument that passed to the function. So, you need to an extra syntax to separate the arguments and the operations on the results. The default separator in <strong>fire</strong>  is the hyphens <code>-</code> , you can change the default separator using <code>--separator</code>  flags. Flags are alway separated from your Fire command by an isolated <code>--</code>. All arguments after the separator will be used to process the result of the function, rather than being passed to the function itself. Here’s an example will show how it works.</p>
-<pre><code class="language-python">#@file: hello.py
+<h5 id="Arguments-Separator"><a href="#Arguments-Separator" class="headerlink" title="Arguments Separator"></a>Arguments Separator</h5><p>Normally, the arguments passed to a function are fixed, so you can append the further operations on the results, This is the chaining function call rule that are introduced before. But when your arguments are variable, the further operations( i.e. function)  on the results will be treated as an another argument that passed to the function. So, you need to an extra syntax to separate the arguments and the operations on the results. The default separator in <strong>fire</strong>  is the hyphens <code>-</code> , you can change the default separator using <code>--separator</code>  flags. Flags are alway separated from your Fire command by an isolated <code>--</code>. All arguments after the separator will be used to process the result of the function, rather than being passed to the function itself. Here’s an example will show how it works.</p>
+<pre><code class="lang-python">#@file: hello.py
 import fire
 
 
 def sort_animals(*animals):
     sorted_items = sorted(animals, key=lambda item: len(str(item)))
-    return ' &gt; '.join(sorted_items)
+    return &#39; &gt; &#39;.join(sorted_items)
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     fire.Fire(sort_animals)
-
-
 </code></pre>
-<pre><code class="language-bash">$ python hello.py cat dog pig chicken
+<pre><code class="lang-bash">$ python hello.py cat dog pig chicken
 cat &gt; dog &gt; pig &gt; chicken
 </code></pre>
-<p>If we want to convert all animal’s name characters to the uppercase, how to do that?</p>
-<pre><code class="language-bash">$ python hello.py cat dog pig chicken upper
+<p>If we want to convert all animal’s name characters to the uppercase, how to do that? </p>
+<pre><code class="lang-bash">$ python hello.py cat dog pig chicken upper
 cat &gt; dog &gt; pig &gt; upper &gt; chicken
 </code></pre>
 <p>As you see the above output result, it didn’t work! Hey, don’t forget thing mentioned just now:<strong>Separator</strong>.</p>
-<pre><code class="language-bash">$ python hello.py cat dog pig chicken - upper
+<pre><code class="lang-bash">$ python hello.py cat dog pig chicken - upper
 CAT &gt; DOG &gt; PIG &gt; CHICKEN
 </code></pre>
-<p>Congratulations! it do works.</p>
-<pre><code class="language-bash">$ python hello.py cat dog pig chicken X upper -- --separator X
+<p>Congratulations! it do works. </p>
+<pre><code class="lang-bash">$ python hello.py cat dog pig chicken X upper -- --separator X
 CAT &gt; DOG &gt; PIG &gt; CHICKEN
 </code></pre>
 <p>The above code also work fine! Here you just change the default separator the hyphens <code>-</code> to <code>X</code>.</p>
-<h4 id="reference">Reference</h4>
-<p>[[1] :The Python Fire Guide](<a href="https://github.com/google/python-fire/blob/master/docs/guide.md" target="_blank" rel="external">https://github.com/google/python-fire/blob/master/docs/guide.md</a>)</p>
-<p>[[2] : README](<a href="https://github.com/google/python-fire" target="_blank" rel="external">https://github.com/google/python-fire</a>)</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://github.com/google/python-fire/blob/master/docs/guide.md" target="_blank" rel="external">[1] :The Python Fire Guide</a></p>
+<p><a href="https://github.com/google/python-fire" target="_blank" rel="external">[2] : README</a></p>
 
     
     </div>

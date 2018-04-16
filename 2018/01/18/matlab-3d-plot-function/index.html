@@ -377,134 +377,132 @@
     </div>
     <div class='article-content'>
     <p>When it comes to data analysis or systematic modeling, the visualization of data is an important assistant tool to provide an intuitive understanding of data and system’s performance in some degree. The focus of this blog is 3D plot function of Matlab, there are total 9 kinds of 3D visualization functions in Matlab, it refers to <code>surf</code>,<code>surfc</code>,<code>mesh</code>,<code>meshc</code>,<code>meshz</code>,<code>contour</code>,<code>contour3</code>,<code>plot3</code>,<code>waterfall</code>. Since the complexity of this 3D plot functions, a huge amount of descriptions in words almost couldn’t  help people, especially those who are new to Matlab,  to understand the usage of those functions, conversely, it will make people are afraid of them and escape from them finally. So here for each function, a testing example will come along. To better understand characteristics of those 3D plot functions, the multi-modal mathematical function is strongly recommended as a testing function for 3D plot function. In this piece blog, the following multi-modal mathematical function will be used in all examples.</p>
-<p>$$f(x,y)=3(1-x)<sup>2e</sup>{-x^2 - (y+1)^2} - 10(\frac{x}{5}-x<sup>3-y</sup>5)e<sup>{-x</sup>2-y<sup>2}-\frac{1}{3}e</sup>{-(x+1)<sup>2-y</sup>2}$$</p>
-<p>The above function can be obtained using <code>peaks</code> function which is built-in Matlab.</p>
+<script type="math/tex; mode=display">f(x,y)=3(1-x)^2e^{-x^2 - (y+1)^2} - 10(\frac{x}{5}-x^3-y^5)e^{-x^2-y^2}-\frac{1}{3}e^{-(x+1)^2-y^2}</script><p>The above function can be obtained using <code>peaks</code> function which is built-in Matlab.</p>
 <ul>
-<li>
-<p><strong><code>contour</code></strong></p>
+<li><p><strong><code>contour</code></strong></p>
 <p>The function of <code>contour</code> is indicated as  its names, it plots function’s 2-D contour curve. The prototype of <code>contour</code> as followed.</p>
 <p><code>contour(X, Y, Z)</code>:contour(X,Y,Z) draws a contour plot of Z using vertices from the mesh defined by X and Y. X and Y can be vectors or matrices.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
 Z = peaks(X, Y);
 contour(X, Y, Z);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test1.bmp" alt=""></p>
 <center> fig 1. the view of `contour(X, Y, Z)`</center>
-<p><code>contour(Z)</code>: draws a contour plot of matrix Z in the x-y plane, with the x-coordinates of the vertices corresponding to column indices of Z and the y-coordinates corresponding to row indices of Z. The
-contour levels are chosen automatically.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+
+<p><code>contour(Z)</code>: draws a contour plot of matrix Z in the x-y plane, with the x-coordinates of the vertices corresponding to column indices of Z and the y-coordinates corresponding to row indices of Z. The<br>contour levels are chosen automatically.</p>
+<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
 Z = peaks(X, Y);
 contour(Z);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test2.jpg" alt=""></p>
 <center>fig 1. the view of `contour(Z)`</center>
+
 <p><code>contour(Z, N)</code>:contour(Z,N) and contour(X,Y,Z,N) draw N contour lines, choosing the levels automatically.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
 Z = peaks(X, Y);
 contour(Z, 30);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test3.jpg" alt=""></p>
 <center>fig 3. the view of `contour(Z, N)`</center>
+
 <p><code>contour(Z, V)</code>: contour(Z,V) and contour(X,Y,Z,V) draw a contour line for each level specified in vector V.  Use contour(Z,[v v]) or contour(X,Y,Z,[v v]) to draw contours for the single level v.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
 Z = peaks(X, Y);
 contour(Z, [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test4.jpg" alt=""></p>
 <center>fig 4. the view of `contour(Z,V)`</center>
 </li>
-<li>
-<p><strong><code>contour3</code></strong></p>
-<p><code>contour3</code> is the same as <code>contour</code> except the contour lines are drawn in multiple planes. Each line is drawn in a horizontal plane at a height equal to the corresponding contour level. <code>contour3</code> plots the 3-D contour curve of function.</p>
-<pre><code class="language-matlab">contour3(peaks, 30);
+<li><p><strong><code>contour3</code></strong></p>
+<p><code>contour3</code> is the same as <code>contour</code> except the contour lines are drawn in multiple planes. Each line is drawn in a horizontal plane at a height equal to the corresponding contour level. <code>contour3</code> plots the 3-D contour curve of function. </p>
+<pre><code class="lang-matlab">contour3(peaks, 30);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour3_test1.bmp" alt=""></p>
 <center>fig 5. the view of `contour3(Z,N)`</center>
+
+
 </li>
 </ul>
 <ul>
-<li>
-<p><strong><code>surf</code></strong></p>
+<li><p><strong><code>surf</code></strong></p>
 <p>As shown by its name, <code>surf</code>  is responsible for plotting the 3D surface mesh of the testing mathematical function. The most common usage of <code>surf</code> is <code>surf(X, Y, Z)</code> or <code>surf(Z)</code>. The parameters  <code>X</code>, <code>Y</code> are typically the output of <code>meshgrid</code>. Over a 2-D rectangular region in the x-y plane. <code>Z</code> determines the height above the plane of each vertex. If only a single Z matrix is given, then it is plotted over the meshgrid <code>X = 1:columns (Z), Y=1:rows(Z)</code>, Thus, columns of Z correspond to different X values and rows of Z correspond to different Y values.</p>
-<p>The color of the surface is computed by linearly scaling the Z values to fit the range of the current colormap.  Use <code>caxis</code> and/or change the colormap to control the appearance.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+<p>The color of the surface is computed by linearly scaling the Z values to fit the range of the current colormap.  Use <code>caxis</code> and/or change the colormap to control the appearance. </p>
+<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
 Z = peaks(X, Y);
 surf(X, Y, Z);
 </code></pre>
 <p>The output of above code:</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surf_test.bmp" alt=""></p>
 <center>fig 6. the 3-D view of `surf`</center>
+
 </li>
 </ul>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surf_test_2D.bmp" alt=""></p>
-<center>fig 7. the 2-D view of `surf`</center>	
+<center>fig 7. the 2-D view of `surf`</center>    
+
 <p>In figure 7, the yellow region represents the place where the function has a mountain peak,  the deeper color is, the more height peak is. Equally, the dark blue region represents the place where the function has a valley, the deeper color is , the deeper valley is.</p>
 <p>If just given <code>Z</code> passing into <code>surf</code>, the mainly difference from <code>surf(X, Y, Z)</code> is just the change of the range of  x-axis and y-axis in the x-y plane. as shown below.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
 Z = peaks(X, Y);
 surf(Z);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surf_test_2.bmp" alt=""></p>
 <center>fig 8. the 3-D view of `surf(Z)`</center>
+
 <ul>
-<li>
-<p><strong><code>surfc</code></strong></p>
+<li><p><strong><code>surfc</code></strong></p>
 <p><code>surfc</code> is just the combination of <code>surf</code> and <code>contour</code>, i.e. <code>surf+contour</code>. the prototype is the same as <code>surf</code> except the contour is plotted beneath the surface mesh.</p>
-<pre><code class="language-matlab">surfc(peaks);
+<pre><code class="lang-matlab">surfc(peaks);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surfc_test1.jpg" alt=""></p>
 <center>fig 9. the view of `surfc(peaks)`</center>
 </li>
-<li>
-<p><strong><code>mesh</code></strong></p>
+<li><p><strong><code>mesh</code></strong></p>
 </li>
 </ul>
-<p>What’s the difference from surf is that the net produced by mesh  is not filled with color. The prototype of <code>mesh</code> is much similar to <code>surf</code>.</p>
-<p><code>mesh(X,Y,Z)</code> draws a wireframe mesh with color determined by <code>Z</code>, so color is proportional to surface height. If <code>X</code> and <code>Y</code> are vectors, <code>length(X) = n</code> and <code>length(Y) = m</code>, where <code>[m,n] = size(Z)</code>. In this case, (<em>X</em>(<em>j</em>), <em>Y</em>(<em>i</em>), <em>Z</em>(<em>i</em>,<em>j</em>)) are the intersections of the wireframe grid lines; <code>X</code> and <code>Y</code> correspond to the columns and rows of <code>Z</code>, respectively. If <code>X</code> and <code>Y</code> are matrices, (<em>X</em>(<em>i</em>,<em>j</em>), <em>Y</em>(<em>i</em>,<em>j</em>), <em>Z</em>(<em>i</em>,<em>j</em>)) are the intersections of the wireframe grid lines. The values in <code>X</code>, <code>Y</code>, or <code>Z</code> can be numeric, datetime, duration, or categorical values.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-mesh(X, Y, Z);
+<p>  What’s the difference from surf is that the net produced by mesh  is not filled with color. The prototype of <code>mesh</code> is much similar to <code>surf</code>.</p>
+<p>  <code>mesh(X,Y,Z)</code> draws a wireframe mesh with color determined by <code>Z</code>, so color is proportional to surface height. If <code>X</code> and <code>Y</code> are vectors, <code>length(X) = n</code> and <code>length(Y) = m</code>, where <code>[m,n] = size(Z)</code>. In this case, (<em>X</em>(<em>j</em>), <em>Y</em>(<em>i</em>), <em>Z</em>(<em>i</em>,<em>j</em>)) are the intersections of the wireframe grid lines; <code>X</code> and <code>Y</code> correspond to the columns and rows of <code>Z</code>, respectively. If <code>X</code> and <code>Y</code> are matrices, (<em>X</em>(<em>i</em>,<em>j</em>), <em>Y</em>(<em>i</em>,<em>j</em>), <em>Z</em>(<em>i</em>,<em>j</em>)) are the intersections of the wireframe grid lines. The values in <code>X</code>, <code>Y</code>, or <code>Z</code> can be numeric, datetime, duration, or categorical values.</p>
+<pre><code class="lang-matlab">  [X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+  Z = peaks(X, Y);
+  mesh(X, Y, Z);
 </code></pre>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/mesh_test1.bmp" alt=""></p>
+<p>  <img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/mesh_test1.bmp" alt=""></p>
   <center>fig 10. the view of `mesh(X, Y, Z)`</center>
-<p><code>mesh(Z)</code> draws a wireframe mesh using <code>X = 1:n</code> and <code>Y = 1:m</code>, where <code>[m,n] = size(Z)</code>. The height, <code>Z</code>, is a single-valued function defined over a rectangular grid. Color is proportional to surface height. The values in <code>Z</code> can be numeric, datetime, duration, or categorical values.</p>
-<pre><code class="language-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-mesh(Z);
+
+<p>  <code>mesh(Z)</code> draws a wireframe mesh using <code>X = 1:n</code> and <code>Y = 1:m</code>, where <code>[m,n] = size(Z)</code>. The height, <code>Z</code>, is a single-valued function defined over a rectangular grid. Color is proportional to surface height. The values in <code>Z</code> can be numeric, datetime, duration, or categorical values.</p>
+<pre><code class="lang-matlab">  [X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
+  Z = peaks(X, Y);
+  mesh(Z);
 </code></pre>
-<p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/mesh_test1.bmp" alt=""></p>
+<p>  <img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/mesh_test1.bmp" alt=""></p>
   <center>fig 11. the view of `mesh(Z)`</center>
+
 <ul>
-<li>
-<p><strong><code>meshc</code></strong></p>
+<li><p><strong><code>meshc</code></strong></p>
 <p>Akin to <code>surfc</code>, <code>meshc</code> is just combination of <code>mesh+contour</code>.</p>
-<pre><code class="language-matlab">meshc(peaks);
+<pre><code class="lang-matlab">meshc(peaks);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/meshc_test1.bmp" alt=""></p>
 <center>fig 12. the view of `meshc(Z)`</center>
 </li>
-<li>
-<p><strong><code>meshz</code></strong></p>
+<li><p><strong><code>meshz</code></strong></p>
 <p><code>meshz</code> is akin to  <code>mesh</code>  except that a “curtain” or reference plane is drawn beneath. This routine only works for surfaces defined on a rectangular grid.  The matrices X and Y define the axis limits only.</p>
-<pre><code class="language-matlab">meshz(peaks);
+<pre><code class="lang-matlab">meshz(peaks);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/meshz_test1.bmp" alt=""></p>
 <center>fig 13. the view of `meshz`</center>
 </li>
-<li>
-<p><strong><code>plot3</code></strong></p>
-<p><code>plot3</code>  plots lines and points in 3-D space. <code>plot3</code> is a three-dimensional version of <code>plot</code>.</p>
-<pre><code class="language-matlab">t = -10*pi:pi/50:10*pi;
+<li><p><strong><code>plot3</code></strong></p>
+<p><code>plot3</code>  plots lines and points in 3-D space. <code>plot3</code> is a three-dimensional version of <code>plot</code>. </p>
+<pre><code class="lang-matlab">t = -10*pi:pi/50:10*pi;
 plot3(sin(t), cos(t), t.^2);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/plot3_test1.bmp" alt=""></p>
 <center>fig 14. the view of `plot3`</center>
 </li>
-<li>
-<p><strong><code>waterfall</code></strong></p>
-<p><code>waterfall</code> is the same as <code>mesh</code> except that the column lines of the mesh are not drawn - thus producing a “waterfall” plot. For column-oriented data analysis, use <code>waterfall(Z')</code>or
-<code>waterfall(X',Y',Z')</code>.</p>
-<pre><code class="language-matlab">figure;
+<li><p><strong><code>waterfall</code></strong></p>
+<p><code>waterfall</code> is the same as <code>mesh</code> except that the column lines of the mesh are not drawn - thus producing a “waterfall” plot. For column-oriented data analysis, use <code>waterfall(Z&#39;)</code>or<br><code>waterfall(X&#39;,Y&#39;,Z&#39;)</code>.</p>
+<pre><code class="lang-matlab">figure;
 waterfall(peaks);
 [X,Y] = meshgrid(-8:.5:8);
 R = sqrt(X.^2 + Y.^2) + eps;
@@ -514,6 +512,7 @@ waterfall(Z);
 </code></pre>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test1.bmp" alt=""></p>
 <center>fig 15. the view of `waterfall`</center>
+
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test2.bmp" alt=""></p>
 <center>fig 16. the view of `waterfall`</center>
 </li>

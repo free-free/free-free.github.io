@@ -382,19 +382,26 @@
 <ul>
 <li>The color type of original device</li>
 <li>The resolution of original device</li>
-<li>Palette</li>
+<li>Palette </li>
 <li>Bit array contains RGB channel’s color value of each pixel</li>
 <li>Flag which indicates the compression scheme of Bit Array</li>
 </ul>
 <p>One Bitmap file mainly contains the four parts, shown in Figure 1.</p>
 <center>
+
 <figure class="half">
+
 <img src="http://oy4cno18k.bkt.clouddn.com/an-introduce-to-BMP-file_01.bmp">
+
 </figure>
+
 </center>
 <center>
-<p>​	Figure 1.</p>
+
+​    Figure 1.
+
 </center>
+
 <ul>
 <li>File Header(14 bytes)</li>
 <li>Info Header(40 bytes)</li>
@@ -403,7 +410,7 @@
 </ul>
 <p><strong>1. File Header(14 bytes)</strong></p>
 <p>File Header is defined as a fixed size structure, which has the size of 14 bytes. the fields of File Header is shown below.</p>
-<pre><code class="language-c">typedef struct tagBITMAPFILEHEADER{
+<pre><code class="lang-c">typedef struct tagBITMAPFILEHEADER{
   WORD bfType;
   DWORD bfSize;
   WORD bfReserved1;
@@ -418,7 +425,7 @@
 <p><code>bfOffBits</code>: The number of bytes where the first byte of Image Data offset to the first byte of file.</p>
 <p><strong>2. Info Header(40 bytes)</strong></p>
 <p>Info Header has the fixed size of 40 bytes, defined as the following.</p>
-<pre><code class="language-c">typedef struct tagBITMAPINFOHEADER{
+<pre><code class="lang-c">typedef struct tagBITMAPINFOHEADER{
   DWORD biSize;
   LONG biWidth;
   LONG biHeight;
@@ -446,7 +453,7 @@
 <p><code>biClrImportant</code>: the number of color which be thought as  important. When the value is 0 , represent all color is important.</p>
 <p><strong>3. Palette</strong></p>
 <p>The palette of one BMP image is optional, some image file doesn’t need palette, e.g. true color image. Actually, the palette is an structure array ,in which the number of elements is equal to <code>biClrUsed</code>. Each element is defined as the following structure.</p>
-<pre><code class="language-c">typedef struct tagRGBQUAD{
+<pre><code class="lang-c">typedef struct tagRGBQUAD{
   // the value of blue color channel
   BYTE rgbBlue;
   // the value of green color channel

@@ -377,27 +377,18 @@
     </div>
     <div class='article-content'>
     <p>In this semester early, I have enrolled my first-degree course <em>Linear System Theory</em>. The focus of this course is the state space representation  and illustrate the concept of observable and controllable of a linear system. As a student of Control Science and Engineering, I know how  important of it to my career in later life. Everything must be practical, this course is also not an exception. here, as a practice , <strong>I will give a implementation of converting state space to transfer function representation.</strong></p>
-<h3 id="mathematical-representation">Mathematical representation</h3>
-<p>Given the transfer function of a linear time invariant (LTI) system,as shown below.</p>
-<p>$$G(s) = \frac{b_{m}s^m + b_{m-1}s^{m-1}+ \dotsb + b_{1}s + b_{0}}{s^n + \alpha_{n-1}s^{n-1} + \alpha_{n-2}s^{n-2} + \dotsb + \alpha_{1}s+\alpha_{0}}$$</p>
-<p>It’s state space representation as follows.</p>
-<p>$$\begin{cases}\dot{x} = Ax + Bu \\ y = Cx + Du\end{cases}$$</p>
-<p>In the above equation,$x$ is the state vector of system, $u$ is the input and $y$ is the output. $A$ called system matrix, it’s dimension is $n\times n$ .B called input matrix, it’s dimension is $n \times p$. C called output matrix , it’s dimension is $q \times n$. D called input &amp; output relational matrix, it’s dimension is $q \times p$.</p>
+<h3 id="Mathematical-representation"><a href="#Mathematical-representation" class="headerlink" title="Mathematical representation"></a>Mathematical representation</h3><p>Given the transfer function of a linear time invariant (LTI) system,as shown below.</p>
+<script type="math/tex; mode=display">G(s) = \frac{b\_{m}s^m + b\_{m-1}s^{m-1}+ \dotsb + b\_{1}s + b\_{0}}{s^n + \alpha\_{n-1}s^{n-1} + \alpha\_{n-2}s^{n-2} + \dotsb + \alpha\_{1}s+\alpha\_{0}}</script><p>It’s state space representation as follows.</p>
+<script type="math/tex; mode=display">\begin{cases}\dot{x} = Ax + Bu \\\\ y = Cx + Du\end{cases}</script><p> In the above equation,$x$ is the state vector of system, $u$ is the input and $y$ is the output. $A$ called system matrix, it’s dimension is $n\times n$ .B called input matrix, it’s dimension is $n \times p$. C called output matrix , it’s dimension is $q \times n$. D called input &amp; output relational matrix, it’s dimension is $q \times p$.</p>
 <p>According to system’s transfer function , it’s <em>kalman I form</em>  , <em>kalman II form</em> and <em>standard observable  form</em> can be easily provided. Conversely,  given the state space representation , the transfer function could be given in the following formula.</p>
-<p>$$G(s) = C(sI - A)^{-1}B + D$$</p>
-<p>Here the calculation of $(sI - A)^{-1}$ is cumbersome,  especially for student who has no assistance with computer.The computational  method of $(sI - A)^{-1}$ can be given in a more comprehensive way, as shown below.</p>
-<p>$$(sI - A)^{-1} = \frac{adj(sI - A)}{det(sI - A)}$$</p>
-<p>$$adj(sI - A) = R_{n-1}s^{n-1} +R_{n-2}s^{n-2} + \dotsb + R_1s + R_0$$</p>
-<p>$$det(sI - A) = s^n + a_{n-1}s^{n-1} + a_{n-2}s^{n-2}+ \dotsb + a_1s + a_0$$</p>
-<p>So here i have already given  the method of computation of $(sI - A)^{-1}$, the next question is how to calculate $R_{n-1}, R_{n-2}, \dots, R_0$ and $a_{n-1}, a_{n-1}, \dots, a_{0}$. The relationship of them is brief and clear.</p>
-<p>$$\begin{cases} R_{n-1} =  I,a_{n-1} = - \frac{tr(R_{n-1}A)}{1} \\ R_{n-2} = R_{n-1}A + a_{n-1}I, a_{n-2}= -\frac{tr(R_{n-2}A)}{2} \\ \cdots \\  \cdots \\ R_{1} = R_{2}A + a_{2}I, a_{1}= -\frac{tr(R_{1}A)}{(n-1)} \\ R_{0} = R_{1}A + a_{1}I, a_{0}= -\frac{tr(R_{0}A)}{n}\end{cases}$$</p>
-<p>As shown above,  $R_{n-1}$ and $a_{n-1}$  are firstly calculated, $R_{n-2}$ and $a_{n-2}$ are followed, then continue the calculation process until the subscript of $R$ and $a$ is reached to <em>$0$</em>. According to equations above, we can easily give the implementation of converting to state space representation to transfer function representation using Matlab.</p>
-<h3 id="matlab-implementation">Matlab implementation</h3>
-<p>In the previous section, we already have introduced mathematics basis of state space representation and transfer function representation of the linear system, and given the method of conversion between each other. So the process of implementing it is much easier using computer language, here I give an implementation using Matlab, the code as follows.</p>
-<pre><code class="language-matlab">% @file: ss2tf.m
+<script type="math/tex; mode=display">G(s) = C(sI - A)^{-1}B + D</script><p>Here the calculation of $(sI - A)^{-1}$ is cumbersome,  especially for student who has no assistance with computer.The computational  method of $(sI - A)^{-1}$ can be given in a more comprehensive way, as shown below.</p>
+<script type="math/tex; mode=display">(sI - A)^{-1} = \frac{adj(sI - A)}{det(sI - A)}</script><script type="math/tex; mode=display">adj(sI - A) = R\_{n-1}s^{n-1} +R\_{n-2}s^{n-2} + \dotsb + R\_1s + R\_0</script><script type="math/tex; mode=display">det(sI - A) = s^n + a\_{n-1}s^{n-1} + a\_{n-2}s^{n-2}+ \dotsb + a\_1s + a\_0</script><p>So here i have already given  the method of computation of $(sI - A)^{-1}$, the next question is how to calculate $R_{n-1}, R_{n-2}, \dots, R_0$ and $a_{n-1}, a_{n-1}, \dots, a_{0}$. The relationship of them is brief and clear.</p>
+<script type="math/tex; mode=display">\begin{cases} R\_{n-1} =  I,a\_{n-1} = - \frac{tr(R\_{n-1}A)}{1} \\\\ R\_{n-2} = R\_{n-1}A + a\_{n-1}I, a\_{n-2}= -\frac{tr(R\_{n-2}A)}{2} \\\\ \cdots \\\\  \cdots \\\\ R\_{1} = R\_{2}A + a\_{2}I, a\_{1}= -\frac{tr(R\_{1}A)}{(n-1)} \\\\ R\_{0} = R\_{1}A + a\_{1}I, a\_{0}= -\frac{tr(R\_{0}A)}{n}\end{cases}</script><p>As shown above,  $R_{n-1}$ and $a_{n-1}$  are firstly calculated, $R_{n-2}$ and $a_{n-2}$ are followed, then continue the calculation process until the subscript of $R$ and $a$ is reached to <em>$0$</em>. According to equations above, we can easily give the implementation of converting to state space representation to transfer function representation using Matlab. </p>
+<h3 id="Matlab-implementation"><a href="#Matlab-implementation" class="headerlink" title="Matlab implementation"></a>Matlab implementation</h3><p>In the previous section, we already have introduced mathematics basis of state space representation and transfer function representation of the linear system, and given the method of conversion between each other. So the process of implementing it is much easier using computer language, here I give an implementation using Matlab, the code as follows.</p>
+<pre><code class="lang-matlab">% @file: ss2tf.m
 % @description: 
 %     The reponsibility of this function is to convert the linear 
-%     system's state  space representation to transfer function
+%     system&#39;s state  space representation to transfer function
 %     representation.
 % @paras: A, system matrix
 % @paras: B, input matrix
@@ -409,7 +400,7 @@
 function [G, CSAI] = ss2tf(A, B, C, D)
     % Get the dimension number of state space representation
     n = size(A, 1);
-    % Generate the identity matrix which's dimension size is same as A
+    % Generate the identity matrix which&#39;s dimension size is same as A
     I = eye(size(A));
     % Coefficient array of determinant of A
     coef = ones(n, 1);
@@ -419,8 +410,8 @@ function [G, CSAI] = ss2tf(A, B, C, D)
     Rx(:, :, 1) = I;
     % Calculate the an-1
     coef(1) = -trace(I * A);
-    % Define the laplace variable 's'
-    s = tf('s');
+    % Define the laplace variable &#39;s&#39;
+    s = tf(&#39;s&#39;);
     % Calculate the first part of R = Rn-1 * Sn-1
     R = Rx(:, :, 1) * s^(n-1);
     % Calculate the first and second part of determinant of A
@@ -432,7 +423,7 @@ function [G, CSAI] = ss2tf(A, B, C, D)
         R = R + Rx(:, :, i) * s^(n-i);
         detSA = detSA + coef(i) * s ^ (n - i);
     end
-    % Compute the transfer function according to system's state space 
+    % Compute the transfer function according to system&#39;s state space 
     % representation ,the formula as follows:
     %   G(s) = C * (sI - A)^-1 * B +D
     G = (C * R * B)/ detSA + D;
@@ -442,7 +433,7 @@ function [G, CSAI] = ss2tf(A, B, C, D)
 end
 </code></pre>
 <p>Though the code is implemented, in a real world, the testing and implementation are the same importance to the problem. In the following content, the testing code is provided.</p>
-<pre><code class="language-matlab">% kalman I form 
+<pre><code class="lang-matlab">% kalman I form 
 A = [0 1 0 0; 
      0 0 1 0; 
      0 0 0 1; 
@@ -457,16 +448,15 @@ D = 0;
 G
 </code></pre>
 <p>output:</p>
-<pre><code class="language-matlab">G =
- 
+<pre><code class="lang-matlab">G =
+
      -s^3 + 2 s^2 + 23 s + 8
   -----------------------------
   s^4 + 7 s^3 + 3 s^2 + 5 s + 1
- 
-Continuous-time transfer function.
 
+Continuous-time transfer function.
 </code></pre>
-<pre><code class="language-matlab">% standard observable form 
+<pre><code class="lang-matlab">% standard observable form 
 A = [0 0 0 -1; 
      1 0 0 -5; 
      0 1 0 -3; 
@@ -481,16 +471,15 @@ D = 0;
 G
 </code></pre>
 <p>output:</p>
-<pre><code class="language-matlab">G =
- 
+<pre><code class="lang-matlab">G =
+
      -s^3 + 2 s^2 + 23 s + 8
   -----------------------------
   s^4 + 7 s^3 + 3 s^2 + 5 s + 1
- 
+
 Continuous-time transfer function.
 </code></pre>
-<h3 id="reference">Reference</h3>
-<p>[[1] 郑大钟. 线性系统理论(第2版)[J]. 2002.](<a href="http://xueshu.baidu.com/s?wd=paperuri%3A%28269231923bf2d6a86441e28d24e8930c%29&amp;filter=sc_long_sign&amp;sc_ks_para=q%3D%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%28%E7%AC%AC2%E7%89%88%29&amp;sc_us=8313367311188451873&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" rel="external">http://xueshu.baidu.com/s?wd=paperuri%3A(269231923bf2d6a86441e28d24e8930c)&amp;filter=sc_long_sign&amp;sc_ks_para=q%3D线性系统理论(第2版)&amp;sc_us=8313367311188451873&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8</a>)</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://xueshu.baidu.com/s?wd=paperuri%3A%28269231923bf2d6a86441e28d24e8930c%29&amp;filter=sc_long_sign&amp;sc_ks_para=q%3D%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA%28%E7%AC%AC2%E7%89%88%29&amp;sc_us=8313367311188451873&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" rel="external">[1] 郑大钟. 线性系统理论(第2版)[J]. 2002.</a></p>
 
     
     </div>
