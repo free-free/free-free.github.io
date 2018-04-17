@@ -1,415 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Markdown集成mathjax · Infinite.ft的博客</title><meta name="description" content="Markdown集成mathjax - infinite.ft"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://free-free.github.io/atom.xml" title="Infinite.ft的博客"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">HOME</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/categories/math" target="_self" class="nav-list-link">MATH</a></li><li class="nav-list-item"><a href="/categories/tech" target="_self" class="nav-list-link">TECH</a></li><li class="nav-list-item"><a href="/categories/mylife" target="_self" class="nav-list-link">NOTES</a></li><li class="nav-list-item"><a href="https://github.com/free-free" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Markdown集成mathjax</h1><div class="post-info">Oct 24, 2017</div><div class="post-content"><script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
-
-
-<head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  
-  
-  
-  
-    
-  
-      <title>Markdown集成mathjax - Infinite.ft的博客</title>
-  
-  
-  <meta name="description" content="">
-  <meta name="author" content="infinite.ft">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Load scheme css -->
-  <link rel="stylesheet" href="/css/lightgallery.css">
-  
-
-
-
-
-
-    <link rel="stylesheet" href="/css/taurus.css">
-    
-        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
-    
-
-
-  <!-- load font awesome 5 -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-  });
-  </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="/js/social-share.min.js"></script>
-    <script src="/js/theme.js"></script>
-
-  <!-- include cookie.js -->
-  
-  
-
-  <!-- include comment system code -->
-  
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
-
- 
-
-<header id="header">
-	<div class="header-title">
-		
-		<div class='header-logo'>
-			<a href='/'>
-				<img src='/images/avatar.png' />
-			</a>
-		</div>
-		<div class='header-text'>
-			<h1>
-				<a href="/">Infinite.ft的博客</a>
-			</h1>
-			<subtitle>
-				Hello
-			</subtitle>
-		</div>
-		
-	</div>
-	<div id='header-nav'>
-		
-
-
-
-<nav id="nav">
-	
-	
-		
-			
-		
-		
-			<div class='nav-item'>
-				
-					<div class="nav-name active_page">
-				
-					<a class='nav-link' href="/">
-						<span>Home </span>
-					</a>
-				</div>
-			</div>
-		
-	
-	
-	<div class='nav-item' id='nav-item-toc'>
-		
-
-
-
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MathJax"><span class="toc-number">2.</span> <span class="toc-text">MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MathJax简介"><span class="toc-number">2.1.</span> <span class="toc-text">1. MathJax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-引入MathJax"><span class="toc-number">2.2.</span> <span class="toc-text">2. 引入MathJax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MathJax的LaTex语法"><span class="toc-number">2.3.</span> <span class="toc-text">3. MathJax的LaTex语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
-<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
-    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
-</div>
-
-	</div>
-	
-	<div class='nav-item' id='nav-item-archive'>
-		
-				<div class='nav-icon'>
-				
-			<a href="/archives/" title='Archives'>
-			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class='nav-item' id='nav-item-search'>
-		
-		<div class='nav-icon'>
-		
-			<a href="/search/" title='Search'>
-			<img src="/images/icons/colorful-outlined/search.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class="nav-item" id='nav-item-more'>
-		<div class="nav-icon">
-				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
-				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
-				</a>
-		</div>
-		<div class="nav-more-menu">
-		
-			
-			
-				
-			
-				
-			
-				
-			
-		
-			<div class='nav-more-item'>
-					<div class="nav-name">
-						<a class='nav-link' href="/">
-							<span>Home</span>
-						</a>
-					</div>
-			</div>
-		
-		
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/tech/">
-						<span>Tech</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/math/">
-						<span>Math</span>
-					</a>
-				</div>
-		</div>
-		
-	</div>
-	</div>
-</nav>
-
-	</div>
-</header>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div style="flex: 1;">
-      <style>
-    body {
-        background-color: white;
-    }
-</style>
-
-
-
-
-
-
-
-
-
-    
-        
-            
-            
-        
-    
-
-
-
-
-
-
-
-
-
-    
-    
-        
-    
-
-    
-        
-    
-
-
-
-
-
-
-
-
-
-<article class="article" id="/2017/10/24/integrate-with-mathjax-in-markdown/" data-name='Markdown集成mathjax' data-version="">
-
-    <!-- Title -->
-    <div class='article-header'>
-         
-         <h1 class='article-title'>
-            <a href="/2017/10/24/integrate-with-mathjax-in-markdown/">
-                Markdown集成mathjax
-            </a>
-        </h1>
-        <!-- TODO: support nested categories,display them nicely -->
-        
-        <ul class='article-categories'>
-            
-            
-                <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
-                </a></li>
-            
-        </ul>
-        
-    </div>
-    
-    <!-- Date and Author -->
-    <div class='article-meta'>
-    <ul>
-            <li><i class='fa fa-calendar'></i> 2017-10-24</li>
-            
-            <li><i class="fa fa-user"></i> infinite.ft</li>
-            
-            <li><i class="fas fa-copyright"></i>
-            
-                
-                
-            
-            
-                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
-            
-            </li>
-    </ul>
-    
-<div class="tags">
-	
-		
-			<label class='tag-1'><a href="/tags/LaTex/">Latex</a></label>
-		
-	
-		
-			<label class='tag-2'><a href="/tags/math/">Math</a></label>
-		
-	
-	</div>
-
-    </div>
-    <div class='article-cards'>
-        <!-- Author Card -->
-        <!---
-        <div class='Card-article Card-author'>
-            <div class='card-title'>
-                <h3></h3>
-            </div>
-            <div class='card-content'>
-                    <div class="author-meta">
-                            <div class='author-figure'>
-                                <img src="" alt="">
-                            </div>
-                            <div class='author-name'>
-                                infinite.ft
-                            </div>
-                        </div>
-                        <div class="author-ai">
-                            <div class='author-intro'>
-                                <!-- TODO: auto generating author description -->
-                                <!-- 
-                            </div>
-                            <div class="author-articles">
-                                <!-- TODO: auto generating author articles -->
-                                <!-- <ul>
-                                    <li>Article 1</li>
-                                    <li>Article 2</li>
-                                    <li>Article 3</li>
-                                    <li>Article 4</li>
-                                    <li>Article 5</li>
-                                    <li>Article 6</li>
-                                </ul>
-                            </div>
-                        </div>
-            </div>
-            
-        </div> -->
-
-        <!-- Visit Card -->
-        <!-- <div class="Card-article Card-visit"> -->
-            <!-- <div class="card-title">
-  <h3>Post Visit</h3>
-</div>
-<div class="card-chart">
-  <div id='chart-post-visit'></div>
-</div> -->
-        <!-- </div> -->
-        
-        <!-- Auto Excerpt Card -->
-        <!-- <div class="Card-article Card-excerpt">
-            <div class="card-title">
-  <h3>Quick Read</h3>
-</div>
-<div class="card-text">
-  <p id='text-post-summary'>概述​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学公式比较方便、简洁，插入的数学公式也很漂亮。遂在这里把怎样使用MathJax在markdown中插入数学公式的方法和基本的MathJax的语法记录下来，以便之后学习，如有什么错误请大家指教。
-MathJax1....</p>
-</div>
-        </div> -->
-    </div>
-    
-    <!-- Gallery -->
-    <!-- TODO: add a slider to gallery -->
-    
-
-    <!-- Content -->
-    <!-- TODO: support table of content -->
-    <div class="article-toc" id='article-toc'>
-        
-
-
-
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MathJax"><span class="toc-number">2.</span> <span class="toc-text">MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MathJax简介"><span class="toc-number">2.1.</span> <span class="toc-text">1. MathJax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-引入MathJax"><span class="toc-number">2.2.</span> <span class="toc-text">2. 引入MathJax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MathJax的LaTex语法"><span class="toc-number">2.3.</span> <span class="toc-text">3. MathJax的LaTex语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
-<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
-    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
-</div>
-
-    </div>
-    <div class='article-content'>
-    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学公式比较方便、简洁，插入的数学公式也很漂亮。遂在这里把怎样使用MathJax在markdown中插入数学公式的方法和基本的MathJax的语法记录下来，以便之后学习，如有什么错误请大家指教。</p>
+<p>[TOC]</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​    之前一直使用markdown写文章，使用的都是markdown常规的语法，并没有考虑过怎样使用markdown插入数学公式，直到最近需要在文章中插入数学公式时，才认真考虑怎样使用markdown插入数学公式。在网上查了之后，发现markdown并不支持直接插入数学公式，需要借助第三方来插入，在草草试用几种插入数学公式的方式之后，个人觉得使用MathJax插入数学公式比较方便、简洁，插入的数学公式也很漂亮。遂在这里把怎样使用MathJax在markdown中插入数学公式的方法和基本的MathJax的语法记录下来，以便之后学习，如有什么错误请大家指教。</p>
 <h1 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h1><h2 id="1-MathJax简介"><a href="#1-MathJax简介" class="headerlink" title="1. MathJax简介"></a>1. MathJax简介</h2><p>MathJax是一个javascript软件包，它允许你通过LaTex、MathML或者AsciiMath语法在网页中插入数学公式，并通过javascript处理之后产生HTML、SVG或者MathML equations 等可视化的格式，以便在浏览器中浏览。</p>
 <h2 id="2-引入MathJax"><a href="#2-引入MathJax" class="headerlink" title="2. 引入MathJax"></a>2. 引入MathJax</h2><ul>
 <li><h3 id="通过CDN引入"><a href="#通过CDN引入" class="headerlink" title="通过CDN引入"></a>通过CDN引入</h3><p>通过CDN网络引入MathJax只需要在Markdown文档加入下面的代码<a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#using-a-content-delivery-network-cdn" target="_blank" rel="external">1</a></a>，在markdown解析的时候会通过CDN自动将MathJax加载到当前页面中。该方式需要联网，但也是最简单、最快速的方式，个人推荐也使用这种方式。</p>
 <p><code>&lt;script type=&quot;text/javascript&quot; async src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;</code></p>
-<p>​</p>
 </li>
 </ul>
 <ul>
 <li><h3 id="本地引入"><a href="#本地引入" class="headerlink" title="本地引入"></a>本地引入</h3><p>本地引入需要将MathJax安装到你的服务器上，或者下载到本地磁盘上，具体引入方式请参考官方文档<a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external"><a href="http://docs.mathjax.org/en/latest/start.html#installing-your-own-copy-of-mathjax" target="_blank" rel="external">2</a></a>。</p>
 </li>
 </ul>
-<h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h4 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h4><p>所谓行内公式是指公式与文字显示在同一行，以<script type="math/tex">........</script>来标记，在两个<code>$</code>符号插入数学公式。例如：</p>
-<pre><code class="lang-latex">$\cos{2\theta}=\cos^2{\theta}-\sin^2{\theta}$
-</code></pre>
-<p>$cos{2\theta}=\cos^{2}{\theta}-\sin^{2}{\theta}$</p>
-<pre><code class="lang-latex">$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$
-</code></pre>
-<p>$\lim_{x \to \infty} \mathrm{e}^{-x} = 0$</p>
-<pre><code class="lang-latex">$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$
-</code></pre>
-<p>$ f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$</p>
-<h4 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h4><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以$$$……$$$来标记，例如：</p>
-<pre><code class="lang-latex">$$\cos^2{2\theta}=\cos^2{\theta}-\sin^2{\theta}$$
-</code></pre>
-<script type="math/tex; mode=display">\cos^{2}{2\theta}=\cos^2{\theta}-\sin^{2}{\theta}</script><pre><code class="lang-latex">$$\lim_{x \to \infty} \mathrm{e}^(-x) =0$$
-</code></pre>
-<script type="math/tex; mode=display">\lim_{x \to \infty}\mathrm{e}^{-x}=0</script><pre><code class="lang-latex">$$f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}$$
-</code></pre>
+<h2 id="3-MathJax的LaTex语法"><a href="#3-MathJax的LaTex语法" class="headerlink" title="3. MathJax的LaTex语法"></a>3. MathJax的LaTex语法</h2><h3 id="3-1-数学公式呈现方式"><a href="#3-1-数学公式呈现方式" class="headerlink" title="3.1 数学公式呈现方式"></a>3.1 数学公式呈现方式</h3><h4 id="3-1-1-行内公式-inline-formulas"><a href="#3-1-1-行内公式-inline-formulas" class="headerlink" title="3.1.1 行内公式(inline formulas)"></a>3.1.1 行内公式(inline formulas)</h4><p>所谓行内公式是指公式与文字显示在同一行，以<strong>$</strong>或者<strong>\\(….\\)</strong>来标记，在两个<strong>$</strong>符号插入数学公式。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$\cos&#123;2\theta&#125;=\cos^2&#123;\theta&#125;-\sin^2&#123;\theta&#125;$</div></pre></td></tr></table></figure>
+<p>\(cos{2\theta}=\cos^{2}{\theta}-\sin^{2}{\theta}\)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$\lim_&#123;x \to \infty&#125; \mathrm&#123;e&#125;^&#123;-x&#125; = 0$</div></pre></td></tr></table></figure>
+<p>\(\lim_{x \to \infty} \mathrm{e}^{-x} = 0\)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$f(t)*g(t)=\int_&#123;-\infty&#125;^&#123;+\infty&#125;&#123;f(\tau)g(t-\tau)\mathrm&#123;d&#125;\tau&#125;$</div></pre></td></tr></table></figure>
+<p>\(f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}\)</p>
+<h4 id="3-1-2-Displayed-formulas"><a href="#3-1-2-Displayed-formulas" class="headerlink" title="3.1.2 Displayed formulas"></a>3.1.2 Displayed formulas</h4><p>所谓Displayed formulas指单独另起一行居中并放大显示的数学公式，以<strong>$$</strong>来标记，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\cos^2&#123;2\theta&#125;=\cos^2&#123;\theta&#125;-\sin^2&#123;\theta&#125;$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\cos^{2}{2\theta}=\cos^2{\theta}-\sin^{2}{\theta}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\lim_&#123;x \to \infty&#125; \mathrm&#123;e&#125;^(-x) =0$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\lim_{x \to \infty}\mathrm{e}^{-x}=0</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$f(t)*g(t)=\int_&#123;-\infty&#125;^&#123;+\infty&#125;&#123;f(\tau)g(t-\tau)\mathrm&#123;d&#125;\tau&#125;$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">f(t)*g(t)=\int_{-\infty}^{+\infty}{f(\tau)g(t-\tau)\mathrm{d}\tau}</script><h3 id="3-2-LaTex数学符号"><a href="#3-2-LaTex数学符号" class="headerlink" title="3.2 LaTex数学符号"></a>3.2 LaTex数学符号</h3><h4 id="3-2-1-希腊字母-Greek-letters"><a href="#3-2-1-希腊字母-Greek-letters" class="headerlink" title="3.2.1 希腊字母(Greek letters)"></a>3.2.1 希腊字母(Greek letters)</h4><div class="table-container">
 <table>
 <thead>
@@ -420,95 +33,95 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$A,\alpha$</td>
+<td style="text-align:center">\(A,\alpha\)</td>
 <td style="text-align:center">A ,\alpha</td>
 </tr>
 <tr>
-<td style="text-align:center">$B,\alpha$</td>
+<td style="text-align:center">\(B,\alpha\)</td>
 <td style="text-align:center">B,\beta</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Gamma,\gamma$</td>
+<td style="text-align:center">\(\Gamma,\gamma\)</td>
 <td style="text-align:center">\Gamma,\gamma</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Delta,\delta$</td>
+<td style="text-align:center">\(\Delta,\delta\)</td>
 <td style="text-align:center">\Delta,\delta</td>
 </tr>
 <tr>
-<td style="text-align:center">$E,\epsilon,\varepsilon$</td>
+<td style="text-align:center">\(E,\epsilon,\varepsilon\)</td>
 <td style="text-align:center">E,\epsilon,\varepsilon</td>
 </tr>
 <tr>
-<td style="text-align:center">$Z,\zeta$</td>
-<td style="text-align:center">E,\zeta</td>
+<td style="text-align:center">\(Z,\zeta\)</td>
+<td style="text-align:center">Z,\zeta</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Theta,\theta,\vartheta$</td>
+<td style="text-align:center">\(\Theta,\theta,\vartheta\)</td>
 <td style="text-align:center">\Theta,\theta,\vartheta</td>
 </tr>
 <tr>
-<td style="text-align:center">$I,\iota$</td>
+<td style="text-align:center">\(I,\iota\)</td>
 <td style="text-align:center">I,\iota</td>
 </tr>
 <tr>
-<td style="text-align:center">$K,\kappa,\varkappa$</td>
+<td style="text-align:center">\(K,\kappa,\varkappa\)</td>
 <td style="text-align:center">K,\kappa,\varkappa</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Lambda,\lambda$</td>
+<td style="text-align:center">\(\Lambda,\lambda\)</td>
 <td style="text-align:center">\Lambda,\lambda</td>
 </tr>
 <tr>
-<td style="text-align:center">$M,\mu$</td>
+<td style="text-align:center">\(M,\mu\)</td>
 <td style="text-align:center">M,\mu</td>
 </tr>
 <tr>
-<td style="text-align:center">$N,\nu$</td>
+<td style="text-align:center">\(N,\nu\)</td>
 <td style="text-align:center">N,\nu</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Xi,\xi$</td>
+<td style="text-align:center">\(\Xi,\xi\)</td>
 <td style="text-align:center">\Xi,\xi</td>
 </tr>
 <tr>
-<td style="text-align:center">$O,o$</td>
+<td style="text-align:center">\(O,o\)</td>
 <td style="text-align:center">O,o</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Pi,\pi,\varpi$</td>
+<td style="text-align:center">\(\Pi,\pi,\varpi\)</td>
 <td style="text-align:center">\Pi,\pi,\varpi</td>
 </tr>
 <tr>
-<td style="text-align:center">$P,\rho,\varrho$</td>
+<td style="text-align:center">\(P,\rho,\varrho\)</td>
 <td style="text-align:center">P,\rho,\varrho</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Sigma,\sigma,\varsigma$</td>
+<td style="text-align:center">\(\Sigma,\sigma,\varsigma\)</td>
 <td style="text-align:center">\Sigma,\sigma,\varsigma</td>
 </tr>
 <tr>
-<td style="text-align:center">$T,\tau$</td>
+<td style="text-align:center">\(T,\tau\)</td>
 <td style="text-align:center">T,\tau</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Upsilon,\upsilon$</td>
+<td style="text-align:center">\(\Upsilon,\upsilon\)</td>
 <td style="text-align:center">\Upsilon,\up</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Phi,\phi,\varphi$</td>
+<td style="text-align:center">\(\Phi,\phi,\varphi\)</td>
 <td style="text-align:center">\Phi,\phi,\varphi</td>
 </tr>
 <tr>
-<td style="text-align:center">$X,\chi$</td>
+<td style="text-align:center">\(X,\chi\)</td>
 <td style="text-align:center">X,\chi</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Psi,\psi$</td>
+<td style="text-align:center">\(\Psi,\psi\)</td>
 <td style="text-align:center">\Psi,\psi</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Omega,\omega$</td>
+<td style="text-align:center">\(\Omega,\omega\)</td>
 <td style="text-align:center">\Omega,\o</td>
 </tr>
 </tbody>
@@ -524,63 +137,63 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\partial$</td>
+<td style="text-align:center">\(\partial\)</td>
 <td style="text-align:center">\partial</td>
 </tr>
 <tr>
-<td style="text-align:center">$\eth$</td>
+<td style="text-align:center">\(\eth\)</td>
 <td style="text-align:center">\eth</td>
 </tr>
 <tr>
-<td style="text-align:center">$\hbar$</td>
+<td style="text-align:center">\(\hbar\)</td>
 <td style="text-align:center">\hbar</td>
 </tr>
 <tr>
-<td style="text-align:center">$\imath$</td>
+<td style="text-align:center">\(\imath\)</td>
 <td style="text-align:center">\imath</td>
 </tr>
 <tr>
-<td style="text-align:center">$\jmath$</td>
+<td style="text-align:center">\(\jmath\)</td>
 <td style="text-align:center">\jmath</td>
 </tr>
 <tr>
-<td style="text-align:center">$\ell$</td>
+<td style="text-align:center">\(\ell\)</td>
 <td style="text-align:center">\ell</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Re$</td>
+<td style="text-align:center">\(\Re\)</td>
 <td style="text-align:center">\Re</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Im$</td>
+<td style="text-align:center">\(\Im\)</td>
 <td style="text-align:center">\Im</td>
 </tr>
 <tr>
-<td style="text-align:center">$\wp$</td>
+<td style="text-align:center">\(\wp\)</td>
 <td style="text-align:center">\wp</td>
 </tr>
 <tr>
-<td style="text-align:center">$\nabla$</td>
+<td style="text-align:center">\(\nabla\)</td>
 <td style="text-align:center">\nabla</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Box$</td>
+<td style="text-align:center">\(\Box\)</td>
 <td style="text-align:center">\Box</td>
 </tr>
 <tr>
-<td style="text-align:center">$\infty$</td>
+<td style="text-align:center">\(\infty\)</td>
 <td style="text-align:center">\infty</td>
 </tr>
 <tr>
-<td style="text-align:center">$\aleph$</td>
+<td style="text-align:center">\(\aleph\)</td>
 <td style="text-align:center">\aleph</td>
 </tr>
 <tr>
-<td style="text-align:center">$\beth$</td>
+<td style="text-align:center">\(\beth\)</td>
 <td style="text-align:center">\beth</td>
 </tr>
 <tr>
-<td style="text-align:center">$\gimel$</td>
+<td style="text-align:center">\(\gimel\)</td>
 <td style="text-align:center">\gimel</td>
 </tr>
 </tbody>
@@ -596,51 +209,51 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\sin$</td>
+<td style="text-align:center">\(\sin\)</td>
 <td style="text-align:center">\sin</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cos$</td>
+<td style="text-align:center">\(\cos\)</td>
 <td style="text-align:center">\cos</td>
 </tr>
 <tr>
-<td style="text-align:center">$\tan$</td>
+<td style="text-align:center">\(\tan\)</td>
 <td style="text-align:center">\tan</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cot$</td>
+<td style="text-align:center">\(\cot\)</td>
 <td style="text-align:center">\cot</td>
 </tr>
 <tr>
-<td style="text-align:center">$\arcsin$</td>
+<td style="text-align:center">\(\arcsin\)</td>
 <td style="text-align:center">\arcsin</td>
 </tr>
 <tr>
-<td style="text-align:center">$\arccos$</td>
+<td style="text-align:center">\(\arccos\)</td>
 <td style="text-align:center">\arccos</td>
 </tr>
 <tr>
-<td style="text-align:center">$\arctan$</td>
-<td style="text-align:center">\\arctan</td>
+<td style="text-align:center">\(\arctan\)</td>
+<td style="text-align:center">\arctan</td>
 </tr>
 <tr>
-<td style="text-align:center">$\sinh$</td>
+<td style="text-align:center">\(\sinh\)</td>
 <td style="text-align:center">\sinh</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cosh$</td>
+<td style="text-align:center">\(\cosh\)</td>
 <td style="text-align:center">\cosh</td>
 </tr>
 <tr>
-<td style="text-align:center">$\tanh$</td>
+<td style="text-align:center">\(\tanh\)</td>
 <td style="text-align:center">\tanh</td>
 </tr>
 <tr>
-<td style="text-align:center">$\coth$</td>
+<td style="text-align:center">\(\coth\)</td>
 <td style="text-align:center">\coth</td>
 </tr>
 <tr>
-<td style="text-align:center">$\sec$</td>
+<td style="text-align:center">\(\sec\)</td>
 <td style="text-align:center">\sec</td>
 </tr>
 </tbody>
@@ -656,111 +269,111 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\pm$</td>
+<td style="text-align:center">\(\pm\)</td>
 <td style="text-align:center">\pm</td>
 </tr>
 <tr>
-<td style="text-align:center">$\mp$</td>
+<td style="text-align:center">\(\mp\)</td>
 <td style="text-align:center">\mp</td>
 </tr>
 <tr>
-<td style="text-align:center">$\times$</td>
+<td style="text-align:center">\(\times\)</td>
 <td style="text-align:center">\times</td>
 </tr>
 <tr>
-<td style="text-align:center">$\div$</td>
+<td style="text-align:center">\(\div\)</td>
 <td style="text-align:center">\div</td>
 </tr>
 <tr>
-<td style="text-align:center">$\ast$</td>
+<td style="text-align:center">\(\ast\)</td>
 <td style="text-align:center">\ast</td>
 </tr>
 <tr>
-<td style="text-align:center">$\star$</td>
+<td style="text-align:center">\(\star\)</td>
 <td style="text-align:center">\star</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cap$</td>
+<td style="text-align:center">\(\cap\)</td>
 <td style="text-align:center">\cap</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cup$</td>
+<td style="text-align:center">\(\cup\)</td>
 <td style="text-align:center">\cup</td>
 </tr>
 <tr>
-<td style="text-align:center">$\sqcap$</td>
+<td style="text-align:center">\(\sqcap\)</td>
 <td style="text-align:center">\sqcap</td>
 </tr>
 <tr>
-<td style="text-align:center">$\sqcup$</td>
+<td style="text-align:center">\(\sqcup\)</td>
 <td style="text-align:center">\sqcup</td>
 </tr>
 <tr>
-<td style="text-align:center">$\vee$</td>
+<td style="text-align:center">\(\vee\)</td>
 <td style="text-align:center">\vee</td>
 </tr>
 <tr>
-<td style="text-align:center">$\wedge$</td>
+<td style="text-align:center">\(\wedge\)</td>
 <td style="text-align:center">\wedge</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cdot$</td>
+<td style="text-align:center">\(\cdot\)</td>
 <td style="text-align:center">\cdot</td>
 </tr>
 <tr>
-<td style="text-align:center">$\diamond$</td>
+<td style="text-align:center">\(\diamond\)</td>
 <td style="text-align:center">\diamond</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigtriangleup$</td>
+<td style="text-align:center">\(\bigtriangleup\)</td>
 <td style="text-align:center">\bigtriangleup</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigtriangledown$</td>
+<td style="text-align:center">\(\bigtriangledown\)</td>
 <td style="text-align:center">\bigtriangledown</td>
 </tr>
 <tr>
-<td style="text-align:center">$\triangleleft$</td>
+<td style="text-align:center">\(\triangleleft\)</td>
 <td style="text-align:center">\triangleleft</td>
 </tr>
 <tr>
-<td style="text-align:center">$\triangleright$</td>
+<td style="text-align:center">\(\triangleright\)</td>
 <td style="text-align:center">\triangleright</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigcirc$</td>
+<td style="text-align:center">\(\bigcirc\)</td>
 <td style="text-align:center">\bigcirc</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bullet$</td>
+<td style="text-align:center">\(\bullet\)</td>
 <td style="text-align:center">\bullet</td>
 </tr>
 <tr>
-<td style="text-align:center">$\oplus$</td>
+<td style="text-align:center">\(\oplus\)</td>
 <td style="text-align:center">\oplus</td>
 </tr>
 <tr>
-<td style="text-align:center">$\otimes$</td>
+<td style="text-align:center">\(\otimes\)</td>
 <td style="text-align:center">\otimes</td>
 </tr>
 <tr>
-<td style="text-align:center">$\ominus$</td>
+<td style="text-align:center">\(\ominus\)</td>
 <td style="text-align:center">\ominus</td>
 </tr>
 <tr>
-<td style="text-align:center">$\odot$</td>
+<td style="text-align:center">\(\odot\)</td>
 <td style="text-align:center">\odot</td>
 </tr>
 <tr>
-<td style="text-align:center">$\circ$</td>
+<td style="text-align:center">\(\circ\)</td>
 <td style="text-align:center">\circ</td>
 </tr>
 <tr>
-<td style="text-align:center">$\setminus$</td>
+<td style="text-align:center">\(\setminus\)</td>
 <td style="text-align:center">\setminus</td>
 </tr>
 <tr>
-<td style="text-align:center">$\oslash$</td>
+<td style="text-align:center">\(\oslash\)</td>
 <td style="text-align:center">\oslash</td>
 </tr>
 </tbody>
@@ -776,127 +389,114 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\exists$</td>
-<td style="text-align:center">\exists</td>
+<td style="text-align:center">\(\exists\)</td>
+<td style="text-align:center">\exist</td>
 </tr>
 <tr>
-<td style="text-align:center">$\nexists$</td>
+<td style="text-align:center">\(\nexists\)</td>
 <td style="text-align:center">\nexists</td>
 </tr>
 <tr>
-<td style="text-align:center">$\forall$</td>
+<td style="text-align:center">\(\forall\)</td>
 <td style="text-align:center">\forall</td>
 </tr>
 <tr>
-<td style="text-align:center">$\neg$</td>
+<td style="text-align:center">\(\neg\)</td>
 <td style="text-align:center">\neg</td>
 </tr>
 <tr>
-<td style="text-align:center">$\subset$</td>
+<td style="text-align:center">\(\subset\)</td>
 <td style="text-align:center">\subset</td>
 </tr>
 <tr>
-<td style="text-align:center">$\supset$</td>
+<td style="text-align:center">\(\supset\)</td>
 <td style="text-align:center">\supset</td>
 </tr>
 <tr>
-<td style="text-align:center">$\in$</td>
+<td style="text-align:center">\(\in\)</td>
 <td style="text-align:center">\in</td>
 </tr>
 <tr>
-<td style="text-align:center">$\notin$</td>
+<td style="text-align:center">\(\notin\)</td>
 <td style="text-align:center">\notin</td>
 </tr>
 <tr>
-<td style="text-align:center">$\ni$</td>
+<td style="text-align:center">\(\ni\)</td>
 <td style="text-align:center">\ni</td>
 </tr>
 <tr>
-<td style="text-align:center">$\land$</td>
+<td style="text-align:center">\(\land\)</td>
 <td style="text-align:center">\land</td>
 </tr>
 <tr>
-<td style="text-align:center">$\lor$</td>
+<td style="text-align:center">\(\lor\)</td>
 <td style="text-align:center">\lor</td>
 </tr>
 <tr>
-<td style="text-align:center">$\to$</td>
+<td style="text-align:center">\(\to\)</td>
 <td style="text-align:center">\to</td>
 </tr>
 <tr>
-<td style="text-align:center">$\gets$</td>
+<td style="text-align:center">\(\gets\)</td>
 <td style="text-align:center">\gets</td>
 </tr>
 <tr>
-<td style="text-align:center">$\mapsto$</td>
+<td style="text-align:center">\(\mapsto\)</td>
 <td style="text-align:center">\mapsto</td>
 </tr>
 <tr>
-<td style="text-align:center">$\implies$</td>
+<td style="text-align:center">\(\implies\)</td>
 <td style="text-align:center">\implies</td>
 </tr>
 <tr>
-<td style="text-align:center">$\leftrightarrow$</td>
+<td style="text-align:center">\(\leftrightarrow\)</td>
 <td style="text-align:center">\leftrightarrow</td>
 </tr>
 <tr>
-<td style="text-align:center">$\Leftrightarrow$</td>
+<td style="text-align:center">\(\Leftrightarrow\)</td>
 <td style="text-align:center">\Leftrightarrow</td>
 </tr>
 <tr>
-<td style="text-align:center">$\top$</td>
+<td style="text-align:center">\(\top\)</td>
 <td style="text-align:center">\top</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bot$</td>
+<td style="text-align:center">\(\bot\)</td>
 <td style="text-align:center">\bot</td>
 </tr>
 <tr>
-<td style="text-align:center">$\emptyset,\varnothing$</td>
+<td style="text-align:center">\(\emptyset,\varnothing\)</td>
 <td style="text-align:center">\emptyset,\varnothing</td>
 </tr>
 </tbody>
 </table>
 </div>
 <h4 id="3-2-6-上标号和下标号的表示方法"><a href="#3-2-6-上标号和下标号的表示方法" class="headerlink" title="3.2.6 上标号和下标号的表示方法"></a>3.2.6 上标号和下标号的表示方法</h4><p>在LaTex中，使用<code>^</code>符号代表上标号，使用<code>_</code>符号代表下标号，当上/下标号是一个复合的表达式时，需要将使用curly braces<code>{}</code>将表达式包起来，例如:</p>
-<pre><code class="lang-latex">$$k_{n+1} = n^2 + k_n^2  - k\_{n-1}$$
-</code></pre>
-<script type="math/tex; mode=display">k_{n+1} = n^2 + k_n^2 - k_{n-1}</script><pre><code class="lang-latex">$$n^22$$
-</code></pre>
-<script type="math/tex; mode=display">n^{22}</script><pre><code class="lang-latex">$$lim_{x \to \infty} \mathrm(e)^{-x} =0 $$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$k_&#123;n+1&#125; = n^2 + k_n^2  - k\_&#123;n-1&#125;$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">k_{n+1} = n^2 + k_n^2 - k_{n-1}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$n^22$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">n^{22}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$lim_&#123;x \to \infty&#125; \mathrm(e)^&#123;-x&#125; =0 $$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">lim_{x \to \infty} \mathrm{e}^{-x} = 0</script><p>也可以使用<code>_</code>和<code>|</code>组合去显示下标的取值，例如：</p>
-<pre><code class="lang-latex">$$f(n) = n^5 + 4n^2 + 2 |_{n=17}$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$f(n) = n^5 + 4n^2 + 2 |_&#123;n=17&#125;$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">f(n) = n^2 + 4n^2 + 2 |_{n=17}</script><h4 id="3-2-7-分式和二项式的表示方法"><a href="#3-2-7-分式和二项式的表示方法" class="headerlink" title="3.2.7 分式和二项式的表示方法"></a>3.2.7 分式和二项式的表示方法</h4><p><strong>分式</strong></p>
 <p>在LaTex中，使用<code>\frac{numerator}{denominator}</code>来创建一个分式，<code>numerator</code>代表分子，<code>denominator</code>代表分子，具体例子如下:</p>
-<pre><code class="lang-latex">$$frac{n!}{k!(n-k)!}$$
-</code></pre>
-<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!}</script><pre><code class="lang-latex">$$\frac{\frac{1}{x} + \frac{1}{y}}{y-z}$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$frac&#123;n!&#125;&#123;k!(n-k)!&#125;$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\frac{n!}{k!(n-k)!}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\frac&#123;\frac&#123;1&#125;&#123;x&#125; + \frac&#123;1&#125;&#123;y&#125;&#125;&#123;y-z&#125;$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">\frac{\frac{1}{x} + \frac{1}{y}}{y-z}</script><p><strong>二项式</strong></p>
 <p>使用<code>\binom{n}{k}</code>来创建一个二项式表达式，例如：</p>
-<pre><code class="lang-latex">$$frac{n!}{k!(n-k)!} =  \binom{n}{k}$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$frac&#123;n!&#125;&#123;k!(n-k)!&#125; =  \binom&#123;n&#125;&#123;k&#125;$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">\frac{n!}{k!(n-k)!} = \binom{n}{k}</script><h4 id="3-2-8-根号的表示方法"><a href="#3-2-8-根号的表示方法" class="headerlink" title="3.2.8 根号的表示方法"></a>3.2.8 根号的表示方法</h4><p>使用<code>\sqrt{...}</code>去创建一个根号表示，使用<code>[]</code>去改变根号的权重，具体例子如下：</p>
-<pre><code class="lang-latex">$$\sqrt{\frac{x+1}{x}}$$
-</code></pre>
-<script type="math/tex; mode=display">\sqrt{\frac{x+1}{x}}</script><pre><code class="lang-latex">$$\sqrt[n]{1 + x + x^2 +\cdots + x^n}$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sqrt&#123;\frac&#123;x+1&#125;&#123;x&#125;&#125;$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\sqrt{\frac{x+1}{x}}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sqrt[n]&#123;1 + x + x^2 +\cdots + x^n&#125;$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">\sqrt[n]{1 + x + x^2 + \cdots + x^2}</script><h4 id="3-2-9-求和和积分公式的表示方法"><a href="#3-2-9-求和和积分公式的表示方法" class="headerlink" title="3.2.9 求和和积分公式的表示方法"></a>3.2.9 求和和积分公式的表示方法</h4><p><strong>求和</strong></p>
 <p>使用<code>\sum</code>来创建一个求和的公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
-<pre><code class="lang-latex">$$\sum_{i=1}^{10} t_i$$
-</code></pre>
-<script type="math/tex; mode=display">\sum_{i=1}^{10} {t_i}</script><pre><code class="lang-latex">$$sum_{i=0}^{n} x^i$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;i=1&#125;^&#123;10&#125; t_i$$</div></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\sum_{i=1}^{10} {t_i}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$sum_&#123;i=0&#125;^&#123;n&#125; x^i$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">\sum_{i=0}^{n}{x^i}</script><p>当求和公式的下限需要写多行时，可以使用<code>\substack</code>组合<code>\\</code>来将下标写成多行，例如</p>
-<pre><code class="lang-latex">$$\sum_{\substack{ 0&lt;i&lt;m 0&lt;j&lt;n}} P(i,j)$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\sum_&#123;\substack&#123; 0&lt;i&lt;m 0&lt;j&lt;n&#125;&#125; P(i,j)$$</div></pre></td></tr></table></figure>
 <p>​        <script type="math/tex">\sum_{\substack{0<i<m \\ 0<j<n}}{P(i,j)}</script></p>
 <p><strong>积分</strong></p>
 <p>使用<code>\int</code>来创建一个积分公式，使用<code>^</code>来指定求和公式的上限，使用<code>_</code>来指定求和公式的下限，例如：</p>
-<pre><code class="lang-latex">$$\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$\int_&#123;-\infty&#125;^&#123;+\infty&#125; \mathrm&#123;e&#125;^&#123;-x&#125;\,\mathrm&#123;d&#125;x$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\mathrm{d}x</script><p>LaTex中还有很多命令和<code>\sum</code>和<code>\int表示方式相似</code>,类似的命令如下</p>
 <div class="table-container">
 <table>
@@ -908,63 +508,63 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\sum$</td>
+<td style="text-align:center">\(\sum\)</td>
 <td style="text-align:center">\sum</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigoplus$</td>
+<td style="text-align:center">\(\bigoplus\)</td>
 <td style="text-align:center">\bigoplus</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigcup$</td>
+<td style="text-align:center">\(\bigcup\)</td>
 <td style="text-align:center">\bigcup</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigsqcup$</td>
+<td style="text-align:center">\(\bigsqcup\)</td>
 <td style="text-align:center">\bigsqcup</td>
 </tr>
 <tr>
-<td style="text-align:center">$\int$</td>
+<td style="text-align:center">\(\int\)</td>
 <td style="text-align:center">\int</td>
 </tr>
 <tr>
-<td style="text-align:center">$\iiint$</td>
+<td style="text-align:center">\(\iiint\)</td>
 <td style="text-align:center">\iiint</td>
 </tr>
 <tr>
-<td style="text-align:center">$\prod$</td>
+<td style="text-align:center">\(\prod\)</td>
 <td style="text-align:center">\prod</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigotimes$</td>
+<td style="text-align:center">\(\bigotimes\)</td>
 <td style="text-align:center">\bigcap</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigvee$</td>
+<td style="text-align:center">\(\bigvee\)</td>
 <td style="text-align:center">\bigvee</td>
 </tr>
 <tr>
-<td style="text-align:center">$\oint$</td>
+<td style="text-align:center">\(\oint\)</td>
 <td style="text-align:center">\oint</td>
 </tr>
 <tr>
-<td style="text-align:center">$\iiiint$</td>
+<td style="text-align:center">\(\iiiint\)</td>
 <td style="text-align:center">\iiiint</td>
 </tr>
 <tr>
-<td style="text-align:center">$\coprod$</td>
+<td style="text-align:center">\(\coprod\)</td>
 <td style="text-align:center">\coprod</td>
 </tr>
 <tr>
-<td style="text-align:center">$\bigwedge$</td>
+<td style="text-align:center">\(\bigwedge\)</td>
 <td style="text-align:center">\bigwedge</td>
 </tr>
 <tr>
-<td style="text-align:center">$\iint$</td>
+<td style="text-align:center">\(\iint\)</td>
 <td style="text-align:center">\iint</td>
 </tr>
 <tr>
-<td style="text-align:center">$\idotsint$</td>
+<td style="text-align:center">\(\idotsint\)</td>
 <td style="text-align:center">\idotsin</td>
 </tr>
 </tbody>
@@ -980,47 +580,39 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$ ( a )$</td>
+<td style="text-align:center">\(( a )\)</td>
 <td style="text-align:center">( a )</td>
 </tr>
 <tr>
-<td style="text-align:center">$[ b ]$</td>
+<td style="text-align:center">\([ b ]\)</td>
 <td style="text-align:center">[ b ]</td>
 </tr>
 <tr>
-<td style="text-align:center">$\{c\}$</td>
-<td style="text-align:center">\\{c\\}</td>
+<td style="text-align:center">\(\{c\}\)</td>
+<td style="text-align:center">{c}</td>
 </tr>
 <tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">d</td>
-<td>$</td>
-<td>\\\</td>
-<td>d\\\</td>
-<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center">$\langle f \rangle$</td>
+<td style="text-align:center">\(\langle f \rangle\)</td>
 <td style="text-align:center">\langle f \rangle</td>
 </tr>
 <tr>
-<td style="text-align:center">$\lfloor g \rfloor$</td>
+<td style="text-align:center">\(\lfloor g \rfloor\)</td>
 <td style="text-align:center">\lfloor g \rfloor</td>
 </tr>
 <tr>
-<td style="text-align:center">$\lceil h \rceil$</td>
+<td style="text-align:center">\(\lceil h \rceil\)</td>
 <td style="text-align:center">\lceil h \rceil</td>
 </tr>
 <tr>
-<td style="text-align:center">$\</td>
-<td style="text-align:center">e\</td>
-<td>$</td>
-<td>\\\</td>
-<td>e \\\</td>
-<td></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center">$\ulcorner i \urcorner$</td>
+<td style="text-align:center">\(\ulcorner i \urcorner\)</td>
 <td style="text-align:center">\ulcorner i \urcorner</td>
 </tr>
 </tbody>
@@ -1037,47 +629,47 @@ MathJax1....</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$\dots$</td>
+<td style="text-align:center">\(\dots\)</td>
 <td style="text-align:center">\dots</td>
 <td style="text-align:left">通用的省略号表示方法，通常使用在文本中，它会根据上下文自动管理空格</td>
 </tr>
 <tr>
-<td style="text-align:center">$\ldots$</td>
+<td style="text-align:center">\(\ldots\)</td>
 <td style="text-align:center">\ldots</td>
 <td style="text-align:left">和通用的省略号相似，但不会自动管理空格</td>
 </tr>
 <tr>
-<td style="text-align:center">$\cdots$</td>
+<td style="text-align:center">\(\cdots\)</td>
 <td style="text-align:center">\cdots</td>
 <td style="text-align:left">这种省略号会根据文字的高度自动垂直居中</td>
 </tr>
 <tr>
-<td style="text-align:center">$\vdots$</td>
+<td style="text-align:center">\(\vdots\)</td>
 <td style="text-align:center">\vdots</td>
 <td style="text-align:left">垂直的省略号</td>
 </tr>
 <tr>
-<td style="text-align:center">$\ddots$</td>
+<td style="text-align:center">\(\ddots\)</td>
 <td style="text-align:center">\ddots</td>
 <td style="text-align:left">对角省略号</td>
 </tr>
 <tr>
-<td style="text-align:center">$\dotsc$</td>
+<td style="text-align:center">\(\dotsc\)</td>
 <td style="text-align:center">\dotsc</td>
 <td style="text-align:left">dots with commas,$A_1,A_2,\dotsc,$</td>
 </tr>
 <tr>
-<td style="text-align:center">$\dotsb$</td>
+<td style="text-align:center">\(\dotsb\)</td>
 <td style="text-align:center">\dotsb</td>
 <td style="text-align:left">dots with binary operators/relations，$A_1+\dotsb +A_N$</td>
 </tr>
 <tr>
-<td style="text-align:center">$\dotsm$</td>
+<td style="text-align:center">\(\dotsm\)</td>
 <td style="text-align:center">\dotsm</td>
 <td style="text-align:left">mutiplication dots,$Ａ_1\dotsm  A_N$</td>
 </tr>
 <tr>
-<td style="text-align:center">$\dotsi$</td>
+<td style="text-align:center">\(\dotsi\)</td>
 <td style="text-align:center">\dotsi</td>
 <td style="text-align:left">dots with integrals, $\int_a^b \dotsi$</td>
 </tr>
@@ -1086,18 +678,11 @@ MathJax1....</p>
 </div>
 <h4 id="3-2-12-空格"><a href="#3-2-12-空格" class="headerlink" title="3.2.12 空格"></a>3.2.12 空格</h4><p>LaText语法本身会忽略空格，在LaTex中有两种空格：小空格和四格空格</p>
 <p><code>小空格</code></p>
-<p><code>\$a \ b\$</code> 呈现为：$a \ b$</p>
+<p><code>\$a \ b\$</code> 呈现为：\(a \ b\)</p>
 <p><code>四格空格</code></p>
-<p><code>\$a \quad b\$</code> 呈现为：$a \quad b$</p>
+<p><code>\$a \quad b\$</code> 呈现为：\(a \quad b\)</p>
 <h4 id="3-2-13-矩阵"><a href="#3-2-13-矩阵" class="headerlink" title="3.2.13 矩阵"></a>3.2.13 矩阵</h4><p>基本的矩阵可以使用matrix 环境来创建，矩阵和其他的类表结构一样，列之间使用<code>&amp;</code>来分开，行之间使用<code>\\</code>来封开，例如：</p>
-<pre><code class="lang-latex">$$ 
-   \begin{matrix}
-     a &amp;  b &amp; c \\
-     d &amp;  e &amp; f  \\
-    g &amp;  h &amp; i
-    \end{matrix}
-$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$$ </div><div class="line">   \begin&#123;matrix&#125;</div><div class="line">     a &amp;  b &amp; c \\</div><div class="line">     d &amp;  e &amp; f  \\</div><div class="line">    g &amp;  h &amp; i</div><div class="line">    \end&#123;matrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">\begin{matrix} a & b &c  \\ d & e & f \\ g & h & i \end{matrix}</script><p>LaTex支持多种不同的矩阵声明环境，具体如下表</p>
 <div class="table-container">
 <table>
@@ -1111,336 +696,87 @@ $$
 <tbody>
 <tr>
 <td>pmatrix</td>
-<td>$(\ )$</td>
+<td>\((\ )\)</td>
 <td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>pmatrix*</td>
-<td>$(\ )$</td>
+<td>\((\ )\)</td>
 <td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 <tr>
 <td>bmatrix</td>
-<td>$[ \ ]$</td>
+<td>\([ \ ]\)</td>
 <td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>bmatrix*</td>
-<td>$[\ ]$</td>
+<td>\([\ ]\)</td>
 <td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 <tr>
 <td>Bmatrix</td>
-<td>$\{ \ \}$</td>
+<td>\(\{ \ \}\)</td>
 <td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>Bmatrix*</td>
-<td>$\{ \ \}$</td>
+<td>\(\{ \ \}\)</td>
 <td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 <tr>
 <td>vmatrix</td>
-<td>$</td>
-<td style="text-align:center">\</td>
-<td>$</td>
-<td>列默认居中</td>
+<td></td>
+<td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>vmatrix*</td>
-<td>$</td>
-<td style="text-align:center">\</td>
-<td>$</td>
-<td>可以指定列的对齐方式</td>
+<td></td>
+<td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 <tr>
 <td>Vmatrix</td>
-<td>$\</td>
-<td style="text-align:center">\ \</td>
-<td>$</td>
-<td>列默认居中</td>
+<td></td>
+<td style="text-align:center">列默认居中</td>
 </tr>
 <tr>
 <td>Vmatrix*</td>
-<td>$\</td>
-<td style="text-align:center">\ \</td>
-<td>$</td>
-<td>可以指定列的对齐方式</td>
+<td></td>
+<td style="text-align:center">可以指定列的对齐方式</td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
 <li><p>pmatrix</p>
-<pre><code class="lang-latex">$$ A_{m,n} = 
-      \begin{pmatrix} 
-     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
-     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
-     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\
-      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}
-      \end{pmatrix}
-$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line">      \begin&#123;pmatrix&#125; </div><div class="line">     a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line">     a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line">     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line">      a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line">      \end&#123;pmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为：</p>
 </li>
 </ul>
 <script type="math/tex; mode=display">A_{m,n} = \begin{pmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{pmatrix}</script><ul>
 <li><p>bmatrix</p>
-<pre><code class="lang-latex">$$ A_{m,n} = 
-      \begin{bmatrix}
-     a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
-     a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
-     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\
-      a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}
-      \end{bmatrix}
-$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line">      \begin&#123;bmatrix&#125;</div><div class="line">     a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line">     a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line">     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line">      a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line">      \end&#123;bmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为</p>
 <script type="math/tex; mode=display">A_{m,n} = \begin{bmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{bmatrix}</script></li>
 <li><p>Bmatrix</p>
 </li>
 </ul>
-<pre><code class="lang-latex">  $$ A_{m,n} = 
-        \begin{Bmatrix}
-       a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
-       a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
-       \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\
-       a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}
-       \end{Bmatrix}
-  $$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line">      \begin&#123;Bmatrix&#125;</div><div class="line">     a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line">     a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line">     \vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line">     a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line">     \end&#123;Bmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>  呈现为</p>
 <script type="math/tex; mode=display">A_{m,n} = \begin{Bmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{Bmatrix}</script><ul>
 <li><p>vmatrix</p>
-<pre><code class="lang-latex">$$ A_{m,n} = 
-　　　　\begin{vmatrix}
-　　　　a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
-　　　　a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
-　　　　\vdots &amp; \vdots  &amp; \ddots &amp; \dots \\
-　　　　a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}
-　　　　\end{vmatrix}
-$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line">　　　　\begin&#123;vmatrix&#125;</div><div class="line">　　　　a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line">　　　　a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line">　　　　\vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line">　　　　a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line">　　　　\end&#123;vmatrix&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为</p>
 <script type="math/tex; mode=display">A_{m,n} = \begin{vmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{vmatrix}</script></li>
 <li><p>Vmatrix</p>
-<pre><code class="lang-latex">$$ A_{m,n} = 
-　　　\begin{Vmatrix}
-　　　a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
-　　　a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
-　　　\vdots &amp; \vdots  &amp; \ddots &amp; \dots \\
-　　　a_{m,1} &amp; a_{m,2 }  &amp; \cdots &amp; a_{m,n}
-　　　\end{Vmatrix}
- $$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$$ A_&#123;m,n&#125; = </div><div class="line">　　　\begin&#123;Vmatrix&#125;</div><div class="line">　　　a_&#123;1,1&#125; &amp; a_&#123;1,2&#125; &amp; \cdots &amp; a_&#123;1,n&#125; \\</div><div class="line">　　　a_&#123;2,1&#125; &amp; a_&#123;2,2&#125; &amp; \cdots &amp; a_&#123;2,n&#125; \\</div><div class="line">　　　\vdots &amp; \vdots  &amp; \ddots &amp; \dots \\</div><div class="line">　　　a_&#123;m,1&#125; &amp; a_&#123;m,2 &#125;  &amp; \cdots &amp; a_&#123;m,n&#125;</div><div class="line">　　　\end&#123;Vmatrix&#125;</div><div class="line"> $$</div></pre></td></tr></table></figure>
 <p>呈现为</p>
 <script type="math/tex; mode=display">A_{m,n} = \begin{Vmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m,1} & a_{m,2} & \cdots & a_{m,n} \end{Vmatrix}</script></li>
 </ul>
 <h4 id="3-2-16-方程组"><a href="#3-2-16-方程组" class="headerlink" title="3.2.16 方程组"></a>3.2.16 方程组</h4><p>方程组可以使用cases环境来创建，起始、结束处以{cases}声明，例如：</p>
-<pre><code class="lang-latex">$$
-\begin{cases}
-a_1x_1+b_1x_2+c_1x_3 = d_1\\
-a_2x_1+b_2x_2+c_2x_3 = d_2\\
-a_3x_1+b_3x_2+c_2x_3 = d_3\\
-\end{cases}
-$$
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$$</div><div class="line">\begin&#123;cases&#125;</div><div class="line">a_1x_1+b_1x_2+c_1x_3 = d_1\\</div><div class="line">a_2x_1+b_2x_2+c_2x_3 = d_2\\</div><div class="line">a_3x_1+b_3x_2+c_2x_3 = d_3\\</div><div class="line">\end&#123;cases&#125;</div><div class="line">$$</div></pre></td></tr></table></figure>
 <p>呈现为:</p>
 <script type="math/tex; mode=display">\begin{cases} a_1x_1+b_1x_2+c_1x_3 = d_1 \\ a_2x_1+b_2x_2+c_2x_3 = d_2 \\ a_3x_1+b_3x_2+c_2x_3 = d_3 \end{cases}</script><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#List_of_Mathematical_Symbols" target="_blank" rel="external">[1]LaTeX/Mathematics</a></p>
 <p><a href="http://blog.csdn.net/ethmery/article/details/50670297" target="_blank" rel="external">[2]基本数学公式语法(of MathJax)</a></p>
 <p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">[3]MathJax basic tutorial and quick reference</a></p>
-
-    
-    </div>
-    
-    
-        
-</article>
-  </div>
-
-  
-
-<footer id='footer'>
-    <div class='footer-copyright'>
-        <div>
-            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
-            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
-        </div>
-    </div>
-    
-    <div class='footer-social'>
-        
-            
-                
-                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-        
-    </div>
-</footer>
-
-  <br>
-
-  <div id="footer-nav">
-		
-
-
-
-<nav id="nav">
-	
-	
-		
-			
-				
-			
-		
-		
-	
-	
-	<div class='nav-item' id='nav-item-toc'>
-		
-
-
-
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MathJax"><span class="toc-number">2.</span> <span class="toc-text">MathJax</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MathJax简介"><span class="toc-number">2.1.</span> <span class="toc-text">1. MathJax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-引入MathJax"><span class="toc-number">2.2.</span> <span class="toc-text">2. 引入MathJax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MathJax的LaTex语法"><span class="toc-number">2.3.</span> <span class="toc-text">3. MathJax的LaTex语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
-<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
-    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
-</div>
-
-	</div>
-	
-	<div class='nav-item' id='nav-item-archive'>
-		
-				<div class='nav-icon'>
-				
-			<a href="/archives/" title='Archives'>
-			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class='nav-item' id='nav-item-search'>
-		
-		<div class='nav-icon'>
-		
-			<a href="/search/" title='Search'>
-			<img src="/images/icons/colorful-outlined/search.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class="nav-item" id='nav-item-more'>
-		<div class="nav-icon">
-				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
-				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
-				</a>
-		</div>
-		<div class="nav-more-menu">
-		
-			
-			
-				
-			
-				
-			
-				
-			
-		
-			<div class='nav-more-item'>
-					<div class="nav-name">
-						<a class='nav-link' href="/">
-							<span>Home</span>
-						</a>
-					</div>
-			</div>
-		
-		
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/tech/">
-						<span>Tech</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/math/">
-						<span>Math</span>
-					</a>
-				</div>
-		</div>
-		
-	</div>
-	</div>
-</nav>
-
-	</div>
-
-  
-
-
-
-    
-
-
-
-
-
-
-
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script src="/js/lightgallery.min.js"></script>
-<script src="/js/lg-zoom.min.js"></script>
-<script type='text/javascript'>
-    $(document).ready(function() {
-        $("#lightgallery").lightGallery(); 
-        $(".article-content img").each(function(){
-            console.log($(this).attr('src'))
-            $(this).attr('data-src', $(this).attr('src')).lightGallery({
-                selector: 'this'
-            })
-        });
-    });
-</script>
-
-
-
-
-
-
-
-
-<script src="/js/post.js"></script>
-
-<script data-no-instant type='text/javascript'>
-changeLayoutOnTouchScreen();
-
-
-var post = new Post('', '');
-        post.getCommentCount(window.location.pathname, function(count){
-            $('#article-comment-count').text(count);
-        });
-        post.addVisitRecord(window.location.pathname, userip);
-        post.getVisitCount(window.location.pathname, function(count){
-            $('#article-visit-count').text(count);
-        });
-post.updatePostVersion(window.location.pathname);
-
-
-</script>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-</html>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/10/29/implemenation-of-singleton-using-new-method/" class="prev">PREV</a><a href="/2017/10/23/upgrade-ubuntu17-10-from-ubuntu16-04-or-ubuntu17-04/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://free-free.github.io">infinite.ft</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

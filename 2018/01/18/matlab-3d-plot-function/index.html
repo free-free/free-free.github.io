@@ -1,422 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-
-
-<head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  
-  
-  
-  
-    
-  
-      <title>Matlab 3d Plot Function - Infinite.ft的博客</title>
-  
-  
-  <meta name="description" content="">
-  <meta name="author" content="infinite.ft">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Load scheme css -->
-  <link rel="stylesheet" href="/css/lightgallery.css">
-  
-
-
-
-
-
-    <link rel="stylesheet" href="/css/taurus.css">
-    
-        <link rel="stylesheet" href="/css/scheme-taurus/animations.css">
-    
-
-
-  <!-- load font awesome 5 -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-  });
-  </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="/js/social-share.min.js"></script>
-    <script src="/js/theme.js"></script>
-
-  <!-- include cookie.js -->
-  
-  
-
-  <!-- include comment system code -->
-  
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
-
- 
-
-<header id="header">
-	<div class="header-title">
-		
-		<div class='header-logo'>
-			<a href='/'>
-				<img src='/images/avatar.png' />
-			</a>
-		</div>
-		<div class='header-text'>
-			<h1>
-				<a href="/">Infinite.ft的博客</a>
-			</h1>
-			<subtitle>
-				Hello
-			</subtitle>
-		</div>
-		
-	</div>
-	<div id='header-nav'>
-		
-
-
-
-<nav id="nav">
-	
-	
-		
-			
-		
-		
-			<div class='nav-item'>
-				
-					<div class="nav-name active_page">
-				
-					<a class='nav-link' href="/">
-						<span>Home </span>
-					</a>
-				</div>
-			</div>
-		
-	
-	
-	<div class='nav-item' id='nav-item-toc'>
-		
-
-
-
-
-<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
-    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
-</div>
-
-	</div>
-	
-	<div class='nav-item' id='nav-item-archive'>
-		
-				<div class='nav-icon'>
-				
-			<a href="/archives/" title='Archives'>
-			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class='nav-item' id='nav-item-search'>
-		
-		<div class='nav-icon'>
-		
-			<a href="/search/" title='Search'>
-			<img src="/images/icons/colorful-outlined/search.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class="nav-item" id='nav-item-more'>
-		<div class="nav-icon">
-				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
-				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
-				</a>
-		</div>
-		<div class="nav-more-menu">
-		
-			
-			
-				
-			
-				
-			
-				
-			
-		
-			<div class='nav-more-item'>
-					<div class="nav-name">
-						<a class='nav-link' href="/">
-							<span>Home</span>
-						</a>
-					</div>
-			</div>
-		
-		
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/tech/">
-						<span>Tech</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/math/">
-						<span>Math</span>
-					</a>
-				</div>
-		</div>
-		
-	</div>
-	</div>
-</nav>
-
-	</div>
-</header>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div style="flex: 1;">
-      <style>
-    body {
-        background-color: white;
-    }
-</style>
-
-
-
-
-
-
-
-
-
-    
-        
-            
-            
-        
-    
-
-
-
-
-
-
-
-
-
-    
-    
-        
-    
-
-    
-        
-    
-
-
-
-
-
-
-
-
-
-<article class="article" id="/2018/01/18/matlab-3d-plot-function/" data-name='Matlab 3d Plot Function' data-version="">
-
-    <!-- Title -->
-    <div class='article-header'>
-         
-         <h1 class='article-title'>
-            <a href="/2018/01/18/matlab-3d-plot-function/">
-                Matlab 3d Plot Function
-            </a>
-        </h1>
-        <!-- TODO: support nested categories,display them nicely -->
-        
-        <ul class='article-categories'>
-            
-            
-                <li><a href="/categories/tech/" data-no-instant>
-                    <img src="/images/tech.svg" alt="tech" onerror='if(this.src != "/images/uncategorized.svg") this.src="/images/uncategorized.svg"' title='tech'/>
-                </a></li>
-            
-        </ul>
-        
-    </div>
-    
-    <!-- Date and Author -->
-    <div class='article-meta'>
-    <ul>
-            <li><i class='fa fa-calendar'></i> 2018-01-18</li>
-            
-            <li><i class="fa fa-user"></i> infinite.ft</li>
-            
-            <li><i class="fas fa-copyright"></i>
-            
-                
-                
-            
-            
-                <a href=https://creativecommons.org/licenses/by-nc-nd/4.0/>CC BY-NC-ND 4.0</a>
-            
-            </li>
-    </ul>
-    
-<div class="tags">
-	
-		
-			<label class='tag-1'><a href="/tags/matlab/">Matlab</a></label>
-		
-	
-	</div>
-
-    </div>
-    <div class='article-cards'>
-        <!-- Author Card -->
-        <!---
-        <div class='Card-article Card-author'>
-            <div class='card-title'>
-                <h3></h3>
-            </div>
-            <div class='card-content'>
-                    <div class="author-meta">
-                            <div class='author-figure'>
-                                <img src="" alt="">
-                            </div>
-                            <div class='author-name'>
-                                infinite.ft
-                            </div>
-                        </div>
-                        <div class="author-ai">
-                            <div class='author-intro'>
-                                <!-- TODO: auto generating author description -->
-                                <!-- 
-                            </div>
-                            <div class="author-articles">
-                                <!-- TODO: auto generating author articles -->
-                                <!-- <ul>
-                                    <li>Article 1</li>
-                                    <li>Article 2</li>
-                                    <li>Article 3</li>
-                                    <li>Article 4</li>
-                                    <li>Article 5</li>
-                                    <li>Article 6</li>
-                                </ul>
-                            </div>
-                        </div>
-            </div>
-            
-        </div> -->
-
-        <!-- Visit Card -->
-        <!-- <div class="Card-article Card-visit"> -->
-            <!-- <div class="card-title">
-  <h3>Post Visit</h3>
-</div>
-<div class="card-chart">
-  <div id='chart-post-visit'></div>
-</div> -->
-        <!-- </div> -->
-        
-        <!-- Auto Excerpt Card -->
-        <!-- <div class="Card-article Card-excerpt">
-            <div class="card-title">
-  <h3>Quick Read</h3>
-</div>
-<div class="card-text">
-  <p id='text-post-summary'>When it comes to data analysis or systematic modeling, the visualization of data is an important assistant tool to provide an intuitive understanding of data and system’s performance in some degree. The focus of this blog is 3D plot function of Matlab, there are total 9 kinds of 3D visualization...</p>
-</div>
-        </div> -->
-    </div>
-    
-    <!-- Gallery -->
-    <!-- TODO: add a slider to gallery -->
-    
-
-    <!-- Content -->
-    <!-- TODO: support table of content -->
-    <div class="article-toc" id='article-toc'>
-        
-
-
-
-
-<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
-    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
-</div>
-
-    </div>
-    <div class='article-content'>
-    <p>When it comes to data analysis or systematic modeling, the visualization of data is an important assistant tool to provide an intuitive understanding of data and system’s performance in some degree. The focus of this blog is 3D plot function of Matlab, there are total 9 kinds of 3D visualization functions in Matlab, it refers to <code>surf</code>,<code>surfc</code>,<code>mesh</code>,<code>meshc</code>,<code>meshz</code>,<code>contour</code>,<code>contour3</code>,<code>plot3</code>,<code>waterfall</code>. Since the complexity of this 3D plot functions, a huge amount of descriptions in words almost couldn’t  help people, especially those who are new to Matlab,  to understand the usage of those functions, conversely, it will make people are afraid of them and escape from them finally. So here for each function, a testing example will come along. To better understand characteristics of those 3D plot functions, the multi-modal mathematical function is strongly recommended as a testing function for 3D plot function. In this piece blog, the following multi-modal mathematical function will be used in all examples.</p>
+<!DOCTYPE html><html lang="en,zh-cn,default"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Matlab 3d Plot Function · Infinite.ft的博客</title><meta name="description" content="Matlab 3d Plot Function - infinite.ft"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://free-free.github.io/atom.xml" title="Infinite.ft的博客"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">HOME</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/categories/math" target="_self" class="nav-list-link">MATH</a></li><li class="nav-list-item"><a href="/categories/tech" target="_self" class="nav-list-link">TECH</a></li><li class="nav-list-item"><a href="/categories/mylife" target="_self" class="nav-list-link">NOTES</a></li><li class="nav-list-item"><a href="https://github.com/free-free" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Matlab 3d Plot Function</h1><div class="post-info">Jan 18, 2018</div><div class="post-content"><p>When it comes to data analysis or systematic modeling, the visualization of data is an important assistant tool to provide an intuitive understanding of data and system’s performance in some degree. The focus of this blog is 3D plot function of Matlab, there are total 9 kinds of 3D visualization functions in Matlab, it refers to <code>surf</code>,<code>surfc</code>,<code>mesh</code>,<code>meshc</code>,<code>meshz</code>,<code>contour</code>,<code>contour3</code>,<code>plot3</code>,<code>waterfall</code>. Since the complexity of this 3D plot functions, a huge amount of descriptions in words almost couldn’t  help people, especially those who are new to Matlab,  to understand the usage of those functions, conversely, it will make people are afraid of them and escape from them finally. So here for each function, a testing example will come along. To better understand characteristics of those 3D plot functions, the multi-modal mathematical function is strongly recommended as a testing function for 3D plot function. In this piece blog, the following multi-modal mathematical function will be used in all examples.</p>
 <script type="math/tex; mode=display">f(x,y)=3(1-x)^2e^{-x^2 - (y+1)^2} - 10(\frac{x}{5}-x^3-y^5)e^{-x^2-y^2}-\frac{1}{3}e^{-(x+1)^2-y^2}</script><p>The above function can be obtained using <code>peaks</code> function which is built-in Matlab.</p>
 <ul>
 <li><p><strong><code>contour</code></strong></p>
 <p>The function of <code>contour</code> is indicated as  its names, it plots function’s 2-D contour curve. The prototype of <code>contour</code> as followed.</p>
 <p><code>contour(X, Y, Z)</code>:contour(X,Y,Z) draws a contour plot of Z using vertices from the mesh defined by X and Y. X and Y can be vectors or matrices.</p>
-<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-contour(X, Y, Z);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">contour(X, Y, Z);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test1.bmp" alt=""></p>
 <center> fig 1. the view of `contour(X, Y, Z)`</center>
 
 <p><code>contour(Z)</code>: draws a contour plot of matrix Z in the x-y plane, with the x-coordinates of the vertices corresponding to column indices of Z and the y-coordinates corresponding to row indices of Z. The<br>contour levels are chosen automatically.</p>
-<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-contour(Z);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">contour(Z);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test2.jpg" alt=""></p>
 <center>fig 1. the view of `contour(Z)`</center>
 
 <p><code>contour(Z, N)</code>:contour(Z,N) and contour(X,Y,Z,N) draw N contour lines, choosing the levels automatically.</p>
-<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-contour(Z, 30);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">contour(Z, <span class="number">30</span>);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test3.jpg" alt=""></p>
 <center>fig 3. the view of `contour(Z, N)`</center>
 
 <p><code>contour(Z, V)</code>: contour(Z,V) and contour(X,Y,Z,V) draw a contour line for each level specified in vector V.  Use contour(Z,[v v]) or contour(X,Y,Z,[v v]) to draw contours for the single level v.</p>
-<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-contour(Z, [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">contour(Z, [<span class="number">0</span>, <span class="number">0.5</span>, <span class="number">1</span>, <span class="number">1.5</span>, <span class="number">2</span>, <span class="number">2.5</span>, <span class="number">3</span>, <span class="number">3.5</span>, <span class="number">4</span>]);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour_test4.jpg" alt=""></p>
 <center>fig 4. the view of `contour(Z,V)`</center>
 </li>
 <li><p><strong><code>contour3</code></strong></p>
 <p><code>contour3</code> is the same as <code>contour</code> except the contour lines are drawn in multiple planes. Each line is drawn in a horizontal plane at a height equal to the corresponding contour level. <code>contour3</code> plots the 3-D contour curve of function. </p>
-<pre><code class="lang-matlab">contour3(peaks, 30);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">contour3(peaks, <span class="number">30</span>);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/contour3_test1.bmp" alt=""></p>
 <center>fig 5. the view of `contour3(Z,N)`</center>
 
@@ -427,10 +36,7 @@ contour(Z, [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]);
 <li><p><strong><code>surf</code></strong></p>
 <p>As shown by its name, <code>surf</code>  is responsible for plotting the 3D surface mesh of the testing mathematical function. The most common usage of <code>surf</code> is <code>surf(X, Y, Z)</code> or <code>surf(Z)</code>. The parameters  <code>X</code>, <code>Y</code> are typically the output of <code>meshgrid</code>. Over a 2-D rectangular region in the x-y plane. <code>Z</code> determines the height above the plane of each vertex. If only a single Z matrix is given, then it is plotted over the meshgrid <code>X = 1:columns (Z), Y=1:rows(Z)</code>, Thus, columns of Z correspond to different X values and rows of Z correspond to different Y values.</p>
 <p>The color of the surface is computed by linearly scaling the Z values to fit the range of the current colormap.  Use <code>caxis</code> and/or change the colormap to control the appearance. </p>
-<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-surf(X, Y, Z);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">surf(X, Y, Z);</div></pre></td></tr></table></figure>
 <p>The output of above code:</p>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surf_test.bmp" alt=""></p>
 <center>fig 6. the 3-D view of `surf`</center>
@@ -442,18 +48,14 @@ surf(X, Y, Z);
 
 <p>In figure 7, the yellow region represents the place where the function has a mountain peak,  the deeper color is, the more height peak is. Equally, the dark blue region represents the place where the function has a valley, the deeper color is , the deeper valley is.</p>
 <p>If just given <code>Z</code> passing into <code>surf</code>, the mainly difference from <code>surf(X, Y, Z)</code> is just the change of the range of  x-axis and y-axis in the x-y plane. as shown below.</p>
-<pre><code class="lang-matlab">[X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-Z = peaks(X, Y);
-surf(Z);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">surf(Z);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surf_test_2.bmp" alt=""></p>
 <center>fig 8. the 3-D view of `surf(Z)`</center>
 
 <ul>
 <li><p><strong><code>surfc</code></strong></p>
 <p><code>surfc</code> is just the combination of <code>surf</code> and <code>contour</code>, i.e. <code>surf+contour</code>. the prototype is the same as <code>surf</code> except the contour is plotted beneath the surface mesh.</p>
-<pre><code class="lang-matlab">surfc(peaks);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">surfc(peaks);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/surfc_test1.jpg" alt=""></p>
 <center>fig 9. the view of `surfc(peaks)`</center>
 </li>
@@ -462,54 +64,37 @@ surf(Z);
 </ul>
 <p>  What’s the difference from surf is that the net produced by mesh  is not filled with color. The prototype of <code>mesh</code> is much similar to <code>surf</code>.</p>
 <p>  <code>mesh(X,Y,Z)</code> draws a wireframe mesh with color determined by <code>Z</code>, so color is proportional to surface height. If <code>X</code> and <code>Y</code> are vectors, <code>length(X) = n</code> and <code>length(Y) = m</code>, where <code>[m,n] = size(Z)</code>. In this case, (<em>X</em>(<em>j</em>), <em>Y</em>(<em>i</em>), <em>Z</em>(<em>i</em>,<em>j</em>)) are the intersections of the wireframe grid lines; <code>X</code> and <code>Y</code> correspond to the columns and rows of <code>Z</code>, respectively. If <code>X</code> and <code>Y</code> are matrices, (<em>X</em>(<em>i</em>,<em>j</em>), <em>Y</em>(<em>i</em>,<em>j</em>), <em>Z</em>(<em>i</em>,<em>j</em>)) are the intersections of the wireframe grid lines. The values in <code>X</code>, <code>Y</code>, or <code>Z</code> can be numeric, datetime, duration, or categorical values.</p>
-<pre><code class="lang-matlab">  [X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-  Z = peaks(X, Y);
-  mesh(X, Y, Z);
-</code></pre>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">mesh(X, Y, Z);</div></pre></td></tr></table></figure>
 <p>  <img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/mesh_test1.bmp" alt=""></p>
   <center>fig 10. the view of `mesh(X, Y, Z)`</center>
 
 <p>  <code>mesh(Z)</code> draws a wireframe mesh using <code>X = 1:n</code> and <code>Y = 1:m</code>, where <code>[m,n] = size(Z)</code>. The height, <code>Z</code>, is a single-valued function defined over a rectangular grid. Color is proportional to surface height. The values in <code>Z</code> can be numeric, datetime, duration, or categorical values.</p>
-<pre><code class="lang-matlab">  [X, Y] = meshgrid(-2.5:0.1:2.5, -2.5:0.1:2.5);
-  Z = peaks(X, Y);
-  mesh(Z);
-</code></pre>
+  <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[X, Y] = <span class="built_in">meshgrid</span>(<span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>, <span class="number">-2.5</span>:<span class="number">0.1</span>:<span class="number">2.5</span>);</div><div class="line">Z = peaks(X, Y);</div><div class="line">mesh(Z);</div></pre></td></tr></table></figure>
 <p>  <img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/mesh_test1.bmp" alt=""></p>
   <center>fig 11. the view of `mesh(Z)`</center>
 
 <ul>
 <li><p><strong><code>meshc</code></strong></p>
 <p>Akin to <code>surfc</code>, <code>meshc</code> is just combination of <code>mesh+contour</code>.</p>
-<pre><code class="lang-matlab">meshc(peaks);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meshc(peaks);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/meshc_test1.bmp" alt=""></p>
 <center>fig 12. the view of `meshc(Z)`</center>
 </li>
 <li><p><strong><code>meshz</code></strong></p>
 <p><code>meshz</code> is akin to  <code>mesh</code>  except that a “curtain” or reference plane is drawn beneath. This routine only works for surfaces defined on a rectangular grid.  The matrices X and Y define the axis limits only.</p>
-<pre><code class="lang-matlab">meshz(peaks);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meshz(peaks);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/meshz_test1.bmp" alt=""></p>
 <center>fig 13. the view of `meshz`</center>
 </li>
 <li><p><strong><code>plot3</code></strong></p>
 <p><code>plot3</code>  plots lines and points in 3-D space. <code>plot3</code> is a three-dimensional version of <code>plot</code>. </p>
-<pre><code class="lang-matlab">t = -10*pi:pi/50:10*pi;
-plot3(sin(t), cos(t), t.^2);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">t = <span class="number">-10</span>*<span class="built_in">pi</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</div><div class="line">plot3(<span class="built_in">sin</span>(t), <span class="built_in">cos</span>(t), t.^<span class="number">2</span>);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/plot3_test1.bmp" alt=""></p>
 <center>fig 14. the view of `plot3`</center>
 </li>
 <li><p><strong><code>waterfall</code></strong></p>
 <p><code>waterfall</code> is the same as <code>mesh</code> except that the column lines of the mesh are not drawn - thus producing a “waterfall” plot. For column-oriented data analysis, use <code>waterfall(Z&#39;)</code>or<br><code>waterfall(X&#39;,Y&#39;,Z&#39;)</code>.</p>
-<pre><code class="lang-matlab">figure;
-waterfall(peaks);
-[X,Y] = meshgrid(-8:.5:8);
-R = sqrt(X.^2 + Y.^2) + eps;
-Z = sin(R)./R;
-figure;
-waterfall(Z);
-</code></pre>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">figure;</div><div class="line">waterfall(peaks);</div><div class="line">[X,Y] = <span class="built_in">meshgrid</span>(<span class="number">-8</span>:<span class="number">.5</span>:<span class="number">8</span>);</div><div class="line">R = <span class="built_in">sqrt</span>(X.^<span class="number">2</span> + Y.^<span class="number">2</span>) + <span class="built_in">eps</span>;</div><div class="line">Z = <span class="built_in">sin</span>(R)./R;</div><div class="line">figure;</div><div class="line">waterfall(Z);</div></pre></td></tr></table></figure>
 <p><img src="http://oy4cno18k.bkt.clouddn.com/matlab-3d-plot-function/waterfall_test1.bmp" alt=""></p>
 <center>fig 15. the view of `waterfall`</center>
 
@@ -517,198 +102,4 @@ waterfall(Z);
 <center>fig 16. the view of `waterfall`</center>
 </li>
 </ul>
-
-    
-    </div>
-    
-    
-        
-</article>
-  </div>
-
-  
-
-<footer id='footer'>
-    <div class='footer-copyright'>
-        <div>
-            <p> Copyright by <a href="">infinite.ft </a> @ 2018</p>
-            <p>Designed by: <i class="fas fa-paint-brush"></i> <a href="https://moober.cn">Moober</a> and <i class="fas fa-graduation-cap"></i> <a href="https://qutang.github.io">Qu Tang</a> &bull; Theme: <a href="">Cutie 2.0.6-beta-Taurus</a> &bull; Powered by <a href="http://hexo.io">Hexo.</a></p>
-        </div>
-    </div>
-    
-    <div class='footer-social'>
-        
-            
-                
-                    <div class='footer-social-item'><a href='https://github.com/free-free' target='_blank' ><i class="fab fa-github fa-2x" aria-hidden="true"></i></a></div>
-                
-            
-        
-    </div>
-</footer>
-
-  <br>
-
-  <div id="footer-nav">
-		
-
-
-
-<nav id="nav">
-	
-	
-		
-			
-				
-			
-		
-		
-	
-	
-	<div class='nav-item' id='nav-item-toc'>
-		
-
-
-
-
-<div class="toc-button" onclick='toggleTOC(event);' ontouchstart='toggleTOC(event);'>
-    <img src="/images/icons/colorful-outlined/toc.svg" alt="">
-</div>
-
-	</div>
-	
-	<div class='nav-item' id='nav-item-archive'>
-		
-				<div class='nav-icon'>
-				
-			<a href="/archives/" title='Archives'>
-			<img src="/images/icons/colorful-outlined/archive.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class='nav-item' id='nav-item-search'>
-		
-		<div class='nav-icon'>
-		
-			<a href="/search/" title='Search'>
-			<img src="/images/icons/colorful-outlined/search.svg" alt="">
-			</a>
-		</div>
-	</div>
-	<div class="nav-item" id='nav-item-more'>
-		<div class="nav-icon">
-				<a href='#' onclick='onClickMenuIcon(event);' ontouchstart='onClickMenuIcon(event);'>
-				<img src="/images/icons/colorful-outlined/menu.svg" alt="">
-				</a>
-		</div>
-		<div class="nav-more-menu">
-		
-			
-			
-				
-			
-				
-			
-				
-			
-		
-			<div class='nav-more-item'>
-					<div class="nav-name">
-						<a class='nav-link' href="/">
-							<span>Home</span>
-						</a>
-					</div>
-			</div>
-		
-		
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/tech/">
-						<span>Tech</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/mylife/">
-						<span>Mylife</span>
-					</a>
-				</div>
-		</div>
-		
-		<div class='nav-more-item'>
-				<div class="nav-name">
-					<a class='nav-link' href="/categories/math/">
-						<span>Math</span>
-					</a>
-				</div>
-		</div>
-		
-	</div>
-	</div>
-</nav>
-
-	</div>
-
-  
-
-
-
-    
-
-
-
-
-
-
-
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script src="/js/lightgallery.min.js"></script>
-<script src="/js/lg-zoom.min.js"></script>
-<script type='text/javascript'>
-    $(document).ready(function() {
-        $("#lightgallery").lightGallery(); 
-        $(".article-content img").each(function(){
-            console.log($(this).attr('src'))
-            $(this).attr('data-src', $(this).attr('src')).lightGallery({
-                selector: 'this'
-            })
-        });
-    });
-</script>
-
-
-
-
-
-
-
-
-<script src="/js/post.js"></script>
-
-<script data-no-instant type='text/javascript'>
-changeLayoutOnTouchScreen();
-
-
-var post = new Post('', '');
-        post.getCommentCount(window.location.pathname, function(count){
-            $('#article-comment-count').text(count);
-        });
-        post.addVisitRecord(window.location.pathname, userip);
-        post.getVisitCount(window.location.pathname, function(count){
-            $('#article-visit-count').text(count);
-        });
-post.updatePostVersion(window.location.pathname);
-
-
-</script>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-</html>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/02/10/make-hexo-custom-domain-support-ssl/" class="prev">PREV</a><a href="/2017/12/31/convert-state-space-representation-to-transfer-function/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://free-free.github.io">infinite.ft</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
