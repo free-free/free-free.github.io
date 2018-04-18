@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://free-free.github.io/"/>
-  <updated>2018-04-13T13:58:11.573Z</updated>
+  <updated>2018-04-18T12:26:55.787Z</updated>
   <id>https://free-free.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图像加法去噪的证明过程</title>
+    <link href="https://free-free.github.io/2018/04/18/the-proof-of-denoise-image-by-addition/"/>
+    <id>https://free-free.github.io/2018/04/18/the-proof-of-denoise-image-by-addition/</id>
+    <published>2018-04-18T11:43:37.000Z</published>
+    <updated>2018-04-18T12:26:55.787Z</updated>
+    
+    <content type="html"><![CDATA[<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script><blockquote><p>设\(g(x,y)\)为无噪声图像\(f(x,y)\)被噪声图像\(n(x,y)\)污染后的图像，即：</p><script type="math/tex; mode=display">g(x,y) = f(x,y) + n(x,y)</script><p>则\(M\)个图像相加后的均值为:</p><script type="math/tex; mode=display">\bar{g}(x,y) = \frac{1}{M}\sum_{i=1}^{M}{g_i(x,y)}</script><p>试证明以下结论，并简述该结论说明了什么问题。</p><script type="math/tex; mode=display">\begin{cases}E\{\bar{g}(x,y)\} = f(x,y) \\ \sigma_{\bar{g}(x,y)}^{2} = \frac{1}{M} \sigma_{n}^2\end{cases}</script><p>其中\(E\)代表期望，<script type="math/tex">\sigma_{\bar{g}(x,y)}^2, \sigma_{n}^2</script>分别代表\(\bar{g}(x,y)\)和\(n(x,y)\)的方差。</p></blockquote><p><br></p><p><strong>证明：</strong></p><p>已知\(\bar{g}(x,y) = \frac{1}{M}\sum_{i=1}^{M}{g_i(x,y)}\) ，并且\(g_i(x,y) = f_i(x,y) + n_i(x,y)\) 。那么</p><script type="math/tex; mode=display">E[{\bar{g}(x,y)}] = E[\frac{1}{M}\sum_{i=1}^{M}{(f_i(x,y) + n_i(x,y))}] \\ =E[\frac{1}{M}\sum_{i=1}^{M}{f_i(x,y)}] + E[{\frac{1}{M}\sum_{i=1}^{M}{n_i(x,y)}}]</script><p>又由于噪声信号\(n(x,y)\)一般为零均值信号，即:</p><script type="math/tex; mode=display">E[{\frac{1}{M}\sum_{i=1}^{M}n_i(x,y)}] = 0</script><p>所以：</p><script type="math/tex; mode=display">E[{\bar{g}(x,y)}] = E[{\frac{1}{M}\sum_{i=1}^{M}{f_i(x,y)}}] = f(x,y)</script><p>又因为<script type="math/tex">\sigma_{\bar{g}(x,y)}^{2} = E[\bar{g}(x,y) - u_{\bar{g}(x,y)}]^2</script>，其中\(u_{\bar(x,y)} = E[\bar{g}(x,y)]\)。</p><p>所以，</p><script type="math/tex; mode=display">E([\bar{g}(x,y) - u_{\bar{g}(x,y)}]^2) \\ = E([\frac{1}{M}\sum_{i=1}^{M}{(f_i(x,y) + n_i(x,y)) - f(x,y)}]^2)\\=E([\frac{1}{M}\sum_{i=1}^{M}{f_i(x,y)} - f(x,y) + \frac{1}{M}\sum_{i=1}^{M}{n_i(x,y)}]^2)\\=E[(\frac{1}{M}\sum_{i=1}^{M}{n_i(x,y)})^2] = E[\frac{1}{M^2}\sum_{i=1}^{M}n_i(x,y)^2]</script><p>又\(n(x,y)\)为零均值信号，所以，</p><script type="math/tex; mode=display">\sigma_{\bar{g}(x,y)}^{2} = E[\frac{1}{M^2}\sum_{i=1}^{M}n_i(x,y)^2]\\ = \frac{1}{M^2}\sum_{i=1}^{M}{E[n_i^2(x,y)]} =\frac{1}{M^2}\sum_{i=1}^{M}{\sigma_{n(x,y)}^2} = \frac{1}{M}\sigma_{n(x,y)}</script><p>得证。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;script type=&quot;text/javascript&quot; async src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
+      
+    
+    </summary>
+    
+      <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
+    
+    
+      <category term="digital image processing" scheme="https://free-free.github.io/tags/digital-image-processing/"/>
+    
+  </entry>
   
   <entry>
     <title>由量子纠缠现象引发的一些奇想</title>
