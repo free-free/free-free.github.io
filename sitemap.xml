@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://free-free.github.io/2018/11/05/a-brief-introduction-to-feature-selection-methods/</loc>
+    
+    <lastmod>2019-03-12T14:21:23.996Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://free-free.github.io/2018/09/17/independent-components-analysis/</loc>
+    
+    <lastmod>2018-10-04T08:05:57.523Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://free-free.github.io/2018/09/11/mle-vs-lse/</loc>
+    
+    <lastmod>2018-09-25T12:47:09.903Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://free-free.github.io/2018/09/09/a-collection-of-heuristic-articles-about-some-complicated-and-cryptic-concepts/</loc>
     
-    <lastmod>2018-09-09T09:25:52.188Z</lastmod>
+    <lastmod>2018-09-25T12:06:22.402Z</lastmod>
     
   </url>
   
@@ -201,13 +222,6 @@
     <loc>https://free-free.github.io/2017/11/08/brief-introduction-of-several-convolution-networks/</loc>
     
     <lastmod>2018-04-01T08:18:50.006Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://free-free.github.io/2017/11/23/a-brief-introduction-of-pytorch/</loc>
-    
-    <lastmod>2018-04-01T08:18:20.665Z</lastmod>
     
   </url>
   
