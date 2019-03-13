@@ -38,8 +38,8 @@
 <p>该方法内部主要执行步骤如下：</p>
 <ol>
 <li>根据参数’one_hot’对数据集特征进行one-hot encoding（调用pd.get_dummies方法）。如果’one_hot=True’则对特征将进行one-hot encoding，并将编码的特征与原数据集整合起来组成新的数据集，如果’one_hot=False’则什么不做，进入下一步；</li>
-<li>计算步骤1得出数据集的相关矩阵 <img src="https://www.zhihu.com/equation?tex=C" alt="C"> (通过DataFrame.corr()，注意 <img src="https://www.zhihu.com/equation?tex=C" alt="C"> 也为一个DateFrame)，并取相关矩阵的上三角部分得到 <img src="https://www.zhihu.com/equation?tex=C_%7Bupper%7D" alt="C_{upper}"> ；</li>
-<li>遍历 <img src="https://www.zhihu.com/equation?tex=C_%7Bupper%7D" alt="C_{upper}"> 的每一列(即每一个特征)，如果该列的任何一个相关值大于correlation_threshold，则取出该列，并放到一个列表中（该列表中的feature，即具有high 相关性的特征，之后会从数据集去除）；</li>
+<li>计算步骤1得出数据集的相关矩阵 \(C\) (通过DataFrame.corr()，注意 \(C\) 也为一个DateFrame)，并取相关矩阵的上三角部分得到 \(C_{upper}\) ；</li>
+<li>遍历 \(C_{upper}\) 的每一列(即每一个特征)，如果该列的任何一个相关值大于correlation_threshold，则取出该列，并放到一个列表中（该列表中的feature，即具有high 相关性的特征，之后会从数据集去除）；</li>
 <li>到这一步，做什么呢？回到源码看一波就知道了；</li>
 </ol>
 <p>具体请见<a href="http://link.zhihu.com/?target=https%3A//github.com/WillKoehrsen/feature-selector/blob/master/feature_selector/feature_selector.py%23L157-L227" target="_blank" rel="external">feature-selector.py的157-227行</a>。</p>
