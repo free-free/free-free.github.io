@@ -11,13 +11,13 @@
 <p><strong>2.1 模型训练</strong></p>
 <p><strong>2.1.1 基础理论</strong></p>
 <p>本文实现的<strong>RFR</strong>是将多个<strong>二叉决策树（</strong>即<strong>CART，</strong>这也是<em>sklearn,spark</em>内部实现的模型<strong>）</strong>打包组合而成的，训练RFR便是训练多个二叉决策树。在训练二叉决策树模型的时候需要考虑<strong>怎样选择切分变量(特征）、切分点</strong>以及<strong>怎样衡量一个切分变量、切分点的好坏</strong>。针对于切分变量和切分点的选择，本实现采用穷举法，即遍历每个特征和每个特征的所有取值，最后从中找出最好的切分变量和切分点；针对于切分变量和切分点的好坏，一般以切分后节点的不纯度来衡量，即各个子节点不纯度的加权和\(G(x_i, v_{ij})\) ，其计算公式如下：</p>
-<p><script type="math/tex">G(x_i, v_{ij}) = \frac{n_{left}}{N_s}H(X_{left}) +\frac{n_{right}}{N_s}H(X_{right}</script>                                (2-1)</p>
-<p>其中， <img src="https://www.zhihu.com/equation?tex=x_i" alt="x_i"> 为某一个切分变量， <img src="https://www.zhihu.com/equation?tex=v_%7Bij%7D" alt="v_{ij}"> 为切分变量的一个切分值， \(n_{left}, n_{right},N_s\) 分别为切分后左子节点的训练样本个数、右子节点的训练样本个数以及当前节点所有训练样本个数， <img src="https://www.zhihu.com/equation?tex=X_%7Bleft%7D%2CX_%7Bright%7D" alt="X_{left},X_{right}">  分为左右子节点的训练样本集合， <img src="https://www.zhihu.com/equation?tex=H%28X%29" alt="H(X)"> 为衡量节点不纯度的函数(impurity function/criterion)，分类和回归任务一般采用不同的不纯度函数，在分类和回归常采用的不纯度函数有以下四种：</p>
+<p><script type="math/tex">G(x_i, v_{ij}) = \frac{n_{left}}{N_s}H(X_{left}) +\frac{n_{right}}{N_s}H(X_{right})</script>                                               (2-1)</p>
+<p>其中， \(x_i\) 为某一个切分变量， \(v_{ij}\) 为切分变量的一个切分值， \(n_{left}, n_{right},N_s\) 分别为切分后左子节点的训练样本个数、右子节点的训练样本个数以及当前节点所有训练样本个数， \(X_{left},X_{right}\)  分为左右子节点的训练样本集合， \(H(X)\) 为衡量节点不纯度的函数(impurity function/criterion)，分类和回归任务一般采用不同的不纯度函数，在分类和回归常采用的不纯度函数有以下四种：</p>
 <p><img src="https://pic2.zhimg.com/80/v2-e5dec7d64aef5eca9ca54db57ffada75_hd.jpg" alt="img">图 1. 四种不同的impurity function</p>
 <ul>
 <li>备注1：</li>
 </ul>
-<p>Gini不纯度只适用于分类任务， <img src="https://www.zhihu.com/equation?tex=X_m+" alt="X_m "> 为当前节点的训练样本集合， <img src="https://www.zhihu.com/equation?tex=p_%7Bmk%7D" alt="p_{mk}"> 为当前节点训练样本中目标变量取值k( <img src="https://www.zhihu.com/equation?tex=p_%7Bmk%7D+%3D+%5Cfrac%7BN_%7Bmk%7D%7D%7BN_m%7D" alt="p_{mk} = \frac{N_{mk}}{N_m}"> )出现的概率。</p>
+<p>Gini不纯度只适用于分类任务， \(X_m\) 为当前节点的训练样本集合， \(p_{mk}\) 为当前节点训练样本中目标变量取值\(p_{mk} = \frac{N_{mk}}{N_m}]\)出现的概率。</p>
 <ul>
 <li>备注2：</li>
 </ul>
@@ -25,31 +25,33 @@
 <ul>
 <li>备注3</li>
 </ul>
-<p>MSE只适用于回归任务， <img src="https://www.zhihu.com/equation?tex=%5Cbar%7By%7D_m" alt="\bar{y}_m"> 为当前节点样本目标变量的平均值。</p>
+<p>MSE只适用于回归任务， \(\bar{y}_m\) 为当前节点样本目标变量的平均值。</p>
 <ul>
 <li>备注4</li>
 </ul>
-<p>MAE只适用于回归任务，<img src="https://www.zhihu.com/equation?tex=%5Cbar%7By%7D_m" alt="\bar{y}_m"> 为当前节点样本目标变量的平均值。</p>
+<p>MAE只适用于回归任务，\(\bar{y}_m\) 为当前节点样本目标变量的平均值。</p>
 <ul>
 <li>备注5</li>
 </ul>
 <p>在<em>sklearn</em>内部，<em>DecisionTreeClassifier, RandomForestClassifier</em>等基于决策树的分类模型默认使用<strong>*‘gini’*</strong>作为impurity function<em>，</em>也可通过<em>criterion</em>参数指定为<em>‘*<em>entropy’ *</em>；</em>而<em>DecisionTreeRegressor, RandomForestRegressor</em>等基于决策树的回归模型默认使用<strong>*‘mse’*</strong>作为impurity function<em>，</em>也可通过<em>criterion</em>参数指定为<strong>*‘mae’</strong>。*</p>
 <p>决策树中某一节点的训练过程在数学等价于下面优化问题：</p>
-<p><img src="https://www.zhihu.com/equation?tex=%28x%5E%2A%2C+v%5E%2A%29+%3D+%5Coperatorname%7Bargmin%7D_%7Bx%2C+v%7D++G%28x_i%2C+v_%7Bij%7D%29+" alt="(x^*, v^*) = \operatorname{argmin}_{x, v}  G(x_i, v_{ij}) ">                                               (2-2)</p>
-<p>即寻找<img src="https://www.zhihu.com/equation?tex=G" alt="G"> 最小的切分变量和切分点。</p>
-<p><strong>在本文实现的回归随机森林中，<img src="https://www.zhihu.com/equation?tex=H%28X%29" alt="H(X)"> 选用MSE，即针对某一切分点</strong></p>
-<p><strong><img src="https://www.zhihu.com/equation?tex=G%28x%2C+v%29+%3D+%5Cfrac%7B1%7D%7BN_s%7D+%28%5Csum_%7By_i+%5Cin+X_%7Bleft%7D%7D+%28y_i+-+%5Cbar%7By%7D_%7Bleft%7D%29%5E2+%2B%5Csum_%7By_j+%5Cin+X_%7Bright%7D%7D+%28y_j+-+%5Cbar%7By%7D_%7Bright%7D%29%5E2+%29" alt="G(x, v) = \frac{1}{N_s} (\sum_{y_i \in X_{left}} (y_i - \bar{y}_{left})^2 +\sum_{y_j \in X_{right}} (y_j - \bar{y}_{right})^2 )">     (2-3)</strong></p>
+<p><script type="math/tex">(x^*, v^*) = \operatorname{argmin}_{x, v}  G(x_i, v_{ij})</script>                                               (2-2)</p>
+<p>即寻找\(G\) 最小的切分变量和切分点。</p>
+<p><strong>在本文实现的回归随机森林中，\(H(X)\) 选用MSE，即针对某一切分点</strong></p>
+<p><script type="math/tex">G(x, v) = \frac{1}{N_s} (\sum_{y_i \in X_{left}} (y_i - \bar{y}_{left})^2 +\sum_{y_j \in X_{right}} (y_j - \bar{y}_{right})^2 )</script>     (2-3)</p>
 <p><strong>2.1.2 训练过程</strong></p>
 <p><strong>RFR</strong>训练过程示意图如图2所示。</p>
-<p>&lt;&gt;<img src="https://pic4.zhimg.com/80/v2-8123d3a064ff3e1ec60dec3fcd6c895b_hd.jpg" alt="img">图 2. RFR训练示意图</p>
+<p>&lt;&gt;<img src="https://pic4.zhimg.com/80/v2-8123d3a064ff3e1ec60dec3fcd6c895b_hd.jpg" alt="img"></p>
+<center>图 2. RFR训练示意图</center>
+
 <p>说明：</p>
 <ul>
-<li>bootstrap[1]是对输入训练样本集合 <img src="https://www.zhihu.com/equation?tex=D" alt="D"> 进行<strong>N</strong>次放回重复抽样得到样本集合 <img src="https://www.zhihu.com/equation?tex=D_%7Bb%7D" alt="D_{b}">(<strong>N</strong>一般等于<img src="https://www.zhihu.com/equation?tex=D" alt="D"> 的大小[2]，具体可以查看<em>sklearn</em>的实现<a href="http://link.zhihu.com/?target=https%3A//github.com/scikit-learn/scikit-learn/blob/55bf5d9/sklearn/ensemble/forest.py%23L101" target="_blank" rel="external">代码</a>)，这暗示了 <img src="https://www.zhihu.com/equation?tex=D" alt="D"> 中的某些样本会在 <img src="https://www.zhihu.com/equation?tex=D_%7Bb%7D" alt="D_{b}"> 中重复出现多次。在对 <img src="https://www.zhihu.com/equation?tex=D" alt="D"> 进行bootstrap采样时，<img src="https://www.zhihu.com/equation?tex=D" alt="D"> 中每个样本会以<strong>63.3%</strong>的概率被抽中。为什么是<strong>63.3%</strong>？考虑N次放回重复抽样，每次抽样每个样本被选中的概率为 <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7BN%7D" alt="\frac{1}{N}"> ，进行N次抽样，被选中概率为：</li>
+<li>bootstrap[1]是对输入训练样本集合 \(D\)进行<strong>N</strong>次放回重复抽样得到样本集合 \(D_{b}\)(<strong>N</strong>一般等于\(D\) 的大小[2]，具体可以查看<em>sklearn</em>的实现<a href="http://link.zhihu.com/?target=https%3A//github.com/scikit-learn/scikit-learn/blob/55bf5d9/sklearn/ensemble/forest.py%23L101" target="_blank" rel="external">代码</a>)，这暗示了 <img src="https://www.zhihu.com/equation?tex=D" alt="D"> 中的某些样本会在 \(D_{b}\) 中重复出现多次。在对 \(D\) 进行bootstrap采样时，\(D\) 中每个样本会以<strong>63.3%</strong>的概率被抽中。为什么是<strong>63.3%</strong>？考虑N次放回重复抽样，每次抽样每个样本被选中的概率为 \(\frac{1}{N}\)，进行N次抽样，被选中概率为：</li>
 </ul>
-<p><img src="https://www.zhihu.com/equation?tex=%281-+%281-+%5Cfrac%7B1%7D%7BN%7D%29%5EN%29+%3D%3E%281-+%5Clim_%7BN-%3E%5Cinfty%7D%7B%281-%5Cfrac%7B1%7D%7BN%7D%29%5EN%7D%29+%3D+%281-+%5Cfrac%7B1%7D%7Be%7D%29+%5Csimeq+0.633" alt="(1- (1- \frac{1}{N})^N) =&gt;(1- \lim_{N-&gt;\infty}{(1-\frac{1}{N})^N}) = (1- \frac{1}{e}) \simeq 0.633">      (2-4)</p>
+<p><script type="math/tex">(1- (1- \frac{1}{N})^N) =>(1- \lim_{N->\infty}{(1-\frac{1}{N})^N}) = (1- \frac{1}{e}) \simeq 0.633</script>      (2-4)</p>
 <p>   具体可以参考[3-4]。</p>
 <ul>
-<li>subsample会根据输入参数<em>sample_sz</em>的大小从 <img src="https://www.zhihu.com/equation?tex=D_%7Bb%7D" alt="D_{b}"> 中采样<em>sample_sz</em>个样本组成subsample样本集合<img src="https://www.zhihu.com/equation?tex=D_%7Bbs%7D" alt="D_{bs}"> (在<em>sklearn</em>中，subsample大小就是输入训练样本集合 <img src="https://www.zhihu.com/equation?tex=D" alt="D"> 的大小N，不可以通过输入参数指定subsample的大小，详见<a href="http://link.zhihu.com/?target=https%3A//github.com/scikit-learn/scikit-learn/blob/master/sklearn/ensemble/forest.py%23L102" target="_blank" rel="external">这里</a>)。</li>
+<li>subsample会根据输入参数<em>sample_sz</em>的大小从 \(D_{b}\)中采样<em>sample_sz</em>个样本组成subsample样本集合\(D_{bs}\)(在<em>sklearn</em>中，subsample大小就是输入训练样本集合 \(D\) 的大小N，不可以通过输入参数指定subsample的大小，详见<a href="http://link.zhihu.com/?target=https%3A//github.com/scikit-learn/scikit-learn/blob/master/sklearn/ensemble/forest.py%23L102" target="_blank" rel="external">这里</a>)。</li>
 </ul>
 <ul>
 <li>为什么要进行bootstrap? 集成学习（包括随机森林）的目的是为了使用多个不同的子模型来增加最终模型预测结果的鲁棒性和稳定性(即减小方差)，如果多个子模型都采用同样的数据集训练，那么训练得出的子模型都是相同的，集成学习将变得没有意义，为了能从原输入训练数据集得到多个不同的数据集，需要使用bootstrap来从原数据集采样出不同的子数据集来训练子模型。</li>
@@ -69,23 +71,23 @@
 <p>步骤如下：</p>
 <ul>
 <li>使用训练数据训练模型；</li>
-<li>计算训练数据在模型上依据某一metric的score，记为 <img src="https://www.zhihu.com/equation?tex=s_o" alt="s_o"> （在回归中，可以选用r2）；</li>
-<li>遍历训练数据集中的每一个feature，每次在原训练数据集的基础上将对应的feature进行shuffle操作，然后使用模型得到shuffle后数据集的score，记为 <img src="https://www.zhihu.com/equation?tex=s_i" alt="s_i"> ，最后通过 <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7Bs_o+-+s_i%7D%7Bs_o%7D" alt="\frac{s_o - s_i}{s_o}"> 计算出第 <img src="https://www.zhihu.com/equation?tex=i" alt="i"> 个feature的重要性。</li>
+<li>计算训练数据在模型上依据某一metric的score，记为 \(s_o\) （在回归中，可以选用r2）；</li>
+<li>遍历训练数据集中的每一个feature，每次在原训练数据集的基础上将对应的feature进行shuffle操作，然后使用模型得到shuffle后数据集的score，记为 \(s_i\) ，最后通过 \(\frac{s_o - s_i}{s_o}\)计算出第 \(i\) 个feature的重要性。</li>
 </ul>
 <p><strong>方法2</strong></p>
 <p>如果一个feature很重要，那么从数据集中去除该feature后，模型的prediction error会增大；相反，如果一个feature不重要，那么从数据集中去除后，模型的prediction error不会变化太大。该方法的步骤如下：</p>
 <ul>
-<li>使用原数据集训练模型，并评估模型在训练数据集上的prediction error，记为 <img src="https://www.zhihu.com/equation?tex=e_o" alt="e_o"> ;</li>
-<li>遍历训练数据集中的每一个feature，每次从原训练数据集的基础上去除该feature，然后使用得到数据集训练模型，最终计算出prediction error，记为 <img src="https://www.zhihu.com/equation?tex=e_i" alt="e_i"> ，最后通过 <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7Be_o+-+e_i%7D%7Be_o%7D" alt="\frac{e_o - e_i}{e_o}"> 计算出第 <img src="https://www.zhihu.com/equation?tex=i" alt="i"> 个feature的重要性。</li>
+<li>使用原数据集训练模型，并评估模型在训练数据集上的prediction error，记为 \(e_o\);</li>
+<li>遍历训练数据集中的每一个feature，每次从原训练数据集的基础上去除该feature，然后使用得到数据集训练模型，最终计算出prediction error，记为 \(e_i\) ，最后通过 \(\frac{e_o - e_i}{e_o}\) 计算出第 \(i\) 个feature的重要性。</li>
 </ul>
 <p>该方法和方法1有点类似，但该方法在计算每个feature的重要性的时候都需要重新训练模型，会增加额外的计算量，在实际应用一般不采用该方法。</p>
 <p><strong>方法3</strong></p>
-<p>该方法是sklearn内部树模型计算feature重要性时采用的方法。即某一节点 <img src="https://www.zhihu.com/equation?tex=k" alt="k"> 的重要性为 </p>
-<p><img src="https://www.zhihu.com/equation?tex=n_k+%3D+w_k+%2A+G_k+-+w_%7Bleft%7D+%2A+G_%7Bleft%7D+-+w_%7Bright%7D+%2A+G_%7Bright%7D" alt="n_k = w_k * G_k - w_{left} * G_{left} - w_{right} * G_{right}">                 (2-5)</p>
-<p>其中， <img src="https://www.zhihu.com/equation?tex=w_k%2Cw_%7Bleft%7D%2C+w_%7Bright%7D+" alt="w_k,w_{left}, w_{right} "> 分别为节点 <img src="https://www.zhihu.com/equation?tex=k" alt="k"> 以及其左右子节点中训练样本个数与总训练样本数目的比例， <img src="https://www.zhihu.com/equation?tex=G_k%2C+G_%7Bleft%7D%2C+G_%7Bright%7D" alt="G_k, G_{left}, G_{right}"> 分为为节点 <img src="https://www.zhihu.com/equation?tex=k" alt="k"> 以及其左右子节点的不纯度。知道每一个节点的重要性之后，即可通过公式(2-6)得出某一feature的重要性。</p>
-<p><img src="https://www.zhihu.com/equation?tex=f_i+%3D+%5Cfrac%7B%5Csum_%7Bj+%5Cin+nodes+%5Cspace+split+%5Cspace+on+%5Cspace+feature+%5Cspace+i+%7D+n_j%7D%7B%5Csum_%7Bk+%5Cin+all+%5Cspace+nodes%7D%7B+n_k%7D%7D" alt="f_i = \frac{\sum_{j \in nodes \space split \space on \space feature \space i } n_j}{\sum_{k \in all \space nodes}{ n_k}}">                                    (2-6)</p>
+<p>该方法是sklearn内部树模型计算feature重要性时采用的方法。即某一节点 \(k\) 的重要性为 </p>
+<p><script type="math/tex">n_k = w_k * G_k - w_{left} * G_{left} - w_{right} * G_{right}</script>                (2-5)</p>
+<p>其中， \(w_k,w_{left}, w_{right} \) 分别为节点 \(k\) 以及其左右子节点中训练样本个数与总训练样本数目的比例，  分为为节点  以及其左右子节点的不纯度。知道每一个节点的重要性之后，即可通过公式(2-6)得出某一feature的重要性。</p>
+<p><script type="math/tex">f_i = \frac{\sum_{j \in nodes \space split \space on \space feature \space i } n_j}{\sum_{k \in all \space nodes}{ n_k}}</script>                                   (2-6)</p>
 <p>为了使所有feature的重要性加起来等于1，需要每一feature的重要性进行normalization，即公式(2-7)</p>
-<p><img src="https://www.zhihu.com/equation?tex=f_%7Bni%7D+%3D+%5Cfrac%7Bf_i%7D%7B%5Csum_%7Bj+%5Cin+all+%5Cspace+features%7D+f_j%7D+" alt="f_{ni} = \frac{f_i}{\sum_{j \in all \space features} f_j} ">                                                     (2-7)</p>
+<p><script type="math/tex">f_{ni} = \frac{f_i}{\sum_{j \in all \space features} f_j}</script>                                                    (2-7)</p>
 <p>方法3在<em>sklearn</em>中的实现，请查看<a href="http://link.zhihu.com/?target=https%3A//github.com/scikit-learn/scikit-learn/blob/18cdaa69c14a5c84ab03fce4fb5dc6cd77619e35/sklearn/tree/_tree.pyx%23L1056" target="_blank" rel="external">_tree.pyx</a>。</p>
 <p>在本文实现的RFR中，同时实现了<strong>方法1</strong>和<strong>方法3</strong>。</p>
 <h2 id="三、回归随机森林实现"><a href="#三、回归随机森林实现" class="headerlink" title="三、回归随机森林实现"></a><strong>三、回归随机森林实现</strong></h2><p><strong>3.1 代码</strong></p>
