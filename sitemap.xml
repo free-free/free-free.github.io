@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://free-free.github.io/2018/12/13/feature-selection-tool-feature-selector/</loc>
+    
+    <lastmod>2019-03-13T09:46:18.355Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://free-free.github.io/2018/11/05/a-brief-introduction-to-feature-selection-methods/</loc>
+    
+    <lastmod>2019-03-13T09:39:46.361Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://free-free.github.io/2019/01/01/random-forest-regressor-implementation/</loc>
     
     <lastmod>2019-03-13T09:35:35.616Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>https://free-free.github.io/2018/08/14/an-experience-of-deploying-nodejs-project-on-cloud/</loc>
     
     <lastmod>2019-03-13T08:59:22.774Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://free-free.github.io/2018/12/13/feature-selection-tool-feature-selector/</loc>
-    
-    <lastmod>2019-03-12T14:35:27.340Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://free-free.github.io/2018/11/05/a-brief-introduction-to-feature-selection-methods/</loc>
-    
-    <lastmod>2019-03-12T14:21:23.996Z</lastmod>
     
   </url>
   
