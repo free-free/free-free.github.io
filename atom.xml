@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://free-free.github.io/"/>
-  <updated>2019-03-17T11:26:12.304Z</updated>
+  <updated>2019-03-25T12:18:42.722Z</updated>
   <id>https://free-free.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Several Tricks for Jupyter Notebook</title>
+    <link href="https://free-free.github.io/2019/03/16/the-several-tricks-for-jupyter-notebook/"/>
+    <id>https://free-free.github.io/2019/03/16/the-several-tricks-for-jupyter-notebook/</id>
+    <published>2019-03-16T12:08:05.000Z</published>
+    <updated>2019-03-25T12:18:42.722Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="1-load-custom-css-file"><a href="#1-load-custom-css-file" class="headerlink" title="1. load custom css file"></a>1. load custom css file</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> IPython.core.display <span class="keyword">import</span> HTML</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_css_style</span><span class="params">(css_file)</span>:</span></div><div class="line">  styles = open(css_file, <span class="string">'r'</span>).read()</div><div class="line">  <span class="keyword">return</span> HTML(styles)</div><div class="line">load_css_style(<span class="string">'custome.css'</span>)</div></pre></td></tr></table></figure><h5 id="2-load-external-website-or-dataset-into-current-notebook"><a href="#2-load-external-website-or-dataset-into-current-notebook" class="headerlink" title="2. load external website or dataset into current notebook"></a>2. load external website or dataset into current notebook</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> IFrame</div><div class="line">Frame(<span class="string">'https://www.google.com'</span>, width=<span class="number">1000</span>, height=<span class="number">500</span>)</div></pre></td></tr></table></figure><p>…. waiting for updating</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;1-load-custom-css-file&quot;&gt;&lt;a href=&quot;#1-load-custom-css-file&quot; class=&quot;headerlink&quot; title=&quot;1. load custom css file&quot;&gt;&lt;/a&gt;1. load custom css 
+      
+    
+    </summary>
+    
+      <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
+    
+    
+      <category term="machine-learning" scheme="https://free-free.github.io/tags/machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Sentiment Analysis Based on Naive Bayes</title>
@@ -751,9 +776,9 @@
       <category term="tech" scheme="https://free-free.github.io/categories/tech/"/>
     
     
-      <category term="security" scheme="https://free-free.github.io/tags/security/"/>
-    
       <category term="hexo" scheme="https://free-free.github.io/tags/hexo/"/>
+    
+      <category term="security" scheme="https://free-free.github.io/tags/security/"/>
     
   </entry>
   
