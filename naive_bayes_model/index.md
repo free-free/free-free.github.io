@@ -1,4 +1,4 @@
-# Naive_bayes_model
+# Naive Bayes Model
 
 
 Naive Bayes Model
