@@ -1,0 +1,93 @@
+# Naive_bayes_model
+
+
+Naive Bayes Model
+=================
+
+
+
+### 1 Naive Bayes模型定义
+
+朴素贝叶斯(Naive Bayes)是基于贝叶斯定理和特征条件独立假设的分类模型。**在学习阶段，它使用训练数据集，基于特征条件独立假设学习输入输出的联合概率分布；在预测阶段，基于学习到的联合概率分布$P(X, Y)$，利用贝叶斯定理求出给定输入$x$的后验概率最大的输出$y$。** 其数学定义如下：
+
+$$
+y = \arg \max_{c_k} P(Y=c_k)\prod_j{P(X^{(j)} = x^{(j)} | Y = c_k)}
+$$
+其中$c_k$为$Y$的取值，$X^{(j)}, x^{(j)}$为第$j$个输入变量和其对应的取值。
+
+**推导：**  
+Naive Bayes的重点在于学习联合概率分布$P(X, Y)$，由于直接学习联合概率分布$P(X, Y)$很困难，所以通过贝叶斯定理
+
+$$
+P(X, Y) = P(X|Y)P(Y)
+$$
+将问题简化为学习$Y$的先验概率分布：
+
+$$
+P(Y=c_k), \space \space \space \space k=1,2,\dots, K
+$$
+和条件概率分布：
+
+$$
+P(X = x | Y = c_k) = P(X^{(1)}=x^{(1)},X^{(2)}= x^{(2)}, \dots, X^{(n)}=x^{(n)}|Y=c_k)
+$$
+在实际应用中，条件概率分布$P(X = x | Y = c_k)$具有指数级别的参数。假设$x^{(j)}$的可取值有$S_j$个，$j=1, 2, \dots, n$， $Y$可取值有$K$个，那么参数个数为$K\prod^{n}_{j=1}S_j$。 如此多的参数，对其直接进行估计往往行不通，需要再一步简化。为此Naive Bayes对条件概率做了**条件独立性**的假设：  
+在输出$Y$确定的情况下，假定各个输入变量$X^{(1)}, X^{(2)}, \dots, X^{(n)}$之间关于输出$Y$条件独立，即
+
+$$
+P(X=x|Y=c_k) = P(X^{(1)}=x^{(1)},X^{(2)}= x^{(2)}, \dots, X^{(n)}=x^{(n)}|Y=c_k) \ =\prod_{j=1}^{n}{P(X^{(j)}=x^{(j)} | Y=c_k)}
+$$
+特征条件独立假设是一个很理想的假设，所以也称为Naive Bayes(朴素贝叶斯，或许称为幼稚贝叶斯更好)。
+
+在训练阶段，通过从训练数据中学习到先验概率$P(Y)$和条件概率$P(X=x|Y=c_k)$，便可计算出联合概率分布$P(X, Y)$。  
+在预测阶段，给定输出$x$，通过贝叶斯公式求出后验概率，并后验概率最大的类作为输出，即
+
+$$
+y = f(x) = \arg \max_{c_k} \frac{P(Y=c_k)\prod_j{P(X^{(j)} = x^{(j)} | Y = c_k)}}{\sum_kP(Y=c_k)\prod_j{P(X^{(j)}=x^{(j)}} | Y= c_k)}
+$$
+由于分母对于所有类别$c_k$都相同，所以模型最终简化为：
+
+$$
+y = \arg \max_{c_k} P(Y=c_k)\prod_j{P(X^{(j)} = x^{(j)} | Y = c_k)}
+$$
+
+
+### 2 参数学习（参数估计）
+
+在上一小节中，给出了Naive Bayes的定义，但并没有给出计算先验概率和条件概率的方法（参数学习/估计方法）。常用于计算先验概率和条件概率的方法有**极大似然估计**和**贝叶斯估计**。下面直接给出相应的计算公式。
+
+#### 2.1 极大似然估计
+
+$$
+P(Y=c_k) = \frac{count(y=c_k)}{N}=\frac{\sum_{i=1}^{N}I(y_i=c_k)}{N},K=1,2,\dots, K P(X^{(j)}= a_{jl}|Y = c_k)=\frac{count(x^{(j)}=a_{jl},y=c_k)}{count(y=c_k)} 
+\\=\frac{\sum_{i=1}^{N}I(x_i^{(j)}=a_{jl},y_i=c_k)}{\sum_{i=1}^{N}I(y_i=c_k)}\\j=1,2,\dots,n;l=1,2,\dots,S_j;K=1,2,\dots, K
+$$
+
+其中$N$为训练样本个数，$a_{jl}为第j个输入变量X^{(j)}可能取值的第l个$，$S_j为第j$个输入变量的所有可能取值的个数。  
+使用极大似然估计计算Naive Bayes参数时，**可能会出现概率为0或者未定义的情况，此时后验概率将为0或者未定义。当$count(Y=c_k)，count(x^{(j)}=a_{jl},y=c_k)$等于0时，$P(Y=c_k)，P(X^{(j)}= a_{jl}|Y = c_k)$便为0，计算出的后验概率也为0；当训练样本未出现类别$c_k$时，即$count(Y=c_k)$为0，此时便会出现概率未定义的情况**。为了解决前述问题，引入了贝叶斯估计方法。
+
+#### 2.2 贝叶斯估计
+
+贝叶斯估计在极大似然估计的基础上在分子和分母中引入一个大于0的正数$\lambda>0$来解决概率为0或者未定义的情况。具体的
+
+$$
+P(Y=c_k) =\frac{\sum_{i=1}^{N}I(y_i=c_k) + \lambda }{N + K\lambda },K=1,2,\dots, K P(X^{(j)}= a_{jl}|Y = c_k)=\frac{\sum_{i=1}^{N}I(x_i^{(j)}=a_{jl},y_i=c_k) + \lambda } {\sum_{i=1}^{N}I(y_i=c_k) + S_j \lambda }\\j=1,2,\dots,n;l=1,2,\dots,S_j;K=1,2,\dots, K
+$$
+当$\lambda = 1$时，贝叶斯估计称为拉普拉斯平滑。
+
+### 3\. Naive Bayes 的应用
+
+Naive Bayes是一种生成模型方法，其实现非常的简单，而且学习和预测的效率很好，通常用于文本处理领域。常见的Naive Bayes 应用有以下：
+
+*   新闻归类。即给出一篇新闻的类别；
+*   垃圾邮件检测。给定邮件的内容，标题，模型判断该邮件是否为垃圾邮件；
+*   天气预测。根据过往的天气数据，预测未来的天气；
+*   文本情感分析。给定一段文本，判断该文本的主观情感极性（积极、消极）
+
+### 参考&荐读：
+
+[[1] 统计学习方法](https://www.amazon.cn/dp/B00EE5IAHW/ref=sr_1_2?ie=UTF8&qid=1552572216&sr=8-2&keywords=%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0)  
+[[2] Text Classification and Naive Bayes](https://web.stanford.edu/class/cs124/lec/naivebayes.pdf)  
+[[3] Text Classification in NLP — Naive Bayes](https://medium.com/@theflyingmantis/text-classification-in-nlp-naive-bayes-a606bf419f8c)  
+[[4] Understanding Naive Bayes and its application in text classification](https://medium.com/datadriveninvestor/understanding-naive-bayes-and-its-application-in-text-classification-99c38e739f88)
+
